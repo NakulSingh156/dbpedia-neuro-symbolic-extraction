@@ -1,0 +1,5 @@
+dumps/
+__pycache__/
+*.ndjson.gz
+.DS_Store
+dbpedia.owl
