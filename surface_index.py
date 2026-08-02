@@ -27,8 +27,20 @@ def _variants(mention: str) -> list[str]:
     # Stripping surrounding punctuation would truncate a trailing ")" from
     # parenthesized qualifiers like "Populous (company)", so try exact first.
     stripped = exact.strip(_STRIP_CHARS)
-    out = []
+    bases = [exact, stripped]
+    # Internal-punctuation fallbacks: "108 St. Georges Terrace" (period) and
+    # hyphen/space disagreements ("Al-Asad Airbase" vs "Al Asad Airbase").
+    # Appended AFTER the existing bases so they only fire when every current
+    # variant misses — existing hits keep their exact behaviour.
     for base in (exact, stripped):
+        for pv in (base.replace(".", ""),
+                   base.replace("-", " "),
+                   base.replace(".", "").replace("-", " ")):
+            pv = _WS_RE.sub(" ", pv).strip()
+            if pv:
+                bases.append(pv)
+    out = []
+    for base in bases:
         for v in (
             base,
             base.replace(" ", "_"),        # underscore-joined
