@@ -1356,6 +1356,63 @@ def verify_override_schema(sub_uri, pred_uri, obj_uri, rule):
     except Exception:
         pass
 
+    # --- INVERSION DETECTION: is the EXACT triple stored the other way round? ---
+    # Arm-B autopsy: we emitted (Sri_Jayawardenepura_Kotte, capital, Sri_Lanka)
+    # while DBpedia (and gold) store (Sri_Lanka, capital, Kotte). If the inverted
+    # ASK verifies, our direction contradicts the ontology's domain/range for
+    # this entity pair — return the truthy sentinel "INVERTED" so the caller can
+    # swap subject and object instead of accepting a backwards triple.
+    def _ask(query):
+        """ASK with one retry. Returns True/False, or None if both attempts failed —
+        callers must treat None as 'unknown', never as evidence."""
+        for attempt in range(2):
+            try:
+                r = requests.get(
+                    DBPEDIA_SPARQL_ENDPOINT,
+                    params={'query': query, 'format': 'json'},
+                    timeout=10,
+                    headers={'User-Agent': 'GSoC-DBpedia-NEF/1.0'}
+                )
+                if r.status_code == 200:
+                    return bool(r.json().get('boolean'))
+            except Exception:
+                pass
+            if attempt == 0:
+                time.sleep(1.0)
+        return None
+
+    if _ask(f"ASK {{ <{obj_uri}> <{pred_uri}> <{sub_uri}> }}"):
+        print("   🔄 SPARQL GATE: triple verified in the INVERTED direction — "
+              "our subject/object order contradicts DBpedia's.")
+        return "INVERTED"
+
+    # --- TIER 1.6: range-membership direction check ---
+    # (Kotte, capital, Sri_Lanka): NEITHER direction is stored in DBpedia, so
+    # the ASKs above are silent. But dbo:capital declares range City, and live
+    # types say Kotte IS a dbo:City while Sri_Lanka is not — the emitted
+    # object sits outside the predicate's range while the emitted subject sits
+    # inside it. That asymmetry is decisive evidence the triple is backwards.
+    # Three-state checks: a network failure (None) never triggers a swap.
+    _range_types = [t for t in (rule or {}).get("range", []) if t and t != "Thing"]
+    if _range_types:
+        def _in_range(uri):
+            saw_failure = False
+            for rt in _range_types:
+                res = _ask(f"ASK {{ <{uri}> a <http://dbpedia.org/ontology/{rt}> }}")
+                if res is True:
+                    return True
+                if res is None:
+                    saw_failure = True
+            return None if saw_failure else False
+
+        _obj_in = _in_range(obj_uri)
+        if _obj_in is False:
+            _sub_in = _in_range(sub_uri)
+            if _sub_in is True:
+                print(f"   🔄 SPARQL GATE [Tier 1.6]: object is NOT in range "
+                      f"{_range_types} but subject IS — triple is backwards.")
+                return "INVERTED"
+
     print("   ⚠️ Exact triple not found. Checking for ANY relation between the entities...")
 
     # --- TIER 1.5 (NEW): are these two entities connected by any edge at all? ---
@@ -1804,7 +1861,13 @@ def node_4_judge(state: GraphState):
         else:
             uris = re.findall(r'<(.*?)>', final_triple_str)
             if len(uris) == 3:
-                if not verify_override_schema(uris[0], uris[1], uris[2], rule):
+                gate_result = verify_override_schema(uris[0], uris[1], uris[2], rule)
+                if gate_result == "INVERTED":
+                    # DBpedia stores this fact the other way round — swap so the
+                    # emitted triple follows the ontology direction.
+                    final_triple_str = f"<{uris[2]}> <{uris[1]}> <{uris[0]}>"
+                    print(f"   🔄 Subject/object SWAPPED to match ontology direction: {final_triple_str}")
+                if not gate_result:
                     gate_rejected = True
                     if current_retry < 2:
                         print("   🛑 SPARQL GATE BLOCKED! Invalid URI. Forcing RE_SEARCH to recover...")
