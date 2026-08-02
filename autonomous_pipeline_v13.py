@@ -150,6 +150,15 @@ DBPEDIA_LOOKUP_URL = "https://lookup.dbpedia.org/api/search"
 # Both paths return the same doc shape; Nodes 3/4 are unaware of the flag.
 USE_LOCAL_INDEX = True
 
+# Narrow redirect canonicalization at the EMISSION step (ablatable).
+# Fires only when the emitted local name is a comma-compound that is exactly
+# the underscore-join of the raw mention ("Gujarat, India" -> Gujarat,_India)
+# and is a known redirect alias (rd:* keys). Measured on the 4_building A/B:
+# BLANKET canonicalization loses 26 gold matches to gain 4 (gold itself holds
+# redirect-form names like 250_Delaware_Avenue), so only this narrow rule
+# is safe. Requires rd:* keys in Redis (built from redirects_lang=en).
+CANONICALIZE_COMMA_COMPOUNDS = True
+
 # Sanity floor for the OWL file. The v8 run loaded 1172 ObjectProperties; the v9
 # run loaded 1105 from a different machine. That difference is the FILE, not the
 # code (proven by unit test — see the note in load_full_dbpedia_ontology).
@@ -2270,6 +2279,27 @@ def _local_name(uri_or_text):
     return str(uri_or_text).strip().lstrip('<').rstrip('>').split('/')[-1]
 
 
+def _canonicalize_comma_compound(name, raw_mention):
+    """Swap a comma-compound redirect alias for its canonical target — but ONLY
+    when the alias is exactly the underscore-join of the raw mention, i.e. we
+    landed on it because the mention itself was messy ("Gujarat, India"), not
+    because resolution chose it among alternatives. Gated by
+    CANONICALIZE_COMMA_COMPOUNDS; needs rd:* keys in Redis."""
+    if not CANONICALIZE_COMMA_COMPOUNDS or "," not in name or not REDIS_AVAILABLE:
+        return name
+    mention_join = re.sub(r"\s+", " ", str(raw_mention)).strip().replace(" ", "_")
+    if mention_join.lower() != name.lower():
+        return name
+    try:
+        target = redis_client.get(f"rd:{name}")
+    except Exception:
+        return name
+    if target and target != name:
+        print(f"   🔀 Comma-compound canonicalized: {name} -> {target}")
+        return target
+    return name
+
+
 def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=None,
                         predicate_ranges=None, quote_hints=None, predicate_aliases=None,
                         verbose=True):
@@ -2393,6 +2423,7 @@ def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=No
                 # redirect form (Abraham_Ribicoff) but the mention — and gold —
                 # carry the initial (Abraham A. Ribicoff -> Abraham_A._Ribicoff).
                 sub = _restore_middle_initial(sub, str(t.get("subject", "")))
+                sub = _canonicalize_comma_compound(sub, t.get("subject", ""))
                 # LITERAL DECISION for entity-ranged predicates: did the object
                 # actually resolve, or did Node 2 return nothing (fallback minted
                 # a URI, flagged unresolved=True)? Unresolved -> quoted literal.
@@ -2406,6 +2437,7 @@ def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=No
                 else:
                     obj = _restore_middle_initial(_local_name(uris[2]),
                                                   str(t.get("object", "")))
+                    obj = _canonicalize_comma_compound(obj, t.get("object", ""))
 
         results.append({"raw": t, "status": status, "final_triple": final,
                         "sub": sub, "rel": rel, "obj": obj, "kept": kept})
