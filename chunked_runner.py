@@ -47,6 +47,11 @@ def chunked_domain(slug, chunk_size=22, chunk_cooldown=45, save_every_chunk=True
         aliases = learn_predicate_aliases(slug)
     except ImportError:
         aliases = {}
+    try:
+        from text2kg_harness import learn_value_formats
+        vformats = learn_value_formats(slug)
+    except ImportError:
+        vformats = {}
 
     results = {}
     fname = f"results_{slug}.json"
@@ -69,7 +74,8 @@ def chunked_domain(slug, chunk_size=22, chunk_cooldown=45, save_every_chunk=True
                                           literal_predicates=literal,
                                           predicate_ranges=ranges,
                                           quote_hints=qhints,
-                                          predicate_aliases=aliases, verbose=False)
+                                          predicate_aliases=aliases,
+                                          value_formats=vformats, verbose=False)
                 pred = out["triples"]
             except Exception:
                 pred = []

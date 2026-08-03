@@ -629,3 +629,129 @@ def learn_predicate_aliases(domain_slug, dominance=10.0):
             if sc == 0 or gc >= dominance * sc:
                 alias[syn] = generic
     return alias
+
+
+def learn_value_formats(domain_slug):
+    """
+    Learn, from the TRAIN split only, per-predicate VALUE formatting conventions:
+
+      {pid: {"unit": "kilometres" | None,   # gold writes "V (unit)" for this pid
+             "float0": True | False}}       # gold writes integers with a ".0"
+
+    Why: celestialbody (and meanoftransportation etc.) gold writes value
+    literals as "6603633000.0 (kilometres)" / "2.0 (gramPerCubicCentimetres)".
+    The unit NAME is a canonical token that only appears in gold, never in the
+    sentence text ("km/s" vs "kilometrePerSeconds"), so it must be learned.
+
+    A unit is learned only when it is CONSISTENT: >= 80% of the pid's
+    parenthesized train values use the same unit string, with >= 2 examples.
+    float0 is learned when every bare numeric train value for the pid ends in
+    ".0". Never reads the test/ground-truth split.
+    """
+    _require_bench()
+    import collections
+    import re as _re
+    units = collections.defaultdict(collections.Counter)
+    numeric = collections.defaultdict(lambda: [0, 0])   # [with .0, bare int]
+    path = f"{BENCH}/train/ont_{domain_slug}_train.jsonl"
+    try:
+        for line in open(path):
+            if not line.strip():
+                continue
+            for t in json.loads(line).get("triples", []):
+                v = str(t["obj"]).strip().strip('"')
+                m = _re.match(r'^([\d.]+)\s*\(([^)]+)\)$', v.replace('_', ' '))
+                if m:
+                    units[t["rel"]][m.group(2).strip()] += 1
+                    continue
+                if _re.fullmatch(r'\d+\.0', v):
+                    numeric[t["rel"]][0] += 1
+                elif _re.fullmatch(r'\d+', v):
+                    numeric[t["rel"]][1] += 1
+    except FileNotFoundError:
+        return {}
+    out = {}
+    for pid, ctr in units.items():
+        unit, n = ctr.most_common(1)[0]
+        total = sum(ctr.values())
+        if n >= 2 and n / total >= 0.8:
+            out.setdefault(pid, {})["unit"] = unit
+    for pid, (with0, bare) in numeric.items():
+        if with0 >= 2 and bare == 0:
+            out.setdefault(pid, {})["float0"] = True
+    return out
+
+
+# ── Per-sentence few-shot retrieval (NEF configuration) ──────────────────────
+# Following NEF (Soru et al., §4.3): few-shot CONVENTION examples are retrieved
+# per test sentence from the domain's TRAIN split, ranked by BM25 (Robertson-
+# style) with MMR diversification (Carbonell & Goldstein 1998) at lambda=0.5.
+# BM25/MMR are standard IR components — no novelty claimed, this is the
+# published configuration. Never reads the test/ground-truth split; the index
+# is built once per domain and cached (zero extra LLM calls).
+_BM25_CACHE = {}
+
+
+def _tokenize(text):
+    import re as _re
+    return _re.findall(r"[a-z0-9]+", str(text).lower())
+
+
+def _build_bm25(slug):
+    import math as _m
+    rows = [r for r in load_train(slug) if r.get("sent") and r.get("triples")]
+    docs = [_tokenize(r["sent"]) for r in rows]
+    tfs = []
+    for d in docs:
+        tf = {}
+        for w in d:
+            tf[w] = tf.get(w, 0) + 1
+        tfs.append(tf)
+    N = len(docs)
+    df = {}
+    for d in docs:
+        for w in set(d):
+            df[w] = df.get(w, 0) + 1
+    idf = {w: _m.log(1 + (N - n + 0.5) / (n + 0.5)) for w, n in df.items()}
+    avgdl = sum(len(d) for d in docs) / max(N, 1)
+    return {"rows": rows, "docs": docs, "tfs": tfs, "idf": idf, "avgdl": avgdl}
+
+
+def retrieve_examples(slug, sentence, k=6, lam=0.5, pool=24, k1=1.5, b=0.75):
+    """Return up to k train rows [{id, sent, triples}] for few-shot prompting.
+
+    BM25 ranks the domain's train sentences against the test sentence; MMR
+    (lambda=0.5) re-ranks the top `pool` so the k selected examples are not
+    near-duplicates — these small, topically homogeneous train splits make
+    pure BM25 return clusters of almost-identical sentences."""
+    if slug not in _BM25_CACHE:
+        _BM25_CACHE[slug] = _build_bm25(slug)
+    idx = _BM25_CACHE[slug]
+    if not idx["rows"]:
+        return []
+    q = _tokenize(sentence)
+    scores = []
+    for tf, d in zip(idx["tfs"], idx["docs"]):
+        s = 0.0
+        dl = len(d) or 1
+        for w in q:
+            if w in tf:
+                s += idx["idf"].get(w, 0.0) * tf[w] * (k1 + 1) / (
+                    tf[w] + k1 * (1 - b + b * dl / idx["avgdl"]))
+        scores.append(s)
+    order = sorted(range(len(scores)), key=lambda i: -scores[i])[:pool]
+    mx = max((scores[i] for i in order), default=0.0) or 1.0
+    tok_sets = {i: set(idx["docs"][i]) for i in order}
+    selected = []
+    while order and len(selected) < k:
+        best, best_val = None, float("-inf")
+        for i in order:
+            rel = scores[i] / mx
+            div = max((len(tok_sets[i] & tok_sets[j]) / max(len(tok_sets[i] | tok_sets[j]), 1)
+                       for j in selected), default=0.0)
+            val = lam * rel - (1 - lam) * div
+            if val > best_val:
+                best, best_val = i, val
+        selected.append(best)
+        order.remove(best)
+    return [idx["rows"][i] for i in selected]

@@ -2152,7 +2152,7 @@ _triple_graph.add_conditional_edges("node_4_judge", autonomous_router)
 compiled_triple_graph = _triple_graph.compile()
 
 
-def _normalize_literal(raw, pid=None, pid_range=None, quote_hint=None):
+def _normalize_literal(raw, pid=None, pid_range=None, quote_hint=None, value_format=None):
     """
     Emit a literal in Text2KGBench's gold convention. Rules MEASURED from gold
     (3_airport + 18_scientist):
@@ -2259,14 +2259,27 @@ def _normalize_literal(raw, pid=None, pid_range=None, quote_hint=None):
         # do not attempt — it needs a benchmark-specific unit map.
         if _re.search(r'\([a-zA-Z]', v):
             return v, (quote_hint is True)
-        v_clean = _re.sub(r'\b(feet|foot|ft|metres|meters|m|kilometres|km|inhabitants|people)\b',
-                          '', v, flags=_re.I).strip()
+        _vf = value_format or {}
+        if _vf.get("unit"):
+            # A canonical unit is learned from TRAIN for this pid (e.g.
+            # periapsis -> "kilometres", averageSpeed -> "kilometrePerSeconds").
+            # The sentence's own unit words ("km/s") never match gold's token,
+            # so strip any inline unit tail wholesale — the canonical name
+            # replaces it below.
+            v_clean = _re.sub(r'(?<=[\d.])\s*[A-Za-z][A-Za-z/ .]*$', '', v).strip()
+        else:
+            v_clean = _re.sub(r'\b(feet|foot|ft|metres|meters|m|kilometres|km|inhabitants|people)\b',
+                              '', v, flags=_re.I).strip()
         v_clean = v_clean.replace(',', '').strip()
+        val = None
         if _re.fullmatch(r'-?\d+', v_clean):
-            val = f"{v_clean}.0" if pid_l in ("runwaylength",) else v_clean
+            val = f"{v_clean}.0" if (pid_l == "runwaylength" or _vf.get("float0")) else v_clean
+        elif _re.fullmatch(r'-?\d+\.\d+', v_clean):
+            val = v_clean
+        if val is not None:
+            if _vf.get("unit"):
+                val = f"{val} ({_vf['unit']})"
             return (val, True) if quote_hint is True else (val, False)
-        if _re.fullmatch(r'-?\d+\.\d+', v_clean):
-            return (v_clean, True) if quote_hint is True else (v_clean, False)
         # numeric range but non-numeric text -> fall through to string handling
         v = v_clean or v
 
@@ -2342,6 +2355,41 @@ def _local_name(uri_or_text):
     return str(uri_or_text).strip().lstrip('<').rstrip('>').split('/')[-1]
 
 
+_MONTH_RE = r'(?i)(january|february|march|april|may|june|july|august|september|october|november|december)'
+
+
+def _route_unresolved_value(raw, pid, quote_hints, value_formats):
+    """VALUE-SHAPE EXEMPTION from the "unresolved -> always quote" rule.
+
+    Measured on 8_celestialbody: 40/169 value-typed gold triples have
+    predicates whose declared range is NOT literal (periapsis -> "Periapsis",
+    discovered -> "Person"!), so their objects took the entity path, missed
+    the index, and were emitted ALWAYS-QUOTED — but gold writes them unquoted
+    ("8788850000.0", "2006-12-31"). When an unresolved object LOOKS like a
+    date or a number(+unit), route it through _normalize_literal with the
+    learned quoting/unit conventions instead. Entity-shaped strings return
+    None and keep the quoted-literal convention (measured correct for
+    "Faversham, Kent, England"-style objects).
+    """
+    v = str(raw).strip().strip('"').strip()
+    qh = (quote_hints or {}).get(pid)
+    vf = (value_formats or {}).get(pid)
+    dateish = bool(
+        re.fullmatch(r'\d{4}-\d{1,2}-\d{1,2}', v)
+        or re.fullmatch(r'\d{1,2}[-/]\d{1,2}[-/]\d{4}', v)
+        or (re.fullmatch(r'(?i)[a-z]+ \d{1,2}(st|nd|rd|th)?,? \d{4}', v) and re.match(_MONTH_RE, v))
+        or (re.fullmatch(r'(?i)\d{1,2}(st|nd|rd|th)? [a-z]+,? \d{4}', v) and re.search(_MONTH_RE, v))
+    )
+    if dateish:
+        val, quoted = _normalize_literal(v, pid, 'date', qh)
+        return f'"{val}"' if quoted else val
+    if re.match(r'-?[\d,]', v) and re.fullmatch(
+            r'-?[\d,]+(\.\d+)?(\s*\(?[A-Za-z][A-Za-z/ .]{0,40}\)?)?', v):
+        val, quoted = _normalize_literal(v, pid, 'number', qh, vf)
+        return f'"{val}"' if quoted else val
+    return None
+
+
 def _canonicalize_comma_compound(name, raw_mention):
     """Swap a comma-compound redirect alias for its canonical target — but ONLY
     when the alias is exactly the underscore-join of the raw mention, i.e. we
@@ -2365,7 +2413,7 @@ def _canonicalize_comma_compound(name, raw_mention):
 
 def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=None,
                         predicate_ranges=None, quote_hints=None, predicate_aliases=None,
-                        verbose=True):
+                        value_formats=None, verbose=True):
     """
     Full multi-triple extraction for ONE sentence.
 
@@ -2470,7 +2518,8 @@ def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=No
                 rel = _local_name(literal_match.group(2))
                 _rng = (predicate_ranges or {}).get(rel, "")
                 _qh = (quote_hints or {}).get(rel)
-                lit_val, is_quoted = _normalize_literal(literal_match.group(3), rel, _rng, _qh)
+                lit_val, is_quoted = _normalize_literal(literal_match.group(3), rel, _rng, _qh,
+                                                        (value_formats or {}).get(rel))
                 obj = f'"{lit_val}"' if is_quoted else lit_val
             elif len(uris) == 3:
                 kept = True
@@ -2496,7 +2545,8 @@ def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=No
                         obj_unresolved = bool(cand.get("unresolved"))
                         break
                 if obj_unresolved:
-                    obj = f'"{t["object"].strip()}"'
+                    routed = _route_unresolved_value(t["object"], rel, quote_hints, value_formats)
+                    obj = routed if routed is not None else f'"{t["object"].strip()}"'
                 else:
                     obj = _restore_middle_initial(_local_name(uris[2]),
                                                   str(t.get("object", "")))
