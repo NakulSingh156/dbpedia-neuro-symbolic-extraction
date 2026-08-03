@@ -96,11 +96,11 @@ dbpedia.owl is a different snapshot. This file feeds three things:
    check and the type-match penalties.
 
 **After import, check:** the startup line `Semantic Vector Space built for N
-properties (X object, Y datatype)`. If N < 3,000 or the file warns
-`EXPECTED_MIN_ONTOLOGY_PROPS`, replace the server's dbpedia.owl with the
-Mac's copy (committed in this folder's git repo history) — or accept that
-predicate-level numbers will differ a little from the Mac's and re-baseline.
-For paper-final numbers, use the SAME dbpedia.owl on every machine involved.
+properties (X object, Y datatype)`. The Mac's exact dbpedia.owl is INCLUDED
+in the transfer bundle (Archivo 2024.08.01; verify with the sha256 in the
+bundle manifest) — use it, and expect exactly
+`3235 properties (1194 object, 2041 datatype)`. For paper-final numbers, use
+the SAME dbpedia.owl on every machine involved.
 
 ## 8. Sanity re-run (optional but recommended)
 
