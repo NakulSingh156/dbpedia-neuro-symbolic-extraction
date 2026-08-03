@@ -93,19 +93,24 @@
     ],
     "pred": [
       {
-        "sub": "108_St._Georges_Terrace",
+        "sub": "108_St_Georges_Terrace",
         "rel": "completionDate",
         "obj": "1988"
       },
       {
-        "sub": "108_St._Georges_Terrace",
+        "sub": "108_St_Georges_Terrace",
         "rel": "location",
         "obj": "Perth"
+      },
+      {
+        "sub": "108_St_Georges_Terrace",
+        "rel": "country",
+        "obj": "Australia"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_4",
@@ -172,22 +177,22 @@
       {
         "sub": "108_St_Georges_Terrace",
         "rel": "floorCount",
-        "obj": "\"50 floors\""
+        "obj": "50"
       },
       {
-        "sub": "108_St._Georges_Terrace",
+        "sub": "108_St_Georges_Terrace",
         "rel": "location",
-        "obj": "Perth_Australia"
+        "obj": "Perth"
       },
       {
-        "sub": "108_St._Georges_Terrace",
+        "sub": "108_St_Georges_Terrace",
         "rel": "country",
         "obj": "Australia"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_6",
@@ -339,14 +344,14 @@
         "obj": "Cyril_Ramaphosa"
       },
       {
-        "sub": "Asian_South_Africans",
+        "sub": "South_Africa",
         "rel": "location",
-        "obj": "11_Diagonal_Street"
+        "obj": "Asian_South_Africans"
       },
       {
-        "sub": "11_Diagonal_Street",
-        "rel": "isPartOf",
-        "obj": "South_Africa"
+        "sub": "Asian_South_Africans",
+        "rel": "address",
+        "obj": "\"11 Diagonal Street\""
       }
     ],
     "p": 0.3333333333333333,
@@ -375,9 +380,9 @@
     ],
     "pred": [
       {
-        "sub": "White_South_Africans",
+        "sub": "South_Africa",
         "rel": "ethnicGroup",
-        "obj": "South_Africa"
+        "obj": "White_South_Africans"
       },
       {
         "sub": "South_Africa",
@@ -417,7 +422,7 @@
     "pred": [
       {
         "sub": "11_Diagonal_Street",
-        "rel": "country",
+        "rel": "location",
         "obj": "South_Africa"
       },
       {
@@ -431,9 +436,9 @@
         "obj": "Cyril_Ramaphosa"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0
   },
   {
     "id": "ont_4_building_test_12",
@@ -588,11 +593,16 @@
         "sub": "250_Delaware_Avenue",
         "rel": "location",
         "obj": "Buffalo"
+      },
+      {
+        "sub": "Buffalo",
+        "rel": "state",
+        "obj": "New_York"
       }
     ],
-    "p": 0.3333333333333333,
+    "p": 0.25,
     "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "f1": 0.28571428571428575
   },
   {
     "id": "ont_4_building_test_16",
@@ -631,9 +641,9 @@
         "obj": "Buffalo"
       },
       {
-        "sub": "Buffalo",
+        "sub": "250_Delaware_Avenue",
         "rel": "state",
-        "obj": "Buffalo,_New_York"
+        "obj": "New_York"
       }
     ],
     "p": 0.25,
@@ -664,12 +674,7 @@
       {
         "sub": "250_Delaware_Avenue",
         "rel": "location",
-        "obj": "Buffalo"
-      },
-      {
-        "sub": "250_Delaware_Avenue",
-        "rel": "location",
-        "obj": "New_York"
+        "obj": "Buffalo,_New_York"
       },
       {
         "sub": "Buffalo,_New_York",
@@ -682,9 +687,9 @@
         "obj": "Byron_Brown"
       }
     ],
-    "p": 0.25,
-    "r": 0.3333333333333333,
-    "f1": 0.28571428571428575
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_18",
@@ -710,7 +715,7 @@
       {
         "sub": "250_Delaware_Avenue",
         "rel": "location",
-        "obj": "Buffalo"
+        "obj": "Buffalo,_New_York"
       },
       {
         "sub": "Buffalo,_New_York",
@@ -718,9 +723,9 @@
         "obj": "Byron_Brown"
       }
     ],
-    "p": 0.5,
-    "r": 0.3333333333333333,
-    "f1": 0.4
+    "p": 1.0,
+    "r": 0.6666666666666666,
+    "f1": 0.8
   },
   {
     "id": "ont_4_building_test_19",
@@ -788,16 +793,11 @@
         "sub": "320_South_Boston_Building",
         "rel": "completionDate",
         "obj": "1929"
-      },
-      {
-        "sub": "George_Winkler",
-        "rel": "designer",
-        "obj": "United_States"
       }
     ],
-    "p": 0.6666666666666666,
+    "p": 1.0,
     "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "f1": 0.8
   },
   {
     "id": "ont_4_building_test_21",
@@ -1113,7 +1113,7 @@
         "obj": "Live_Nation_Entertainment"
       },
       {
-        "sub": "3Arena",
+        "sub": "3arena",
         "rel": "location",
         "obj": "Dublin"
       },
@@ -1201,7 +1201,7 @@
       },
       {
         "sub": "Dublin",
-        "rel": "leaderTitle",
+        "rel": "leader",
         "obj": "Lord_Mayor"
       },
       {
@@ -1236,9 +1236,9 @@
     ],
     "pred": [
       {
-        "sub": "D\u00e1il_\u00c9ireann",
-        "rel": "location",
-        "obj": "Dublin"
+        "sub": "Dublin",
+        "rel": "leader",
+        "obj": "D\u00e1il_\u00c9ireann"
       },
       {
         "sub": "3Arena",
@@ -1282,24 +1282,19 @@
         "obj": "Addis_Ababa"
       },
       {
-        "sub": "Addis_Ababa_Stadium",
-        "rel": "country",
-        "obj": "Ethiopia"
-      },
-      {
         "sub": "Addis_Ababa_City_Hall",
         "rel": "location",
         "obj": "Addis_Ababa"
       },
       {
-        "sub": "Addis_Ababa_City_Hall",
+        "sub": "Addis_Ababa_Stadium",
         "rel": "country",
         "obj": "Ethiopia"
       }
     ],
-    "p": 0.5,
-    "r": 0.6666666666666666,
-    "f1": 0.5714285714285715
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_33",
@@ -1366,7 +1361,7 @@
       {
         "sub": "Addis_Ababa_City_Hall",
         "rel": "floorArea",
-        "obj": "140000.0 (square metres)"
+        "obj": "\"140000.0 square\""
       },
       {
         "sub": "Addis_Ababa_City_Hall",
@@ -1379,9 +1374,9 @@
         "obj": "1964"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_35",
@@ -1412,7 +1407,7 @@
       {
         "sub": "Addis_Ababa_City_Hall",
         "rel": "floorArea",
-        "obj": "\"140000.0 square\""
+        "obj": "140000.0"
       },
       {
         "sub": "Addis_Ababa_City_Hall",
@@ -1492,7 +1487,7 @@
         "obj": "Haputale"
       },
       {
-        "sub": "Haputale",
+        "sub": "Adisham_Hall",
         "rel": "country",
         "obj": "Sri_Lanka"
       },
@@ -1579,7 +1574,7 @@
         "obj": "Haputale"
       },
       {
-        "sub": "Adisham_Hall",
+        "sub": "Haputale",
         "rel": "country",
         "obj": "Sri_Lanka"
       },
@@ -1589,9 +1584,9 @@
         "obj": "Sri_Jayawardenepura_Kotte"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_40",
@@ -1615,9 +1610,9 @@
     ],
     "pred": [
       {
-        "sub": "Ranil_Wickremesinghe",
+        "sub": "Sri_Lanka",
         "rel": "leader",
-        "obj": "Sri_Lanka"
+        "obj": "Ranil_Wickremesinghe"
       },
       {
         "sub": "Adisham_Hall",
@@ -1630,9 +1625,9 @@
         "obj": "Sri_Lanka"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_41",
@@ -1661,19 +1656,19 @@
         "obj": "Haputale"
       },
       {
-        "sub": "Haputale",
+        "sub": "Adisham_Hall",
         "rel": "country",
         "obj": "Sri_Lanka"
       },
       {
-        "sub": "Sri_Jayawardenepura_Kotte",
+        "sub": "Sri_Lanka",
         "rel": "capital",
-        "obj": "Sri_Lanka"
+        "obj": "Sri_Jayawardenepura_Kotte"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0
   },
   {
     "id": "ont_4_building_test_42",
@@ -1739,7 +1734,7 @@
     "pred": [
       {
         "sub": "Adisham_Hall",
-        "rel": "country",
+        "rel": "location",
         "obj": "Sri_Lanka"
       },
       {
@@ -1753,9 +1748,9 @@
         "obj": "Sri_Jayawardenepura_Kotte"
       }
     ],
-    "p": 1.0,
-    "r": 1.0,
-    "f1": 1.0
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_44",
@@ -1780,7 +1775,7 @@
     "pred": [
       {
         "sub": "Adisham_Hall",
-        "rel": "location",
+        "rel": "country",
         "obj": "Sri_Lanka"
       },
       {
@@ -1794,9 +1789,9 @@
         "obj": "Sri_Lankan_rupee"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0
   },
   {
     "id": "ont_4_building_test_45",
@@ -1909,7 +1904,7 @@
       {
         "sub": "Amdavad_ni_Gufa",
         "rel": "address",
-        "obj": "\"Lalbhai Dalpatbhai Campus, near Cept University, opposite Gujarat University, University Road, Ahmedabad, India\""
+        "obj": "\"Lalbhai Dalpatbhai Campus, near CEPT University, opp. Gujarat University, University Road Ahmedabad, India\""
       }
     ],
     "p": 0.0,
@@ -2102,14 +2097,34 @@
     ],
     "pred": [
       {
-        "sub": "Lalbhai_Dalpatbhai_Campus,_near_Cept_University,_opp._Gujarat_University,_University_Road",
+        "sub": "Amdavad_ni_Gufa",
+        "rel": "location",
+        "obj": "\"Lalbhai Dalpatbhai Campus\""
+      },
+      {
+        "sub": "Amdavad_ni_Gufa",
+        "rel": "location",
+        "obj": "CEPT_University"
+      },
+      {
+        "sub": "Amdavad_ni_Gufa",
+        "rel": "location",
+        "obj": "Gujarat_University"
+      },
+      {
+        "sub": "Amdavad_ni_Gufa",
+        "rel": "address",
+        "obj": "\"University Road\""
+      },
+      {
+        "sub": "Amdavad_ni_Gufa",
         "rel": "country",
         "obj": "India"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.2,
+    "r": 0.3333333333333333,
+    "f1": 0.25
   },
   {
     "id": "ont_4_building_test_53",
@@ -2189,9 +2204,9 @@
         "obj": "Narendra_Modi"
       },
       {
-        "sub": "Narendra_Modi",
+        "sub": "Amdavad_ni_Gufa",
         "rel": "leader",
-        "obj": "Prime_minister"
+        "obj": "Prime_Minister"
       }
     ],
     "p": 0.5,
@@ -2225,7 +2240,7 @@
         "obj": "Gujarat"
       },
       {
-        "sub": "Gujarat",
+        "sub": "Amdavad_ni_Gufa",
         "rel": "country",
         "obj": "India"
       },
@@ -2235,9 +2250,9 @@
         "obj": "Sumitra_Mahajan"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_56",
@@ -2307,7 +2322,7 @@
         "obj": "Ampara_District"
       },
       {
-        "sub": "Ampara_District",
+        "sub": "Ampara_Hospital",
         "rel": "country",
         "obj": "Sri_Lanka"
       },
@@ -2317,9 +2332,9 @@
         "obj": "Ranil_Wickremesinghe"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_58",
@@ -2394,14 +2409,14 @@
         "obj": "Julia_Morgan"
       },
       {
-        "sub": "Asilomar_State_Beach",
-        "rel": "architect",
-        "obj": "Julia_Morgan"
+        "sub": "Julia_Morgan",
+        "rel": "significantBuilding",
+        "obj": "Asilomar_State_Beach"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0
   },
   {
     "id": "ont_4_building_test_60",
@@ -2430,7 +2445,7 @@
         "obj": "San_Francisco"
       },
       {
-        "sub": "Asilomar_Conference_Grounds",
+        "sub": "Asilomar_Conference",
         "rel": "architect",
         "obj": "Julia_Morgan"
       },
@@ -2440,9 +2455,9 @@
         "obj": "Asilomar_State_Beach"
       }
     ],
-    "p": 1.0,
-    "r": 1.0,
-    "f1": 1.0
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_61",
@@ -2519,7 +2534,7 @@
       {
         "sub": "Julia_Morgan",
         "rel": "significantBuilding",
-        "obj": "\"Los Angeles Herald Examiner building\""
+        "obj": "Herald_Examiner"
       }
     ],
     "p": 0.6666666666666666,
@@ -2555,12 +2570,17 @@
       {
         "sub": "Julia_Morgan",
         "rel": "significantBuilding",
-        "obj": "Asilomar_Conference"
+        "obj": "Los_Angeles_Herald_Examiner"
+      },
+      {
+        "sub": "Julia_Morgan",
+        "rel": "significantBuilding",
+        "obj": "Asilomar_Conference_Grounds"
       }
     ],
-    "p": 0.5,
+    "p": 0.3333333333333333,
     "r": 0.3333333333333333,
-    "f1": 0.4
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_64",
@@ -2589,7 +2609,7 @@
         "obj": "Julia_Morgan"
       },
       {
-        "sub": "Los_Angeles_Herald_Examiner",
+        "sub": "Los_Angeles_Herald_Examiner_building",
         "rel": "architect",
         "obj": "Julia_Morgan"
       },
@@ -2631,7 +2651,7 @@
       },
       {
         "sub": "Asilomar_Conference_Grounds",
-        "rel": "architect",
+        "rel": "location",
         "obj": "Riverside_Art_Museum"
       },
       {
@@ -2667,21 +2687,6 @@
     "pred": [
       {
         "sub": "Julia_Morgan",
-        "rel": "architect",
-        "obj": "Asilomar_State_Beach"
-      },
-      {
-        "sub": "Julia_Morgan",
-        "rel": "architect",
-        "obj": "Asilomar_Conference_Grounds"
-      },
-      {
-        "sub": "Julia_Morgan",
-        "rel": "architect",
-        "obj": "Riverside_Art_Museum"
-      },
-      {
-        "sub": "Julia_Morgan",
         "rel": "significantBuilding",
         "obj": "Asilomar_State_Beach"
       },
@@ -2694,11 +2699,26 @@
         "sub": "Julia_Morgan",
         "rel": "significantBuilding",
         "obj": "Riverside_Art_Museum"
+      },
+      {
+        "sub": "Asilomar_State_Beach",
+        "rel": "architect",
+        "obj": "Julia_Morgan"
+      },
+      {
+        "sub": "Asilomar_Conference_Grounds",
+        "rel": "architect",
+        "obj": "Julia_Morgan"
+      },
+      {
+        "sub": "Riverside_Art_Museum",
+        "rel": "architect",
+        "obj": "Julia_Morgan"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.6666666666666666,
-    "f1": 0.4444444444444444
+    "p": 0.5,
+    "r": 1.0,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_67",
@@ -2724,7 +2744,7 @@
       {
         "sub": "Asilomar_Conference_Grounds",
         "rel": "address",
-        "obj": "\"Asilomar Blvd, Pacific Grove, California\""
+        "obj": "\"Asilomar Blvd\""
       },
       {
         "sub": "Asilomar_Conference_Grounds",
@@ -2743,7 +2763,7 @@
       },
       {
         "sub": "Asilomar_Conference_Grounds",
-        "rel": "addedToTheNationalRegisterOfHistoricPlaces",
+        "rel": "nrhpReferenceNumber",
         "obj": "\"National Register of Historic Places\""
       },
       {
@@ -2788,7 +2808,7 @@
         "obj": "Pacific_Grove"
       },
       {
-        "sub": "Asilomar_Conference_Grounds",
+        "sub": "Pacific_Grove",
         "rel": "state",
         "obj": "California"
       },
@@ -2844,14 +2864,9 @@
         "obj": "Pacific_Grove"
       },
       {
-        "sub": "Pacific_Grove",
+        "sub": "Asilomar_Conference_Grounds",
         "rel": "state",
         "obj": "California"
-      },
-      {
-        "sub": "Asilomar_Conference_Grounds",
-        "rel": "architecturalStyle",
-        "obj": "Arts_and_Crafts_movement"
       }
     ],
     "p": 0.0,
@@ -2890,7 +2905,7 @@
         "obj": "Pacific_Grove"
       },
       {
-        "sub": "Pacific_Grove",
+        "sub": "Asilomar_Conference_Grounds",
         "rel": "state",
         "obj": "California"
       },
@@ -2943,7 +2958,7 @@
       {
         "sub": "Asilomar_Conference_Grounds",
         "rel": "addedToTheNationalRegisterOfHistoricPlaces",
-        "obj": "\"February 27th, 1987\""
+        "obj": "\"February 27, 1987\""
       }
     ],
     "p": 0.25,
@@ -2973,17 +2988,17 @@
     "pred": [
       {
         "sub": "Asilomar_Conference_Grounds",
-        "rel": "yearOfConstruction",
+        "rel": "architecturalStyle",
         "obj": "1913"
       },
       {
         "sub": "Asilomar_Conference_Grounds",
-        "rel": "location",
+        "rel": "architecturalStyle",
         "obj": "Pacific_Grove"
       },
       {
-        "sub": "Pacific_Grove",
-        "rel": "state",
+        "sub": "Asilomar_Conference_Grounds",
+        "rel": "architecturalStyle",
         "obj": "California"
       },
       {
@@ -2994,12 +3009,12 @@
       {
         "sub": "Asilomar_Conference_Grounds",
         "rel": "architecturalStyle",
-        "obj": "American_Craftsman"
+        "obj": "\"American Craftsman Bungalows\""
       }
     ],
-    "p": 0.2,
-    "r": 0.3333333333333333,
-    "f1": 0.25
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0
   },
   {
     "id": "ont_4_building_test_73",
@@ -3115,8 +3130,8 @@
         "obj": "Addis_Ababa"
       },
       {
-        "sub": "Addis_Ababa",
-        "rel": "country",
+        "sub": "Addis_Ababa_City_Hall",
+        "rel": "location",
         "obj": "Ethiopia"
       }
     ],
@@ -3182,19 +3197,24 @@
     ],
     "pred": [
       {
-        "sub": "Gujarat,_India",
+        "sub": "Anandiben_Patel",
         "rel": "leader",
-        "obj": "Anandiben_Patel"
+        "obj": "Gujarat"
+      },
+      {
+        "sub": "Gujarat",
+        "rel": "country",
+        "obj": "India"
       },
       {
         "sub": "Amdavad_ni_Gufa",
         "rel": "location",
-        "obj": "Gujarat,_India"
+        "obj": "Gujarat"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_78",
@@ -3220,11 +3240,11 @@
       {
         "sub": "India",
         "rel": "demonym",
-        "obj": "Indians"
+        "obj": "Indian"
       },
       {
         "sub": "Amdavad_ni_Gufa",
-        "rel": "country",
+        "rel": "location",
         "obj": "India"
       },
       {
@@ -3233,9 +3253,9 @@
         "obj": "Sumitra_Mahajan"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_79",
@@ -3260,13 +3280,13 @@
     "pred": [
       {
         "sub": "T_S_Thakur",
-        "rel": "leader",
+        "rel": "country",
         "obj": "India"
       },
       {
-        "sub": "Narendra_Modi",
+        "sub": "India",
         "rel": "leader",
-        "obj": "India"
+        "obj": "Narendra_Modi"
       },
       {
         "sub": "Amdavad_ni_Gufa",
@@ -3274,9 +3294,9 @@
         "obj": "India"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_80",
@@ -3341,7 +3361,7 @@
         "obj": "Gujarat"
       },
       {
-        "sub": "Amdavad_ni_Gufa",
+        "sub": "Gujarat",
         "rel": "country",
         "obj": "India"
       },
@@ -3351,9 +3371,9 @@
         "obj": "India"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_82",
@@ -3419,7 +3439,7 @@
     "pred": [
       {
         "sub": "250_Delaware_Avenue",
-        "rel": "country",
+        "rel": "location",
         "obj": "United_States"
       },
       {
@@ -3433,9 +3453,9 @@
         "obj": "Chief_Justice"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_84",
@@ -3466,7 +3486,7 @@
       {
         "sub": "United_States",
         "rel": "capital",
-        "obj": "Washington_DC"
+        "obj": "Washington,_D.C."
       },
       {
         "sub": "250_Delaware_Avenue",
@@ -3474,9 +3494,9 @@
         "obj": "United_States"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_85",
@@ -3500,14 +3520,14 @@
     ],
     "pred": [
       {
-        "sub": "Joe_Biden",
+        "sub": "United_States",
         "rel": "leader",
-        "obj": "United_States"
+        "obj": "Joe_Biden"
       },
       {
         "sub": "United_States",
         "rel": "language",
-        "obj": "English"
+        "obj": "English_language"
       },
       {
         "sub": "250_Delaware_Avenue",
@@ -3515,9 +3535,9 @@
         "obj": "United_States"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0
   },
   {
     "id": "ont_4_building_test_86",
@@ -3541,9 +3561,9 @@
     ],
     "pred": [
       {
-        "sub": "Paul_Ryan",
+        "sub": "United_States",
         "rel": "leader",
-        "obj": "United_States"
+        "obj": "Paul_Ryan"
       },
       {
         "sub": "United_States",
@@ -3556,9 +3576,9 @@
         "obj": "250_Delaware_Avenue"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_87",
@@ -3662,11 +3682,16 @@
         "sub": "United_States",
         "rel": "leader",
         "obj": "John_Roberts"
+      },
+      {
+        "sub": "John_Roberts",
+        "rel": "leaderTitle",
+        "obj": "President"
       }
     ],
-    "p": 1.0,
+    "p": 0.6666666666666666,
     "r": 0.6666666666666666,
-    "f1": 0.8
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_90",
@@ -3691,7 +3716,7 @@
     "pred": [
       {
         "sub": "250_Delaware_Avenue",
-        "rel": "country",
+        "rel": "location",
         "obj": "United_States"
       },
       {
@@ -3701,13 +3726,13 @@
       },
       {
         "sub": "United_States",
-        "rel": "leader",
+        "rel": "leaderTitle",
         "obj": "President"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_91",
@@ -3814,7 +3839,7 @@
     "pred": [
       {
         "sub": "11_Diagonal_Street",
-        "rel": "location",
+        "rel": "country",
         "obj": "South_Africa"
       },
       {
@@ -3828,9 +3853,9 @@
         "obj": "White_South_Africans"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_94",
@@ -3902,7 +3927,7 @@
       {
         "sub": "3Arena",
         "rel": "architect",
-        "obj": "\"Hok Sve\""
+        "obj": "\"HOK SVE\""
       },
       {
         "sub": "3Arena",
@@ -3938,7 +3963,7 @@
       {
         "sub": "3Arena",
         "rel": "architect",
-        "obj": "Populous_(company)"
+        "obj": "Populous"
       },
       {
         "sub": "3Arena",
@@ -3951,9 +3976,9 @@
         "obj": "December 2008"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_97",
@@ -4019,11 +4044,6 @@
     "pred": [
       {
         "sub": "Addis_Ababa_City_Hall",
-        "rel": "currentTenants",
-        "obj": "\"Government of Addis Ababa\""
-      },
-      {
-        "sub": "Addis_Ababa_City_Hall",
         "rel": "height",
         "obj": "42"
       },
@@ -4033,9 +4053,9 @@
         "obj": "\"140000.0 square\""
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0
   },
   {
     "id": "ont_4_building_test_99",
@@ -4146,19 +4166,19 @@
         "obj": "Eastern_Province"
       },
       {
-        "sub": "Eastern_Province",
+        "sub": "Ampara_Hospital",
         "rel": "country",
         "obj": "Sri_Lanka"
       },
       {
-        "sub": "Ranil_Wickremesinghe",
+        "sub": "Eastern_Province",
         "rel": "leader",
-        "obj": "Eastern_Province"
+        "obj": "Ranil_Wickremesinghe"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_102",
@@ -4189,7 +4209,7 @@
       {
         "sub": "Asilomar_Conference_Grounds",
         "rel": "addedToTheNationalRegisterOfHistoricPlaces",
-        "obj": "\"February 27, 1987\""
+        "obj": "\"February 27th, 1987\""
       },
       {
         "sub": "Asilomar_Conference_Grounds",
@@ -4223,14 +4243,14 @@
     ],
     "pred": [
       {
-        "sub": "T_S_Thakur",
+        "sub": "India",
         "rel": "leader",
-        "obj": "India"
+        "obj": "\"T S Thakur\""
       },
       {
-        "sub": "Sumitra_Mahajan",
+        "sub": "India",
         "rel": "leader",
-        "obj": "India"
+        "obj": "Sumitra_Mahajan"
       },
       {
         "sub": "Amdavad_ni_Gufa",
@@ -4238,8 +4258,8 @@
         "obj": "India"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   }
 ]

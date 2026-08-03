@@ -60,9 +60,11 @@ lookup("nonsense strings return")  # -> []
 ```
 
 Mention normalisation: lowercase, collapse whitespace, then try in order:
-exact form, punctuation-stripped form, and for each an underscore-joined
-variant (`" "`→`"_"`), an underscores-to-spaces variant, and a leading
-`"the "`-stripped variant. First variant with a non-empty pool wins.
+exact form, punctuation-stripped form, then internal-punctuation fallbacks
+(periods removed, hyphens→spaces — "108 St. Georges Terrace", "Al-Asad
+Airbase"); each base also gets an underscore-joined variant (`" "`→`"_"`),
+an underscores-to-spaces variant, and a leading `"the "`-stripped variant.
+First variant with a non-empty pool wins.
 Exact-before-stripped matters: stripping would truncate the trailing `)` of
 `"Populous (company)"`.
 

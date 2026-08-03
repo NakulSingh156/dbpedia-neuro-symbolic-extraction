@@ -104,6 +104,11 @@
     "pred": [
       {
         "sub": "108_St_Georges_Terrace",
+        "rel": "completionDate",
+        "obj": "1988"
+      },
+      {
+        "sub": "Manchester_City_F.C.",
         "rel": "location",
         "obj": "Perth"
       },
@@ -113,9 +118,9 @@
         "obj": "Australia"
       }
     ],
-    "p": 0.5,
+    "p": 0.3333333333333333,
     "r": 0.3333333333333333,
-    "f1": 0.4
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_4",
@@ -180,24 +185,24 @@
     ],
     "pred": [
       {
-        "sub": "Manchester_City_F.C.",
+        "sub": "140_St_Georges_Terrace",
         "rel": "floorCount",
         "obj": "50"
       },
       {
-        "sub": "108_St_Georges_Terrace",
+        "sub": "Manchester_City_F.C.",
         "rel": "location",
         "obj": "Perth"
       },
       {
-        "sub": "Manchester_City_F.C.",
+        "sub": "108_St_Georges_Terrace",
         "rel": "country",
         "obj": "Australia"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0
   },
   {
     "id": "ont_4_building_test_6",
@@ -313,14 +318,14 @@
         "obj": "Cape_Town"
       },
       {
-        "sub": "South_Africa",
+        "sub": "Cape_Town",
         "rel": "leader",
         "obj": "Jacob_Zuma"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_9",
@@ -469,7 +474,7 @@
       {
         "sub": "Jacob_Zuma",
         "rel": "leader",
-        "obj": "Indian_South_Africans"
+        "obj": "Animax"
       }
     ],
     "p": 0.5,
@@ -505,7 +510,7 @@
       {
         "sub": "Fox_Broadcasting_Company",
         "rel": "floorCount",
-        "obj": "\"12 floors\""
+        "obj": "12"
       },
       {
         "sub": "Fox_Broadcasting_Company",
@@ -581,16 +586,6 @@
     "pred": [
       {
         "sub": "Fox_Broadcasting_Company",
-        "rel": "floorCount",
-        "obj": "12"
-      },
-      {
-        "sub": "Fox_Broadcasting_Company",
-        "rel": "buildingStartDate",
-        "obj": "\"January 2014\""
-      },
-      {
-        "sub": "Fox_Broadcasting_Company",
         "rel": "location",
         "obj": "Buffalo,_New_York"
       },
@@ -598,6 +593,16 @@
         "sub": "Fox_Broadcasting_Company",
         "rel": "state",
         "obj": "Buffalo,_New_York"
+      },
+      {
+        "sub": "Fox_Broadcasting_Company",
+        "rel": "floorCount",
+        "obj": "12"
+      },
+      {
+        "sub": "Fox_Broadcasting_Company",
+        "rel": "buildingStartDate",
+        "obj": "\"January 2014\""
       }
     ],
     "p": 0.0,
@@ -636,14 +641,19 @@
         "obj": "\"30843.8 square\""
       },
       {
+        "sub": "Delaware",
+        "rel": "address",
+        "obj": "\"250 Delaware Avenue\""
+      },
+      {
         "sub": "Fox_Broadcasting_Company",
         "rel": "location",
         "obj": "Buffalo,_New_York"
       },
       {
-        "sub": "FC_Buffalo",
+        "sub": "Fox_Broadcasting_Company",
         "rel": "state",
-        "obj": "New_York_(state)"
+        "obj": "Buffalo,_New_York"
       }
     ],
     "p": 0.0,
@@ -679,7 +689,7 @@
       {
         "sub": "Buffalo,_New_York",
         "rel": "isPartOf",
-        "obj": "Erie_County,_New_York"
+        "obj": "Erie_County,_Pennsylvania"
       },
       {
         "sub": "Buffalo,_New_York",
@@ -687,9 +697,9 @@
         "obj": "Byron_Brown"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_18",
@@ -749,6 +759,11 @@
     ],
     "pred": [
       {
+        "sub": "George_Winkler",
+        "rel": "demonym",
+        "obj": "American"
+      },
+      {
         "sub": "320_South_Boston_Building",
         "rel": "architect",
         "obj": "George_Winkler"
@@ -759,9 +774,9 @@
         "obj": "\"1910\""
       }
     ],
-    "p": 0.5,
+    "p": 0.3333333333333333,
     "r": 0.3333333333333333,
-    "f1": 0.4
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_20",
@@ -793,11 +808,16 @@
         "sub": "320_South_Boston_Building",
         "rel": "completionDate",
         "obj": "1929"
+      },
+      {
+        "sub": "George_Winkler",
+        "rel": "architect",
+        "obj": "United_States_Army"
       }
     ],
-    "p": 1.0,
+    "p": 0.6666666666666666,
     "r": 0.6666666666666666,
-    "f1": 0.8
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_21",
@@ -1026,11 +1046,6 @@
     ],
     "pred": [
       {
-        "sub": "3Arena",
-        "rel": "architect",
-        "obj": "Populous_(company)"
-      },
-      {
         "sub": "Live_at_3Arena",
         "rel": "completionDate",
         "obj": "December 2008"
@@ -1038,17 +1053,12 @@
       {
         "sub": "3Arena",
         "rel": "location",
-        "obj": "Dublin"
-      },
-      {
-        "sub": "North_Wall,_Dublin",
-        "rel": "isPartOf",
-        "obj": "Dublin_4"
+        "obj": "North_Wall,_Dublin"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.5,
+    "r": 0.3333333333333333,
+    "f1": 0.4
   },
   {
     "id": "ont_4_building_test_27",
@@ -1078,8 +1088,8 @@
       },
       {
         "sub": "Dublin_4",
-        "rel": "region",
-        "obj": "Leinster"
+        "rel": "isPartOf",
+        "obj": "Leinster_Lightning"
       },
       {
         "sub": "3Arena",
@@ -1195,24 +1205,24 @@
     ],
     "pred": [
       {
-        "sub": "3Arena",
-        "rel": "owner",
-        "obj": "Live_Nation_Entertainment"
-      },
-      {
         "sub": "C2C:_Country_to_Country",
         "rel": "location",
         "obj": "Dublin"
       },
       {
-        "sub": "Dublin",
-        "rel": "leader",
-        "obj": "Lord_mayor"
+        "sub": "3Arena",
+        "rel": "owner",
+        "obj": "Live_Nation_Entertainment"
       },
       {
         "sub": "Dublin",
         "rel": "leader",
         "obj": "Cr\u00edona_N\u00ed_Dh\u00e1laigh"
+      },
+      {
+        "sub": "Dublin",
+        "rel": "leaderTitle",
+        "obj": "Lord_Mayor"
       }
     ],
     "p": 0.5,
@@ -1251,14 +1261,14 @@
         "obj": "Live_Nation_Entertainment"
       },
       {
-        "sub": "C2C:_Country_to_Country",
+        "sub": "3Arena",
         "rel": "location",
         "obj": "Dublin"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_32",
@@ -1333,7 +1343,7 @@
         "obj": "Addis_Ababa"
       },
       {
-        "sub": "Addis_Ababa_Stadium",
+        "sub": "Addis_Ababa_University",
         "rel": "country",
         "obj": "Ethiopia"
       }
@@ -1366,7 +1376,7 @@
       {
         "sub": "Addis_Ababa_City_Hall",
         "rel": "floorArea",
-        "obj": "140000.0"
+        "obj": "140000.0 (square metres)"
       },
       {
         "sub": "Addis_Ababa_City_Hall",
@@ -1379,9 +1389,9 @@
         "obj": "1964"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_35",
@@ -1412,7 +1422,7 @@
       {
         "sub": "Addis_Ababa_City_Hall",
         "rel": "floorArea",
-        "obj": "\"140000.0 square\""
+        "obj": "140000.0 (square metres)"
       },
       {
         "sub": "Addis_Ababa_City_Hall",
@@ -1420,9 +1430,9 @@
         "obj": "42"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_36",
@@ -1492,7 +1502,7 @@
         "obj": "Haputale"
       },
       {
-        "sub": "Haputale",
+        "sub": "Adisham_Hall",
         "rel": "country",
         "obj": "Sri_Lanka"
       },
@@ -1699,7 +1709,7 @@
       {
         "sub": "Adisham_Hall",
         "rel": "location",
-        "obj": "Sri_Jayawardenepura_Kotte"
+        "obj": "Colombo"
       },
       {
         "sub": "Adisham_Hall",
@@ -1780,7 +1790,7 @@
     "pred": [
       {
         "sub": "Adisham_Hall",
-        "rel": "location",
+        "rel": "country",
         "obj": "Sri_Lanka"
       },
       {
@@ -1794,9 +1804,9 @@
         "obj": "Sri_Lankan_rupee"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0
   },
   {
     "id": "ont_4_building_test_45",
@@ -1940,12 +1950,12 @@
       {
         "sub": "Narendra_Modi",
         "rel": "leader",
-        "obj": "Indian_Railways"
+        "obj": "India_national_football_team"
       },
       {
         "sub": "Sumitra_Mahajan",
         "rel": "leader",
-        "obj": "Indian_National_Congress"
+        "obj": "Indian_Railways"
       },
       {
         "sub": "Amdavad_ni_Gufa",
@@ -2031,7 +2041,7 @@
       },
       {
         "sub": "Ahmedabad",
-        "rel": "isPartOf",
+        "rel": "country",
         "obj": "India"
       }
     ],
@@ -2103,23 +2113,18 @@
     "pred": [
       {
         "sub": "Amdavad_ni_Gufa",
-        "rel": "location",
-        "obj": "University_of_London"
-      },
-      {
-        "sub": "Amdavad_ni_Gufa",
         "rel": "address",
-        "obj": "\"University Road\""
+        "obj": "\"Lalbhai Dalpatbhai Campus, near CEPT University, opp. Gujarat University, University Road\""
       },
       {
-        "sub": "Amdavad_ni_Gufa",
+        "sub": "London_South_Bank_University",
         "rel": "country",
         "obj": "India"
       }
     ],
-    "p": 0.3333333333333333,
+    "p": 0.5,
     "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "f1": 0.4
   },
   {
     "id": "ont_4_building_test_53",
@@ -2235,7 +2240,7 @@
         "obj": "Gujarat"
       },
       {
-        "sub": "Gujarat",
+        "sub": "Amdavad_ni_Gufa",
         "rel": "country",
         "obj": "India"
       },
@@ -2245,9 +2250,9 @@
         "obj": "Sumitra_Mahajan"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_56",
@@ -2405,13 +2410,13 @@
       },
       {
         "sub": "Julia_Morgan",
-        "rel": "significantBuilding",
+        "rel": "designer",
         "obj": "Asilomar_State_Beach"
       }
     ],
-    "p": 1.0,
-    "r": 1.0,
-    "f1": 1.0
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_60",
@@ -2446,13 +2451,13 @@
       },
       {
         "sub": "Julia_Morgan",
-        "rel": "designer",
+        "rel": "significantBuilding",
         "obj": "Asilomar_State_Beach"
       }
     ],
-    "p": 0.6666666666666666,
-    "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "p": 1.0,
+    "r": 1.0,
+    "f1": 1.0
   },
   {
     "id": "ont_4_building_test_61",
@@ -2482,7 +2487,7 @@
       },
       {
         "sub": "Julia_Morgan",
-        "rel": "significantBuilding",
+        "rel": "knownFor",
         "obj": "Asilomar_Conference_Grounds"
       },
       {
@@ -2599,7 +2604,7 @@
     ],
     "pred": [
       {
-        "sub": "Asilomar_Conference_grounds",
+        "sub": "Asilomar_Conference_Grounds",
         "rel": "architect",
         "obj": "Julia_Morgan"
       },
@@ -2609,7 +2614,7 @@
         "obj": "Julia_Morgan"
       },
       {
-        "sub": "Art_museum",
+        "sub": "American_Broadcasting_Company",
         "rel": "architect",
         "obj": "Julia_Morgan"
       }
@@ -2650,7 +2655,7 @@
         "obj": "Riverside_Art_Museum"
       },
       {
-        "sub": "Riverside_Art_Museum",
+        "sub": "American_Broadcasting_Company",
         "rel": "state",
         "obj": "California"
       }
@@ -2681,24 +2686,39 @@
     ],
     "pred": [
       {
-        "sub": "Julia_Morgan",
+        "sub": "Asilomar_State_Beach",
         "rel": "architect",
+        "obj": "Julia_Morgan"
+      },
+      {
+        "sub": "Asilomar_Conference_Grounds",
+        "rel": "architect",
+        "obj": "Julia_Morgan"
+      },
+      {
+        "sub": "Riverside_Art_Museum",
+        "rel": "architect",
+        "obj": "Julia_Morgan"
+      },
+      {
+        "sub": "Julia_Morgan",
+        "rel": "significantBuilding",
         "obj": "Asilomar_State_Beach"
       },
       {
         "sub": "Julia_Morgan",
-        "rel": "architect",
+        "rel": "significantBuilding",
         "obj": "\"Asilomar Conference Grounds\""
       },
       {
         "sub": "Julia_Morgan",
-        "rel": "architect",
+        "rel": "significantBuilding",
         "obj": "Riverside_Art_Museum"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.5,
+    "r": 1.0,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_67",
@@ -2728,6 +2748,16 @@
       },
       {
         "sub": "Asilomar_Conference_Grounds",
+        "rel": "location",
+        "obj": "Pacific_Grove,_California"
+      },
+      {
+        "sub": "Asilomar_Conference_Grounds",
+        "rel": "state",
+        "obj": "California"
+      },
+      {
+        "sub": "Asilomar_Conference_Grounds",
         "rel": "yearOfConstruction",
         "obj": "1913"
       },
@@ -2737,9 +2767,9 @@
         "obj": "\"87000823\""
       }
     ],
-    "p": 0.6666666666666666,
+    "p": 0.4,
     "r": 0.6666666666666666,
-    "f1": 0.6666666666666666
+    "f1": 0.5
   },
   {
     "id": "ont_4_building_test_68",
@@ -2769,6 +2799,16 @@
       },
       {
         "sub": "Asilomar_Conference_Grounds",
+        "rel": "location",
+        "obj": "Pacific_Grove,_California"
+      },
+      {
+        "sub": "Pacifica_High_School_(Garden_Grove,_California)",
+        "rel": "state",
+        "obj": "California"
+      },
+      {
+        "sub": "Asilomar_Conference_Grounds",
         "rel": "yearOfConstruction",
         "obj": "1913"
       },
@@ -2778,9 +2818,9 @@
         "obj": "1987-02-27"
       }
     ],
-    "p": 0.3333333333333333,
+    "p": 0.2,
     "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "f1": 0.25
   },
   {
     "id": "ont_4_building_test_69",
@@ -2861,18 +2901,13 @@
       },
       {
         "sub": "Asilomar_Conference_Grounds",
-        "rel": "state",
-        "obj": "California"
-      },
-      {
-        "sub": "Asilomar_Conference_Grounds",
         "rel": "NationalRegisterOfHistoricPlacesReferenceNumber",
         "obj": "\"87000823\""
       }
     ],
-    "p": 0.75,
+    "p": 1.0,
     "r": 1.0,
-    "f1": 0.8571428571428571
+    "f1": 1.0
   },
   {
     "id": "ont_4_building_test_71",
@@ -2945,26 +2980,11 @@
         "sub": "Asilomar_Conference_Grounds",
         "rel": "location",
         "obj": "Pacific_Grove,_California"
-      },
-      {
-        "sub": "Pacific_Grove,_California",
-        "rel": "state",
-        "obj": "California"
-      },
-      {
-        "sub": "Asilomar_Conference_Grounds",
-        "rel": "architecturalStyle",
-        "obj": "Arts_and_Crafts_movement"
-      },
-      {
-        "sub": "Asilomar_Conference_Grounds",
-        "rel": "architecturalStyle",
-        "obj": "American_Craftsman"
       }
     ],
-    "p": 0.4,
+    "p": 1.0,
     "r": 0.6666666666666666,
-    "f1": 0.5
+    "f1": 0.8
   },
   {
     "id": "ont_4_building_test_73",
@@ -3190,7 +3210,7 @@
       {
         "sub": "India",
         "rel": "demonym",
-        "obj": "Indians"
+        "obj": "Indian"
       },
       {
         "sub": "Amdavad_ni_Gufa",
@@ -3239,7 +3259,7 @@
         "obj": "Narendra_Modi"
       },
       {
-        "sub": "Amdavad_ni_Gufa",
+        "sub": "B._V._Doshi",
         "rel": "location",
         "obj": "India"
       }
@@ -3272,22 +3292,17 @@
       {
         "sub": "T._S._Thakur",
         "rel": "leader",
-        "obj": "University_Grants_Commission_(India)"
+        "obj": "India_national_football_team"
       },
       {
         "sub": "Amdavad_ni_Gufa",
         "rel": "location",
         "obj": "Ahmedabad"
-      },
-      {
-        "sub": "Ahmedabad",
-        "rel": "isPartOf",
-        "obj": "India"
       }
     ],
-    "p": 0.3333333333333333,
+    "p": 0.5,
     "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "f1": 0.4
   },
   {
     "id": "ont_4_building_test_81",
@@ -3321,14 +3336,14 @@
         "obj": "India"
       },
       {
-        "sub": "India",
+        "sub": "T._S._Thakur",
         "rel": "leader",
-        "obj": "T._S._Thakur"
+        "obj": "India_national_football_team"
       }
     ],
-    "p": 1.0,
-    "r": 1.0,
-    "f1": 1.0
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   },
   {
     "id": "ont_4_building_test_82",
@@ -3403,14 +3418,19 @@
         "obj": "Washington,_D.C."
       },
       {
-        "sub": "John_Roberts",
+        "sub": "United_States_Navy",
+        "rel": "position",
+        "obj": "John_Roberts"
+      },
+      {
+        "sub": "United_States",
         "rel": "leaderTitle",
         "obj": "Chief_Justice"
       }
     ],
-    "p": 0.3333333333333333,
+    "p": 0.25,
     "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "f1": 0.28571428571428575
   },
   {
     "id": "ont_4_building_test_84",
@@ -3436,7 +3456,7 @@
       {
         "sub": "Paul_Ryan",
         "rel": "leader",
-        "obj": "Republican_Party_(United_States)"
+        "obj": "United_States_Army"
       },
       {
         "sub": "United_States",
@@ -3444,7 +3464,7 @@
         "obj": "Washington,_D.C."
       },
       {
-        "sub": "Fox_Broadcasting_Company",
+        "sub": "Bradford_City_A.F.C.",
         "rel": "country",
         "obj": "United_States"
       }
@@ -3475,9 +3495,9 @@
     ],
     "pred": [
       {
-        "sub": "Joe_Biden",
+        "sub": "United_States",
         "rel": "leader",
-        "obj": "United_States_Army"
+        "obj": "Joe_Biden"
       },
       {
         "sub": "United_States",
@@ -3485,14 +3505,14 @@
         "obj": "American_English"
       },
       {
-        "sub": "Fox_Broadcasting_Company",
+        "sub": "Bradford_City_A.F.C.",
         "rel": "location",
         "obj": "United_States"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_86",
@@ -3516,7 +3536,7 @@
     ],
     "pred": [
       {
-        "sub": "United_States_Army",
+        "sub": "United_States",
         "rel": "leader",
         "obj": "Paul_Ryan"
       },
@@ -3531,9 +3551,9 @@
         "obj": "Fox_Broadcasting_Company"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.3333333333333333,
+    "r": 0.3333333333333333,
+    "f1": 0.3333333333333333
   },
   {
     "id": "ont_4_building_test_87",
@@ -3593,24 +3613,19 @@
     ],
     "pred": [
       {
-        "sub": "United_States_Navy",
+        "sub": "United_States",
         "rel": "leader",
         "obj": "Joe_Biden"
       },
       {
-        "sub": "Joe_Biden",
-        "rel": "leader",
-        "obj": "Donald_Trump"
-      },
-      {
-        "sub": "Fox_Broadcasting_Company",
+        "sub": "Delaware",
         "rel": "location",
         "obj": "United_States"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.5,
+    "r": 0.3333333333333333,
+    "f1": 0.4
   },
   {
     "id": "ont_4_building_test_89",
@@ -3634,7 +3649,7 @@
     ],
     "pred": [
       {
-        "sub": "Fox_Broadcasting_Company",
+        "sub": "Delaware",
         "rel": "location",
         "obj": "United_States"
       },
@@ -3642,16 +3657,11 @@
         "sub": "United_States",
         "rel": "leader",
         "obj": "John_Roberts"
-      },
-      {
-        "sub": "United_States_Navy",
-        "rel": "leader",
-        "obj": "George_H._W._Bush"
       }
     ],
-    "p": 0.3333333333333333,
+    "p": 0.5,
     "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "f1": 0.4
   },
   {
     "id": "ont_4_building_test_90",
@@ -3685,9 +3695,9 @@
         "obj": "Paul_Ryan"
       },
       {
-        "sub": "United_States_Navy",
-        "rel": "leader",
-        "obj": "George_H._W._Bush"
+        "sub": "United_States",
+        "rel": "leaderTitle",
+        "obj": "President"
       }
     ],
     "p": 0.3333333333333333,
@@ -3844,9 +3854,14 @@
         "obj": "Buffalo,_New_York"
       },
       {
-        "sub": "Buffalo_Sabres",
+        "sub": "FC_Buffalo",
         "rel": "isPartOf",
         "obj": "Erie_County,_New_York"
+      },
+      {
+        "sub": "FC_Buffalo",
+        "rel": "state",
+        "obj": "Albany,_New_York"
       }
     ],
     "p": 0.0,
@@ -3882,7 +3897,7 @@
       {
         "sub": "3Arena",
         "rel": "architect",
-        "obj": "Populous_(company)"
+        "obj": "Indexi"
       },
       {
         "sub": "Live_at_3Arena",
@@ -3968,7 +3983,7 @@
       },
       {
         "sub": "Live_Nation_Entertainment",
-        "rel": "country",
+        "rel": "location",
         "obj": "Ireland"
       }
     ],
@@ -3999,18 +4014,13 @@
     "pred": [
       {
         "sub": "Addis_Ababa_City_Hall",
-        "rel": "currentTenants",
-        "obj": "Addis_Ababa"
-      },
-      {
-        "sub": "Addis_Ababa_City_Hall",
         "rel": "height",
         "obj": "42"
       },
       {
         "sub": "Addis_Ababa_City_Hall",
         "rel": "floorArea",
-        "obj": "\"140000.0 square\""
+        "obj": "140000.0"
       }
     ],
     "p": 0.0,
@@ -4126,7 +4136,7 @@
         "obj": "Eastern_Province,_Sri_Lanka"
       },
       {
-        "sub": "Ampara_Hospital",
+        "sub": "Eastern_Province,_Sri_Lanka",
         "rel": "country",
         "obj": "Sri_Lanka"
       },
@@ -4136,9 +4146,9 @@
         "obj": "Ranil_Wickremesinghe"
       }
     ],
-    "p": 0.3333333333333333,
-    "r": 0.3333333333333333,
-    "f1": 0.3333333333333333
+    "p": 0.0,
+    "r": 0.0,
+    "f1": 0.0
   },
   {
     "id": "ont_4_building_test_102",
@@ -4174,7 +4184,7 @@
       {
         "sub": "Asilomar_Conference_Grounds",
         "rel": "addedToTheNationalRegisterOfHistoricPlaces",
-        "obj": "\"February 27, 1987\""
+        "obj": "\"February 27th, 1987\""
       },
       {
         "sub": "Asilomar_Conference_Grounds",
@@ -4208,14 +4218,14 @@
     ],
     "pred": [
       {
-        "sub": "S._G._Thakur_Singh",
+        "sub": "India",
         "rel": "leader",
-        "obj": "Indian_National_Congress"
+        "obj": "T._S._Thakur"
       },
       {
-        "sub": "Sumitra_Mahajan",
+        "sub": "India",
         "rel": "leader",
-        "obj": "Indian_National_Congress"
+        "obj": "Sumitra_Mahajan"
       },
       {
         "sub": "Amdavad_ni_Gufa",
@@ -4223,8 +4233,8 @@
         "obj": "India"
       }
     ],
-    "p": 0.0,
-    "r": 0.0,
-    "f1": 0.0
+    "p": 0.6666666666666666,
+    "r": 0.6666666666666666,
+    "f1": 0.6666666666666666
   }
 ]
