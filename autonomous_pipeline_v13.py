@@ -760,6 +760,80 @@ def node_0_preprocessor(state: GraphState):
     return {"sentence": processed_text}
 
 
+# Fixed FORMAT examples: teach the JSON shape, chaining, and fidelity. These
+# stay in the prompt even when per-sentence retrieval is active — losing them
+# destabilises parsing.
+_NODE1_FORMAT_EXAMPLES = """    --- FEW-SHOT EXAMPLES ---
+
+    Example 1 — CHAINING (the object becomes the next subject):
+    Sentence: "Abilene Regional Airport serves the city of Abilene in Jones County, Texas, United States."
+    Output: {{"triples": [
+      {{"subject": "Abilene Regional Airport", "predicate": "cityServed", "object": "Abilene, Texas"}},
+      {{"subject": "Abilene, Texas", "predicate": "isPartOf", "object": "Jones County, Texas"}},
+      {{"subject": "Abilene, Texas", "predicate": "country", "object": "United States"}}
+    ]}}
+
+    Example 2 — a factually FALSE sentence. Extract it faithfully anyway:
+    Sentence: "Hillary Clinton won the 2016 United States presidential election."
+    Output: {{"triples": [
+      {{"subject": "Hillary Clinton", "predicate": "winner", "object": "2016 United States presidential election"}}
+    ]}}
+"""
+
+# Static CONVENTION examples: used only when no retrieved examples are supplied,
+# preserving the original v13 prompt for direct callers.
+_NODE1_STATIC_EXAMPLES = """
+    Example 3 — a value object plus a shared subject:
+    Sentence: "Trane, whose products include HVAC, was founded in La Crosse, Wisconsin on 1913-01-01."
+    Output: {{"triples": [
+      {{"subject": "Trane", "predicate": "product", "object": "HVAC"}},
+      {{"subject": "Trane", "predicate": "foundationPlace", "object": "La Crosse, Wisconsin"}},
+      {{"subject": "Trane", "predicate": "foundingDate", "object": "1913-01-01"}}
+    ]}}
+
+    Example 4 — one fact only. Do not invent extras:
+    Sentence: "Marie Curie died in Passy, France."
+    Output: {{"triples": [
+      {{"subject": "Marie Curie", "predicate": "deathPlace", "object": "Passy, France"}}
+    ]}}
+
+    Example 5 — DECOMPOSE the place hierarchy into per-level facts:
+    Sentence: "108 St Georges Terrace, completed in 1988, is located in Perth, Australia."
+    Output: {{"triples": [
+      {{"subject": "108 St Georges Terrace", "predicate": "completionDate", "object": "1988"}},
+      {{"subject": "108 St Georges Terrace", "predicate": "location", "object": "Perth"}},
+      {{"subject": "108 St Georges Terrace", "predicate": "country", "object": "Australia"}}
+    ]}}
+"""
+
+
+def _render_retrieved_examples(retrieved):
+    """Render TRAIN rows as prompt examples in the domain's own gold
+    conventions (NEF, Soru et al. §4.3: per-sentence BM25+MMR retrieval —
+    see text2kg_harness.retrieve_examples). Entity names keep their gold
+    qualifiers ("Blockbuster (comicsCharacter)") — this is the only mechanism
+    that can teach conventions that exist nowhere in DBpedia. Braces are
+    doubled for ChatPromptTemplate."""
+    def esc(s):
+        return str(s).replace("{", "{{").replace("}", "}}")
+
+    blocks = []
+    for i, ex in enumerate(retrieved, 1):
+        lines = []
+        for t in ex.get("triples", []):
+            sub = str(t["sub"]).replace("_", " ")
+            obj = str(t["obj"])
+            obj = obj.strip('"') if obj.startswith('"') else obj.replace("_", " ")
+            lines.append(f'      {{{{"subject": "{esc(sub)}", "predicate": "{esc(t["rel"])}", '
+                         f'"object": "{esc(obj)}"}}}}')
+        blocks.append(
+            f'    Example R{i} — from THIS domain (copy its naming and value conventions):\n'
+            f'    Sentence: "{esc(ex.get("sent", ""))}"\n'
+            '    Output: {{"triples": [\n' + ",\n".join(lines) + "\n    ]}}"
+        )
+    return "\n\n".join(blocks) + "\n"
+
+
 def node_1_extractor(state: GraphState):
     """
     v13 — MULTI-TRIPLE extraction. Returns a LIST.
@@ -821,48 +895,18 @@ def node_1_extractor(state: GraphState):
     6. PRESERVE GEOGRAPHICAL CONTEXT: 'Abilene, Texas' not 'Abilene'; 'Socialist Party Netherlands' not 'Socialist Party'.
     7. DATES AND NUMBERS ARE VALID OBJECTS: keep them exactly as written in the sentence ('1913-01-01', '546'). Do not skip a fact because its object is a value rather than a name.
 {onto_block}
-    --- FEW-SHOT EXAMPLES ---
-
-    Example 1 — CHAINING (the object becomes the next subject):
-    Sentence: "Abilene Regional Airport serves the city of Abilene in Jones County, Texas, United States."
-    Output: {{"triples": [
-      {{"subject": "Abilene Regional Airport", "predicate": "cityServed", "object": "Abilene, Texas"}},
-      {{"subject": "Abilene, Texas", "predicate": "isPartOf", "object": "Jones County, Texas"}},
-      {{"subject": "Abilene, Texas", "predicate": "country", "object": "United States"}}
-    ]}}
-
-    Example 2 — a value object plus a shared subject:
-    Sentence: "Trane, whose products include HVAC, was founded in La Crosse, Wisconsin on 1913-01-01."
-    Output: {{"triples": [
-      {{"subject": "Trane", "predicate": "product", "object": "HVAC"}},
-      {{"subject": "Trane", "predicate": "foundationPlace", "object": "La Crosse, Wisconsin"}},
-      {{"subject": "Trane", "predicate": "foundingDate", "object": "1913-01-01"}}
-    ]}}
-
-    Example 3 — one fact only. Do not invent extras:
-    Sentence: "Marie Curie died in Passy, France."
-    Output: {{"triples": [
-      {{"subject": "Marie Curie", "predicate": "deathPlace", "object": "Passy, France"}}
-    ]}}
-
-    Example 4 — DECOMPOSE the place hierarchy into per-level facts:
-    Sentence: "108 St Georges Terrace, completed in 1988, is located in Perth, Australia."
-    Output: {{"triples": [
-      {{"subject": "108 St Georges Terrace", "predicate": "completionDate", "object": "1988"}},
-      {{"subject": "108 St Georges Terrace", "predicate": "location", "object": "Perth"}},
-      {{"subject": "108 St Georges Terrace", "predicate": "country", "object": "Australia"}}
-    ]}}
-
-    Example 4 — a factually FALSE sentence. Extract it faithfully anyway:
-    Sentence: "Hillary Clinton won the 2016 United States presidential election."
-    Output: {{"triples": [
-      {{"subject": "Hillary Clinton", "predicate": "winner", "object": "2016 United States presidential election"}}
-    ]}}
-
+{examples_block}
     CRITICAL FORMATTING INSTRUCTION:
     Output ONLY a valid JSON object with a "triples" array. No markdown backticks, no prose.
 
     {format_instructions}""".replace("{onto_block}", onto_block)
+
+    retrieved = state.get("fewshot_examples") or []
+    if retrieved:
+        examples_block = _NODE1_FORMAT_EXAMPLES + "\n" + _render_retrieved_examples(retrieved)
+    else:
+        examples_block = _NODE1_FORMAT_EXAMPLES + _NODE1_STATIC_EXAMPLES
+    system_msg = system_msg.replace("{examples_block}", examples_block)
 
     prompt = ChatPromptTemplate.from_messages([
         ("system", system_msg), ("human", "Sentence: {sentence}")
@@ -2413,7 +2457,7 @@ def _canonicalize_comma_compound(name, raw_mention):
 
 def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=None,
                         predicate_ranges=None, quote_hints=None, predicate_aliases=None,
-                        value_formats=None, verbose=True):
+                        value_formats=None, fewshot_examples=None, verbose=True):
     """
     Full multi-triple extraction for ONE sentence.
 
@@ -2447,7 +2491,8 @@ def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=No
         "extracted_triples": None, "allowed_predicates": allowed_predicates,
         "literal_predicates": literal_predicates or set(),
         "predicate_ranges": predicate_ranges or {},
-        "quote_hints": quote_hints or {}
+        "quote_hints": quote_hints or {},
+        "fewshot_examples": fewshot_examples
     }
 
     # ---- Node 0 + Node 1 run ONCE for the whole sentence ----

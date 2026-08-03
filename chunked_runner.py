@@ -52,6 +52,10 @@ def chunked_domain(slug, chunk_size=22, chunk_cooldown=45, save_every_chunk=True
         vformats = learn_value_formats(slug)
     except ImportError:
         vformats = {}
+    try:
+        from text2kg_harness import retrieve_examples
+    except ImportError:
+        retrieve_examples = None
 
     results = {}
     fname = f"results_{slug}.json"
@@ -70,12 +74,14 @@ def chunked_domain(slug, chunk_size=22, chunk_cooldown=45, save_every_chunk=True
             gt = gold.get(sid, [])
             t0 = time.time()
             try:
+                fewshot = retrieve_examples(slug, sent) if retrieve_examples else None
                 out = extract_all_triples(sent, allowed_predicates=allowed,
                                           literal_predicates=literal,
                                           predicate_ranges=ranges,
                                           quote_hints=qhints,
                                           predicate_aliases=aliases,
-                                          value_formats=vformats, verbose=False)
+                                          value_formats=vformats,
+                                          fewshot_examples=fewshot, verbose=False)
                 pred = out["triples"]
             except Exception:
                 pred = []

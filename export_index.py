@@ -2,9 +2,13 @@
 """Export the sf:* surface-form index to a single compressed file for transfer.
 
 Format: gzipped newline-delimited JSON (portable, inspectable with zcat):
-    line 1:     {"_meta": {"format": "dbpedia-sf-index", "version": 1, ...}}
-    lines 2..N: {"s": "<surface form>", "c": {"<local name>": "<tier|final>", ...}}
-    last line:  {"_count": <number of sf:* keys exported>}
+    line 1:     {"_meta": {"format": "dbpedia-sf-index", "version": 2, ...}}
+    sf records: {"s": "<surface form>", "c": {"<local name>": "<tier|final>", ...}}
+    rd records: {"k": "<comma-alias local name>", "v": "<canonical target>"}
+    last line:  {"_count": <sf keys>, "_rd_count": <rd keys>}
+
+rd:* keys are the comma-compound redirect aliases used by the pipeline's
+CANONICALIZE_COMMA_COMPOUNDS emission rule.
 
 Import with import_index.py on the target machine.
 """
@@ -29,9 +33,9 @@ def main() -> None:
     r = redis.Redis(port=args.port, decode_responses=True)
     r.ping()
 
-    exported = 0
+    exported = rd_exported = 0
     with gzip.open(args.out, "wt", encoding="utf-8") as out:
-        meta = {"_meta": {"format": "dbpedia-sf-index", "version": 1,
+        meta = {"_meta": {"format": "dbpedia-sf-index", "version": 2,
                           "release": "2022.12.01", "value_format": "tier|final"}}
         out.write(json.dumps(meta) + "\n")
 
@@ -56,10 +60,30 @@ def main() -> None:
                 if exported % 1_000_000 < BATCH:
                     tqdm.write(f"  {exported:,} keys exported")
         flush()
-        out.write(json.dumps({"_count": exported}) + "\n")
+
+        rd_batch: list[str] = []
+
+        def flush_rd() -> None:
+            nonlocal rd_exported
+            vals = r.mget(rd_batch)
+            for key, val in zip(rd_batch, vals):
+                if val is not None:
+                    out.write(json.dumps({"k": key[3:], "v": val}, ensure_ascii=False) + "\n")
+                    rd_exported += 1
+            rd_batch.clear()
+
+        for key in tqdm(r.scan_iter(match="rd:*", count=10_000),
+                        desc="exporting rd:*", unit=" keys", unit_scale=True):
+            rd_batch.append(key)
+            if len(rd_batch) >= BATCH:
+                flush_rd()
+        if rd_batch:
+            flush_rd()
+
+        out.write(json.dumps({"_count": exported, "_rd_count": rd_exported}) + "\n")
 
     size = os.path.getsize(args.out)
-    print(f"\nexported {exported:,} sf:* keys -> {args.out}")
+    print(f"\nexported {exported:,} sf:* keys + {rd_exported:,} rd:* keys -> {args.out}")
     print(f"file size: {size:,} bytes ({size / 2**20:.1f} MiB)")
 
 
