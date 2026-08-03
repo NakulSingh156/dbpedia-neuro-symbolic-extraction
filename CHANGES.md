@@ -27,7 +27,7 @@ noise floor: **±0.03 F1** (measured: an unchanged-code api-arm rerun moved
 | Comma-compound canonicalization (`CANONICALIZE_COMMA_COMPOUNDS`) | 2 gains / 0 breaks on arm-B emissions | blanket version REJECTED: 4 gains / 26 breaks (gold itself holds redirect-form names) |
 | Inversion gate (inverted-exact + Tier 1.6) | fired 8× in fresh index arm; contributes to 0.4868 → 0.5352 | unit-tested both directions; network-fail can never trigger a swap |
 | Literal formatter (value-shape exemption + learned units) | celestialbody: 40/169 value triples were wrongly always-quoted | 19-domain offline: **69 fixes / 5 breaks** (all 5 = gold's own unit inconsistency), value-format accuracy 37.6% → 44.9% |
-| Per-sentence few-shot retrieval (BM25+MMR λ=0.5, NEF §4.3 config) | see 3-domain validation table in final report | train split only; zero extra LLM calls; fixed FORMAT examples retained |
+| Per-sentence few-shot retrieval (BM25+MMR λ=0.5, NEF §4.3 config) | comics 0.2037→**0.4111** (+0.207), building 0.5352→**0.6387** (+0.104), food 0.6150→**0.6616** (+0.047) — all gpt-5.6-luna, index arm | train split only; zero extra LLM calls; fixed FORMAT examples retained |
 
 ## Rejected / negative results (paper honesty section)
 
