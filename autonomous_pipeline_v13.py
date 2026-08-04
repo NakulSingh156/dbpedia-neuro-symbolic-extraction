@@ -159,6 +159,16 @@ USE_LOCAL_INDEX = True
 # is safe. Requires rd:* keys in Redis (built from redirects_lang=en).
 CANONICALIZE_COMMA_COMPOUNDS = True
 
+# Tier 1.6 range-membership swap (ablatable). Designed for the sparse REMOTE
+# endpoint, where type data was rarely reachable and the check fired ~8x/run,
+# net positive. Against the LOCAL oxigraph store type data is ALWAYS available
+# and the heuristic over-fires: 2026-08-04 local-gate 4_building run, Tier-1.6-
+# labeled swaps were ~7 harmful / 2 neutral / 0 helpful (all genuinely helpful
+# swaps came from the inverted-exact ASK, which stays on). Code order means 1.6
+# is only reached when inverted-exact is false — i.e. no stored evidence —
+# so False disables range-only swaps entirely. Pre-2026-08-04 behaviour = True.
+TIER16_RANGE_SWAP = False
+
 # Sanity floor for the OWL file. The v8 run loaded 1172 ObjectProperties; the v9
 # run loaded 1105 from a different machine. That difference is the FILE, not the
 # code (proven by unit test — see the note in load_full_dbpedia_ontology).
@@ -1437,8 +1447,10 @@ def verify_override_schema(sub_uri, pred_uri, obj_uri, rule):
     # object sits outside the predicate's range while the emitted subject sits
     # inside it. That asymmetry is decisive evidence the triple is backwards.
     # Three-state checks: a network failure (None) never triggers a swap.
+    # Gated behind TIER16_RANGE_SWAP: against the local store this heuristic
+    # over-fires and flips correct-direction triples (see flag comment).
     _range_types = [t for t in (rule or {}).get("range", []) if t and t != "Thing"]
-    if _range_types:
+    if TIER16_RANGE_SWAP and _range_types:
         def _in_range(uri):
             saw_failure = False
             for rt in _range_types:
@@ -1543,6 +1555,19 @@ def verify_override_schema(sub_uri, pred_uri, obj_uri, rule):
         print("      relationship in DBpedia. This is the hallucination signature")
         print("      (e.g. John Cleese + Amazon rainforest). REJECTED.")
         return False
+
+    # OBJECT-ONLY MISS: the subject is real but the object URI has no triples in
+    # the store. 2026-08-04 local-gate run, test_98: <Government_of_Addis_Ababa>
+    # doesn't exist as a URI (gold wants the QUOTED LITERAL "Government of Addis
+    # Ababa") and the gate deleted the whole currentTenants triple. Deleting is
+    # the wrong recovery — this is exactly the not-in-index -> literal rule, one
+    # step later. Return a sentinel so the caller demotes the object to a quoted
+    # literal instead of dropping a faithful extraction. Subject-side misses keep
+    # blocking: a triple's subject must be a URI, there is nothing to demote to.
+    if sub_exists is True and obj_exists is False:
+        print("   🔁 SPARQL GATE: subject is real but the object URI does not exist "
+              "in the store — demoting object to a quoted literal instead of rejecting.")
+        return "OBJ_MISSING"
 
     print(f"   🛑 SPARQL GATE BLOCKED: Dead/hallucinated URI "
           f"(subject_exists={sub_exists}, object_exists={obj_exists}).")
@@ -1911,6 +1936,15 @@ def node_4_judge(state: GraphState):
                     # emitted triple follows the ontology direction.
                     final_triple_str = f"<{uris[2]}> <{uris[1]}> <{uris[0]}>"
                     print(f"   🔄 Subject/object SWAPPED to match ontology direction: {final_triple_str}")
+                elif gate_result == "OBJ_MISSING":
+                    # Subject is real, object URI absent from the store: keep the
+                    # faithful extraction with the sentence's own words as a quoted
+                    # literal. Bare-quoted form so the harness literal normalizer
+                    # (quote hints / value formats) applies exactly as for a
+                    # Node-2-miss literal.
+                    _raw_obj = (state.get('raw_object') or uris[2].split('/')[-1].replace('_', ' ')).strip()
+                    final_triple_str = f'<{uris[0]}> <{uris[1]}> "{_raw_obj}"'
+                    print(f"   🔁 Object demoted to literal: {final_triple_str}")
                 if not gate_result:
                     gate_rejected = True
                     if current_retry < 2:
@@ -2226,7 +2260,29 @@ def _normalize_literal(raw, pid=None, pid_range=None, quote_hint=None, value_for
     # Observed: sentence "January 1, 1726" was emitted verbatim; gold is
     # 1726-01-01. Convert any recognisable English date to ISO before anything
     # else, for date-ranged predicates (and *Date pids when range is missing).
-    if rng == "date" or pid_l.endswith("date") or pid_l in ("established", "foundingdate", "completiondate"):
+    #
+    # DATE-STYLE REFINEMENT (2026-08-04, measured on all 19 TRAIN splits):
+    #   * month-name values ("December 2008", "30 March 2007") are quoted in
+    #     gold 41/3 — the 3 exceptions all carry a "(...)" suffix (epoch).
+    #     -> any month-name value without parens is emitted QUOTED, overriding
+    #        the per-predicate hint (which majority-votes across mixed shapes
+    #        and gets the minority shape wrong: completionDate has bare years
+    #        AND "April 2014" under one pid).
+    #   * whether English dates are KEPT ("30 March 2007", building, 18/0) or
+    #     ISO-CONVERTED ("1987-02-27", NRHP/scientist) is a per-predicate
+    #     convention learned from train (value_format["date_style"]). Style
+    #     "english" skips the ISO conversion; style "iso" also lets non-*Date
+    #     pids (addedToTheNationalRegisterOfHistoricPlaces) reach it.
+    _vf_style = (value_format or {}).get("date_style")
+    _month_re = _re.compile(r'\b(january|february|march|april|may|june|july|'
+                            r'august|september|october|november|december)\b', _re.I)
+    _eng_shape = bool(_month_re.search(v)) and '(' not in v
+    if (rng == "date" or pid_l.endswith("date")
+            or pid_l in ("established", "foundingdate", "completiondate")
+            or (_vf_style == "iso" and _eng_shape)):
+        if _vf_style == "english" and _eng_shape:
+            return v, True                       # gold keeps the English form, quoted
+        # fall through to the ISO conversion below
         # Strip ordinal suffixes so "July 11th, 1907" and "11th July 1907" parse.
         v = _re.sub(r'(\d{1,2})(st|nd|rd|th)\b', r'\1', v)
         # Numeric DD-MM-YYYY or DD/MM/YYYY -> ISO (WebNLG uses European day-first).
@@ -2253,6 +2309,11 @@ def _normalize_literal(raw, pid=None, pid_range=None, quote_hint=None, value_for
             _mon = _MONTHS.get(_m.group(1).lower())
             if _mon:
                 v = f"{_m.group(3)}-{_mon:02d}-{int(_m.group(2)):02d}"
+        # Month name survived the conversion (month-year form like "December
+        # 2008", which has no day to convert): gold quotes these 41/3 across
+        # all 19 train splits — emit verbatim, QUOTED, overriding the hint.
+        if _month_re.search(v) and '(' not in v:
+            return v, True
 
     # ── BUG A FIX: predicates gold NEVER quotes ───────────────────────────────
     # Measured across all 19 domains' gold: these are 100% bare.
@@ -2351,7 +2412,9 @@ def _normalize_literal(raw, pid=None, pid_range=None, quote_hint=None, value_for
     if _re.fullmatch(r'-?\d+\.\d+', v):
         return v, False
     if _re.fullmatch(r'\d{4}-\d{2}-\d{2}', v):
-        return v, False                            # ISO date
+        # ISO date with no declared range: the learned hint decides quoting
+        # (NRHP gold writes "1987-02-27" QUOTED; hint=None keeps old unquoted).
+        return v, (quote_hint is True)
     if _re.fullmatch(r'0\d+', v):
         return v, False                            # leading-zero code: keep exact
     if _re.fullmatch(r'-?\d+', v):

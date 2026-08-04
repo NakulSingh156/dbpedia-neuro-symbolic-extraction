@@ -636,7 +636,9 @@ def learn_value_formats(domain_slug):
     Learn, from the TRAIN split only, per-predicate VALUE formatting conventions:
 
       {pid: {"unit": "kilometres" | None,   # gold writes "V (unit)" for this pid
-             "float0": True | False}}       # gold writes integers with a ".0"
+             "float0": True | False,        # gold writes integers with a ".0"
+             "date_style": "english"|"iso"}} # gold keeps "30 March 2007" verbatim
+                                             # vs converts to "2007-03-30"
 
     Why: celestialbody (and meanoftransportation etc.) gold writes value
     literals as "6603633000.0 (kilometres)" / "2.0 (gramPerCubicCentimetres)".
@@ -653,6 +655,16 @@ def learn_value_formats(domain_slug):
     import re as _re
     units = collections.defaultdict(collections.Counter)
     numeric = collections.defaultdict(lambda: [0, 0])   # [with .0, bare int]
+    # DATE STYLE (2026-08-04): the same value can be gold-written two ways —
+    # building keeps "30 March 2007" VERBATIM (train: 18 quoted / 0 converted)
+    # while scientist/NRHP gold converts English dates to ISO "2007-03-30".
+    # Which way is a per-predicate convention, learnable from train shapes.
+    dateshape = collections.defaultdict(lambda: [0, 0])  # [english, iso]
+    _MON = (r'(?:january|february|march|april|may|june|july|august|'
+            r'september|october|november|december)')
+    _ENG_DATE = _re.compile(
+        rf'^(?:\d{{1,2}}\s+{_MON}\s+\d{{4}}|{_MON}\s+\d{{1,2}},?\s+\d{{4}}|'
+        rf'{_MON},?\s+\d{{4}})$', _re.I)
     path = f"{BENCH}/train/ont_{domain_slug}_train.jsonl"
     try:
         for line in open(path):
@@ -668,6 +680,10 @@ def learn_value_formats(domain_slug):
                     numeric[t["rel"]][0] += 1
                 elif _re.fullmatch(r'\d+', v):
                     numeric[t["rel"]][1] += 1
+                if _ENG_DATE.match(v):
+                    dateshape[t["rel"]][0] += 1
+                elif _re.fullmatch(r'\d{4}-\d{2}-\d{2}', v):
+                    dateshape[t["rel"]][1] += 1
     except FileNotFoundError:
         return {}
     out = {}
@@ -679,6 +695,9 @@ def learn_value_formats(domain_slug):
     for pid, (with0, bare) in numeric.items():
         if with0 >= 2 and bare == 0:
             out.setdefault(pid, {})["float0"] = True
+    for pid, (eng, iso) in dateshape.items():
+        if eng or iso:
+            out.setdefault(pid, {})["date_style"] = "english" if eng >= iso else "iso"
     return out
 
 

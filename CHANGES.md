@@ -1,4 +1,22 @@
-# CHANGES — local index + fix rounds (2026-08-02 → 2026-08-03)
+# CHANGES — local index + fix rounds (2026-08-02 → 2026-08-04)
+
+## Round 4 (2026-08-04): local-gate fixes after the server A/B
+
+Context: server 4_building A/B, same code/day — remote dbpedia.org gate
+**0.5240** (9 zeros, ~120 s/sent, repeated outages) vs local oxigraph gate
+(`pl.DBPEDIA_SPARQL_ENDPOINT = "http://localhost:7878/query"`) **0.5612**
+(6 zeros, **26 s/sent**). Mac reference with remote gate: 0.6387.
+
+| fix | evidence | expected effect |
+|---|---|---|
+| `TIER16_RANGE_SWAP = False` (new flag; pre-2026-08-04 = True) | Local store makes type data always available and 1.6 over-fires: 8 range-swaps in the local run, 0 helpful, all victims already unmatched (literal-vs-URI / name mismatches) — every genuinely helpful swap came from the inverted-exact ASK, which stays on. HONEST NOTE: initial log-read claimed ~7 harmful; re-quantification against pred/gold showed ~neutral F1. Ships as variance/semantics cleanup, not a score fix. | ~0.00 F1, removes backwards emissions |
+| Gate `OBJ_MISSING` demote-to-literal | test_98: object URI absent locally → whole triple deleted; gold wanted the quoted literal. Now: subject-real + object-confirmed-absent → emit object as quoted literal (same rule as Node-2 miss). Subject-side misses still block. Offline: 10/10 gate tests. | +~0.003 building |
+| Date-style literals: (a) month-name values force-QUOTED verbatim; (b) per-pid `date_style` learned from train (`english` keeps "30 March 2007", `iso` converts — also reaches non-*Date pids like addedToTheNRHP); (c) no-range ISO dates follow the learned quote hint | TRAIN 19 domains: month-values 41 quoted / 3 unquoted (all 3 parenthesized epoch values — guarded); full English dates 18/0 kept-verbatim-quoted in building; NRHP train = quoted ISO. TEST gold: month-literals 9 quoted / 0 unquoted (all in building) → zero break risk. Offline: 12/12 date tests. | +~0.03 building ("December 2008" ×7 + NRHP ×3) |
+
+Offline suites: `test_gate_patches.py`, `test_date_style.py` (both run with
+`USE_TF=0`, no network/LLM). Local-gate rerun expectation for building:
+~0.59 ± 0.03.
+
 
 All numbers measured on this Mac (gpt-5.6-luna unless stated). Single-run
 noise floor: **±0.03 F1** (measured: an unchanged-code api-arm rerun moved
