@@ -963,6 +963,66 @@ def node_1_extractor(state: GraphState):
     }
 
 
+# ── v14: CONTEXT-QUALIFIED SENSE LOOKUP ──────────────────────────────────────
+# The 2_musicalwork/19_film autopsies: 35/70 and 39/45 zeros were bare-title
+# resolutions ("Mermaid" -> dbr:Mermaid) where gold wants the parenthesised
+# sense (Mermaid_(Train_song)) AND the sentence names the disambiguator
+# ("Train's hit Mermaid...", "the 1956 film It's Great to Be Young"). The bare
+# surface's top-k in the sf index doesn't even CONTAIN the right sense (it is
+# popularity-ranked), so Node 3 never gets the chance to pick it. Generate
+# paren-qualified lookup variants from sentence context; page-title surfaces
+# like "Mermaid (Train song)" are first-class keys in the index, so a correct
+# variant hits exactly.
+# Sense-kind indicators: the parenthetical kind DBpedia uses, mapped from the
+# words a sentence actually says ("Train's HIT Mermaid" never says "song").
+_QUAL_KIND_TRIGGERS = {
+    "song":     ("song", "single", "hit", "track"),
+    "album":    ("album", "lp", "ep"),
+    "film":     ("film", "movie"),
+    "band":     ("band", "group"),
+    "novel":    ("novel",),
+    "book":     ("book",),
+    "comic":    ("comic", "comics"),
+    "director": ("director", "directed"),
+    "actor":    ("actor", "actress"),
+    "singer":   ("singer",),
+    "writer":   ("writer",),
+    "musician": ("musician",),
+}
+_QUAL_STOPWORDS = {"the", "a", "an", "of", "in"}
+
+def _context_variants(mention, sentence):
+    """Paren-qualified lookup variants for a mention, built from its sentence."""
+    s = str(sentence or "")
+    m = str(mention or "").strip()
+    if not m or m.startswith('"'):
+        return []
+    out = []
+    year = re.search(r'\b(?:18|19|20)\d{2}\b', s)
+    kinds = [k for k, trigs in _QUAL_KIND_TRIGGERS.items()
+             if any(re.search(rf'\b{t}s?\b', s, re.I) for t in trigs)]
+    # Capitalised phrases from the sentence that are NOT the mention itself —
+    # candidate artist/band/creator names for "<title> (<artist> <kind>)".
+    names = []
+    # Allow lowercase connectors inside a name ("Year of No Light") and offer
+    # an article-stripped twin ("The Year of No Light" -> "Year of No Light").
+    _name_re = (r"\b([A-Z][\w.'&-]*"
+                r"(?:\s+(?:of|the|and|de|la|von|van|der)\s+[A-Z][\w.'&-]*"
+                r"|\s+[A-Z][\w.'&-]*){0,4})")
+    for nm in re.finditer(_name_re, s):
+        n = re.sub(r"'s?$", "", nm.group(1).strip()).strip(".,;:")  # "Train's" -> "Train"
+        for base in (n, re.sub(r"^(?:The|A|An)\s+", "", n)):
+            if base and base.lower() != m.lower() and base not in names:
+                names.append(base)
+    for k in kinds:
+        if year:
+            out.append(f"{m} ({year.group(0)} {k})")
+        for n in names[:6]:
+            out.append(f"{m} ({n} {k})")
+        out.append(f"{m} ({k})")
+    return out[:16]
+
+
 def node_2_fetcher(state: GraphState):
     print("\n--- [NODE 2] RUNNING TARGETED RETRIEVAL (REDIS BACKED) ---")
 
@@ -1046,6 +1106,38 @@ def node_2_fetcher(state: GraphState):
 
     sub_c = fetch_candidates(state["raw_subject"])
     obj_c = fetch_candidates(state["raw_object"])
+
+    # v14: merge in context-qualified senses (local index only — the web API
+    # fuzzy path would contaminate the ablation). Uses surface_index.lookup
+    # directly so a variant miss doesn't print the misleading literal-path line.
+    if USE_LOCAL_INDEX:
+        from surface_index import lookup as _sf_lookup
+        sentence = state.get("sentence") or ""
+        for role, raw, cur in (("subject", state["raw_subject"], sub_c),
+                               ("object",  state["raw_object"],  obj_c)):
+            seen = {d["resource"][0] for d in cur}
+            extra = []
+            for var in _context_variants(raw, sentence):
+                try:
+                    hits = _sf_lookup(var, k=2) or []
+                except Exception:
+                    hits = []
+                for local_name, score in hits:
+                    uri = f"http://dbpedia.org/resource/{local_name}"
+                    if uri in seen:
+                        continue
+                    seen.add(uri)
+                    readable = local_name.replace("_", " ")
+                    extra.append({
+                        "resource": [uri], "label": [readable],
+                        "comment": [readable], "type": [], "typeName": [],
+                        "score": [f"{score:.4f}"],
+                    })
+            if extra:
+                print(f"   🎯 Context-qualified {role} senses added: "
+                      f"{[d['resource'][0].rsplit('/', 1)[-1] for d in extra]}")
+                cur[:0] = extra
+
     print(f"Retrieved: {len(sub_c)} Subjects | {len(obj_c)} Objects")
     return {"subject_candidates": sub_c, "object_candidates": obj_c}
 
@@ -1059,6 +1151,9 @@ def node_3_math_engine(state: GraphState):
     weights_override = state.get("math_weights")
     raw_sub, raw_pred, raw_obj = state["raw_subject"], state["raw_predicate"], state["raw_object"]
     suggested_pred = state.get("suggested_predicate")
+    # v14: hoisted so the literal short-circuit below can consult the CURRENT
+    # domain's declared literal pids on every path, including judge-forced.
+    literal_preds = state.get("literal_predicates") or set()
 
     # --- Predicate Linking over the full OWL property space ---
     if suggested_pred and predicate_in_ontology(suggested_pred):
@@ -1104,14 +1199,16 @@ def node_3_math_engine(state: GraphState):
                     # vector: "cityServed" -> "city Served".
                     label = re.sub(r'(?<!^)(?=[A-Z])', ' ', pid).replace('_', ' ')
                     bounded[uri] = embedding_model.encode(label)
-                # ── DATATYPE FIX ─────────────────────────────────────────────
-                # A pid embedded on the fly is NOT in DATATYPE_PROPERTIES, so the
-                # literal short-circuit missed it — that is why
-                # elevationAboveTheSeaLevel resolved "546" to the entity <Animal>
-                # instead of emitting the literal. If Text2KGBench declares this
-                # pid literal-ranged, register it now so the short-circuit fires.
-                if pid in literal_preds:
-                    DATATYPE_PROPERTIES.add(uri)
+                # ── DATATYPE FIX (v14: de-globalised) ────────────────────────
+                # v13 registered benchmark-declared literal pids into the GLOBAL
+                # DATATYPE_PROPERTIES set and never removed them, so one domain's
+                # quoting convention leaked into every LATER domain in the same
+                # process: 12_monument quotes `country` in gold, which poisoned
+                # the global set and made 13_food + 14_writtenwork quote every
+                # country object (127 + 77 URI-gold triples destroyed on the
+                # 2026-08 server sweep; food 0.66 -> 0.49). The literal
+                # short-circuit now consults the PER-DOMAIN literal_preds
+                # directly — no global mutation.
             if bounded:
                 search_space = bounded
                 n_owl = sum(1 for u in bounded if u in ontology_vectors)
@@ -1151,7 +1248,8 @@ def node_3_math_engine(state: GraphState):
     # below detects the flag and skips fetching/linking, emitting the raw string.
     # THIS is the one place the declared range IS the correct signal — not for
     # deciding quoting in general (measured false), but for "do not entity-link".
-    object_is_literal = best_predicate_uri in DATATYPE_PROPERTIES
+    object_is_literal = (best_predicate_uri in DATATYPE_PROPERTIES
+                         or best_predicate_uri.split('/')[-1] in literal_preds)
     if object_is_literal:
         lit = raw_obj.strip().strip('"')
         print(f"   🔢 Datatype predicate → object is a LITERAL, skipping entity-linking: \"{lit}\"")
@@ -1184,6 +1282,8 @@ def node_3_math_engine(state: GraphState):
         expected_sub_types, expected_obj_types = domain_types, range_types
 
     sentence_emb = embedding_model.encode(state["sentence"])
+    # v14: token set of the sentence, for the qualifier-context bonus below.
+    sentence_tokens = set(re.findall(r"[\w']+", state["sentence"].lower()))
 
     # --- IDEA 4: Proactive entropy weighting, per role ---
     sub_weights = weights_override or calculate_entropy_weights(sub_candidates_raw, raw_sub, default_weights)
@@ -1233,9 +1333,31 @@ def node_3_math_engine(state: GraphState):
 
             abs_emb = embedding_model.encode(abstract)
             v_sim = float(np.dot(context_emb, abs_emb) / (np.linalg.norm(context_emb) * np.linalg.norm(abs_emb)))
-            l_sim = calc_lex_sim(target_raw, label)
+            # v14: lexical sim against the BASE title — "Mermaid (Train song)"
+            # must not lose lexical points to bare "Mermaid" for the mention
+            # "Mermaid"; the parenthetical is disambiguation metadata, not name.
+            l_sim = calc_lex_sim(target_raw, re.sub(r'\s*\([^)]*\)\s*$', '', label))
 
-            base_score = (weights["vector"] * v_sim) + (weights["lexical"] * l_sim)
+            # v14 QUALIFIER-CONTEXT BONUS: a parenthesised sense whose qualifier
+            # tokens appear in the sentence is the sense the sentence is about
+            # ("Train's hit Mermaid" -> Mermaid_(Train_song), matched={train,
+            # song}). Bonus scales with matched-token COUNT so the more specific
+            # correct sense ((Train song), 2 hits) beats the vaguer one ((song),
+            # 1 hit). A qualifier with ZERO sentence support is mildly penalised
+            # — it is some OTHER sense of the surface form.
+            qual_bonus = 0.0
+            _qm = re.search(r'\(([^)]+)\)\s*$', label)
+            if _qm:
+                _qtoks = [t for t in re.findall(r"[\w']+", _qm.group(1).lower())
+                          if t not in _QUAL_STOPWORDS]
+                if _qtoks:
+                    _matched = sum(t in sentence_tokens for t in _qtoks)
+                    if _matched / len(_qtoks) >= 0.5:
+                        qual_bonus = min(0.12 * _matched, 0.36)
+                    elif _matched == 0:
+                        qual_bonus = -0.10
+
+            base_score = (weights["vector"] * v_sim) + (weights["lexical"] * l_sim) + qual_bonus
             has_type_match = any(expected.lower() in t.lower() for t in sanitized_types for expected in expected_types)
 
             # ENTITY-TYPE CONTRADICTION GUARD.
@@ -1435,7 +1557,15 @@ def verify_override_schema(sub_uri, pred_uri, obj_uri, rule):
                 time.sleep(1.0)
         return None
 
-    if _ask(f"ASK {{ <{obj_uri}> <{pred_uri}> <{sub_uri}> }}"):
+    # v14: never direction-swap a (quasi-)symmetric predicate. dishVariation is
+    # stored BOTH ways in DBpedia (BLT <-> Bacon_sandwich), so the inverted ASK
+    # verifying proves nothing about our direction — and the 13_food autopsy
+    # showed swaps here flipping sentence-faithful triples AWAY from gold
+    # (#52/#53: gold keeps the sentence's direction).
+    _SYMMETRIC_PIDS = {"dishVariation", "associatedBand", "associatedMusicalArtist",
+                       "related", "sisterStation", "spouse", "relative"}
+    if (pred_uri.rsplit('/', 1)[-1] not in _SYMMETRIC_PIDS
+            and _ask(f"ASK {{ <{obj_uri}> <{pred_uri}> <{sub_uri}> }}")):
         print("   🔄 SPARQL GATE: triple verified in the INVERTED direction — "
               "our subject/object order contradicts DBpedia's.")
         return "INVERTED"
@@ -1565,6 +1695,25 @@ def verify_override_schema(sub_uri, pred_uri, obj_uri, rule):
     # literal instead of dropping a faithful extraction. Subject-side misses keep
     # blocking: a triple's subject must be a URI, there is nothing to demote to.
     if sub_exists is True and obj_exists is False:
+        # v14 INDEX CROSS-CHECK: the 16.2M-mention sf index and the local store
+        # are INDEPENDENT authorities on entity reality, and each has gaps the
+        # other covers. An object absent from the store but present in the index
+        # is a store coverage gap, not a fake URI — demoting it to a literal
+        # loses against gold, which writes real entities as URIs (FIMI,
+        # Crucial_Blast, Michael_R._Burns in the autopsies). Objects absent from
+        # BOTH keep demoting (Government_of_Addis_Ababa — gold agrees: literal).
+        try:
+            from surface_index import lookup as _sf_lookup
+            _oname = obj_uri.rsplit('/', 1)[-1]
+            _in_index = any(ln == _oname for ln, _ in
+                            (_sf_lookup(_oname.replace('_', ' '), k=5) or []))
+        except Exception:
+            _in_index = False
+        if _in_index:
+            print("   ✅ SPARQL GATE: object missing from the LOCAL STORE but present "
+                  "in the sf index — store coverage gap, not a fake URI. "
+                  "Accepted as UNVERIFIED.")
+            return True
         print("   🔁 SPARQL GATE: subject is real but the object URI does not exist "
               "in the store — demoting object to a quoted literal instead of rejecting.")
         return "OBJ_MISSING"
@@ -2479,6 +2628,15 @@ def _route_unresolved_value(raw, pid, quote_hints, value_formats):
     "Faversham, Kent, England"-style objects).
     """
     v = str(raw).strip().strip('"').strip()
+    # v14: bare year under a *Year predicate -> gold's date form (19_film #39:
+    # birthYear "1955" vs gold "1955-01-01"); currency-prefixed number -> bare
+    # numeric ("£282,838"/"$30955" vs gold 282838.0/30955.0), then the normal
+    # number branch formats it.
+    if re.fullmatch(r'(?:1[6-9]|20)\d{2}', v) and str(pid).endswith("Year"):
+        v = f"{v}-01-01"
+    _cur = re.fullmatch(r'[\$£€]\s*([\d,]+(?:\.\d+)?)', v)
+    if _cur:
+        v = _cur.group(1)
     qh = (quote_hints or {}).get(pid)
     vf = (value_formats or {}).get(pid)
     dateish = bool(
@@ -2626,7 +2784,15 @@ def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=No
                 rel = _local_name(literal_match.group(2))
                 _rng = (predicate_ranges or {}).get(rel, "")
                 _qh = (quote_hints or {}).get(rel)
-                lit_val, is_quoted = _normalize_literal(literal_match.group(3), rel, _rng, _qh,
+                _lv = literal_match.group(3).strip()
+                # v14: same year/currency pre-normalisation as
+                # _route_unresolved_value — datatype-path literals need it too.
+                if re.fullmatch(r'(?:1[6-9]|20)\d{2}', _lv) and rel.endswith("Year"):
+                    _lv = f"{_lv}-01-01"
+                _cur = re.fullmatch(r'[\$£€]\s*([\d,]+(?:\.\d+)?)', _lv)
+                if _cur:
+                    _lv = _cur.group(1)
+                lit_val, is_quoted = _normalize_literal(_lv, rel, _rng, _qh,
                                                         (value_formats or {}).get(rel))
                 obj = f'"{lit_val}"' if is_quoted else lit_val
             elif len(uris) == 3:

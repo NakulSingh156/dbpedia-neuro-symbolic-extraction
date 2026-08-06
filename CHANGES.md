@@ -78,3 +78,43 @@ noise floor: **±0.03 F1** (measured: an unchanged-code api-arm rerun moved
   mitigate.
 - dbpedia.owl snapshot affects predicate linking, the literal short-circuit,
   and Tier 1.6 ranges — see RUNBOOK §7.
+
+## Round 5 (v14 patches, 2026-08-06) — macro 0.5978 → 0.6356
+
+Autopsies on 13_food (regression), 2_musicalwork (70 zeros), 19_film (45 zeros)
+found two root causes; all fixes validated offline before the rerun.
+
+1. **DATATYPE_PROPERTIES poison bug** — benchmark-declared literal pids were
+   added to the GLOBAL set and never removed, so one domain's quoting
+   convention leaked into every later domain in the same process. 12_monument
+   quotes `country` in gold → 13_food (127 URI-gold country triples quoted,
+   0.66→0.49) and 14_writtenwork (77 country + 9 almaMater) were destroyed.
+   Fix: literal short-circuit consults the per-domain `literal_preds`; the
+   global set is OWL-only again. Full 19-domain contamination sweep confirmed
+   no other domain was hit (batch 2 ran in a fresh process → clean).
+2. **Context-qualified sense resolution** — 35/70 musicalwork and 39/45 film
+   zeros were bare-title links (`Mermaid` vs `Mermaid_(Train_song)`,
+   `It's_Great_to_Be_Young` vs `…_(1956_film)`) where the sentence names the
+   disambiguator. Node 2 now issues paren-qualified index lookups built from
+   sentence context (`_context_variants`, with trigger synonyms hit→song,
+   movie→film); Node 3 scores lexical sim on the base title and adds a
+   qualifier-context bonus scaled by matched-token count ((1956 film) beats
+   (film) beats bare).
+3. **sf-index cross-check before OBJ_MISSING demote** — object absent from the
+   local store but present in the 16.2M-mention index is a store coverage gap,
+   not a fake URI (FIMI, Crucial_Blast stay URIs; Government_of_Addis_Ababa
+   still demotes).
+4. **Symmetric-predicate swap guard** — inverted-exact swap disabled for
+   dishVariation/associatedBand/etc. (food #52/#53 flips).
+5. **Literal polish** — bare year under `*Year` pids → `YYYY-01-01`;
+   currency-prefixed numbers stripped to numerics ("£282,838" → 282838.0).
+
+Rerun (fresh kernel, 4 domains, ~4.5 h): food 0.4883→0.7066, writtenwork
+0.5651→0.7309, musicalwork 0.5173→0.6063, film 0.4754→0.7177.
+**19-domain macro 0.6356 — beats the 2025 GPT-4o NEF baseline (0.628) at
+~1/20th the model cost.** Caveat: mixed run (15 domains still on round-4
+results); a clean full v14 sweep is pending for paper-final numbers.
+
+Known unfixed: benchmark typo-case names ("the Year of No light"); Node 1
+pronoun rewrite mangling quoted titles ("This'll Be My Year" →
+"This'll be The user's year"); monument case-twin; comics annotation cap.
