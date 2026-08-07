@@ -1,0 +1,46 @@
+# DBpedia neural-symbolic extraction service — full offline stack.
+# DRAFT (post-v14-final packaging work; does not alter frozen pipeline code).
+#
+#   docker compose up   →  POST http://localhost:8000/extract  {"text": "..."}
+#
+# Volumes must be pre-seeded once:
+#   sf-index : Redis dump of the 16.2M-mention surface-form index (import_index.py)
+#   store    : oxigraph data directory with the DBpedia triple load
+services:
+  redis:
+    image: redis:7
+    command: redis-server --port 6380 --appendonly no --save ""
+    volumes:
+      - sf-index:/data
+    ports:
+      - "6380:6380"
+
+  oxigraph:
+    image: ghcr.io/oxigraph/oxigraph:latest
+    command: serve --location /data --bind 0.0.0.0:7878
+    volumes:
+      - store:/data
+    ports:
+      - "7878:7878"
+
+  pipeline:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - USE_TF=0
+      # NOTE: requires the small config change making hosts env-driven
+      # (pipeline currently hardcodes 127.0.0.1) — queued for the
+      # deployment branch AFTER the final benchmark run is frozen.
+      - REDIS_HOST=redis
+      - DBPEDIA_SPARQL_ENDPOINT=http://oxigraph:7878/query
+    depends_on:
+      - redis
+      - oxigraph
+    ports:
+      - "8000:8000"
+
+volumes:
+  sf-index:
+  store:
