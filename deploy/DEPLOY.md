@@ -18,8 +18,11 @@ leaves the host except for the LLM request.
 git clone <repo> && cd <repo>/deploy
 
 # 1. Get the two data snapshots into deploy/data/
-#      data/dump.rdb        <- published index snapshot (link: TBD Zenodo/Databus DOI)
-#      data/oxigraph/       <- published store snapshot (link: TBD)
+#      data/dump.rdb        <- surface-form index snapshot
+#      data/oxigraph/       <- triple-store snapshot
+#    Published on the DBpedia Databus (artifact URIs added on release):
+#      https://databus.dbpedia.org/<account>/surface-form-index/<version>
+#      https://databus.dbpedia.org/<account>/extraction-store/<version>
 #    (or copy them from your build machine)
 
 # 2. Seed the Docker volumes (one time)

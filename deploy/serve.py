@@ -10,7 +10,7 @@ so downstream users can filter by trust level.
 """
 import os
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 os.environ.setdefault("USE_TF", "0")
@@ -30,5 +30,10 @@ def health():
 
 @app.post("/extract")
 def extract(req: ExtractRequest):
+    if not pl.OPENROUTER_API_KEY:
+        raise HTTPException(
+            status_code=503,
+            detail="OPENROUTER_API_KEY is not configured — set it in deploy/.env and restart.",
+        )
     results = pl.extract_all_triples(req.text)
     return {"triples": results}
