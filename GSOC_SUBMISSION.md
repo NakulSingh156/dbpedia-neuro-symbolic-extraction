@@ -63,5 +63,5 @@ surprising number as a bug until proven otherwise.
 
 - **Work product (this repo):** https://github.com/NakulSingh156/dbpedia-neuro-symbolic-extraction
 - **Final report:** https://github.com/NakulSingh156/dbpedia-neuro-symbolic-extraction/blob/master/REPORT.md
-- **Container image:** https://github.com/NakulSingh156/dbpedia-neuro-symbolic-extraction/pkgs/container/dbpedia-extractor
+- **Container image:** https://github.com/users/NakulSingh156/packages/container/package/dbpedia-extractor (`docker pull ghcr.io/nakulsingh156/dbpedia-extractor:v14`)
 - **Frozen result tag:** `v14-final` / `final-results-0.6317`
