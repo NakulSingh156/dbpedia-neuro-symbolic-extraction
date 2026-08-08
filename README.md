@@ -48,8 +48,9 @@ flowchart LR
 | Model | `openai/gpt-5.6-luna` via OpenRouter, temperature 0 — endpoint swappable to any OpenAI-compatible API, incl. local vLLM/Ollama for a 100% offline deployment |
 | Runtime | ~27 s/sentence, full benchmark ~16 h unattended on one 8 GB VPS |
 
-Full per-domain table, fix history, and run-variance notes: [`CHANGES.md`](CHANGES.md).
-Exact regeneration recipe (code tag, model config, data snapshots): [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
+**Full final report: [`REPORT.md`](REPORT.md)** — per-domain table vs the GPT-4o
+baseline, cost analysis, engineering journey, limitations.
+Fix history: [`CHANGES.md`](CHANGES.md) · regeneration recipe: [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
 
 ## Run it
 
