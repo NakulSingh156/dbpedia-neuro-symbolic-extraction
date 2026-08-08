@@ -6,16 +6,18 @@ Drop-in replacement for DBpedia Lookup API calls:
     from surface_index import lookup
     lookup("USA")  ->  [("United_States", 0.9), ...]
 """
+import os
 import re
 import string
 
 import redis
 
-REDIS_PORT = 6380
+REDIS_HOST = os.environ.get("REDIS_HOST", "127.0.0.1")
+REDIS_PORT = int(os.environ.get("REDIS_PORT", "6380"))
 _WS_RE = re.compile(r"\s+")
 _STRIP_CHARS = string.punctuation + string.whitespace
 
-_r = redis.Redis(port=REDIS_PORT, decode_responses=True)
+_r = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=True)
 
 
 def _normalize(mention: str) -> str:

@@ -1,0 +1,7 @@
+.git
+results_*
+*.rdb
+*.log
+*.ipynb
+__pycache__
+deploy/data

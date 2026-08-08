@@ -44,6 +44,7 @@ SETUP
 """
 
 import os
+import sys
 import re
 import time
 import json
@@ -130,7 +131,11 @@ ENTITY_LOCK_THRESHOLD = 0.82      # unit-tested: blocks Mars->Bruno_Mars (0.57),
                                   # Paris_(mythology) (1.00)
 
 # Redis: user's server runs on 6380; 6379 is the conventional default. Try both.
-REDIS_PORTS = [6380, 6379]
+# Deployment config via env vars; defaults preserve the benchmark-run behaviour
+# exactly (localhost services, ports 6380/6379). In Docker these point at the
+# compose service names instead.
+REDIS_HOST = os.environ.get("REDIS_HOST", "127.0.0.1")
+REDIS_PORTS = [int(os.environ.get("REDIS_PORT", "6380")), 6379]
 
 TOPOLOGY_BONUS = 0.20
 BFS_2HOP_BONUS = 0.08
@@ -139,7 +144,7 @@ TOP_K_PER_ROLE = 5
 CHECK_2HOP_TOP_N = 3
 MIN_BASE_SCORE_FOR_TOPOLOGY = 0.35  # SEMANTIC FLOOR — topology reinforces, never rescues
 
-DBPEDIA_SPARQL_ENDPOINT = "https://dbpedia.org/sparql"
+DBPEDIA_SPARQL_ENDPOINT = os.environ.get("DBPEDIA_SPARQL_ENDPOINT", "https://dbpedia.org/sparql")
 DBPEDIA_LOOKUP_URL = "https://lookup.dbpedia.org/api/search"
 
 # ── ABLATION FLAG (paper): local surface-form index vs live DBpedia Lookup ──
@@ -177,13 +182,17 @@ EXPECTED_MIN_ONTOLOGY_PROPS = 1150
 BLACKLIST_URI_PATTERNS = ["List_of_", "_(disambiguation)", "filmography", "discography", "Wikipedia:"]
 CONTRADICTION_FLAGS = ["should be", "incorrect", "is wrong", "hijack", "not correct", "invalid"]
 
-# API key: env var first, secure prompt as fallback. Never hardcoded.
+# API key: env var first, secure prompt as fallback (interactive shells only —
+# a headless container must fail loudly at call time, not hang on stdin).
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 if not OPENROUTER_API_KEY:
-    OPENROUTER_API_KEY = getpass.getpass("Enter your OpenRouter API key (hidden input): ")
+    if sys.stdin.isatty():
+        OPENROUTER_API_KEY = getpass.getpass("Enter your OpenRouter API key (hidden input): ")
+    else:
+        print("⚠️ OPENROUTER_API_KEY not set and no TTY — LLM calls will fail until it is provided.")
 
-TARGET_MODEL = "meta-llama/llama-3.3-70b-instruct"
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+TARGET_MODEL = os.environ.get("TARGET_MODEL", "meta-llama/llama-3.3-70b-instruct")
+OPENROUTER_BASE_URL = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
 
 # ================================================================================
 # 0. INITIALIZATION (EMBEDDINGS, REDIS, ONTOLOGY)
@@ -202,7 +211,7 @@ redis_client = None
 
 def _try_redis(port):
     try:
-        c = redis.Redis(host='127.0.0.1', port=port, db=0, decode_responses=True)
+        c = redis.Redis(host=REDIS_HOST, port=port, db=0, decode_responses=True)
         c.ping()
         return c
     except Exception:
@@ -216,7 +225,11 @@ for _port in REDIS_PORTS:
         print(f"🟢 Redis Server Connected on port {_port}! Local Indexing Active.")
         break
 
-if not REDIS_AVAILABLE:
+if not REDIS_AVAILABLE and REDIS_HOST not in ("127.0.0.1", "localhost"):
+    # Remote/containerized Redis (e.g. a compose service) cannot be auto-booted
+    # from here — the orchestrator owns it. Fail soft and let it come up.
+    print(f"⚠️ Redis offline at {REDIS_HOST}:{REDIS_PORTS} (remote — no auto-boot).")
+elif not REDIS_AVAILABLE:
     print(f"⚠️ Redis offline on {REDIS_PORTS}. Attempting Auto-Boot on {REDIS_PORTS[0]}...")
     try:
         subprocess.Popen(

@@ -1,27 +1,32 @@
-# DBpedia neural-symbolic extraction service — full offline stack.
-# DRAFT (post-v14-final packaging work; does not alter frozen pipeline code).
+# DBpedia neuro-symbolic extraction service — full offline stack.
 #
-#   docker compose up   →  POST http://localhost:8000/extract  {"text": "..."}
-#
-# Volumes must be pre-seeded once:
-#   sf-index : Redis dump of the 16.2M-mention surface-form index (import_index.py)
-#   store    : oxigraph data directory with the DBpedia triple load
+#   1) ./setup.sh            (one-time: seeds the index + store volumes)
+#   2) echo "OPENROUTER_API_KEY=sk-..." > .env
+#   3) docker compose up
+#   4) curl -X POST localhost:8000/extract -H 'Content-Type: application/json' \
+#        -d '{"text": "The song Mermaid is by the band Train."}'
+name: dbpedia-extractor
+
 services:
   redis:
     image: redis:7
     command: redis-server --port 6380 --appendonly no --save ""
     volumes:
       - sf-index:/data
-    ports:
-      - "6380:6380"
+    healthcheck:
+      # PING returns an error while the 1.4 GB index dump is loading (~3 min),
+      # so the pipeline only starts once the index is actually queryable.
+      test: ["CMD-SHELL", "redis-cli -p 6380 ping | grep -q PONG"]
+      interval: 10s
+      timeout: 3s
+      retries: 60
+      start_period: 30s
 
   oxigraph:
     image: ghcr.io/oxigraph/oxigraph:latest
-    command: serve --location /data --bind 0.0.0.0:7878
+    command: serve-read-only --location /data --bind 0.0.0.0:7878
     volumes:
       - store:/data
-    ports:
-      - "7878:7878"
 
   pipeline:
     build:
@@ -29,15 +34,16 @@ services:
       dockerfile: deploy/Dockerfile
     environment:
       - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - TARGET_MODEL=${TARGET_MODEL:-openai/gpt-5.6-luna}
       - USE_TF=0
-      # NOTE: requires the small config change making hosts env-driven
-      # (pipeline currently hardcodes 127.0.0.1) — queued for the
-      # deployment branch AFTER the final benchmark run is frozen.
       - REDIS_HOST=redis
+      - REDIS_PORT=6380
       - DBPEDIA_SPARQL_ENDPOINT=http://oxigraph:7878/query
     depends_on:
-      - redis
-      - oxigraph
+      redis:
+        condition: service_healthy
+      oxigraph:
+        condition: service_started
     ports:
       - "8000:8000"
 
