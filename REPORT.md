@@ -8,8 +8,9 @@ Code: this repository, frozen at tag [`v14-final`](../../releases/tag/v14-final)
 An LLM + knowledge-base pipeline that converts natural-language sentences into
 verified DBpedia triples. On **Text2KGBench (dbpedia_webnlg)** — all 19 domains,
 2,014 sentences, official exact-triple metric — it reaches **macro F1 = 0.6317**,
-matching the published GPT-4o NEF baseline (**0.628**) at **~1/20th the inference
-cost**, with every non-LLM component running locally. The pipeline is packaged as a
+matching the published GPT-4o NEF baseline (**0.628**) on a model **~20× cheaper
+per token**, at **~3–4× lower end-to-end benchmark cost** (≈$8–10 vs ≈$30–35),
+with every non-LLM component running locally. The pipeline is packaged as a
 publicly pullable Docker service.
 
 ## 1. Task and benchmark
@@ -64,10 +65,19 @@ different machine differed by 0.001 F1.
 
 | | Ours (GPT-5.6 Luna) | NEF (GPT-4o) |
 |---|---|---|
-| Model price (in/out per M tokens) | $0.10 / $0.60 | $2.50 / $10.00 |
-| Per sentence (8–12 calls) | ≈ $0.004–0.005 | ≈ $0.09–0.10 |
-| Full benchmark (2,014 sentences) | **≈ $8–10** | ≈ $180–200 |
+| Model price (in/out per M tokens) | $0.10 / $0.60 | $2.50 / $10.00 (~20× ours) |
+| LLM calls per sentence | 8–12 (extract + judge + repair loops) | ~1–2 |
+| Per sentence | ≈ $0.004–0.005 | ≈ $0.015–0.017 |
+| Full benchmark (2,014 sentences) | **≈ $8–10** | ≈ $30–35 (as reported by mentors) |
 | Wall-clock | ~27 s/sentence; ~16 h unattended on one 8 GB VPS | — |
+
+Two comparisons, kept separate deliberately: **per token** the model is ~20×
+cheaper; **system vs system** the full benchmark run is ~3–4× cheaper. The gap
+between the two ratios is by design — this pipeline spends ~10× more LLM calls
+per sentence than the baseline, funding judging and verification with the saved
+model cost, and still lands cheaper overall at the same accuracy. (Running this
+call-heavy pipeline unchanged at GPT-4o prices would cost ≈$180–200 — the cheap
+model is what makes verification-heavy extraction affordable.)
 
 The LLM is the only paid or online component. The endpoint is OpenAI-compatible
 and swappable — a local vLLM/Ollama model gives a 100 % offline, $0/sentence

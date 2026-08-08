@@ -18,9 +18,10 @@ fine-tuning, and no online dependency except the LLM call itself.
 ## What I accomplished
 
 - **Benchmark result:** macro F1 **0.6317** on Text2KGBench dbpedia_webnlg
-  (19 domains, 2,014 sentences), matching the GPT-4o NEF baseline (0.628) at
-  ~1/20th the inference cost (≈$10 vs ≈$190 for the full benchmark). Leads the
-  baseline on 8/19 domains. Result is frozen at tag `v14-final` with a complete
+  (19 domains, 2,014 sentences), matching the GPT-4o NEF baseline (0.628) on a
+  model ~20× cheaper per token and at ~3–4× lower end-to-end cost (≈$8–10 vs
+  ≈$30–35 for the full benchmark) — while making ~10× more LLM calls per
+  sentence to fund verification. Leads the baseline on 8/19 domains. Result is frozen at tag `v14-final` with a complete
   reproducibility bundle and archived per-sentence outputs.
 - **The offline stack:** built the surface-form index from DBpedia Databus dumps;
   built and tuned the local SPARQL verification gate (~100× faster than the live

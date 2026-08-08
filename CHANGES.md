@@ -125,8 +125,11 @@ Full 19-domain rerun on the frozen `v14-final` tag, one pipeline version, one
 host environment. This replaces the provisional mixed-run 0.6356 (4 domains
 v14 + 15 domains round-4) as the only number we cite.
 
-- **Macro F1 = 0.6317** vs the published GPT-4o NEF baseline 0.628, at ~1/20th
-  the model cost (~$0.005/sentence, ≈$10 full benchmark vs ≈$190).
+- **Macro F1 = 0.6317** vs the published GPT-4o NEF baseline 0.628, on a model
+  ~20× cheaper per token; end-to-end benchmark spend ≈$8–10 vs ≈$30–35 reported
+  for the NEF run (~3–4× cheaper as a system, with ~10× more LLM calls/sentence
+  spent on verification). Earlier "$180–200" figures in this file were our
+  pipeline hypothetically priced at GPT-4o rates, not NEF's actual spend.
 - We lead NEF on 8 of 19 domains (largest: scientist +0.212, company +0.186,
   musicalwork +0.163 — NEF's worst domain).
 - Run-to-run variance measured on the 15 re-swept domains: per-domain ±0.02,

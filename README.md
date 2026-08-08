@@ -4,8 +4,9 @@
 sentences into verified DBpedia triples, fully offline except the LLM call.
 
 > **Text2KGBench (dbpedia_webnlg), all 19 domains: macro F1 = 0.6317** — matching the
-> published GPT-4o NEF baseline (0.628) at **~1/20th the inference cost**
-> (≈ $0.005/sentence, ≈ $10 for the full 2,014-sentence benchmark vs ≈ $190).
+> published GPT-4o NEF baseline (0.628) on a model **~20× cheaper per token**, at
+> **~3–4× lower end-to-end cost** (≈ $8–10 vs ≈ $30–35 for the full benchmark) —
+> while spending ~10× more LLM calls per sentence on judging and verification.
 > Leads the baseline outright on 8 of 19 domains.
 
 ```bash
@@ -44,7 +45,7 @@ flowchart LR
 |---|---|
 | Benchmark | Text2KGBench `dbpedia_webnlg` — 19 domains, 2,014 sentences, exact-triple metric |
 | **Macro F1** | **0.6317** (frozen tag `v14-final`; per-domain scores in `results_final_clean/`) |
-| Baseline | NEF with GPT-4o: 0.628 (≈ 20× the model cost) |
+| Baseline | NEF with GPT-4o: 0.628 (model ~20× the per-token price; ≈$30–35 full-benchmark spend vs our ≈$8–10) |
 | Model | `openai/gpt-5.6-luna` via OpenRouter, temperature 0 — endpoint swappable to any OpenAI-compatible API, incl. local vLLM/Ollama for a 100% offline deployment |
 | Runtime | ~27 s/sentence, full benchmark ~16 h unattended on one 8 GB VPS |
 
