@@ -74,6 +74,21 @@ baseline (0.628) at ~1/20th the cost. See `REPRODUCIBILITY.md`.
   and never run a second Redis on the host — measured failure mode: memory
   exhaustion degrades extraction quality via per-sentence timeouts.
 
+## Prebuilt image
+
+No build needed — the image is published:
+
+```bash
+docker pull ghcr.io/nakulsingh156/dbpedia-extractor:v14
+```
+
+**Different API port** (e.g. 8000 is taken on your host): append a uvicorn
+command to the `docker run`, or override `command:` in compose:
+
+```bash
+docker run ... dbpedia-extractor:v14 uvicorn serve:app --host 0.0.0.0 --port 8010
+```
+
 ## Operational notes
 
 - `redis` runs with `--save ""` — the index is read-only at runtime and can
