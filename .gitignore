@@ -1,5 +1,7 @@
-dumps/
+*.tar.gz
+*.rdb
+*.log
+.env
 __pycache__/
-*.ndjson.gz
+*.pyc
 .DS_Store
-dbpedia.owl
