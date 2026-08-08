@@ -118,3 +118,34 @@ results); a clean full v14 sweep is pending for paper-final numbers.
 Known unfixed: benchmark typo-case names ("the Year of No light"); Node 1
 pronoun rewrite mangling quoted titles ("This'll Be My Year" →
 "This'll be The user's year"); monument case-twin; comics annotation cap.
+
+## Final clean sweep (v14-final frozen, 2026-08-08) — CITABLE MACRO 0.6317
+
+Full 19-domain rerun on the frozen `v14-final` tag, one pipeline version, one
+host environment. This replaces the provisional mixed-run 0.6356 (4 domains
+v14 + 15 domains round-4) as the only number we cite.
+
+- **Macro F1 = 0.6317** vs the published GPT-4o NEF baseline 0.628, at ~1/20th
+  the model cost (~$0.005/sentence, ≈$10 full benchmark vs ≈$190).
+- We lead NEF on 8 of 19 domains (largest: scientist +0.212, company +0.186,
+  musicalwork +0.163 — NEF's worst domain).
+- Run-to-run variance measured on the 15 re-swept domains: per-domain ±0.02,
+  macro ±0.005 (provider-side; temperature 0 throughout).
+- Environment note: first two domains (university, airport) initially ran on a
+  memory-exhausted host (5 GB swap; a second, password-protected system Redis
+  was consuming ~2 GB — stopped and disabled). Both were re-measured after the
+  fix per a pre-declared policy (identical host conditions for all domains);
+  the re-measured values are the reported ones. All intermediate results
+  archived in `results_r5_mixed/` on the server.
+- 3 of 2,014 sentences returned empty predictions (transient API failures;
+  comics #8, scientist #40, film #91). Documented, not retried — max macro
+  impact ≤0.001.
+- Operational lesson encoded for deployment: the index Redis must run as an
+  independent daemon (a kernel-child instance dies with every kernel restart
+  and takes ~3 min to reload the 1.4 GB dump; wait for loading:0).
+
+Per-domain (clean sweep): university .5935 · musicalwork .6063 · airport .6051
+· building .6667 · athlete .5566 · politician .7991 · company .6804 ·
+celestialbody .7233 · astronaut .7377 · comics .4000 · meanoftransportation
+.5014 · monument .2820 · food .7066 · writtenwork .7309 · sportsteam .7103 ·
+city .6853 · artist .5264 · scientist .7732 · film .7177
