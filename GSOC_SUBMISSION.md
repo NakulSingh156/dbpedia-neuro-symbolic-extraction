@@ -66,4 +66,4 @@ surprising number as a bug until proven otherwise.
 - **Merged contribution PR:** https://github.com/dbpedia/neural-extraction-framework/pull/59
 - **Final report:** https://github.com/dbpedia/neural-extraction-framework/blob/main/GSoC26/REPORT.md
 - **Container image:** https://github.com/users/NakulSingh156/packages/container/package/neural-extraction-framework (`docker pull ghcr.io/nakulsingh156/neural-extraction-framework:v2.0`)
-- **Development archive:** https://github.com/NakulSingh156/dbpedia-neuro-symbolic-extraction — full commit history and the frozen result tags `v14-final` / `final-results-0.6317`
+- **Work product (standalone repo):** https://github.com/NakulSingh156/dbpedia-neuro-symbolic-extraction — the complete project with full engineering history and the frozen result tags `v14-final` / `final-results-0.6317`
