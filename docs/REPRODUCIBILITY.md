@@ -3,7 +3,7 @@
 Everything needed to regenerate the reported Text2KGBench (dbpedia_webnlg) numbers.
 
 ## Code
-- **Repository tag:** `v14-final` (commit `bf6bad0`) — the frozen pipeline version; all 19 final domain scores come from this exact code.
+- **Repository tag:** `v14-final` — the frozen pipeline version; all 19 final domain scores come from this exact code. (Tags are the canonical references; raw commit hashes changed when repository history was cleaned of an oversized file.)
 - **Entry point:** `chunked_runner.py` → `chunked_domain(<slug>)`; pipeline in `autonomous_pipeline_v13.py` (v14 patches included, see `CHANGES.md`).
 - **Prompts:** embedded in `autonomous_pipeline_v13.py` (Node 0 pre-processor, Node 1 extractor, Judge).
 
