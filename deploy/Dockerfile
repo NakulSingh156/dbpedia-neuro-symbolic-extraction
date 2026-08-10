@@ -9,8 +9,9 @@ RUN pip install --no-cache-dir \
     sentence-transformers rank-bm25 \
     fastapi uvicorn
 
-COPY autonomous_pipeline_v13.py surface_index.py chunked_runner.py \
-     repair_tiers.py per_sentence_timeout.py dbpedia.owl ./
+COPY src/autonomous_pipeline_v13.py src/surface_index.py src/chunked_runner.py \
+     src/text2kg_harness.py src/repair_tiers.py src/per_sentence_timeout.py \
+     data/dbpedia.owl ./
 COPY deploy/serve.py ./
 
 EXPOSE 8000

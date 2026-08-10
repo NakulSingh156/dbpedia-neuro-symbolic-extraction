@@ -1,6 +1,7 @@
-# Neuro-Symbolic Knowledge Graph Extraction for DBpedia
+# Neural Extraction Framework 2.0 (NEF 2.0)
 
-**GSoC 2026 · DBpedia** — an LLM + knowledge-base pipeline that turns natural-language
+**GSoC 2026 · DBpedia** — the next iteration of DBpedia's Neural Extraction
+Framework: an LLM + knowledge-base pipeline that turns natural-language
 sentences into verified DBpedia triples, fully offline except the LLM call.
 
 > **Text2KGBench (dbpedia_webnlg), all 19 domains: macro F1 = 0.6317** — matching the
@@ -10,7 +11,7 @@ sentences into verified DBpedia triples, fully offline except the LLM call.
 > Leads the baseline outright on 8 of 19 domains.
 
 ```bash
-docker pull ghcr.io/nakulsingh156/dbpedia-extractor:v14
+docker pull ghcr.io/nakulsingh156/neural-extraction-framework:v2.0
 ```
 
 ## How it works
@@ -44,14 +45,14 @@ flowchart LR
 | | |
 |---|---|
 | Benchmark | Text2KGBench `dbpedia_webnlg` — 19 domains, 2,014 sentences, exact-triple metric |
-| **Macro F1** | **0.6317** (frozen tag `v14-final`; per-domain scores in `results_final_clean/`) |
+| **Macro F1** | **0.6317** (frozen tag `v14-final`; per-domain scores in `results/final_clean/`) |
 | Baseline | NEF with GPT-4o: 0.628 (model ~20× the per-token price; ≈$30–35 full-benchmark spend vs our ≈$8–10) |
 | Model | `openai/gpt-5.6-luna` via OpenRouter, temperature 0 — endpoint swappable to any OpenAI-compatible API, incl. local vLLM/Ollama for a 100% offline deployment |
 | Runtime | ~27 s/sentence, full benchmark ~16 h unattended on one 8 GB VPS |
 
 **Full final report: [`REPORT.md`](REPORT.md)** — per-domain table vs the GPT-4o
 baseline, cost analysis, engineering journey, limitations.
-Fix history: [`CHANGES.md`](CHANGES.md) · regeneration recipe: [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md).
+Fix history: [`CHANGES.md`](docs/CHANGES.md) · regeneration recipe: [`REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ## Run it
 
@@ -71,12 +72,15 @@ curl -X POST localhost:8000/extract -H "Content-Type: application/json" \
 
 | Path | What |
 |---|---|
-| `autonomous_pipeline_v13.py` | The pipeline (extraction → linking → ranking → judge → gate → emitter) |
-| `surface_index.py`, `build_index.py`, `build_popularity.py`, `download_dumps.py` | Surface-form index: build + query |
-| `chunked_runner.py`, `text2kg_harness.py` | Benchmark harness (chunked runs, train-split learning, scoring) |
+| `src/autonomous_pipeline_v13.py` | The pipeline (extraction → linking → ranking → judge → gate → emitter) |
+| `src/surface_index.py`, `src/chunked_runner.py`, `src/text2kg_harness.py` | Index query · benchmark harness (chunked runs, train-split learning, scoring) |
+| `scripts/` | Index build tooling (`build_index.py`, `build_popularity.py`, `download_dumps.py`, import/export) |
 | `deploy/` | Dockerfile, compose (volume + bind-mount modes), API server, operator guide |
-| `results_final_clean/` | Per-sentence results of the final frozen sweep |
-| `CHANGES.md`, `REPRODUCIBILITY.md`, `RUNBOOK.md` | Fix history · regeneration recipe · ops notes |
+| `data/dbpedia.owl` | Ontology snapshot (predicate linking, datatype rules) |
+| `results/final_clean/` · `results/ablations/` | Final frozen sweep · ablation runs |
+| `docs/` | `CHANGES.md` fix history · `REPRODUCIBILITY.md` recipe · `RUNBOOK.md` ops notes |
+| `tests/` · `examples/` | Offline validation tests · Phase-0 abstract traces |
+| `REPORT.md` · `SCALING_PROPOSAL.md` · `GSOC_SUBMISSION.md` | Final report · Wikipedia-scale study · submission text |
 
 ## Acknowledgements
 

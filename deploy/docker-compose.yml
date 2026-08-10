@@ -5,7 +5,7 @@
 #   3) docker compose up
 #   4) curl -X POST localhost:8000/extract -H 'Content-Type: application/json' \
 #        -d '{"text": "The song Mermaid is by the band Train."}'
-name: dbpedia-extractor
+name: neural-extraction-framework
 
 services:
   redis:

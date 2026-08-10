@@ -4,7 +4,7 @@
 work-product URL is this repository; the full technical story is
 [`REPORT.md`](REPORT.md).*
 
-**Project:** Neuro-Symbolic Knowledge Graph Extraction for DBpedia
+**Project:** Neural Extraction Framework 2.0 (NEF 2.0)
 **Organisation:** DBpedia · **Contributor:** Nakul Singh · **Mentors:** Ara, Tommaso Soru
 
 ## What the project does
@@ -32,14 +32,14 @@ fine-tuning, and no online dependency except the LLM call itself.
   and a title-sense disambiguation gap (film +0.24, musicalwork +0.09) — all as
   generic code paths, each fix validated offline before any paid rerun.
 - **Deployment:** packaged the full stack as a public Docker service —
-  `ghcr.io/nakulsingh156/dbpedia-extractor:v14` — one `POST /extract` endpoint,
+  `ghcr.io/nakulsingh156/neural-extraction-framework:v2.0` — one `POST /extract` endpoint,
   compose files for both volume and bind-mount modes, operator docs; verified
   end-to-end on a fresh host.
 
 ## Current state
 
 Complete and reproducible: pipeline, benchmark result, documentation
-(`README.md`, `REPORT.md`, `CHANGES.md`, `REPRODUCIBILITY.md`,
+(`README.md`, `REPORT.md`, `docs/CHANGES.md`, `docs/REPRODUCIBILITY.md`,
 `deploy/DEPLOY.md`), and the published container image.
 
 ## What's left / future work
@@ -64,5 +64,5 @@ surprising number as a bug until proven otherwise.
 
 - **Work product (this repo):** https://github.com/NakulSingh156/dbpedia-neuro-symbolic-extraction
 - **Final report:** https://github.com/NakulSingh156/dbpedia-neuro-symbolic-extraction/blob/master/REPORT.md
-- **Container image:** https://github.com/users/NakulSingh156/packages/container/package/dbpedia-extractor (`docker pull ghcr.io/nakulsingh156/dbpedia-extractor:v14`)
+- **Container image:** https://github.com/users/NakulSingh156/packages/container/package/neural-extraction-framework (`docker pull ghcr.io/nakulsingh156/neural-extraction-framework:v2.0`)
 - **Frozen result tag:** `v14-final` / `final-results-0.6317`

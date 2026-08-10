@@ -8,7 +8,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-PROJECT="dbpedia-extractor"   # must match `name:` in docker-compose.yml
+PROJECT="neural-extraction-framework"   # must match `name:` in docker-compose.yml
 VOL_INDEX="${PROJECT}_sf-index"
 VOL_STORE="${PROJECT}_store"
 

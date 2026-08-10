@@ -16,7 +16,7 @@ from pydantic import BaseModel
 os.environ.setdefault("USE_TF", "0")
 import autonomous_pipeline_v13 as pl
 
-app = FastAPI(title="DBpedia NEF-style extraction service")
+app = FastAPI(title="Neural Extraction Framework 2.0")
 
 
 class ExtractRequest(BaseModel):

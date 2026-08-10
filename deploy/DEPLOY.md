@@ -79,14 +79,14 @@ baseline (0.628) at ~1/20th the cost. See `REPRODUCIBILITY.md`.
 No build needed — the image is published:
 
 ```bash
-docker pull ghcr.io/nakulsingh156/dbpedia-extractor:v14
+docker pull ghcr.io/nakulsingh156/neural-extraction-framework:v2.0
 ```
 
 **Different API port** (e.g. 8000 is taken on your host): append a uvicorn
 command to the `docker run`, or override `command:` in compose:
 
 ```bash
-docker run ... dbpedia-extractor:v14 uvicorn serve:app --host 0.0.0.0 --port 8010
+docker run ... neural-extraction-framework:v2.0 uvicorn serve:app --host 0.0.0.0 --port 8010
 ```
 
 ## Operational notes

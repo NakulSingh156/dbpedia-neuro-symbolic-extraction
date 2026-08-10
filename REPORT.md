@@ -1,7 +1,7 @@
-# Final Benchmark Report — Neuro-Symbolic KG Extraction for DBpedia
+# Neural Extraction Framework 2.0 — Final Benchmark Report
 
 **GSoC 2026 · DBpedia · Nakul Singh** · mentors: Ara, Tommaso Soru
-Code: this repository, frozen at tag [`v14-final`](../../releases/tag/v14-final) · Image: `ghcr.io/nakulsingh156/dbpedia-extractor:v14`
+Code: this repository, frozen at tag [`v14-final`](../../releases/tag/v14-final) · Image: `ghcr.io/nakulsingh156/neural-extraction-framework:v2.0`
 
 ## Summary
 
@@ -22,7 +22,7 @@ be used for prompting/conventions; we use **no fine-tuning** anywhere.
 ## 2. Final results
 
 One frozen pipeline version (`v14-final`), one host environment, full sweep.
-Per-sentence outputs: [`results_final_clean/`](results_final_clean/).
+Per-sentence outputs: [`results/final_clean/`](results/final_clean/).
 
 | Domain | Ours | NEF (GPT-4o) | Δ |
 |---|---|---|---|
@@ -127,11 +127,11 @@ Two design principles carry the result:
   Film 0.48 → 0.72, musicalwork 0.52 → 0.61.
 
 Every fix is a generic code path; nothing references a benchmark domain by name.
-Full fix-by-fix history with measured effects: [`CHANGES.md`](CHANGES.md).
+Full fix-by-fix history with measured effects: [`CHANGES.md`](docs/CHANGES.md).
 
 ## 6. Reproducibility
 
-[`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) records the complete bundle: code tag,
+[`REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) records the complete bundle: code tag,
 model string + config, Text2KGBench commit, the Databus artifacts behind the
 index, the nine DBpedia dumps loaded into the store, and the run command.
 

@@ -8,7 +8,7 @@ carries a dated external source.*
 ## 1. What we're proposing
 
 Run the NEF 2.0 pipeline (this repository; Docker image
-`ghcr.io/nakulsingh156/dbpedia-extractor:v14`) over English Wikipedia abstracts
+`ghcr.io/nakulsingh156/neural-extraction-framework:v2.0`) over English Wikipedia abstracts
 to produce a new, provenance-tagged RDF dataset for the DBpedia Databus —
 **triples only on the Databus, the stack stays in the Docker image**, per
 Tsoru's guidance. Phased rollout with review gates, starting with a
@@ -191,7 +191,7 @@ for literal objects), or fixed before any large spend.
 ## Appendix B — sources
 
 - Workload counts/samples: SPARQL queries in §3 against our snapshot (load
-  manifest in [REPRODUCIBILITY.md](REPRODUCIBILITY.md)).
+  manifest in [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)).
 - Unit cost: measured benchmark spend (OpenRouter pricing page, 2026-08;
   invoice to be attached).
 - Benchmark result and variance: [REPORT.md](REPORT.md), tag `final-results-0.6317`.
