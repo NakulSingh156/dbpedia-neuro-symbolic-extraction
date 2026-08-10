@@ -137,11 +137,56 @@ on the strength of Phase 1's audited numbers.
 | Cost estimate drift | unit cost is measured, not modeled; invoices attached per phase |
 | Abstract parsing artifacts (junk literals observed in snapshot) | length/character filters (already applied in our sampling); counted into yield estimates |
 
-## Appendix A — traced examples
+## Appendix A — traced examples (first Phase-0 batch, run 2026-08-10)
 
-*To be filled from the Phase-0 batch: 3 full traces (sentence → candidates →
-ranking → judge → gate tier → emitted triples with status), produced by the
-deployed container.*
+Three abstracts — a person, a place, an organisation — through the **deployed
+container** (`nef2` image, real index + store). Raw request/response JSON:
+[`examples/phase0_results.json`](examples/phase0_results.json).
+Timing: 30–74 s/abstract, consistent with the benchmark's ~27 s/sentence.
+
+**1 · Person (long-tail, diacritics, dates)** — *"Józef Franciszek Darzyn
+Ciemiński (Borzyszkowy, 4 August 1867 – Winona, 1959) was a Polish-born Roman
+Catholic priest…"* → 8/8 triples, all gate-approved:
+
+```
+Józef_Franciszek_Darzyn_Ciemiński  birthPlace   Borzyszkowy
+Józef_Franciszek_Darzyn_Ciemiński  birthDate    1867-08-04
+Józef_Franciszek_Darzyn_Ciemiński  deathPlace   Winona
+Józef_Franciszek_Darzyn_Ciemiński  deathDate    1959
+Józef_Franciszek_Darzyn_Ciemiński  nationality  Polish
+Józef_Franciszek_Darzyn_Ciemiński  religion     Roman_Catholic
+Józef_Franciszek_Darzyn_Ciemiński  occupation   Roman_Catholic_priest
+Józef_Franciszek_Darzyn_Ciemiński  location     Minnesota
+```
+
+An obscure entity, diacritics intact, prose date normalised to `1867-08-04` —
+the exact profile infobox mappings miss.
+
+**2 · Place** — *"Medamarthy is a village in Srikakulam district of Andhra
+Pradesh in India."* → the full containment chain, 4/4 approved:
+
+```
+Medamarthy           type      Village
+Medamarthy           isPartOf  Srikakulam_district
+Srikakulam_district  isPartOf  Andhra_Pradesh
+Andhra_Pradesh       country   India
+```
+
+**3 · Organisation (honest case)** — *"Winston-Salem State University (WSSU), a
+constituent institution of the University of North Carolina…"* → 9 extracted,
+2 rejected by the gate, 7 kept — of which 4 are solid
+(`isPartOf University_of_North_Carolina`, `location`, `country`, `member`) and
+**2–3 are marginal**: open-domain predicate drift produced
+`programCost "baccalaureate programs, graduate programs"` and a vacuous
+`student "diverse student population"`.
+
+**Reading for reviewers.** Entity linking and place/person relations hold up at
+benchmark quality on real abstracts; the known gap is predicate selection
+without per-domain ontology bounding (the benchmark supplied bounded predicate
+lists; open-domain ranking over the full ontology is looser). This is precisely
+what the Phase-1 precision audit measures — and the audit gate exists so that
+this class of triple is quantified, filtered (e.g. minimum-informativeness rule
+for literal objects), or fixed before any large spend.
 
 ## Appendix B — sources
 
