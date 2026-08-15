@@ -137,6 +137,16 @@ def run_domain(client, model, slug, outdir):
     with ThreadPoolExecutor(max_workers=CONCURRENCY) as pool:
         rows = list(pool.map(one, tests))
 
+    # NEVER cache a domain that failed wholesale — a missing API key or a dead
+    # endpoint would otherwise be frozen to disk as a legitimate 0.0 and then
+    # silently reused on every later run.
+    n_err = sum(1 for r in rows if r["error"])
+    if n_err > len(rows) // 2:
+        raise SystemExit(
+            f"\n{slug}: {n_err}/{len(rows)} calls failed — not caching.\n"
+            f"first error: {next(r['error'] for r in rows if r['error'])}\n"
+            "Fix the cause (API key set?) and re-run.")
+
     os.makedirs(outdir, exist_ok=True)
     json.dump(rows, open(dest, "w"), indent=1)
     return sum(r["f1"] for r in rows) / len(rows), len(rows), False
