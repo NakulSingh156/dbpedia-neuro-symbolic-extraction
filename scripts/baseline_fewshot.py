@@ -27,32 +27,49 @@ from text2kg_harness import (BENCH, load_test, load_train, load_ground_truth,
                              score_sentence, all_domains, _require_bench)
 from openai import OpenAI
 
-SHOTS = 6
+RETRIEVED = 5        # similar train sentences from the benchmark's own retrieval
+SHOTS = RETRIEVED + 1  # + the canonical example already in the shipped prompt
 CONCURRENCY = 8
 
 
-def prompt_header(slug):
-    """Instructions + ontology block from the official prompt file, verbatim."""
+def official_prompts(slug):
+    """The benchmark's shipped prompt for every test sentence, keyed by id.
+
+    Each contains the instructions, the ontology concept/relation block with
+    typed signatures, one canonical worked example, and the test sentence."""
     path = f"{BENCH}/baselines/prompts/ont_{slug}_prompts.jsonl"
-    with open(path) as f:
-        first = json.loads(f.readline())
-    # everything before the worked example is the reusable header
-    return first["prompt"].split("Example Sentence:")[0].rstrip()
+    return {json.loads(l)["id"]: json.loads(l)["prompt"] for l in open(path)}
+
+
+def similarity_map(slug):
+    """Benchmark-shipped retrieval: test id -> 5 most similar train ids.
+
+    Using these rather than a fixed set of examples is what makes this a
+    faithful reproduction of the published few-shot baselines — the benchmark
+    ships the retrieval results precisely so baselines are comparable."""
+    path = f"{BENCH}/baselines/test_train_sent_similarity/{slug}_test_train_similarity.json"
+    try:
+        return json.load(open(path))
+    except FileNotFoundError:
+        return {}
 
 
 def fmt_triples(triples):
     return "\n".join(f'{t["rel"]}({t["sub"]}, {t["obj"]})' for t in triples)
 
 
-def build_prompt(header, shots, sentence):
-    blocks = [header, ""]
+def build_prompt(official, shots):
+    """Take the shipped prompt verbatim and insert the retrieved examples just
+    before the test sentence. Canonical example (1) + retrieved (5) = 6-shot,
+    matching the published `GPT-4o, 6-shot` configuration."""
+    head, _, tail = official.partition("Test Sentence:")
+    blocks = [head.rstrip(), ""]
     for ex in shots:
         blocks.append(f"Example Sentence: {ex['sent']}")
         blocks.append("Example Output:")
         blocks.append(fmt_triples(ex["triples"]))
         blocks.append("")
-    blocks.append(f"Test Sentence: {sentence}")
-    blocks.append("Test Output: ")
+    blocks.append("Test Sentence:" + tail.rstrip() + " ")
     return "\n".join(blocks)
 
 
@@ -88,13 +105,17 @@ def run_domain(client, model, slug, outdir):
         rows = json.load(open(dest))
         return sum(r["f1"] for r in rows) / len(rows), len(rows), True
 
-    header = prompt_header(slug)
-    shots = load_train(slug)[:SHOTS]             # deterministic, reproducible
+    prompts = official_prompts(slug)
+    simmap = similarity_map(slug)
+    train_by_id = {x["id"]: x for x in load_train(slug)}
+    fallback = load_train(slug)[:RETRIEVED]      # only if a test id is unmapped
     tests = load_test(slug)
     gold = load_ground_truth(slug)
 
     def one(t):
-        prompt = build_prompt(header, shots, t["sent"])
+        shots = [train_by_id[i] for i in simmap.get(t["id"], [])[:RETRIEVED]
+                 if i in train_by_id] or fallback
+        prompt = build_prompt(prompts[t["id"]], shots)
         pred, err = [], None
         for attempt in range(3):
             try:
