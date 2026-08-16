@@ -253,7 +253,25 @@ ONTOLOGY_RULES: Dict[str, Dict] = {}
 DATATYPE_PROPERTIES: set = set()
 
 
+def _resolve_owl(file_path):
+    """Find dbpedia.owl regardless of where the process was started from.
+
+    Searched in order: the path as given (CWD-relative, and the flat layout the
+    Docker image uses), then data/dbpedia.owl next to the repo root, then
+    alongside this module. Before the repo was reorganised the file sat in the
+    working directory, so the plain relative path is kept first for
+    backwards compatibility."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    for cand in (file_path,
+                 os.path.join(here, "..", "data", os.path.basename(file_path)),
+                 os.path.join(here, os.path.basename(file_path))):
+        if os.path.exists(cand):
+            return cand
+    return file_path            # let the caller report the miss as before
+
+
 def load_full_dbpedia_ontology(file_path="dbpedia.owl"):
+    file_path = _resolve_owl(file_path)
     """Parses the DBpedia OWL file, isolating English nodes and preventing string pollution."""
     print(f"📖 Loading full ontology from {file_path}...")
     g = rdflib.Graph()

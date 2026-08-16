@@ -66,7 +66,9 @@ os.environ.setdefault("OPENROUTER_API_KEY", "ollama")   # Ollama ignores the val
 
 sys.path.insert(0, SRC)
 import autonomous_pipeline_v13 as pl                     # noqa: E402
-import per_sentence_timeout as pst                       # noqa: E402
+# NOTE: per_sentence_timeout.py is not importable — it reads `extract_all_triples`
+# from the namespace it is exec'd into and rebinds it to the wrapped version.
+# It is exec'd in main(), after that namespace exists.
 
 # ── point every knob at local infrastructure ─────────────────────────────────
 # _make_llm() reads these module globals on every call, so runtime override works.
@@ -77,9 +79,7 @@ pl.USE_LOCAL_INDEX = True
 pl.DBPEDIA_SPARQL_ENDPOINT = args.sparql
 pl.LLM_TIMEOUT_SECONDS = args.call_timeout
 
-# A local 7B makes 8-12 calls per sentence and is 5-10x slower than an API.
-# The stock 180s wall would time out essentially every sentence.
-pst._HARD_LIMIT = args.sentence_timeout
+# (the per-sentence wall is raised in main(), once the breaker is loaded)
 
 
 def preflight():
@@ -121,6 +121,15 @@ def main():
         sys.exit("\npreflight failed — fix the above and re-run.")
 
     ns = {"extract_all_triples": pl.extract_all_triples}
+
+    # Circuit breaker: wraps extract_all_triples so one hung sentence can't
+    # freeze the run. Must be exec'd AFTER extract_all_triples exists, and the
+    # wall raised AFTER exec (the wrapper reads _HARD_LIMIT from ns at call
+    # time, and the module hardcodes 180s — far too low for local inference).
+    exec(open(os.path.join(SRC, "per_sentence_timeout.py")).read(), ns)
+    ns["_HARD_LIMIT"] = args.sentence_timeout
+    print(f"   per-sentence wall raised to {args.sentence_timeout}s for local inference")
+
     exec(open(os.path.join(SRC, "chunked_runner.py")).read(), ns)
 
     slugs = args.domains or ns["all_domains"]() if "all_domains" in ns else args.domains
