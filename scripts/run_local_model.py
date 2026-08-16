@@ -24,11 +24,16 @@ Usage
 -----
     python scripts/run_local_model.py --model qwen2.5:7b --tag qwen7b
 
-Long runs: prefix with nohup so it survives a closed laptop lid / SSH drop:
+Long runs: prefix with nohup so it survives terminal close and SSH drop (NOT sleep — see below):
 
     nohup python scripts/run_local_model.py --model qwen2.5:7b --tag qwen7b \
          > local_qwen7b.log 2>&1 &
     tail -f local_qwen7b.log
+
+macOS sleep will PAUSE the run. Keep the lid open on power, and wrap in
+caffeinate to block idle sleep:
+
+    caffeinate -i nohup python scripts/run_local_model.py ... &
 
 Resumable: each domain is written to <outdir>/results_<slug>.json as it finishes,
 and an existing file is skipped, so re-running continues where it stopped.
