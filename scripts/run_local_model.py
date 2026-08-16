@@ -116,9 +116,42 @@ def preflight():
     return ok
 
 
+def start_sparql_watchdog():
+    """Abort the run if the SPARQL store becomes unreachable.
+
+    The gate FAILS OPEN by design — an unreachable store must never delete a
+    correct triple. Correct for production, wrong for a benchmark run: a dropped
+    SSH tunnel would silently disable verification and still produce a
+    plausible-looking score. Better to stop loudly and lose one chunk."""
+    import threading, requests
+
+    def _watch():
+        misses = 0
+        while True:
+            time.sleep(60)
+            try:
+                r = requests.get(args.sparql, params={"query": "ASK { ?s ?p ?o }",
+                                                      "format": "json"}, timeout=10)
+                misses = 0 if r.status_code == 200 else misses + 1
+            except Exception:
+                misses += 1
+            if misses >= 3:
+                print("\n" + "!" * 70, flush=True)
+                print("SPARQL store unreachable for 3 consecutive checks (tunnel down?).", flush=True)
+                print("ABORTING so verification is not silently disabled.", flush=True)
+                print("Restore the tunnel and re-run — completed domains are kept.", flush=True)
+                print("!" * 70, flush=True)
+                os._exit(2)
+
+    threading.Thread(target=_watch, daemon=True).start()
+
+
 def main():
     if not preflight():
         sys.exit("\npreflight failed — fix the above and re-run.")
+    start_sparql_watchdog()
+
+    from text2kg_harness import load_test
 
     ns = {"extract_all_triples": pl.extract_all_triples}
 
@@ -148,10 +181,18 @@ def main():
         dest = f"results_{slug}.json"
         if os.path.exists(dest):
             rows = json.load(open(dest))
-            f1 = sum(r["f1"] for r in rows) / len(rows)
-            scores.append(f1)
-            print(f"{slug:26s} F1={f1:.4f}  n={len(rows):4d}  (cached)", flush=True)
-            continue
+            # chunked_domain saves after EVERY chunk but always restarts from
+            # sentence 1 — it has no within-domain resume. So an interrupted run
+            # leaves a partial file. Only treat a domain as done when every test
+            # sentence is present, otherwise we would silently report a truncated
+            # domain as complete.
+            expected = len(load_test(slug))
+            if len(rows) >= expected:
+                f1 = sum(r["f1"] for r in rows) / len(rows)
+                scores.append(f1)
+                print(f"{slug:26s} F1={f1:.4f}  n={len(rows):4d}  (cached)", flush=True)
+                continue
+            print(f"{slug:26s} partial ({len(rows)}/{expected}) — re-running", flush=True)
 
         # chunk_cooldown exists to reset an API rate-limit window; irrelevant locally.
         P, R, F, rows = ns["chunked_domain"](slug, chunk_size=args.chunk_size,
