@@ -98,16 +98,29 @@ def preflight():
     except Exception as e:
         print(f"🔴 Ollama not reachable at {args.ollama} ({e}). Run: ollama serve"); ok = False
 
-    try:
-        r = requests.get(args.sparql, params={"query": "ASK { ?s ?p ?o }", "format": "json"},
-                         timeout=8)
-        print("🟢 SPARQL store reachable" if r.status_code == 200
-              else f"🔴 SPARQL returned {r.status_code}")
-        ok = ok and r.status_code == 200
-    except Exception as e:
-        print(f"🔴 SPARQL not reachable at {args.sparql} ({e}).")
-        print("   Open the tunnel:  ssh -N -L 7878:localhost:7878 root@<server>")
-        ok = False
+    # Generous, with retries: a freshly-established autossh tunnel can be slow
+    # on its first query, and failing preflight on that wastes a whole run.
+    sparql_ok, last = False, ""
+    for attempt in range(4):
+        try:
+            r = requests.get(args.sparql, params={"query": "ASK { ?s ?p ?o }",
+                                                  "format": "json"}, timeout=25)
+            if r.status_code == 200:
+                sparql_ok = True
+                break
+            last = f"HTTP {r.status_code}"
+        except Exception as e:
+            last = str(e)[:120]
+        if attempt < 3:
+            print(f"   … SPARQL not ready ({last}) — retrying {attempt+1}/3")
+            time.sleep(5)
+    if sparql_ok:
+        print("🟢 SPARQL store reachable")
+    else:
+        print(f"🔴 SPARQL not reachable at {args.sparql} after 4 attempts ({last}).")
+        print("   Start the self-healing tunnel:")
+        print("   autossh -M 0 -f -N -o ServerAliveInterval=15 -L 7878:localhost:7878 root@<server>")
+    ok = ok and sparql_ok
 
     if not pl.REDIS_AVAILABLE:
         print("🔴 Redis surface-form index not connected on 6380."); ok = False
