@@ -126,9 +126,12 @@ def start_sparql_watchdog():
     import threading, requests
 
     def _watch():
+        # 30s x 3 = ~90s tolerance. autossh detects a dead link in ~45s
+        # (ServerAliveInterval 15 x 3) and respawns within seconds, so a
+        # transient drop is ridden out while a real outage still aborts fast.
         misses = 0
         while True:
-            time.sleep(60)
+            time.sleep(30)
             try:
                 r = requests.get(args.sparql, params={"query": "ASK { ?s ?p ?o }",
                                                       "format": "json"}, timeout=10)
