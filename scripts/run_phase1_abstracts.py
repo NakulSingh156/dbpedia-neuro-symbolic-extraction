@@ -105,12 +105,25 @@ def sample_abstracts(n, seed):
     return out[:n]
 
 
+_LITERAL_RE = re.compile(r'^(?:-?[\d.,]+|\d{4}-\d{1,2}-\d{1,2}|\d{4})$')
+
+
+def is_literal(obj):
+    """Quoted OR bare-but-obviously-a-value.
+
+    The emitter writes some literals unquoted (dates, numbers) because that is
+    the convention it learned from the train split. Treating only quoted objects
+    as literals mislabels `deathDate 1796-04-16` as an unverified URI and
+    pollutes the verified/unverified split that Phase 1 exists to measure."""
+    return obj.startswith('"') or bool(_LITERAL_RE.match(obj))
+
+
 def verify(sub, rel, obj):
     """Post-hoc: does DBpedia already contain this triple?
 
     Derived by asking the store rather than by instrumenting the pipeline, so
     the frozen v14-final code stays byte-identical to the benchmark runs."""
-    if obj.startswith('"'):
+    if is_literal(obj):
         return "literal"                      # literal objects are not URI-verifiable
     R = "http://dbpedia.org/resource/"
     O = "http://dbpedia.org/ontology/"
