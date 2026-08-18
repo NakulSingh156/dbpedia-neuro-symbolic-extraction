@@ -61,6 +61,9 @@ pl.OPENROUTER_API_KEY = "ollama"
 pl.TARGET_MODEL = args.model
 pl.USE_LOCAL_INDEX = True
 pl.DBPEDIA_SPARQL_ENDPOINT = args.sparql
+# Product track: never emit a URI that is not a real DBpedia entity. The Phase-1
+# pilot measured 31.6% of triples referencing invented URIs on open-domain text.
+pl.STRICT_URI_MODE = True
 
 ABBR = (r"(?:Dr|Mr|Mrs|Ms|St|Jr|Sr|Prof|Rev|Gen|Col|Capt|Lt|Sgt|Inc|Ltd|Co|Corp"
         r"|No|vs|etc|e\.g|i\.e|Mt|Ft|Ave|approx|Fig|Vol|pp)")

@@ -174,6 +174,26 @@ CANONICALIZE_COMMA_COMPOUNDS = True
 # so False disables range-only swaps entirely. Pre-2026-08-04 behaviour = True.
 TIER16_RANGE_SWAP = False
 
+# ── v15 / PRODUCT TRACK: STRICT URI MODE (default OFF = v14-final behaviour) ──
+# Benchmark sentences are clean and hit the surface-form index. Real Wikipedia
+# abstracts are not: Phase-1 measured 31.6% of emitted triples referencing a URI
+# that does not exist in DBpedia — verb phrases ("He_coached"), dates
+# ("1998-10-13"), compound places ("south_west_Edmonton,_Alberta,_Canada").
+#
+# The pipeline already has the right answer: _fallback_candidate marks a
+# no-candidate mention unresolved=True so the emitter quotes it. But the emitter
+# recovers that flag by matching cand["uri"] == emitted_uri, and any judge
+# override or RE_SEARCH that rewrites the URI breaks the match, so the invented
+# URI escapes.
+#
+# Rather than thread the flag through five stages, STRICT_URI_MODE re-decides at
+# EMISSION: a URI that is in neither the surface-form index nor the triple store
+# is not an entity, so it is demoted to a quoted literal. Immune to how the URI
+# was produced.
+#
+# OFF for the frozen benchmark (v14-final), ON for abstract extraction.
+STRICT_URI_MODE = False
+
 # Sanity floor for the OWL file. The v8 run loaded 1172 ObjectProperties; the v9
 # run loaded 1105 from a different machine. That difference is the FILE, not the
 # code (proven by unit test — see the note in load_full_dbpedia_ontology).
@@ -2645,6 +2665,33 @@ def _local_name(uri_or_text):
 _MONTH_RE = r'(?i)(january|february|march|april|may|june|july|august|september|october|november|december)'
 
 
+def _uri_is_real(local_name):
+    """True if this identifier is a real DBpedia entity.
+
+    Index first (Redis, ~1ms), store second (local SPARQL) — an entity present in
+    either is real; the index covers surface forms the store may lack and vice
+    versa. Unknown/unreachable returns True so an infrastructure failure can
+    never delete a correct triple (same fail-open rule as the SPARQL gate)."""
+    if not local_name or local_name.startswith('"'):
+        return True
+    try:
+        from surface_index import lookup as _sf
+        if any(n == local_name for n, _ in (_sf(local_name.replace("_", " "), k=5) or [])):
+            return True
+    except Exception:
+        pass
+    try:
+        uri = f"http://dbpedia.org/resource/{local_name}"
+        r = requests.get(DBPEDIA_SPARQL_ENDPOINT,
+                         params={"query": f"ASK {{ {{ <{uri}> ?p ?o }} UNION {{ ?s ?p <{uri}> }} }}",
+                                 "format": "json"}, timeout=10)
+        if r.status_code == 200:
+            return bool(r.json().get("boolean"))
+    except Exception:
+        pass
+    return True          # fail open
+
+
 def _route_unresolved_value(raw, pid, quote_hints, value_formats):
     """VALUE-SHAPE EXEMPTION from the "unresolved -> always quote" rule.
 
@@ -2856,6 +2903,18 @@ def extract_all_triples(sentence, allowed_predicates=None, literal_predicates=No
                     obj = _restore_middle_initial(_local_name(uris[2]),
                                                   str(t.get("object", "")))
                     obj = _canonicalize_comma_compound(obj, t.get("object", ""))
+
+        # v15 STRICT URI MODE — last line of defence against an invented URI.
+        if STRICT_URI_MODE and kept and obj and not str(obj).startswith('"'):
+            if not _uri_is_real(str(obj)):
+                raw_obj = str(t.get("object", obj)).strip().strip('"')
+                routed = _route_unresolved_value(raw_obj, rel, quote_hints, value_formats)
+                obj = routed if routed is not None else f'"{raw_obj}"'
+                print(f"   🔻 STRICT: object not a real entity — demoted to literal {obj}")
+        if STRICT_URI_MODE and kept and sub and not _uri_is_real(str(sub)):
+            # a triple whose SUBJECT is not an entity cannot be published at all
+            print(f"   🛑 STRICT: subject <{sub}> is not a real entity — dropping triple.")
+            kept = False
 
         results.append({"raw": t, "status": status, "final_triple": final,
                         "sub": sub, "rel": rel, "obj": obj, "kept": kept})
