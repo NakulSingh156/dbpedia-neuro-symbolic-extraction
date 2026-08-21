@@ -125,7 +125,7 @@ fixed resolves it:
 | | NEF 1.0 (method) | NEF 2.0 (method) |
 |---|---|---|
 | **no-method 6-shot baseline** | GPT-4o **0.5474** | Luna **0.5454** |
-| **our index, fixed model** | **0.6137** | **0.6317** |
+| **Both approaches on LUNA** | **0.6137** | **0.6317** |
 
 **Resolved — the confound is gone, at ≈$16 rather than the $180–200 budgeted.**
 The two base models score within 0.002 of each other in an identical harness
@@ -179,9 +179,6 @@ predicate lists. This is the evidence the pipeline works without them.
 strict annotation of 50 of a 200-triple random sample. At n = 50 the 95 %
 interval is roughly 46–74 %, so read it as "around 60, definitely not 85".
 
-We are reporting this before the mentor audit rather than after it. A 200-row
-sample is with Ara and Tsoru now; **their number supersedes this one**, and the
-contributor's labels will be reported separately from theirs rather than pooled.
 
 Defects are concentrated and mechanical, not diffuse:
 
