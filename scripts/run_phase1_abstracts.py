@@ -182,6 +182,7 @@ def main():
             # FIX A: one ASK per abstract establishes whether the antecedent is
             # a person, which gates every pronoun substitution below.
             person = None if args.no_coref else coref.is_person(uri, sparql)
+            tlabels = set() if args.no_coref else coref.type_labels(uri, sparql)
             for raw in split_sentences(text):
                 n_sent += 1
                 if args.no_coref:
@@ -189,6 +190,7 @@ def main():
                 else:
                     sent = coref.rewrite(raw, uri, person, coref_stats)
                     sent = coref.resolve_partial_name(sent, uri, person, coref_stats)
+                    sent = coref.resolve_definite(sent, uri, tlabels, coref_stats)
                 try:
                     out = extract(sent, verbose=False)   # NO allowed_predicates
                 except Exception as e:
