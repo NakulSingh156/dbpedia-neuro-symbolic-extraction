@@ -154,22 +154,22 @@ production setting.** Phase 1 removes the scaffolding — open-domain extraction
 over abstracts sampled from our snapshot, no allowed-predicate list, ranking
 over the full 2,695-property ontology, no gold to score against.
 
-*Run in progress at time of writing: 1,527 of 2,000 abstracts. Figures are
-in-flight and stable to within 2 % across the last 1,200 abstracts; final
-numbers follow on completion.*
+*Complete: 2,000 abstracts, 5,158 sentences, 50.5 h, zero API cost. The
+verified rate measured 13.9 % at 1,527 abstracts and 13.9 % at 2,000 — the
+figures below are stable, not a small-sample artefact.*
 
 | Quantity | Measured | Note |
 |---|---|---|
-| Triples per abstract | **5.07** | 7,747 triples from 1,527 abstracts |
-| Triples per sentence | **2.30** | |
-| Candidate survival | **63 %** | 63 % of proposed triples pass linking, judge and gate |
-| Distinct predicates | **995** | top 20 cover only 37 % — a genuine long tail |
-| `verified` (already in DBpedia) | 13.9 % of URI-triples | |
-| `faithful-unverified` (**new knowledge**) | **2,730** | 1.79 per abstract |
-| Literal-valued | 4,556 (59 %) | dates, numbers, names — not URI-linkable |
-| **Corpus projection** | **≈22.0 M triples, ≈7.8 M novel URI-triples** | 4.34 M abstracts |
+| Triples per abstract | **4.81** | 9,628 triples from 2,000 abstracts |
+| Triples per producing sentence | **2.32** | |
+| Candidate survival | **64 %** | 9,628 emitted of 15,106 proposed |
+| Distinct predicates | **1,078** | top 20 cover only 37 % — a genuine long tail |
+| `verified` (already in DBpedia) | **547** (13.9 % of URI-triples) | |
+| `faithful-unverified` (**new knowledge**) | **3,383** | 1.69 per abstract |
+| Literal-valued | 5,669 (59 %) | dates, numbers, names — not URI-linkable |
+| **Corpus projection** | **≈20.9 M triples, of which ≈7.3 M novel URI-triples and ≈12.3 M literals** | 4.34 M usable abstracts |
 
-The 995 distinct predicates matter more than the raw count: every benchmark
+The 1,078 distinct predicates matter more than the raw count: every benchmark
 number in this document, ours and NEF 1.0's, comes from 19 domains with fixed
 predicate lists. This is the evidence the pipeline works without them.
 
@@ -197,11 +197,19 @@ from 19.8 % to 0 %. **Our own target before claiming ingestion-readiness is
 
 ### 5.2 Throughput — and what the GPU is actually for
 
-Measured on one MacBook Pro CPU with a local Qwen-2.5-7B: **42.5 abstracts/hour**.
+Measured end-to-end on one MacBook Pro CPU with a local Qwen-2.5-7B:
+**2,000 abstracts in 50.5 hours = 39.6 abstracts/hour**, at **12.6 LLM calls
+per abstract** (7.21 s per call).
 
 ```
-4,343,153 abstracts ÷ 42.5/hour  =  102,000 hours  =  11.7 years
+4,343,153 abstracts ÷ 39.6/hour  =  109,700 hours  =  12.5 years
+corpus LLM calls: 54.7M
 ```
+
+*Note on sustained load:* the first 1,758 abstracts ran at 45.1/hour; the
+full-run average is 39.6/hour, a 12 % degradation. The machine thermally
+throttles under continuous inference. Laptop throughput is therefore not merely
+slow, it is **not sustainable** — the honest figure is the degraded one.
 
 That is the entire ask, stated as arithmetic. We are **not** projecting a GPU
 throughput number we have not measured — batched GPU serving behaves differently
@@ -223,6 +231,45 @@ Reported because they bound how much of this document's earlier drafts to trust:
 
 Verified-triple rate rose 8.3 % → 13.9 % as a direct consequence of subjects
 becoming real entities.
+
+### 5.4 Definite-description resolution — measured A/B
+
+The largest defect in §5.1 has since been fixed and verified against the
+**identical 100 abstracts** (same sample seed), so the comparison carries no
+sampling noise:
+
+| | before | after |
+|---|---|---|
+| Triples | 450 | 455 |
+| `verified` | 26 | **35** |
+| Verified rate (URI-triples) | 13.6 % | **18.0 %** |
+| Definite-description subjects | 5.6 % | **2.9 %** |
+| Sentences producing fewer triples | — | 1 (and 1 producing more) |
+
+Replacements were correct in every case inspected — `The_Road` →
+`Farm_to_Market_Road_2018`, `The_Film` → `Wide_Open_Town`, `Tree` →
+`Tilia_mongolica`.
+
+**The recall effect is larger than the precision effect.** An unresolved subject
+does not merely produce one wrong triple, it *suppresses the rest of the
+sentence*:
+
+```
+"The film stars William Boyd, Russell Hayden, Andy Clyde, Evelyn Brent,
+ Victor Jory, Morris Ankrum and Cara Williams."
+
+before:  Cara_Williams  | starring | Film_(film)           1 triple, reversed
+after:   Wide_Open_Town | starring | William_Boyd_(actor)  7 triples, all correct
+         ... and six more
+```
+
+Coverage is 47 % of affected triples; the remainder are abstracts whose entity
+carries no `dbo` type in our snapshot, so the type guard cannot confirm the
+referent. That is a data-coverage limit, not a logic gap, and the guard fails
+closed by design.
+
+Expected precision effect: **≈60 % → ≈63–65 %**. Real and measured, but this is
+one defect class of five, and it does not on its own reach an ingestible bar.
 
 ## 6. Quality control plan
 
