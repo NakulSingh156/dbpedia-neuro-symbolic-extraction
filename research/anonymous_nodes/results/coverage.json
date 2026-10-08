@@ -1,0 +1,762 @@
+{
+ "n_triples": 3149,
+ "coverage_pct": 22.8,
+ "expected_grounding_pct": 17.4,
+ "by_relation": {
+  "type": {
+   "covered": 31,
+   "n": 157,
+   "pct": 19.7
+  },
+  "occupation": {
+   "covered": 41,
+   "n": 213,
+   "pct": 19.2
+  },
+  "location": {
+   "covered": 35,
+   "n": 392,
+   "pct": 8.9
+  },
+  "birthPlace": {
+   "covered": 48,
+   "n": 108,
+   "pct": 44.4
+  },
+  "nationality": {
+   "covered": 25,
+   "n": 231,
+   "pct": 10.8
+  },
+  "film": {
+   "covered": 0,
+   "n": 8,
+   "pct": 0.0
+  },
+  "deathPlace": {
+   "covered": 11,
+   "n": 25,
+   "pct": 44.0
+  },
+  "family": {
+   "covered": 79,
+   "n": 83,
+   "pct": 95.2
+  },
+  "album": {
+   "covered": 5,
+   "n": 18,
+   "pct": 27.8
+  },
+  "isPartOf": {
+   "covered": 64,
+   "n": 169,
+   "pct": 37.9
+  },
+  "country": {
+   "covered": 95,
+   "n": 165,
+   "pct": 57.6
+  },
+  "part": {
+   "covered": 2,
+   "n": 19,
+   "pct": 10.5
+  },
+  "education": {
+   "covered": 0,
+   "n": 20,
+   "pct": 0.0
+  },
+  "position": {
+   "covered": 33,
+   "n": 88,
+   "pct": 37.5
+  },
+  "city": {
+   "covered": 4,
+   "n": 22,
+   "pct": 18.2
+  },
+  "profession": {
+   "covered": 0,
+   "n": 30,
+   "pct": 0.0
+  },
+  "religion": {
+   "covered": 0,
+   "n": 11,
+   "pct": 0.0
+  },
+  "kingdom": {
+   "covered": 4,
+   "n": 4,
+   "pct": 100.0
+  },
+  "origin": {
+   "covered": 1,
+   "n": 51,
+   "pct": 2.0
+  },
+  "employer": {
+   "covered": 0,
+   "n": 9,
+   "pct": 0.0
+  },
+  "ground": {
+   "covered": 1,
+   "n": 3,
+   "pct": 33.3
+  },
+  "affiliation": {
+   "covered": 1,
+   "n": 22,
+   "pct": 4.5
+  },
+  "starring": {
+   "covered": 47,
+   "n": 62,
+   "pct": 75.8
+  },
+  "domain": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "language": {
+   "covered": 9,
+   "n": 32,
+   "pct": 28.1
+  },
+  "ethnicity": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "owner": {
+   "covered": 0,
+   "n": 7,
+   "pct": 0.0
+  },
+  "foundedBy": {
+   "covered": 3,
+   "n": 16,
+   "pct": 18.8
+  },
+  "genre": {
+   "covered": 20,
+   "n": 57,
+   "pct": 35.1
+  },
+  "composer": {
+   "covered": 0,
+   "n": 12,
+   "pct": 0.0
+  },
+  "locatedInArea": {
+   "covered": 0,
+   "n": 95,
+   "pct": 0.0
+  },
+  "component": {
+   "covered": 0,
+   "n": 9,
+   "pct": 0.0
+  },
+  "artist": {
+   "covered": 21,
+   "n": 33,
+   "pct": 63.6
+  },
+  "recordLabel": {
+   "covered": 14,
+   "n": 16,
+   "pct": 87.5
+  },
+  "inflow": {
+   "covered": 0,
+   "n": 20,
+   "pct": 0.0
+  },
+  "museum": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "designer": {
+   "covered": 2,
+   "n": 7,
+   "pct": 28.6
+  },
+  "precursor": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "series": {
+   "covered": 2,
+   "n": 4,
+   "pct": 50.0
+  },
+  "destination": {
+   "covered": 0,
+   "n": 20,
+   "pct": 0.0
+  },
+  "sport": {
+   "covered": 0,
+   "n": 56,
+   "pct": 0.0
+  },
+  "genus": {
+   "covered": 6,
+   "n": 11,
+   "pct": 54.5
+  },
+  "species": {
+   "covered": 0,
+   "n": 22,
+   "pct": 0.0
+  },
+  "government": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "province": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "order": {
+   "covered": 1,
+   "n": 3,
+   "pct": 33.3
+  },
+  "related": {
+   "covered": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "director": {
+   "covered": 22,
+   "n": 30,
+   "pct": 73.3
+  },
+  "knownFor": {
+   "covered": 0,
+   "n": 12,
+   "pct": 0.0
+  },
+  "field": {
+   "covered": 1,
+   "n": 10,
+   "pct": 10.0
+  },
+  "producer": {
+   "covered": 3,
+   "n": 11,
+   "pct": 27.3
+  },
+  "appointer": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "firstWinner": {
+   "covered": 0,
+   "n": 8,
+   "pct": 0.0
+  },
+  "league": {
+   "covered": 13,
+   "n": 45,
+   "pct": 28.9
+  },
+  "formerTeam": {
+   "covered": 12,
+   "n": 17,
+   "pct": 70.6
+  },
+  "instrument": {
+   "covered": 3,
+   "n": 7,
+   "pct": 42.9
+  },
+  "class": {
+   "covered": 1,
+   "n": 7,
+   "pct": 14.3
+  },
+  "opponent": {
+   "covered": 0,
+   "n": 9,
+   "pct": 0.0
+  },
+  "battle": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "service": {
+   "covered": 0,
+   "n": 29,
+   "pct": 0.0
+  },
+  "predecessor": {
+   "covered": 1,
+   "n": 4,
+   "pct": 25.0
+  },
+  "author": {
+   "covered": 10,
+   "n": 40,
+   "pct": 25.0
+  },
+  "editor": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "leader": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "notableIdea": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "show": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "border": {
+   "covered": 0,
+   "n": 13,
+   "pct": 0.0
+  },
+  "license": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "head": {
+   "covered": 0,
+   "n": 9,
+   "pct": 0.0
+  },
+  "namedAfter": {
+   "covered": 0,
+   "n": 10,
+   "pct": 0.0
+  },
+  "alumni": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "broadcastArea": {
+   "covered": 1,
+   "n": 4,
+   "pct": 25.0
+  },
+  "successor": {
+   "covered": 2,
+   "n": 7,
+   "pct": 28.6
+  },
+  "editing": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "rightTributary": {
+   "covered": 1,
+   "n": 14,
+   "pct": 7.1
+  },
+  "party": {
+   "covered": 11,
+   "n": 23,
+   "pct": 47.8
+  },
+  "governor": {
+   "covered": 0,
+   "n": 8,
+   "pct": 0.0
+  },
+  "partner": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "developer": {
+   "covered": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "team": {
+   "covered": 9,
+   "n": 23,
+   "pct": 39.1
+  },
+  "residence": {
+   "covered": 0,
+   "n": 14,
+   "pct": 0.0
+  },
+  "largestCity": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "creator": {
+   "covered": 0,
+   "n": 12,
+   "pct": 0.0
+  },
+  "similar": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "citizenship": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "manufacturer": {
+   "covered": 4,
+   "n": 8,
+   "pct": 50.0
+  },
+  "homeStadium": {
+   "covered": 0,
+   "n": 8,
+   "pct": 0.0
+  },
+  "musicSubgenre": {
+   "covered": 0,
+   "n": 7,
+   "pct": 0.0
+  },
+  "hasJunctionWith": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "founder": {
+   "covered": 0,
+   "n": 15,
+   "pct": 0.0
+  },
+  "basedOn": {
+   "covered": 0,
+   "n": 8,
+   "pct": 0.0
+  },
+  "state": {
+   "covered": 0,
+   "n": 18,
+   "pct": 0.0
+  },
+  "category": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "region": {
+   "covered": 1,
+   "n": 5,
+   "pct": 20.0
+  },
+  "musicalArtist": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "school": {
+   "covered": 0,
+   "n": 7,
+   "pct": 0.0
+  },
+  "relation": {
+   "covered": 0,
+   "n": 2,
+   "pct": 0.0
+  },
+  "hometown": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "relative": {
+   "covered": 0,
+   "n": 1,
+   "pct": 0.0
+  },
+  "event": {
+   "covered": 0,
+   "n": 19,
+   "pct": 0.0
+  },
+  "regionServed": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "currentMember": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "alliance": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "brand": {
+   "covered": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "institution": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "militaryBranch": {
+   "covered": 1,
+   "n": 4,
+   "pct": 25.0
+  },
+  "capital": {
+   "covered": 1,
+   "n": 7,
+   "pct": 14.3
+  },
+  "network": {
+   "covered": 2,
+   "n": 6,
+   "pct": 33.3
+  },
+  "operator": {
+   "covered": 1,
+   "n": 8,
+   "pct": 12.5
+  },
+  "militaryRank": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "award": {
+   "covered": 1,
+   "n": 3,
+   "pct": 33.3
+  },
+  "house": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "municipality": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "parent": {
+   "covered": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "spouse": {
+   "covered": 1,
+   "n": 4,
+   "pct": 25.0
+  },
+  "organisation": {
+   "covered": 0,
+   "n": 7,
+   "pct": 0.0
+  },
+  "river": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "writer": {
+   "covered": 3,
+   "n": 7,
+   "pct": 42.9
+  },
+  "publisher": {
+   "covered": 5,
+   "n": 10,
+   "pct": 50.0
+  },
+  "headquarter": {
+   "covered": 0,
+   "n": 12,
+   "pct": 0.0
+  },
+  "associate": {
+   "covered": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "voice": {
+   "covered": 1,
+   "n": 9,
+   "pct": 11.1
+  },
+  "coverArtist": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "industry": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "child": {
+   "covered": 0,
+   "n": 2,
+   "pct": 0.0
+  },
+  "crosses": {
+   "covered": 1,
+   "n": 6,
+   "pct": 16.7
+  },
+  "plant": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "politicalPartyOfLeader": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "parish": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "administrativeDistrict": {
+   "covered": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "county": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "club": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "programmingLanguage": {
+   "covered": 1,
+   "n": 3,
+   "pct": 33.3
+  },
+  "season": {
+   "covered": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "discoverer": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "nearestCity": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "neighboringMunicipality": {
+   "covered": 0,
+   "n": 7,
+   "pct": 0.0
+  },
+  "veneratedIn": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "subregion": {
+   "covered": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "college": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "department": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "releaseLocation": {
+   "covered": 0,
+   "n": 7,
+   "pct": 0.0
+  },
+  "building": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "automobilePlatform": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "gender": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "guest": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "bandMember": {
+   "covered": 1,
+   "n": 7,
+   "pct": 14.3
+  },
+  "training": {
+   "covered": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "foundationPlace": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  },
+  "product": {
+   "covered": 0,
+   "n": 6,
+   "pct": 0.0
+  },
+  "owningCompany": {
+   "covered": 0,
+   "n": 4,
+   "pct": 0.0
+  }
+ }
+}
