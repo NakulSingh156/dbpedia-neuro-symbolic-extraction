@@ -1,0 +1,102 @@
+{
+ "codes": {
+  "wd": [
+   "X",
+   "C",
+   "G",
+   "X",
+   "K",
+   "K",
+   "C",
+   "C",
+   "K",
+   "C",
+   "X",
+   "C",
+   "C",
+   "K",
+   "X",
+   "C",
+   "X",
+   "C",
+   "C",
+   "C",
+   "X",
+   "K",
+   "X",
+   "X",
+   "X",
+   "X",
+   "C",
+   "G",
+   "C",
+   "X",
+   "C",
+   "G",
+   "C",
+   "C",
+   "C",
+   "C",
+   "C",
+   "C",
+   "C",
+   "C"
+  ],
+  "dbp": [
+   "C",
+   "X",
+   "X",
+   "C",
+   "C",
+   "C",
+   "X",
+   "K",
+   "X",
+   "C",
+   "C",
+   "C",
+   "X",
+   "K",
+   "X",
+   "C",
+   "X",
+   "K",
+   "C",
+   "X"
+  ]
+ },
+ "summary": {
+  "wd": {
+   "sample": 40,
+   "counts": {
+    "C": 21,
+    "X": 11,
+    "G": 3,
+    "K": 5
+   },
+   "K_share_ci95": [
+    0.055,
+    0.261
+   ],
+   "est_agreement_excl_text_errors_pct": 96.3,
+   "est_true_disagreement_pct": 3.7,
+   "est_text_error_pct_of_judged": 7.6
+  },
+  "dbp": {
+   "sample": 20,
+   "counts": {
+    "C": 9,
+    "X": 8,
+    "G": 0,
+    "K": 3
+   },
+   "K_share_ci95": [
+    0.052,
+    0.36
+   ],
+   "est_agreement_excl_text_errors_pct": 98.3,
+   "est_true_disagreement_pct": 1.7,
+   "est_text_error_pct_of_judged": 4.3
+  }
+ }
+}

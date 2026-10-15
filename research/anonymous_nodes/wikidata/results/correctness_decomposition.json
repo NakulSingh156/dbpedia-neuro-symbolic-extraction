@@ -1,0 +1,154 @@
+{
+ "dbp": {
+  "judged": 457,
+  "exact_match": 383,
+  "mismatch": 74,
+  "granularity": 25,
+  "unchecked": 0,
+  "genuine_disagreement": 49,
+  "exact_pct": 83.8,
+  "consistent_pct": 89.3,
+  "granularity_by_relation": [
+   [
+    "isPartOf",
+    7
+   ],
+   [
+    "location",
+    4
+   ],
+   [
+    "nationality",
+    4
+   ],
+   [
+    "deathPlace",
+    3
+   ],
+   [
+    "birthPlace",
+    3
+   ],
+   [
+    "country",
+    3
+   ],
+   [
+    "manufacturer",
+    1
+   ]
+  ],
+  "disagreement_by_relation": [
+   [
+    "nationality",
+    11
+   ],
+   [
+    "position",
+    6
+   ],
+   [
+    "birthPlace",
+    5
+   ],
+   [
+    "location",
+    5
+   ],
+   [
+    "party",
+    5
+   ],
+   [
+    "genre",
+    3
+   ],
+   [
+    "starring",
+    3
+   ],
+   [
+    "recordLabel",
+    2
+   ]
+  ]
+ },
+ "wd": {
+  "judged": 1105,
+  "exact_match": 640,
+  "mismatch": 465,
+  "granularity": 161,
+  "unchecked": 0,
+  "genuine_disagreement": 304,
+  "exact_pct": 57.9,
+  "consistent_pct": 72.5,
+  "granularity_by_relation": [
+   [
+    "location",
+    82
+   ],
+   [
+    "nationality",
+    19
+   ],
+   [
+    "locatedInArea",
+    14
+   ],
+   [
+    "country",
+    11
+   ],
+   [
+    "birthPlace",
+    9
+   ],
+   [
+    "isPartOf",
+    8
+   ],
+   [
+    "city",
+    7
+   ],
+   [
+    "deathPlace",
+    5
+   ]
+  ],
+  "disagreement_by_relation": [
+   [
+    "nationality",
+    87
+   ],
+   [
+    "occupation",
+    51
+   ],
+   [
+    "location",
+    46
+   ],
+   [
+    "sport",
+    18
+   ],
+   [
+    "position",
+    14
+   ],
+   [
+    "genre",
+    14
+   ],
+   [
+    "locatedInArea",
+    10
+   ],
+   [
+    "isPartOf",
+    9
+   ]
+  ]
+ }
+}
