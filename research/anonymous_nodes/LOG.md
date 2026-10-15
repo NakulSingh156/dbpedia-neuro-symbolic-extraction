@@ -3,6 +3,7 @@
 One entry per working block. Newest first.
 
 ## 2026-10-16 (later)
+- `METHODOLOGY.md` v1: architecture (Description IR, modules M1–M7, adapter interfaces, output representation), approaches B0–B4 + N/H, RQ→experiment map, two-part test set (controlled + mined natural), metrics, plan, decisions needed from Tsoru.
 - Occurrence count (Phase 2.4), see `occurrence/README.md`. First pass by Claude; awaiting Nakul's blind 50 for κ.
 - Stage 1, 300 random sentences: 43% hold an unnamed reference, but 40% are the topic itself. Another entity: 6.0%. Relational (O-REL): 2.7% (CI 1.4–5.2%). KB-likely O-REL: 1.0%.
 - Stage 2, scan of all 5,158 sentences: 24 genuine O-REL sentences (0.47%); 9 KB-likely and never named (0.17%). Scan recall on stage 1 is 2/8, so it is a lower bound.
