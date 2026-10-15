@@ -1,0 +1,2068 @@
+{
+ "location": {
+  "relation": "location",
+  "wikidata_props": [
+   "P276",
+   "P131"
+  ],
+  "mapping": "manual",
+  "phase1_freq": 392,
+  "fwd": {
+   "anchors": 1547438,
+   "pct_exactly_1": 83.9,
+   "pct_2_to_5": 15.9,
+   "pct_over_5": 0.2,
+   "max": 148,
+   "pct_unique_containment": 94.1,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 155678,
+   "pct_exactly_1": 43.0,
+   "pct_2_to_5": 31.1,
+   "pct_over_5": 25.9,
+   "max": 10377
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 52.2,
+   "pct_unique_containment": 79.1
+  }
+ },
+ "nationality": {
+  "relation": "nationality",
+  "wikidata_props": [
+   "P27"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 231,
+  "fwd": {
+   "anchors": 1740730,
+   "pct_exactly_1": 90.7,
+   "pct_2_to_5": 9.3,
+   "pct_over_5": 0.0,
+   "max": 12,
+   "pct_unique_containment": 91.3,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 2554,
+   "pct_exactly_1": 34.3,
+   "pct_2_to_5": 27.8,
+   "pct_over_5": 37.9,
+   "max": 460806
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.02,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 97.5,
+   "pct_unique_containment": 97.5
+  }
+ },
+ "occupation": {
+  "relation": "occupation",
+  "wikidata_props": [
+   "P106"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 213,
+  "fwd": {
+   "anchors": 2028967,
+   "pct_exactly_1": 60.3,
+   "pct_2_to_5": 36.9,
+   "pct_over_5": 2.8,
+   "max": 40,
+   "pct_unique_containment": 60.3,
+   "containment_checked": 200,
+   "multi_pool_capped": true
+  },
+  "inv": {
+   "anchors": 5602,
+   "pct_exactly_1": 37.9,
+   "pct_2_to_5": 22.7,
+   "pct_over_5": 39.4,
+   "max": 310216
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 51.2,
+   "pct_unique_containment": 51.2
+  }
+ },
+ "isPartOf": {
+  "relation": "isPartOf",
+  "wikidata_props": [
+   "P361"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 169,
+  "fwd": {
+   "anchors": 392766,
+   "pct_exactly_1": 90.9,
+   "pct_2_to_5": 8.7,
+   "pct_over_5": 0.4,
+   "max": 210,
+   "pct_unique_containment": 92.7,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 79871,
+   "pct_exactly_1": 51.3,
+   "pct_2_to_5": 35.8,
+   "pct_over_5": 12.9,
+   "max": 4236
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 8.2,
+   "pct_unique_containment": 80.5
+  }
+ },
+ "country": {
+  "relation": "country",
+  "wikidata_props": [
+   "P17"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 165,
+  "fwd": {
+   "anchors": 2371350,
+   "pct_exactly_1": 98.6,
+   "pct_2_to_5": 1.3,
+   "pct_over_5": 0.1,
+   "max": 141,
+   "pct_unique_containment": 98.7,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 2645,
+   "pct_exactly_1": 40.6,
+   "pct_2_to_5": 27.7,
+   "pct_over_5": 31.7,
+   "max": 609684
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 93.0,
+   "pct_unique_containment": 93.5
+  }
+ },
+ "birthPlace": {
+  "relation": "birthPlace",
+  "wikidata_props": [
+   "P19"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 108,
+  "fwd": {
+   "anchors": 1483733,
+   "pct_exactly_1": 99.2,
+   "pct_2_to_5": 0.8,
+   "pct_over_5": 0.0,
+   "max": 6,
+   "pct_unique_containment": 99.4,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 130177,
+   "pct_exactly_1": 47.9,
+   "pct_2_to_5": 32.3,
+   "pct_over_5": 19.8,
+   "max": 16916
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.17,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 23.2,
+   "pct_unique_containment": 67.4
+  }
+ },
+ "locatedInArea": {
+  "relation": "locatedInArea",
+  "wikidata_props": [
+   "P131"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 95,
+  "fwd": {
+   "anchors": 1390686,
+   "pct_exactly_1": 88.2,
+   "pct_2_to_5": 11.6,
+   "pct_over_5": 0.2,
+   "max": 148,
+   "pct_unique_containment": 95.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 115145,
+   "pct_exactly_1": 38.4,
+   "pct_2_to_5": 31.6,
+   "pct_over_5": 30.0,
+   "max": 10352
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 23.2,
+   "pct_unique_containment": 58.7
+  }
+ },
+ "position": {
+  "relation": "position",
+  "wikidata_props": [
+   "P413"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 88,
+  "fwd": {
+   "anchors": 292752,
+   "pct_exactly_1": 96.7,
+   "pct_2_to_5": 3.3,
+   "pct_over_5": 0.0,
+   "max": 6,
+   "pct_unique_containment": 96.8,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 217,
+   "pct_exactly_1": 30.4,
+   "pct_2_to_5": 22.1,
+   "pct_over_5": 47.5,
+   "max": 57795
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 91.5,
+   "pct_unique_containment": 91.5
+  }
+ },
+ "family": {
+  "relation": "family",
+  "wikidata_props": [
+   "P53"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 83,
+  "fwd": {
+   "anchors": 36578,
+   "pct_exactly_1": 97.0,
+   "pct_2_to_5": 3.0,
+   "pct_over_5": 0.0,
+   "max": 7,
+   "pct_unique_containment": 97.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 2985,
+   "pct_exactly_1": 32.1,
+   "pct_2_to_5": 35.3,
+   "pct_over_5": 32.5,
+   "max": 322
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 71.2,
+   "pct_unique_containment": 71.2
+  }
+ },
+ "starring": {
+  "relation": "starring",
+  "wikidata_props": [
+   "P161"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 62,
+  "fwd": {
+   "anchors": 154217,
+   "pct_exactly_1": 28.6,
+   "pct_2_to_5": 29.4,
+   "pct_over_5": 42.0,
+   "max": 1131,
+   "pct_unique_containment": 28.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 103670,
+   "pct_exactly_1": 33.7,
+   "pct_2_to_5": 31.6,
+   "pct_over_5": 34.7,
+   "max": 637
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.04,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 18.0,
+   "pct_unique_containment": 18.0
+  }
+ },
+ "genre": {
+  "relation": "genre",
+  "wikidata_props": [
+   "P136"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 57,
+  "fwd": {
+   "anchors": 582279,
+   "pct_exactly_1": 76.8,
+   "pct_2_to_5": 22.5,
+   "pct_over_5": 0.7,
+   "max": 39,
+   "pct_unique_containment": 76.8,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 5828,
+   "pct_exactly_1": 36.1,
+   "pct_2_to_5": 25.3,
+   "pct_over_5": 38.6,
+   "max": 53188
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 53.2,
+   "pct_unique_containment": 53.2
+  }
+ },
+ "sport": {
+  "relation": "sport",
+  "wikidata_props": [
+   "P641"
+  ],
+  "mapping": "manual",
+  "phase1_freq": 56,
+  "fwd": {
+   "anchors": 1168513,
+   "pct_exactly_1": 97.4,
+   "pct_2_to_5": 2.5,
+   "pct_over_5": 0.1,
+   "max": 67,
+   "pct_unique_containment": 97.4,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 1270,
+   "pct_exactly_1": 35.9,
+   "pct_2_to_5": 25.2,
+   "pct_over_5": 38.9,
+   "max": 349827
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 82.5,
+   "pct_unique_containment": 82.5
+  }
+ },
+ "league": {
+  "relation": "league",
+  "wikidata_props": [
+   "P118"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 45,
+  "fwd": {
+   "anchors": 77321,
+   "pct_exactly_1": 82.5,
+   "pct_2_to_5": 17.4,
+   "pct_over_5": 0.1,
+   "max": 20,
+   "pct_unique_containment": 82.8,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 2704,
+   "pct_exactly_1": 34.2,
+   "pct_2_to_5": 25.5,
+   "pct_over_5": 40.2,
+   "max": 10249
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 96.0,
+   "pct_unique_containment": 96.0
+  }
+ },
+ "author": {
+  "relation": "author",
+  "wikidata_props": [
+   "P50"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 40,
+  "fwd": {
+   "anchors": 88284,
+   "pct_exactly_1": 94.8,
+   "pct_2_to_5": 5.0,
+   "pct_over_5": 0.2,
+   "max": 103,
+   "pct_unique_containment": 94.8,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 33329,
+   "pct_exactly_1": 66.0,
+   "pct_2_to_5": 25.7,
+   "pct_over_5": 8.3,
+   "max": 302
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.68,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 91.0,
+   "pct_unique_containment": 91.0
+  }
+ },
+ "artist": {
+  "relation": "artist",
+  "wikidata_props": [
+   "P175"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 33,
+  "fwd": {
+   "anchors": 262206,
+   "pct_exactly_1": 95.1,
+   "pct_2_to_5": 4.6,
+   "pct_over_5": 0.2,
+   "max": 72,
+   "pct_unique_containment": 95.1,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 49174,
+   "pct_exactly_1": 42.6,
+   "pct_2_to_5": 34.6,
+   "pct_over_5": 22.8,
+   "max": 4065
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 97.8,
+   "pct_unique_containment": 97.8
+  }
+ },
+ "profession": {
+  "relation": "profession",
+  "wikidata_props": [
+   "P106"
+  ],
+  "mapping": "manual",
+  "phase1_freq": 30,
+  "fwd": {
+   "anchors": 2028967,
+   "pct_exactly_1": 60.3,
+   "pct_2_to_5": 36.9,
+   "pct_over_5": 2.8,
+   "max": 40,
+   "pct_unique_containment": 60.3,
+   "containment_checked": 200,
+   "multi_pool_capped": true
+  },
+  "inv": {
+   "anchors": 5602,
+   "pct_exactly_1": 37.9,
+   "pct_2_to_5": 22.7,
+   "pct_over_5": 39.4,
+   "max": 310216
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 76.5,
+   "pct_unique_containment": 76.5
+  }
+ },
+ "director": {
+  "relation": "director",
+  "wikidata_props": [
+   "P57"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 30,
+  "fwd": {
+   "anchors": 184358,
+   "pct_exactly_1": 94.3,
+   "pct_2_to_5": 5.5,
+   "pct_over_5": 0.2,
+   "max": 79,
+   "pct_unique_containment": 94.3,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 28581,
+   "pct_exactly_1": 35.8,
+   "pct_2_to_5": 38.6,
+   "pct_over_5": 25.6,
+   "max": 325
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.06,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 93.8,
+   "pct_unique_containment": 93.8
+  }
+ },
+ "deathPlace": {
+  "relation": "deathPlace",
+  "wikidata_props": [
+   "P20"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 25,
+  "fwd": {
+   "anchors": 553819,
+   "pct_exactly_1": 99.2,
+   "pct_2_to_5": 0.8,
+   "pct_over_5": 0.0,
+   "max": 4,
+   "pct_unique_containment": 99.5,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 62457,
+   "pct_exactly_1": 55.7,
+   "pct_2_to_5": 29.6,
+   "pct_over_5": 14.7,
+   "max": 12275
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.39,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 54.5,
+   "pct_unique_containment": 82.4
+  }
+ },
+ "party": {
+  "relation": "party",
+  "wikidata_props": [
+   "P102"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 23,
+  "fwd": {
+   "anchors": 223135,
+   "pct_exactly_1": 90.7,
+   "pct_2_to_5": 9.2,
+   "pct_over_5": 0.1,
+   "max": 12,
+   "pct_unique_containment": 91.3,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 8208,
+   "pct_exactly_1": 36.1,
+   "pct_2_to_5": 33.0,
+   "pct_over_5": 30.9,
+   "max": 32389
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 92.5,
+   "pct_unique_containment": 92.5
+  }
+ },
+ "team": {
+  "relation": "team",
+  "wikidata_props": [
+   "P54"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 23,
+  "fwd": {
+   "anchors": 368568,
+   "pct_exactly_1": 38.9,
+   "pct_2_to_5": 41.2,
+   "pct_over_5": 19.9,
+   "max": 33,
+   "pct_unique_containment": 38.9,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 33084,
+   "pct_exactly_1": 21.8,
+   "pct_2_to_5": 26.7,
+   "pct_over_5": 51.5,
+   "max": 2070
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 74.0,
+   "pct_unique_containment": 74.0
+  }
+ },
+ "city": {
+  "relation": "city",
+  "wikidata_props": [
+   "P131"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 22,
+  "fwd": {
+   "anchors": 1390686,
+   "pct_exactly_1": 88.2,
+   "pct_2_to_5": 11.6,
+   "pct_over_5": 0.2,
+   "max": 148,
+   "pct_unique_containment": 95.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 115145,
+   "pct_exactly_1": 38.4,
+   "pct_2_to_5": 31.6,
+   "pct_over_5": 30.0,
+   "max": 10352
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 82.8,
+   "pct_unique_containment": 93.2
+  }
+ },
+ "education": {
+  "relation": "education",
+  "wikidata_props": [
+   "P69"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 20,
+  "fwd": {
+   "anchors": 706255,
+   "pct_exactly_1": 61.6,
+   "pct_2_to_5": 38.2,
+   "pct_over_5": 0.2,
+   "max": 18,
+   "pct_unique_containment": 62.5,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 36789,
+   "pct_exactly_1": 25.9,
+   "pct_2_to_5": 29.9,
+   "pct_over_5": 44.2,
+   "max": 15435
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.04,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 63.2,
+   "pct_unique_containment": 63.7
+  }
+ },
+ "inflow": {
+  "relation": "inflow",
+  "wikidata_props": [
+   "P200"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 20,
+  "fwd": {
+   "anchors": 4474,
+   "pct_exactly_1": 68.0,
+   "pct_2_to_5": 25.1,
+   "pct_over_5": 6.9,
+   "max": 414,
+   "pct_unique_containment": 68.0,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 5637,
+   "pct_exactly_1": 86.7,
+   "pct_2_to_5": 12.7,
+   "pct_over_5": 0.6,
+   "max": 18
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.04,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 81.0,
+   "pct_unique_containment": 81.0
+  }
+ },
+ "foundedBy": {
+  "relation": "foundedBy",
+  "wikidata_props": [
+   "P112"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 16,
+  "fwd": {
+   "anchors": 46394,
+   "pct_exactly_1": 85.8,
+   "pct_2_to_5": 13.6,
+   "pct_over_5": 0.6,
+   "max": 51,
+   "pct_unique_containment": 85.8,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 34820,
+   "pct_exactly_1": 85.9,
+   "pct_2_to_5": 13.3,
+   "pct_over_5": 0.8,
+   "max": 914
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.12,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 76.2,
+   "pct_unique_containment": 76.2
+  }
+ },
+ "recordLabel": {
+  "relation": "recordLabel",
+  "wikidata_props": [
+   "P264"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 16,
+  "fwd": {
+   "anchors": 224389,
+   "pct_exactly_1": 88.3,
+   "pct_2_to_5": 11.4,
+   "pct_over_5": 0.3,
+   "max": 49,
+   "pct_unique_containment": 88.8,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 5693,
+   "pct_exactly_1": 24.2,
+   "pct_2_to_5": 25.5,
+   "pct_over_5": 50.4,
+   "max": 9360
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 75.8,
+   "pct_unique_containment": 75.8
+  }
+ },
+ "founder": {
+  "relation": "founder",
+  "wikidata_props": [
+   "P112"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 15,
+  "fwd": {
+   "anchors": 46394,
+   "pct_exactly_1": 85.8,
+   "pct_2_to_5": 13.6,
+   "pct_over_5": 0.6,
+   "max": 51,
+   "pct_unique_containment": 85.8,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 34820,
+   "pct_exactly_1": 85.9,
+   "pct_2_to_5": 13.3,
+   "pct_over_5": 0.8,
+   "max": 914
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.12,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 82.2,
+   "pct_unique_containment": 82.2
+  }
+ },
+ "residence": {
+  "relation": "residence",
+  "wikidata_props": [
+   "P551"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 14,
+  "fwd": {
+   "anchors": 78196,
+   "pct_exactly_1": 87.7,
+   "pct_2_to_5": 11.7,
+   "pct_over_5": 0.6,
+   "max": 75,
+   "pct_unique_containment": 88.5,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 22120,
+   "pct_exactly_1": 66.7,
+   "pct_2_to_5": 25.3,
+   "pct_over_5": 8.0,
+   "max": 2480
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.02,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 60.8,
+   "pct_unique_containment": 89.7
+  }
+ },
+ "composer": {
+  "relation": "composer",
+  "wikidata_props": [
+   "P86"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 12,
+  "fwd": {
+   "anchors": 118677,
+   "pct_exactly_1": 93.8,
+   "pct_2_to_5": 6.0,
+   "pct_over_5": 0.2,
+   "max": 18,
+   "pct_unique_containment": 93.8,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 17655,
+   "pct_exactly_1": 49.3,
+   "pct_2_to_5": 30.5,
+   "pct_over_5": 20.2,
+   "max": 820
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.08,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 81.2,
+   "pct_unique_containment": 81.2
+  }
+ },
+ "creator": {
+  "relation": "creator",
+  "wikidata_props": [
+   "P170"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 12,
+  "fwd": {
+   "anchors": 42261,
+   "pct_exactly_1": 88.4,
+   "pct_2_to_5": 11.5,
+   "pct_over_5": 0.1,
+   "max": 24,
+   "pct_unique_containment": 88.4,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 16082,
+   "pct_exactly_1": 67.1,
+   "pct_2_to_5": 24.7,
+   "pct_over_5": 8.2,
+   "max": 280
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 1.83,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 66.8,
+   "pct_unique_containment": 66.8
+  }
+ },
+ "headquarter": {
+  "relation": "headquarter",
+  "wikidata_props": [
+   "P159"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 12,
+  "fwd": {
+   "anchors": 171968,
+   "pct_exactly_1": 97.4,
+   "pct_2_to_5": 2.6,
+   "pct_over_5": 0.0,
+   "max": 14,
+   "pct_unique_containment": 97.9,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 30578,
+   "pct_exactly_1": 60.5,
+   "pct_2_to_5": 28.2,
+   "pct_over_5": 11.3,
+   "max": 4372
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 49.5,
+   "pct_unique_containment": 81.7
+  }
+ },
+ "religion": {
+  "relation": "religion",
+  "wikidata_props": [
+   "P140"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 11,
+  "fwd": {
+   "anchors": 149968,
+   "pct_exactly_1": 96.1,
+   "pct_2_to_5": 3.8,
+   "pct_over_5": 0.0,
+   "max": 11,
+   "pct_unique_containment": 97.1,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 1491,
+   "pct_exactly_1": 46.1,
+   "pct_2_to_5": 27.6,
+   "pct_over_5": 26.3,
+   "max": 33823
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 92.0,
+   "pct_unique_containment": 92.2
+  }
+ },
+ "genus": {
+  "relation": "genus",
+  "wikidata_props": [
+   "P74"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 11,
+  "fwd": {
+   "anchors": 0
+  },
+  "inv": {
+   "anchors": 0
+  },
+  "query_failed": false,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 99.2,
+   "pct_unique_containment": 99.2
+  }
+ },
+ "namedAfter": {
+  "relation": "namedAfter",
+  "wikidata_props": [
+   "P138"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 10,
+  "fwd": {
+   "anchors": 142596,
+   "pct_exactly_1": 92.5,
+   "pct_2_to_5": 7.5,
+   "pct_over_5": 0.0,
+   "max": 16,
+   "pct_unique_containment": 92.7,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 80064,
+   "pct_exactly_1": 77.1,
+   "pct_2_to_5": 20.1,
+   "pct_over_5": 2.9,
+   "max": 806
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.13,
+  "dbpedia_fwd": {
+   "anchors": 20,
+   "pct_exactly_1": 70.0,
+   "pct_unique_containment": 70.0
+  }
+ },
+ "employer": {
+  "relation": "employer",
+  "wikidata_props": [
+   "P108"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 9,
+  "fwd": {
+   "anchors": 207621,
+   "pct_exactly_1": 66.1,
+   "pct_2_to_5": 32.3,
+   "pct_over_5": 1.6,
+   "max": 29,
+   "pct_unique_containment": 67.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 37167,
+   "pct_exactly_1": 59.2,
+   "pct_2_to_5": 27.0,
+   "pct_over_5": 13.8,
+   "max": 4395
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 81.8,
+   "pct_unique_containment": 81.8
+  }
+ },
+ "voice": {
+  "relation": "voice",
+  "wikidata_props": [
+   "P990"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 9,
+  "fwd": {
+   "anchors": 0
+  },
+  "inv": {
+   "anchors": 0
+  },
+  "query_failed": false,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 20.8,
+   "pct_unique_containment": 20.8
+  }
+ },
+ "manufacturer": {
+  "relation": "manufacturer",
+  "wikidata_props": [
+   "P176"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 8,
+  "fwd": {
+   "anchors": 67322,
+   "pct_exactly_1": 93.8,
+   "pct_2_to_5": 5.9,
+   "pct_over_5": 0.3,
+   "max": 22,
+   "pct_unique_containment": 94.3,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 6868,
+   "pct_exactly_1": 44.9,
+   "pct_2_to_5": 28.7,
+   "pct_over_5": 26.4,
+   "max": 671
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.03,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 90.5,
+   "pct_unique_containment": 90.5
+  }
+ },
+ "basedOn": {
+  "relation": "basedOn",
+  "wikidata_props": [
+   "P144"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 8,
+  "fwd": {
+   "anchors": 32864,
+   "pct_exactly_1": 93.9,
+   "pct_2_to_5": 5.8,
+   "pct_over_5": 0.3,
+   "max": 21,
+   "pct_unique_containment": 94.1,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 18902,
+   "pct_exactly_1": 78.4,
+   "pct_2_to_5": 18.8,
+   "pct_over_5": 2.8,
+   "max": 118
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.04,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 75.0,
+   "pct_unique_containment": 75.0
+  }
+ },
+ "owner": {
+  "relation": "owner",
+  "wikidata_props": [
+   "P127"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 7,
+  "fwd": {
+   "anchors": 112944,
+   "pct_exactly_1": 93.5,
+   "pct_2_to_5": 6.1,
+   "pct_over_5": 0.3,
+   "max": 28,
+   "pct_unique_containment": 93.7,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 25780,
+   "pct_exactly_1": 65.5,
+   "pct_2_to_5": 25.1,
+   "pct_over_5": 9.5,
+   "max": 4556
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.06,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 92.0,
+   "pct_unique_containment": 92.5
+  }
+ },
+ "designer": {
+  "relation": "designer",
+  "wikidata_props": [
+   "P287"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 7,
+  "fwd": {
+   "anchors": 9998,
+   "pct_exactly_1": 91.0,
+   "pct_2_to_5": 8.8,
+   "pct_over_5": 0.2,
+   "max": 13,
+   "pct_unique_containment": 91.0,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 4036,
+   "pct_exactly_1": 61.9,
+   "pct_2_to_5": 29.4,
+   "pct_over_5": 8.7,
+   "max": 71
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.15,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 89.0,
+   "pct_unique_containment": 89.0
+  }
+ },
+ "instrument": {
+  "relation": "instrument",
+  "wikidata_props": [
+   "P1303"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 7,
+  "fwd": {
+   "anchors": 92848,
+   "pct_exactly_1": 82.0,
+   "pct_2_to_5": 17.6,
+   "pct_over_5": 0.4,
+   "max": 31,
+   "pct_unique_containment": 82.0,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 745,
+   "pct_exactly_1": 41.6,
+   "pct_2_to_5": 27.8,
+   "pct_over_5": 30.6,
+   "max": 15060
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 46.8,
+   "pct_unique_containment": 46.8
+  }
+ },
+ "capital": {
+  "relation": "capital",
+  "wikidata_props": [
+   "P36"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 7,
+  "fwd": {
+   "anchors": 58687,
+   "pct_exactly_1": 98.6,
+   "pct_2_to_5": 1.4,
+   "pct_over_5": 0.0,
+   "max": 9,
+   "pct_unique_containment": 98.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 25406,
+   "pct_exactly_1": 82.1,
+   "pct_2_to_5": 16.6,
+   "pct_over_5": 1.3,
+   "max": 30
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 82.5,
+   "pct_unique_containment": 83.2
+  }
+ },
+ "province": {
+  "relation": "province",
+  "wikidata_props": [
+   "P131"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 6,
+  "fwd": {
+   "anchors": 1390686,
+   "pct_exactly_1": 88.2,
+   "pct_2_to_5": 11.6,
+   "pct_over_5": 0.2,
+   "max": 148,
+   "pct_unique_containment": 95.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 115145,
+   "pct_exactly_1": 38.4,
+   "pct_2_to_5": 31.6,
+   "pct_over_5": 30.0,
+   "max": 10352
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 100.0,
+   "pct_unique_containment": 100.0
+  }
+ },
+ "editor": {
+  "relation": "editor",
+  "wikidata_props": [
+   "P98"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 6,
+  "fwd": {
+   "anchors": 5129,
+   "pct_exactly_1": 79.1,
+   "pct_2_to_5": 19.1,
+   "pct_over_5": 1.8,
+   "max": 87,
+   "pct_unique_containment": 79.2,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 4601,
+   "pct_exactly_1": 92.6,
+   "pct_2_to_5": 6.4,
+   "pct_over_5": 1.0,
+   "max": 96
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.31,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 85.2,
+   "pct_unique_containment": 85.2
+  }
+ },
+ "crosses": {
+  "relation": "crosses",
+  "wikidata_props": [
+   "P177"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 6,
+  "fwd": {
+   "anchors": 7439,
+   "pct_exactly_1": 96.4,
+   "pct_2_to_5": 3.5,
+   "pct_over_5": 0.1,
+   "max": 39,
+   "pct_unique_containment": 96.5,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 3126,
+   "pct_exactly_1": 70.1,
+   "pct_2_to_5": 23.7,
+   "pct_over_5": 6.2,
+   "max": 149
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 97.5,
+   "pct_unique_containment": 97.5
+  }
+ },
+ "county": {
+  "relation": "county",
+  "wikidata_props": [
+   "P131"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 6,
+  "fwd": {
+   "anchors": 1390686,
+   "pct_exactly_1": 88.2,
+   "pct_2_to_5": 11.6,
+   "pct_over_5": 0.2,
+   "max": 148,
+   "pct_unique_containment": 95.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 115145,
+   "pct_exactly_1": 38.4,
+   "pct_2_to_5": 31.6,
+   "pct_over_5": 30.0,
+   "max": 10352
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 73.0,
+   "pct_unique_containment": 73.0
+  }
+ },
+ "developer": {
+  "relation": "developer",
+  "wikidata_props": [
+   "P178"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 5,
+  "fwd": {
+   "anchors": 35481,
+   "pct_exactly_1": 92.6,
+   "pct_2_to_5": 7.2,
+   "pct_over_5": 0.2,
+   "max": 16,
+   "pct_unique_containment": 93.2,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 6528,
+   "pct_exactly_1": 53.9,
+   "pct_2_to_5": 28.9,
+   "pct_over_5": 17.2,
+   "max": 771
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.05,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 87.0,
+   "pct_unique_containment": 87.0
+  }
+ },
+ "parent": {
+  "relation": "parent",
+  "wikidata_props": [
+   "P22",
+   "P25"
+  ],
+  "mapping": "manual",
+  "phase1_freq": 5,
+  "fwd": {
+   "anchors": 180793,
+   "pct_exactly_1": 51.2,
+   "pct_2_to_5": 48.8,
+   "pct_over_5": 0.0,
+   "max": 11,
+   "pct_unique_containment": 51.2,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 86819,
+   "pct_exactly_1": 71.1,
+   "pct_2_to_5": 27.3,
+   "pct_over_5": 1.6,
+   "max": 114
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.72,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 52.0,
+   "pct_unique_containment": 52.0
+  }
+ },
+ "kingdom": {
+  "relation": "kingdom",
+  "wikidata_props": [
+   "P75"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 4,
+  "fwd": {
+   "anchors": 0
+  },
+  "inv": {
+   "anchors": 0
+  },
+  "query_failed": false,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 99.8,
+   "pct_unique_containment": 99.8
+  }
+ },
+ "battle": {
+  "relation": "battle",
+  "wikidata_props": [
+   "P607"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 4,
+  "fwd": {
+   "anchors": 92678,
+   "pct_exactly_1": 78.9,
+   "pct_2_to_5": 19.8,
+   "pct_over_5": 1.3,
+   "max": 48,
+   "pct_unique_containment": 79.7,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 6393,
+   "pct_exactly_1": 49.2,
+   "pct_2_to_5": 33.2,
+   "pct_over_5": 17.6,
+   "max": 38326
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 35.0,
+   "pct_unique_containment": 35.0
+  }
+ },
+ "militaryBranch": {
+  "relation": "militaryBranch",
+  "wikidata_props": [
+   "P7779"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 4,
+  "fwd": {
+   "anchors": 1750,
+   "pct_exactly_1": 78.7,
+   "pct_2_to_5": 18.5,
+   "pct_over_5": 2.7,
+   "max": 17,
+   "pct_unique_containment": 79.0,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 1393,
+   "pct_exactly_1": 78.6,
+   "pct_2_to_5": 18.9,
+   "pct_over_5": 2.5,
+   "max": 25
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 89.2,
+   "pct_unique_containment": 89.2
+  }
+ },
+ "spouse": {
+  "relation": "spouse",
+  "wikidata_props": [
+   "P26"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 4,
+  "fwd": {
+   "anchors": 160769,
+   "pct_exactly_1": 87.3,
+   "pct_2_to_5": 12.6,
+   "pct_over_5": 0.1,
+   "max": 70,
+   "pct_unique_containment": 87.3,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 85181,
+   "pct_exactly_1": 92.4,
+   "pct_2_to_5": 7.6,
+   "pct_over_5": 0.1,
+   "max": 23
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.75,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 88.8,
+   "pct_unique_containment": 88.8
+  }
+ },
+ "coverArtist": {
+  "relation": "coverArtist",
+  "wikidata_props": [
+   "P736"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 4,
+  "fwd": {
+   "anchors": 4192,
+   "pct_exactly_1": 98.9,
+   "pct_2_to_5": 1.1,
+   "pct_over_5": 0.0,
+   "max": 5,
+   "pct_unique_containment": 98.9,
+   "containment_checked": 47,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 1083,
+   "pct_exactly_1": 61.6,
+   "pct_2_to_5": 25.9,
+   "pct_over_5": 12.5,
+   "max": 79
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.1,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 98.2,
+   "pct_unique_containment": 98.2
+  }
+ },
+ "industry": {
+  "relation": "industry",
+  "wikidata_props": [
+   "P452"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 4,
+  "fwd": {
+   "anchors": 70644,
+   "pct_exactly_1": 90.5,
+   "pct_2_to_5": 9.3,
+   "pct_over_5": 0.2,
+   "max": 25,
+   "pct_unique_containment": 90.7,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 3168,
+   "pct_exactly_1": 51.1,
+   "pct_2_to_5": 28.5,
+   "pct_over_5": 20.4,
+   "max": 3209
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.0,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 86.0,
+   "pct_unique_containment": 86.0
+  }
+ },
+ "discoverer": {
+  "relation": "discoverer",
+  "wikidata_props": [
+   "P61"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 4,
+  "fwd": {
+   "anchors": 41659,
+   "pct_exactly_1": 83.5,
+   "pct_2_to_5": 16.5,
+   "pct_over_5": 0.0,
+   "max": 78,
+   "pct_unique_containment": 83.7,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 6014,
+   "pct_exactly_1": 78.1,
+   "pct_2_to_5": 15.1,
+   "pct_over_5": 6.9,
+   "max": 4771
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.08,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 86.5,
+   "pct_unique_containment": 86.5
+  }
+ },
+ "ethnicity": {
+  "relation": "ethnicity",
+  "wikidata_props": [
+   "P172"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 3,
+  "fwd": {
+   "anchors": 22678,
+   "pct_exactly_1": 88.4,
+   "pct_2_to_5": 5.5,
+   "pct_over_5": 6.0,
+   "max": 76,
+   "pct_unique_containment": 88.5,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 2167,
+   "pct_exactly_1": 49.1,
+   "pct_2_to_5": 32.3,
+   "pct_over_5": 18.6,
+   "max": 5269
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.04,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 93.2,
+   "pct_unique_containment": 93.2
+  }
+ },
+ "order": {
+  "relation": "order",
+  "wikidata_props": [
+   "P70"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 3,
+  "fwd": {
+   "anchors": 0
+  },
+  "inv": {
+   "anchors": 0
+  },
+  "query_failed": false,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 72.0,
+   "pct_unique_containment": 72.0
+  }
+ },
+ "license": {
+  "relation": "license",
+  "wikidata_props": [
+   "P275"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 3,
+  "fwd": {
+   "anchors": 12182,
+   "pct_exactly_1": 90.5,
+   "pct_2_to_5": 9.5,
+   "pct_over_5": 0.0,
+   "max": 9,
+   "pct_unique_containment": 90.5,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 149,
+   "pct_exactly_1": 27.5,
+   "pct_2_to_5": 25.5,
+   "pct_over_5": 47.0,
+   "max": 2510
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.06,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 91.0,
+   "pct_unique_containment": 91.0
+  }
+ },
+ "editing": {
+  "relation": "editing",
+  "wikidata_props": [
+   "P1040"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 3,
+  "fwd": {
+   "anchors": 40162,
+   "pct_exactly_1": 94.9,
+   "pct_2_to_5": 5.1,
+   "pct_over_5": 0.1,
+   "max": 23,
+   "pct_unique_containment": 94.9,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 3693,
+   "pct_exactly_1": 49.1,
+   "pct_2_to_5": 22.9,
+   "pct_over_5": 28.0,
+   "max": 194
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.03,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 92.8,
+   "pct_unique_containment": 92.8
+  }
+ },
+ "citizenship": {
+  "relation": "citizenship",
+  "wikidata_props": [
+   "P27"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 3,
+  "fwd": {
+   "anchors": 1740731,
+   "pct_exactly_1": 90.7,
+   "pct_2_to_5": 9.3,
+   "pct_over_5": 0.0,
+   "max": 12,
+   "pct_unique_containment": 91.3,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 2554,
+   "pct_exactly_1": 34.3,
+   "pct_2_to_5": 27.8,
+   "pct_over_5": 37.9,
+   "max": 460806
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.02,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 89.8,
+   "pct_unique_containment": 89.8
+  }
+ },
+ "musicalArtist": {
+  "relation": "musicalArtist",
+  "wikidata_props": [
+   "P175"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 3,
+  "fwd": {
+   "anchors": 262206,
+   "pct_exactly_1": 95.1,
+   "pct_2_to_5": 4.6,
+   "pct_over_5": 0.2,
+   "max": 72,
+   "pct_unique_containment": 95.1,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 49174,
+   "pct_exactly_1": 42.6,
+   "pct_2_to_5": 34.6,
+   "pct_over_5": 22.8,
+   "max": 4065
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.01,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 89.5,
+   "pct_unique_containment": 89.5
+  }
+ },
+ "award": {
+  "relation": "award",
+  "wikidata_props": [
+   "P166"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 3,
+  "fwd": {
+   "anchors": 341517,
+   "pct_exactly_1": 57.4,
+   "pct_2_to_5": 35.3,
+   "pct_over_5": 7.3,
+   "max": 111,
+   "pct_unique_containment": 57.4,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 14881,
+   "pct_exactly_1": 29.2,
+   "pct_2_to_5": 26.4,
+   "pct_over_5": 44.4,
+   "max": 12406
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.02,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 55.0,
+   "pct_unique_containment": 55.0
+  }
+ },
+ "relative": {
+  "relation": "relative",
+  "wikidata_props": [
+   "P1038"
+  ],
+  "mapping": "manual",
+  "phase1_freq": 1,
+  "fwd": {
+   "anchors": 29682,
+   "pct_exactly_1": 71.0,
+   "pct_2_to_5": 26.5,
+   "pct_over_5": 2.5,
+   "max": 120,
+   "pct_unique_containment": 71.0,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 23708,
+   "pct_exactly_1": 81.1,
+   "pct_2_to_5": 18.0,
+   "pct_over_5": 0.9,
+   "max": 23
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.03,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 61.5,
+   "pct_unique_containment": 61.5
+  }
+ },
+ "child": {
+  "relation": "child",
+  "wikidata_props": [
+   "P40"
+  ],
+  "mapping": "ontology",
+  "phase1_freq": 2,
+  "fwd": {
+   "anchors": 148270,
+   "pct_exactly_1": 54.0,
+   "pct_2_to_5": 39.3,
+   "pct_over_5": 6.8,
+   "max": 156,
+   "pct_unique_containment": 54.0,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 108543,
+   "pct_exactly_1": 77.7,
+   "pct_2_to_5": 22.3,
+   "pct_over_5": 0.0,
+   "max": 13
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.11,
+  "dbpedia_fwd": {
+   "anchors": 400,
+   "pct_exactly_1": 67.2,
+   "pct_unique_containment": 67.2
+  }
+ },
+ "father (P22)": {
+  "relation": "father (P22)",
+  "wikidata_props": [
+   "P22"
+  ],
+  "mapping": "wikidata-only",
+  "phase1_freq": 0,
+  "fwd": {
+   "anchors": 172852,
+   "pct_exactly_1": 99.6,
+   "pct_2_to_5": 0.4,
+   "pct_over_5": 0.0,
+   "max": 6,
+   "pct_unique_containment": 99.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 69275,
+   "pct_exactly_1": 72.8,
+   "pct_2_to_5": 25.8,
+   "pct_over_5": 1.4,
+   "max": 114
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.4,
+  "dbpedia_fwd": {
+   "anchors": null,
+   "pct_exactly_1": null,
+   "pct_unique_containment": null
+  }
+ },
+ "mother (P25)": {
+  "relation": "mother (P25)",
+  "wikidata_props": [
+   "P25"
+  ],
+  "mapping": "wikidata-only",
+  "phase1_freq": 0,
+  "fwd": {
+   "anchors": 95949,
+   "pct_exactly_1": 99.6,
+   "pct_2_to_5": 0.4,
+   "pct_over_5": 0.0,
+   "max": 5,
+   "pct_unique_containment": 99.6,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 17557,
+   "pct_exactly_1": 64.3,
+   "pct_2_to_5": 33.2,
+   "pct_over_5": 2.5,
+   "max": 72
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 1.26,
+  "dbpedia_fwd": {
+   "anchors": null,
+   "pct_exactly_1": null,
+   "pct_unique_containment": null
+  }
+ },
+ "sibling (P3373)": {
+  "relation": "sibling (P3373)",
+  "wikidata_props": [
+   "P3373"
+  ],
+  "mapping": "wikidata-only",
+  "phase1_freq": 0,
+  "fwd": {
+   "anchors": 111313,
+   "pct_exactly_1": 62.7,
+   "pct_2_to_5": 31.8,
+   "pct_over_5": 5.5,
+   "max": 112,
+   "pct_unique_containment": 62.7,
+   "containment_checked": 200,
+   "multi_pool_capped": false
+  },
+  "inv": {
+   "anchors": 79909,
+   "pct_exactly_1": 68.2,
+   "pct_2_to_5": 27.9,
+   "pct_over_5": 3.9,
+   "max": 43
+  },
+  "query_failed": false,
+  "pct_with_unknown_value": 0.03,
+  "dbpedia_fwd": {
+   "anchors": null,
+   "pct_exactly_1": null,
+   "pct_unique_containment": null
+  }
+ }
+}

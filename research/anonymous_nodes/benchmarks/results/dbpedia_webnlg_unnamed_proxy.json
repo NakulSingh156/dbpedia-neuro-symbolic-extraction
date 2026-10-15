@@ -1,0 +1,9 @@
+{
+ "dataset": "dbpedia_webnlg",
+ "sentences": 2014,
+ "entity_mentions": 11261,
+ "unnamed_mentions": 279,
+ "pct_unnamed_mentions": 2.48,
+ "sentences_with_unnamed": 202,
+ "pct_sentences_with_unnamed": 10.03
+}

@@ -1,0 +1,1261 @@
+{
+ "facts_with_mapping": 2307,
+ "entity_names": 3088,
+ "entities_mapped_to_qid": 3112,
+ "facts_matched": 2271,
+ "all": {
+  "dbpedia": {
+   "n": 2271,
+   "coverage_pct": 27.7,
+   "grounded_strict_pct": 18.6,
+   "grounded_containment_pct": 21.0,
+   "grounded_answer_matches_text_pct": 83.8,
+   "judged": 457
+  },
+  "wikidata": {
+   "n": 2271,
+   "coverage_pct": 59.6,
+   "grounded_strict_pct": 47.3,
+   "grounded_containment_pct": 48.7,
+   "grounded_answer_matches_text_pct": 57.9,
+   "judged": 1105
+  }
+ },
+ "by_family": {
+  "kinship": {
+   "dbpedia": {
+    "n": 11,
+    "coverage_pct": 9.1,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 11,
+    "coverage_pct": 45.5,
+    "grounded_strict_pct": 9.1,
+    "grounded_containment_pct": 9.1,
+    "grounded_answer_matches_text_pct": 0.0,
+    "judged": 1
+   }
+  },
+  "place": {
+   "dbpedia": {
+    "n": 1223,
+    "coverage_pct": 23.0,
+    "grounded_strict_pct": 15.6,
+    "grounded_containment_pct": 20.1,
+    "grounded_answer_matches_text_pct": 80.5,
+    "judged": 246
+   },
+   "wikidata": {
+    "n": 1223,
+    "coverage_pct": 63.9,
+    "grounded_strict_pct": 58.3,
+    "grounded_containment_pct": 60.9,
+    "grounded_answer_matches_text_pct": 56.4,
+    "judged": 745
+   }
+  },
+  "other": {
+   "dbpedia": {
+    "n": 1037,
+    "coverage_pct": 33.4,
+    "grounded_strict_pct": 22.3,
+    "grounded_containment_pct": 22.3,
+    "grounded_answer_matches_text_pct": 87.7,
+    "judged": 211
+   },
+   "wikidata": {
+    "n": 1037,
+    "coverage_pct": 54.8,
+    "grounded_strict_pct": 34.8,
+    "grounded_containment_pct": 34.8,
+    "grounded_answer_matches_text_pct": 61.3,
+    "judged": 359
+   }
+  }
+ },
+ "by_mapping_source": {
+  "ontology": {
+   "dbpedia": {
+    "n": 1800,
+    "coverage_pct": 33.0,
+    "grounded_strict_pct": 22.6,
+    "grounded_containment_pct": 24.9,
+    "grounded_answer_matches_text_pct": 84.8,
+    "judged": 429
+   },
+   "wikidata": {
+    "n": 1800,
+    "coverage_pct": 58.9,
+    "grounded_strict_pct": 46.6,
+    "grounded_containment_pct": 47.4,
+    "grounded_answer_matches_text_pct": 63.2,
+    "judged": 851
+   }
+  },
+  "manual": {
+   "dbpedia": {
+    "n": 471,
+    "coverage_pct": 7.2,
+    "grounded_strict_pct": 3.4,
+    "grounded_containment_pct": 5.9,
+    "grounded_answer_matches_text_pct": 67.9,
+    "judged": 28
+   },
+   "wikidata": {
+    "n": 471,
+    "coverage_pct": 62.2,
+    "grounded_strict_pct": 50.3,
+    "grounded_containment_pct": 53.9,
+    "grounded_answer_matches_text_pct": 40.2,
+    "judged": 254
+   }
+  }
+ },
+ "paired": {
+  "both_ground": 317,
+  "only_dbpedia": 160,
+  "only_wikidata": 790,
+  "neither": 1004,
+  "wd_unknown_value_facts": 2
+ },
+ "by_relation": {
+  "location": {
+   "dbpedia": {
+    "n": 381,
+    "coverage_pct": 8.9,
+    "grounded_strict_pct": 4.2,
+    "grounded_containment_pct": 7.3,
+    "grounded_answer_matches_text_pct": 67.9,
+    "judged": 28
+   },
+   "wikidata": {
+    "n": 381,
+    "coverage_pct": 56.7,
+    "grounded_strict_pct": 48.3,
+    "grounded_containment_pct": 52.8,
+    "grounded_answer_matches_text_pct": 36.3,
+    "judged": 201
+   }
+  },
+  "nationality": {
+   "dbpedia": {
+    "n": 226,
+    "coverage_pct": 11.1,
+    "grounded_strict_pct": 10.2,
+    "grounded_containment_pct": 10.2,
+    "grounded_answer_matches_text_pct": 34.8,
+    "judged": 23
+   },
+   "wikidata": {
+    "n": 226,
+    "coverage_pct": 82.7,
+    "grounded_strict_pct": 73.0,
+    "grounded_containment_pct": 76.1,
+    "grounded_answer_matches_text_pct": 38.4,
+    "judged": 172
+   }
+  },
+  "occupation": {
+   "dbpedia": {
+    "n": 210,
+    "coverage_pct": 19.5,
+    "grounded_strict_pct": 11.0,
+    "grounded_containment_pct": 11.0,
+    "grounded_answer_matches_text_pct": 66.7,
+    "judged": 3
+   },
+   "wikidata": {
+    "n": 210,
+    "coverage_pct": 91.4,
+    "grounded_strict_pct": 36.7,
+    "grounded_containment_pct": 36.7,
+    "grounded_answer_matches_text_pct": 32.9,
+    "judged": 76
+   }
+  },
+  "isPartOf": {
+   "dbpedia": {
+    "n": 169,
+    "coverage_pct": 37.9,
+    "grounded_strict_pct": 16.6,
+    "grounded_containment_pct": 27.2,
+    "grounded_answer_matches_text_pct": 80.4,
+    "judged": 46
+   },
+   "wikidata": {
+    "n": 169,
+    "coverage_pct": 13.0,
+    "grounded_strict_pct": 11.2,
+    "grounded_containment_pct": 13.0,
+    "grounded_answer_matches_text_pct": 22.7,
+    "judged": 22
+   }
+  },
+  "country": {
+   "dbpedia": {
+    "n": 165,
+    "coverage_pct": 57.6,
+    "grounded_strict_pct": 56.4,
+    "grounded_containment_pct": 56.4,
+    "grounded_answer_matches_text_pct": 96.8,
+    "judged": 93
+   },
+   "wikidata": {
+    "n": 165,
+    "coverage_pct": 85.5,
+    "grounded_strict_pct": 84.8,
+    "grounded_containment_pct": 84.8,
+    "grounded_answer_matches_text_pct": 92.1,
+    "judged": 140
+   }
+  },
+  "birthPlace": {
+   "dbpedia": {
+    "n": 107,
+    "coverage_pct": 44.9,
+    "grounded_strict_pct": 18.7,
+    "grounded_containment_pct": 39.3,
+    "grounded_answer_matches_text_pct": 81.0,
+    "judged": 42
+   },
+   "wikidata": {
+    "n": 107,
+    "coverage_pct": 75.7,
+    "grounded_strict_pct": 74.8,
+    "grounded_containment_pct": 74.8,
+    "grounded_answer_matches_text_pct": 78.8,
+    "judged": 80
+   }
+  },
+  "locatedInArea": {
+   "dbpedia": {
+    "n": 93,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 93,
+    "coverage_pct": 82.8,
+    "grounded_strict_pct": 75.3,
+    "grounded_containment_pct": 80.6,
+    "grounded_answer_matches_text_pct": 68.0,
+    "judged": 75
+   }
+  },
+  "position": {
+   "dbpedia": {
+    "n": 86,
+    "coverage_pct": 36.0,
+    "grounded_strict_pct": 29.1,
+    "grounded_containment_pct": 29.1,
+    "grounded_answer_matches_text_pct": 76.0,
+    "judged": 25
+   },
+   "wikidata": {
+    "n": 86,
+    "coverage_pct": 43.0,
+    "grounded_strict_pct": 41.9,
+    "grounded_containment_pct": 41.9,
+    "grounded_answer_matches_text_pct": 61.1,
+    "judged": 36
+   }
+  },
+  "family": {
+   "dbpedia": {
+    "n": 83,
+    "coverage_pct": 95.2,
+    "grounded_strict_pct": 71.1,
+    "grounded_containment_pct": 71.1,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 59
+   },
+   "wikidata": {
+    "n": 83,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "starring": {
+   "dbpedia": {
+    "n": 61,
+    "coverage_pct": 77.0,
+    "grounded_strict_pct": 8.2,
+    "grounded_containment_pct": 8.2,
+    "grounded_answer_matches_text_pct": 40.0,
+    "judged": 5
+   },
+   "wikidata": {
+    "n": 61,
+    "coverage_pct": 68.9,
+    "grounded_strict_pct": 14.8,
+    "grounded_containment_pct": 14.8,
+    "grounded_answer_matches_text_pct": 33.3,
+    "judged": 9
+   }
+  },
+  "genre": {
+   "dbpedia": {
+    "n": 57,
+    "coverage_pct": 35.1,
+    "grounded_strict_pct": 7.0,
+    "grounded_containment_pct": 7.0,
+    "grounded_answer_matches_text_pct": 25.0,
+    "judged": 4
+   },
+   "wikidata": {
+    "n": 57,
+    "coverage_pct": 75.4,
+    "grounded_strict_pct": 56.1,
+    "grounded_containment_pct": 56.1,
+    "grounded_answer_matches_text_pct": 54.8,
+    "judged": 31
+   }
+  },
+  "sport": {
+   "dbpedia": {
+    "n": 55,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 55,
+    "coverage_pct": 85.5,
+    "grounded_strict_pct": 78.2,
+    "grounded_containment_pct": 78.2,
+    "grounded_answer_matches_text_pct": 58.1,
+    "judged": 43
+   }
+  },
+  "league": {
+   "dbpedia": {
+    "n": 45,
+    "coverage_pct": 28.9,
+    "grounded_strict_pct": 28.9,
+    "grounded_containment_pct": 28.9,
+    "grounded_answer_matches_text_pct": 92.3,
+    "judged": 13
+   },
+   "wikidata": {
+    "n": 45,
+    "coverage_pct": 51.1,
+    "grounded_strict_pct": 48.9,
+    "grounded_containment_pct": 48.9,
+    "grounded_answer_matches_text_pct": 86.4,
+    "judged": 22
+   }
+  },
+  "author": {
+   "dbpedia": {
+    "n": 40,
+    "coverage_pct": 25.0,
+    "grounded_strict_pct": 17.5,
+    "grounded_containment_pct": 17.5,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 7
+   },
+   "wikidata": {
+    "n": 40,
+    "coverage_pct": 52.5,
+    "grounded_strict_pct": 47.5,
+    "grounded_containment_pct": 47.5,
+    "grounded_answer_matches_text_pct": 94.7,
+    "judged": 19
+   }
+  },
+  "artist": {
+   "dbpedia": {
+    "n": 33,
+    "coverage_pct": 63.6,
+    "grounded_strict_pct": 63.6,
+    "grounded_containment_pct": 63.6,
+    "grounded_answer_matches_text_pct": 95.2,
+    "judged": 21
+   },
+   "wikidata": {
+    "n": 33,
+    "coverage_pct": 69.7,
+    "grounded_strict_pct": 69.7,
+    "grounded_containment_pct": 69.7,
+    "grounded_answer_matches_text_pct": 91.3,
+    "judged": 23
+   }
+  },
+  "director": {
+   "dbpedia": {
+    "n": 30,
+    "coverage_pct": 73.3,
+    "grounded_strict_pct": 73.3,
+    "grounded_containment_pct": 73.3,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 22
+   },
+   "wikidata": {
+    "n": 30,
+    "coverage_pct": 70.0,
+    "grounded_strict_pct": 70.0,
+    "grounded_containment_pct": 70.0,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 21
+   }
+  },
+  "profession": {
+   "dbpedia": {
+    "n": 29,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 29,
+    "coverage_pct": 93.1,
+    "grounded_strict_pct": 34.5,
+    "grounded_containment_pct": 34.5,
+    "grounded_answer_matches_text_pct": 40.0,
+    "judged": 10
+   }
+  },
+  "deathPlace": {
+   "dbpedia": {
+    "n": 25,
+    "coverage_pct": 44.0,
+    "grounded_strict_pct": 32.0,
+    "grounded_containment_pct": 44.0,
+    "grounded_answer_matches_text_pct": 63.6,
+    "judged": 11
+   },
+   "wikidata": {
+    "n": 25,
+    "coverage_pct": 80.0,
+    "grounded_strict_pct": 80.0,
+    "grounded_containment_pct": 80.0,
+    "grounded_answer_matches_text_pct": 65.0,
+    "judged": 20
+   }
+  },
+  "party": {
+   "dbpedia": {
+    "n": 23,
+    "coverage_pct": 47.8,
+    "grounded_strict_pct": 47.8,
+    "grounded_containment_pct": 47.8,
+    "grounded_answer_matches_text_pct": 54.5,
+    "judged": 11
+   },
+   "wikidata": {
+    "n": 23,
+    "coverage_pct": 73.9,
+    "grounded_strict_pct": 60.9,
+    "grounded_containment_pct": 60.9,
+    "grounded_answer_matches_text_pct": 42.9,
+    "judged": 14
+   }
+  },
+  "team": {
+   "dbpedia": {
+    "n": 23,
+    "coverage_pct": 39.1,
+    "grounded_strict_pct": 13.0,
+    "grounded_containment_pct": 13.0,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 3
+   },
+   "wikidata": {
+    "n": 23,
+    "coverage_pct": 56.5,
+    "grounded_strict_pct": 17.4,
+    "grounded_containment_pct": 17.4,
+    "grounded_answer_matches_text_pct": 25.0,
+    "judged": 4
+   }
+  },
+  "city": {
+   "dbpedia": {
+    "n": 22,
+    "coverage_pct": 18.2,
+    "grounded_strict_pct": 13.6,
+    "grounded_containment_pct": 13.6,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 3
+   },
+   "wikidata": {
+    "n": 22,
+    "coverage_pct": 81.8,
+    "grounded_strict_pct": 72.7,
+    "grounded_containment_pct": 72.7,
+    "grounded_answer_matches_text_pct": 50.0,
+    "judged": 16
+   }
+  },
+  "education": {
+   "dbpedia": {
+    "n": 20,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 20,
+    "coverage_pct": 55.0,
+    "grounded_strict_pct": 30.0,
+    "grounded_containment_pct": 30.0,
+    "grounded_answer_matches_text_pct": 66.7,
+    "judged": 6
+   }
+  },
+  "inflow": {
+   "dbpedia": {
+    "n": 20,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 20,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "foundedBy": {
+   "dbpedia": {
+    "n": 16,
+    "coverage_pct": 18.8,
+    "grounded_strict_pct": 12.5,
+    "grounded_containment_pct": 12.5,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 2
+   },
+   "wikidata": {
+    "n": 16,
+    "coverage_pct": 31.2,
+    "grounded_strict_pct": 12.5,
+    "grounded_containment_pct": 12.5,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 2
+   }
+  },
+  "recordLabel": {
+   "dbpedia": {
+    "n": 16,
+    "coverage_pct": 87.5,
+    "grounded_strict_pct": 81.2,
+    "grounded_containment_pct": 81.2,
+    "grounded_answer_matches_text_pct": 84.6,
+    "judged": 13
+   },
+   "wikidata": {
+    "n": 16,
+    "coverage_pct": 93.8,
+    "grounded_strict_pct": 81.2,
+    "grounded_containment_pct": 81.2,
+    "grounded_answer_matches_text_pct": 84.6,
+    "judged": 13
+   }
+  },
+  "residence": {
+   "dbpedia": {
+    "n": 14,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 14,
+    "coverage_pct": 7.1,
+    "grounded_strict_pct": 7.1,
+    "grounded_containment_pct": 7.1,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 1
+   }
+  },
+  "founder": {
+   "dbpedia": {
+    "n": 14,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 14,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "composer": {
+   "dbpedia": {
+    "n": 12,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 12,
+    "coverage_pct": 16.7,
+    "grounded_strict_pct": 16.7,
+    "grounded_containment_pct": 16.7,
+    "grounded_answer_matches_text_pct": 50.0,
+    "judged": 2
+   }
+  },
+  "creator": {
+   "dbpedia": {
+    "n": 12,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 12,
+    "coverage_pct": 8.3,
+    "grounded_strict_pct": 8.3,
+    "grounded_containment_pct": 8.3,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 1
+   }
+  },
+  "genus": {
+   "dbpedia": {
+    "n": 11,
+    "coverage_pct": 54.5,
+    "grounded_strict_pct": 45.5,
+    "grounded_containment_pct": 45.5,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 5
+   },
+   "wikidata": {
+    "n": 11,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "religion": {
+   "dbpedia": {
+    "n": 10,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 10,
+    "coverage_pct": 40.0,
+    "grounded_strict_pct": 40.0,
+    "grounded_containment_pct": 40.0,
+    "grounded_answer_matches_text_pct": 75.0,
+    "judged": 4
+   }
+  },
+  "namedAfter": {
+   "dbpedia": {
+    "n": 10,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 10,
+    "coverage_pct": 20.0,
+    "grounded_strict_pct": 20.0,
+    "grounded_containment_pct": 20.0,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 2
+   }
+  },
+  "headquarter": {
+   "dbpedia": {
+    "n": 9,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 9,
+    "coverage_pct": 88.9,
+    "grounded_strict_pct": 88.9,
+    "grounded_containment_pct": 88.9,
+    "grounded_answer_matches_text_pct": 50.0,
+    "judged": 8
+   }
+  },
+  "voice": {
+   "dbpedia": {
+    "n": 9,
+    "coverage_pct": 11.1,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 9,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "employer": {
+   "dbpedia": {
+    "n": 8,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 8,
+    "coverage_pct": 12.5,
+    "grounded_strict_pct": 12.5,
+    "grounded_containment_pct": 12.5,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 1
+   }
+  },
+  "manufacturer": {
+   "dbpedia": {
+    "n": 8,
+    "coverage_pct": 50.0,
+    "grounded_strict_pct": 50.0,
+    "grounded_containment_pct": 50.0,
+    "grounded_answer_matches_text_pct": 75.0,
+    "judged": 4
+   },
+   "wikidata": {
+    "n": 8,
+    "coverage_pct": 62.5,
+    "grounded_strict_pct": 62.5,
+    "grounded_containment_pct": 62.5,
+    "grounded_answer_matches_text_pct": 80.0,
+    "judged": 5
+   }
+  },
+  "basedOn": {
+   "dbpedia": {
+    "n": 8,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 8,
+    "coverage_pct": 12.5,
+    "grounded_strict_pct": 12.5,
+    "grounded_containment_pct": 12.5,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 1
+   }
+  },
+  "designer": {
+   "dbpedia": {
+    "n": 7,
+    "coverage_pct": 28.6,
+    "grounded_strict_pct": 28.6,
+    "grounded_containment_pct": 28.6,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 2
+   },
+   "wikidata": {
+    "n": 7,
+    "coverage_pct": 28.6,
+    "grounded_strict_pct": 28.6,
+    "grounded_containment_pct": 28.6,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 2
+   }
+  },
+  "instrument": {
+   "dbpedia": {
+    "n": 7,
+    "coverage_pct": 42.9,
+    "grounded_strict_pct": 42.9,
+    "grounded_containment_pct": 42.9,
+    "grounded_answer_matches_text_pct": 66.7,
+    "judged": 3
+   },
+   "wikidata": {
+    "n": 7,
+    "coverage_pct": 71.4,
+    "grounded_strict_pct": 71.4,
+    "grounded_containment_pct": 71.4,
+    "grounded_answer_matches_text_pct": 40.0,
+    "judged": 5
+   }
+  },
+  "capital": {
+   "dbpedia": {
+    "n": 7,
+    "coverage_pct": 14.3,
+    "grounded_strict_pct": 14.3,
+    "grounded_containment_pct": 14.3,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 1
+   },
+   "wikidata": {
+    "n": 7,
+    "coverage_pct": 14.3,
+    "grounded_strict_pct": 14.3,
+    "grounded_containment_pct": 14.3,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 1
+   }
+  },
+  "province": {
+   "dbpedia": {
+    "n": 6,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 6,
+    "coverage_pct": 83.3,
+    "grounded_strict_pct": 83.3,
+    "grounded_containment_pct": 83.3,
+    "grounded_answer_matches_text_pct": 80.0,
+    "judged": 5
+   }
+  },
+  "editor": {
+   "dbpedia": {
+    "n": 6,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 6,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "crosses": {
+   "dbpedia": {
+    "n": 6,
+    "coverage_pct": 16.7,
+    "grounded_strict_pct": 16.7,
+    "grounded_containment_pct": 16.7,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 1
+   },
+   "wikidata": {
+    "n": 6,
+    "coverage_pct": 33.3,
+    "grounded_strict_pct": 33.3,
+    "grounded_containment_pct": 33.3,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 2
+   }
+  },
+  "county": {
+   "dbpedia": {
+    "n": 6,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 6,
+    "coverage_pct": 83.3,
+    "grounded_strict_pct": 83.3,
+    "grounded_containment_pct": 83.3,
+    "grounded_answer_matches_text_pct": 60.0,
+    "judged": 5
+   }
+  },
+  "owner": {
+   "dbpedia": {
+    "n": 5,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 5,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "developer": {
+   "dbpedia": {
+    "n": 5,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 5,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "parent": {
+   "dbpedia": {
+    "n": 5,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 5,
+    "coverage_pct": 60.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "kingdom": {
+   "dbpedia": {
+    "n": 4,
+    "coverage_pct": 100.0,
+    "grounded_strict_pct": 100.0,
+    "grounded_containment_pct": 100.0,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 4
+   },
+   "wikidata": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "battle": {
+   "dbpedia": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "militaryBranch": {
+   "dbpedia": {
+    "n": 4,
+    "coverage_pct": 25.0,
+    "grounded_strict_pct": 25.0,
+    "grounded_containment_pct": 25.0,
+    "grounded_answer_matches_text_pct": 0.0,
+    "judged": 1
+   },
+   "wikidata": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "spouse": {
+   "dbpedia": {
+    "n": 4,
+    "coverage_pct": 25.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 4,
+    "coverage_pct": 50.0,
+    "grounded_strict_pct": 25.0,
+    "grounded_containment_pct": 25.0,
+    "grounded_answer_matches_text_pct": 0.0,
+    "judged": 1
+   }
+  },
+  "coverArtist": {
+   "dbpedia": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "industry": {
+   "dbpedia": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 4,
+    "coverage_pct": 25.0,
+    "grounded_strict_pct": 25.0,
+    "grounded_containment_pct": 25.0,
+    "grounded_answer_matches_text_pct": 0.0,
+    "judged": 1
+   }
+  },
+  "discoverer": {
+   "dbpedia": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 4,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "ethnicity": {
+   "dbpedia": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "order": {
+   "dbpedia": {
+    "n": 3,
+    "coverage_pct": 33.3,
+    "grounded_strict_pct": 33.3,
+    "grounded_containment_pct": 33.3,
+    "grounded_answer_matches_text_pct": 100.0,
+    "judged": 1
+   },
+   "wikidata": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "license": {
+   "dbpedia": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "editing": {
+   "dbpedia": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "citizenship": {
+   "dbpedia": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 3,
+    "coverage_pct": 66.7,
+    "grounded_strict_pct": 66.7,
+    "grounded_containment_pct": 66.7,
+    "grounded_answer_matches_text_pct": 50.0,
+    "judged": 2
+   }
+  },
+  "musicalArtist": {
+   "dbpedia": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 3,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "award": {
+   "dbpedia": {
+    "n": 3,
+    "coverage_pct": 33.3,
+    "grounded_strict_pct": 33.3,
+    "grounded_containment_pct": 33.3,
+    "grounded_answer_matches_text_pct": 0.0,
+    "judged": 1
+   },
+   "wikidata": {
+    "n": 3,
+    "coverage_pct": 66.7,
+    "grounded_strict_pct": 33.3,
+    "grounded_containment_pct": 33.3,
+    "grounded_answer_matches_text_pct": 0.0,
+    "judged": 1
+   }
+  },
+  "relative": {
+   "dbpedia": {
+    "n": 1,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 1,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  },
+  "child": {
+   "dbpedia": {
+    "n": 1,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   },
+   "wikidata": {
+    "n": 1,
+    "coverage_pct": 0.0,
+    "grounded_strict_pct": 0.0,
+    "grounded_containment_pct": 0.0,
+    "grounded_answer_matches_text_pct": null,
+    "judged": 0
+   }
+  }
+ }
+}

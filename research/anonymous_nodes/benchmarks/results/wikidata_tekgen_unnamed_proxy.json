@@ -1,0 +1,9 @@
+{
+ "dataset": "wikidata_tekgen",
+ "sentences": 4062,
+ "entity_mentions": 13762,
+ "unnamed_mentions": 1429,
+ "pct_unnamed_mentions": 10.38,
+ "sentences_with_unnamed": 720,
+ "pct_sentences_with_unnamed": 17.73
+}

@@ -1,0 +1,25 @@
+{
+ "wikidata_tekgen": {
+  "labels": {
+   "TOPIC_DEF": 37,
+   "TOPIC_ABSENT": 20,
+   "UNSUPPORTED": 1,
+   "FP": 1,
+   "PARTIAL": 1
+  },
+  "proxy_precision_pct": 98.3,
+  "raw_pct_unnamed_mentions": 10.38,
+  "est_pct_unnamed_mentions": 10.21,
+  "raw_pct_sentences": 17.73
+ },
+ "dbpedia_webnlg": {
+  "labels": {
+   "FP": 57,
+   "PARTIAL": 3
+  },
+  "proxy_precision_pct": 5.0,
+  "raw_pct_unnamed_mentions": 2.48,
+  "est_pct_unnamed_mentions": 0.12,
+  "raw_pct_sentences": 10.03
+ }
+}

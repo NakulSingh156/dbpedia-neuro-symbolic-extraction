@@ -1,0 +1,1404 @@
+{
+ "operatingIncome": {
+  "props": [
+   "P3362"
+  ],
+  "source": "ontology"
+ },
+ "formationDate": {
+  "props": [
+   "P571"
+  ],
+  "source": "ontology"
+ },
+ "foundingDate": {
+  "props": [
+   "P571"
+  ],
+  "source": "ontology"
+ },
+ "cpu": {
+  "props": [
+   "P880"
+  ],
+  "source": "ontology"
+ },
+ "isil": {
+  "props": [
+   "P791"
+  ],
+  "source": "ontology"
+ },
+ "nlaId": {
+  "props": [
+   "P409"
+  ],
+  "source": "ontology"
+ },
+ "ofsCode": {
+  "props": [
+   "P771"
+  ],
+  "source": "ontology"
+ },
+ "year": {
+  "props": [
+   "P2257"
+  ],
+  "source": "ontology"
+ },
+ "crosses": {
+  "props": [
+   "P177"
+  ],
+  "source": "ontology"
+ },
+ "musicBy": {
+  "props": [
+   "P86"
+  ],
+  "source": "ontology"
+ },
+ "composer": {
+  "props": [
+   "P86"
+  ],
+  "source": "ontology"
+ },
+ "colour": {
+  "props": [
+   "P462"
+  ],
+  "source": "ontology"
+ },
+ "orcidId": {
+  "props": [
+   "P496"
+  ],
+  "source": "ontology"
+ },
+ "alias": {
+  "props": [
+   "P742"
+  ],
+  "source": "ontology"
+ },
+ "pseudonym": {
+  "props": [
+   "P742"
+  ],
+  "source": "ontology"
+ },
+ "bSide": {
+  "props": [
+   "P1432"
+  ],
+  "source": "ontology"
+ },
+ "party": {
+  "props": [
+   "P102"
+  ],
+  "source": "ontology"
+ },
+ "isniId": {
+  "props": [
+   "P213"
+  ],
+  "source": "ontology"
+ },
+ "revenue": {
+  "props": [
+   "P2139"
+  ],
+  "source": "ontology"
+ },
+ "gross": {
+  "props": [
+   "P2139"
+  ],
+  "source": "ontology"
+ },
+ "classis": {
+  "props": [
+   "P77"
+  ],
+  "source": "ontology"
+ },
+ "crewMember": {
+  "props": [
+   "P1029"
+  ],
+  "source": "ontology"
+ },
+ "launchDate": {
+  "props": [
+   "P619"
+  ],
+  "source": "ontology"
+ },
+ "istat": {
+  "props": [
+   "P635"
+  ],
+  "source": "ontology"
+ },
+ "iataLocationIdentifier": {
+  "props": [
+   "P238"
+  ],
+  "source": "ontology"
+ },
+ "numberOfEmployees": {
+  "props": [
+   "P1128"
+  ],
+  "source": "ontology"
+ },
+ "owner": {
+  "props": [
+   "P127"
+  ],
+  "source": "ontology"
+ },
+ "nationality": {
+  "props": [
+   "P27"
+  ],
+  "source": "ontology"
+ },
+ "citizenship": {
+  "props": [
+   "P27"
+  ],
+  "source": "ontology"
+ },
+ "child": {
+  "props": [
+   "P40"
+  ],
+  "source": "ontology"
+ },
+ "mother": {
+  "props": [
+   "P25"
+  ],
+  "source": "ontology"
+ },
+ "pronunciation": {
+  "props": [
+   "P443"
+  ],
+  "source": "ontology"
+ },
+ "member": {
+  "props": [
+   "P463"
+  ],
+  "source": "ontology"
+ },
+ "compressionRatio": {
+  "props": [
+   "P1247"
+  ],
+  "source": "ontology"
+ },
+ "iso31661Code": {
+  "props": [
+   "P297",
+   "P298",
+   "P299"
+  ],
+  "source": "ontology"
+ },
+ "terytCode": {
+  "props": [
+   "P1653"
+  ],
+  "source": "ontology"
+ },
+ "functionStartYear": {
+  "props": [
+   "P2031"
+  ],
+  "source": "ontology"
+ },
+ "causeOfDeath": {
+  "props": [
+   "P509"
+  ],
+  "source": "ontology"
+ },
+ "deathCause": {
+  "props": [
+   "P509"
+  ],
+  "source": "ontology"
+ },
+ "width": {
+  "props": [
+   "P2049"
+  ],
+  "source": "ontology"
+ },
+ "employer": {
+  "props": [
+   "P108"
+  ],
+  "source": "ontology"
+ },
+ "headquarter": {
+  "props": [
+   "P159"
+  ],
+  "source": "ontology"
+ },
+ "builder": {
+  "props": [
+   "P176"
+  ],
+  "source": "ontology"
+ },
+ "manufacturer": {
+  "props": [
+   "P176"
+  ],
+  "source": "ontology"
+ },
+ "league": {
+  "props": [
+   "P118"
+  ],
+  "source": "ontology"
+ },
+ "amgid": {
+  "props": [
+   "P1562"
+  ],
+  "source": "ontology"
+ },
+ "capital": {
+  "props": [
+   "P36"
+  ],
+  "source": "ontology"
+ },
+ "musicBrainzArtistId": {
+  "props": [
+   "P434"
+  ],
+  "source": "ontology"
+ },
+ "birthName": {
+  "props": [
+   "P1477"
+  ],
+  "source": "ontology"
+ },
+ "imdbId": {
+  "props": [
+   "P345"
+  ],
+  "source": "ontology"
+ },
+ "atomicNumber": {
+  "props": [
+   "P1086"
+  ],
+  "source": "ontology"
+ },
+ "\u062c\u0648\u06c1\u0631\u06cc_\u0639\u062f\u062f": {
+  "props": [
+   "P1086"
+  ],
+  "source": "ontology"
+ },
+ "award": {
+  "props": [
+   "P166"
+  ],
+  "source": "ontology"
+ },
+ "\u0627\u0646\u0639\u0627\u0645": {
+  "props": [
+   "P166"
+  ],
+  "source": "ontology"
+ },
+ "architect": {
+  "props": [
+   "P84"
+  ],
+  "source": "ontology"
+ },
+ "inflow": {
+  "props": [
+   "P200"
+  ],
+  "source": "ontology"
+ },
+ "netIncome": {
+  "props": [
+   "P2295"
+  ],
+  "source": "ontology"
+ },
+ "giniCoefficient": {
+  "props": [
+   "P1125"
+  ],
+  "source": "ontology"
+ },
+ "signature": {
+  "props": [
+   "P109"
+  ],
+  "source": "ontology"
+ },
+ "ecNumber": {
+  "props": [
+   "P591"
+  ],
+  "source": "ontology"
+ },
+ "constellation": {
+  "props": [
+   "P59"
+  ],
+  "source": "ontology"
+ },
+ "bibsysId": {
+  "props": [
+   "P1015"
+  ],
+  "source": "ontology"
+ },
+ "inseeCode": {
+  "props": [
+   "P374"
+  ],
+  "source": "ontology"
+ },
+ "foundedBy": {
+  "props": [
+   "P112"
+  ],
+  "source": "ontology"
+ },
+ "founder": {
+  "props": [
+   "P112"
+  ],
+  "source": "ontology"
+ },
+ "length": {
+  "props": [
+   "P2043"
+  ],
+  "source": "ontology"
+ },
+ "residence": {
+  "props": [
+   "P551"
+  ],
+  "source": "ontology"
+ },
+ "nisCode": {
+  "props": [
+   "P1567"
+  ],
+  "source": "ontology"
+ },
+ "spouse": {
+  "props": [
+   "P26"
+  ],
+  "source": "ontology"
+ },
+ "handedness": {
+  "props": [
+   "P552"
+  ],
+  "source": "ontology"
+ },
+ "voice": {
+  "props": [
+   "P990"
+  ],
+  "source": "ontology"
+ },
+ "editor": {
+  "props": [
+   "P98"
+  ],
+  "source": "ontology"
+ },
+ "diocese": {
+  "props": [
+   "P708"
+  ],
+  "source": "ontology"
+ },
+ "weight": {
+  "props": [
+   "P2067"
+  ],
+  "source": "ontology"
+ },
+ "dcc": {
+  "props": [
+   "P1036"
+  ],
+  "source": "ontology"
+ },
+ "isPartOf": {
+  "props": [
+   "P361"
+  ],
+  "source": "ontology"
+ },
+ "musicalArtist": {
+  "props": [
+   "P175"
+  ],
+  "source": "ontology"
+ },
+ "artist": {
+  "props": [
+   "P175"
+  ],
+  "source": "ontology"
+ },
+ "\u0641\u0646\u06a9\u0627\u0631": {
+  "props": [
+   "P175"
+  ],
+  "source": "ontology"
+ },
+ "currency": {
+  "props": [
+   "P38"
+  ],
+  "source": "ontology"
+ },
+ "releaseDate": {
+  "props": [
+   "P577"
+  ],
+  "source": "ontology"
+ },
+ "flag": {
+  "props": [
+   "P41"
+  ],
+  "source": "ontology"
+ },
+ "discoverer": {
+  "props": [
+   "P61"
+  ],
+  "source": "ontology"
+ },
+ "icd9": {
+  "props": [
+   "P493"
+  ],
+  "source": "ontology"
+ },
+ "maintainedBy": {
+  "props": [
+   "P126"
+  ],
+  "source": "ontology"
+ },
+ "district": {
+  "props": [
+   "P131"
+  ],
+  "source": "ontology"
+ },
+ "city": {
+  "props": [
+   "P131"
+  ],
+  "source": "ontology"
+ },
+ "settlement": {
+  "props": [
+   "P131"
+  ],
+  "source": "ontology"
+ },
+ "locatedInArea": {
+  "props": [
+   "P131"
+  ],
+  "source": "ontology"
+ },
+ "province": {
+  "props": [
+   "P131"
+  ],
+  "source": "ontology"
+ },
+ "county": {
+  "props": [
+   "P131"
+  ],
+  "source": "ontology"
+ },
+ "abbreviation": {
+  "props": [
+   "P743"
+  ],
+  "source": "ontology"
+ },
+ "\u0645\u062e\u0641\u0641": {
+  "props": [
+   "P743"
+  ],
+  "source": "ontology"
+ },
+ "doctoralAdvisor": {
+  "props": [
+   "P184"
+  ],
+  "source": "ontology"
+ },
+ "isbn": {
+  "props": [
+   "P212",
+   "P957"
+  ],
+  "source": "ontology"
+ },
+ "generalManager": {
+  "props": [
+   "P505"
+  ],
+  "source": "ontology"
+ },
+ "areaCode": {
+  "props": [
+   "P473"
+  ],
+  "source": "ontology"
+ },
+ "personName": {
+  "props": [
+   "P1448"
+  ],
+  "source": "ontology"
+ },
+ "namedAfter": {
+  "props": [
+   "P138"
+  ],
+  "source": "ontology"
+ },
+ "icd10": {
+  "props": [
+   "P494"
+  ],
+  "source": "ontology"
+ },
+ "religion": {
+  "props": [
+   "P140"
+  ],
+  "source": "ontology"
+ },
+ "education": {
+  "props": [
+   "P69"
+  ],
+  "source": "ontology"
+ },
+ "almaMater": {
+  "props": [
+   "P69"
+  ],
+  "source": "ontology"
+ },
+ "position": {
+  "props": [
+   "P413"
+  ],
+  "source": "ontology"
+ },
+ "sibling": {
+  "props": [
+   "P3373"
+  ],
+  "source": "ontology"
+ },
+ "highwaySystem": {
+  "props": [
+   "P16"
+  ],
+  "source": "ontology"
+ },
+ "sex": {
+  "props": [
+   "P21"
+  ],
+  "source": "ontology"
+ },
+ "cosparId": {
+  "props": [
+   "P247"
+  ],
+  "source": "ontology"
+ },
+ "followedBy": {
+  "props": [
+   "P156"
+  ],
+  "source": "ontology"
+ },
+ "homeport": {
+  "props": [
+   "P504"
+  ],
+  "source": "ontology"
+ },
+ "ulanId": {
+  "props": [
+   "P245"
+  ],
+  "source": "ontology"
+ },
+ "team": {
+  "props": [
+   "P54"
+  ],
+  "source": "ontology"
+ },
+ "icaoAirlineCode": {
+  "props": [
+   "P230"
+  ],
+  "source": "ontology"
+ },
+ "areaTotal": {
+  "props": [
+   "P2046"
+  ],
+  "source": "ontology"
+ },
+ "chromosome": {
+  "props": [
+   "P1057"
+  ],
+  "source": "ontology"
+ },
+ "starring": {
+  "props": [
+   "P161"
+  ],
+  "source": "ontology"
+ },
+ "instrument": {
+  "props": [
+   "P1303"
+  ],
+  "source": "ontology"
+ },
+ "postalCode": {
+  "props": [
+   "P281"
+  ],
+  "source": "ontology"
+ },
+ "zipCode": {
+  "props": [
+   "P281"
+  ],
+  "source": "ontology"
+ },
+ "gameEngine": {
+  "props": [
+   "P408"
+  ],
+  "source": "ontology"
+ },
+ "activity": {
+  "props": [
+   "P106"
+  ],
+  "source": "ontology"
+ },
+ "\u0633\u0631\u06af\u0631\u0645\u06cc": {
+  "props": [
+   "P106"
+  ],
+  "source": "ontology"
+ },
+ "occupation": {
+  "props": [
+   "P106"
+  ],
+  "source": "ontology"
+ },
+ "genus": {
+  "props": [
+   "P74"
+  ],
+  "source": "ontology"
+ },
+ "distributor": {
+  "props": [
+   "P750"
+  ],
+  "source": "ontology"
+ },
+ "placeOfBurial": {
+  "props": [
+   "P119"
+  ],
+  "source": "ontology"
+ },
+ "industry": {
+  "props": [
+   "P452"
+  ],
+  "source": "ontology"
+ },
+ "ndlId": {
+  "props": [
+   "P349"
+  ],
+  "source": "ontology"
+ },
+ "ideology": {
+  "props": [
+   "P1142"
+  ],
+  "source": "ontology"
+ },
+ "ceo": {
+  "props": [
+   "P169"
+  ],
+  "source": "ontology"
+ },
+ "numberOfStudents": {
+  "props": [
+   "P2196"
+  ],
+  "source": "ontology"
+ },
+ "doctoralStudent": {
+  "props": [
+   "P185"
+  ],
+  "source": "ontology"
+ },
+ "father": {
+  "props": [
+   "P22"
+  ],
+  "source": "ontology"
+ },
+ "height": {
+  "props": [
+   "P2048"
+  ],
+  "source": "ontology"
+ },
+ "anthem": {
+  "props": [
+   "P85"
+  ],
+  "source": "ontology"
+ },
+ "militaryBranch": {
+  "props": [
+   "P7779"
+  ],
+  "source": "ontology"
+ },
+ "order": {
+  "props": [
+   "P70"
+  ],
+  "source": "ontology"
+ },
+ "\u0645\u0648\u062a_\u06a9\u06cc_\u062c\u06af\u06c1": {
+  "props": [
+   "P20"
+  ],
+  "source": "ontology"
+ },
+ "deathPlace": {
+  "props": [
+   "P20"
+  ],
+  "source": "ontology"
+ },
+ "budget": {
+  "props": [
+   "P2769"
+  ],
+  "source": "ontology"
+ },
+ "architecturalStyle": {
+  "props": [
+   "P149"
+  ],
+  "source": "ontology"
+ },
+ "creator": {
+  "props": [
+   "P170"
+  ],
+  "source": "ontology"
+ },
+ "lccnId": {
+  "props": [
+   "P244"
+  ],
+  "source": "ontology"
+ },
+ "primeMinister": {
+  "props": [
+   "P6"
+  ],
+  "source": "ontology"
+ },
+ "taoiseach": {
+  "props": [
+   "P6"
+  ],
+  "source": "ontology"
+ },
+ "notableWork": {
+  "props": [
+   "P800"
+  ],
+  "source": "ontology"
+ },
+ "landingDate": {
+  "props": [
+   "P620"
+  ],
+  "source": "ontology"
+ },
+ "computingPlatform": {
+  "props": [
+   "P400"
+  ],
+  "source": "ontology"
+ },
+ "pdb": {
+  "props": [
+   "P638"
+  ],
+  "source": "ontology"
+ },
+ "emblem": {
+  "props": [
+   "P158"
+  ],
+  "source": "ontology"
+ },
+ "date": {
+  "props": [
+   "P585"
+  ],
+  "source": "ontology"
+ },
+ "absoluteMagnitude": {
+  "props": [
+   "P1457"
+  ],
+  "source": "ontology"
+ },
+ "icaoLocationIdentifier": {
+  "props": [
+   "P239"
+  ],
+  "source": "ontology"
+ },
+ "diameter": {
+  "props": [
+   "P2386"
+  ],
+  "source": "ontology"
+ },
+ "apparentMagnitude": {
+  "props": [
+   "P1215"
+  ],
+  "source": "ontology"
+ },
+ "kingdom": {
+  "props": [
+   "P75"
+  ],
+  "source": "ontology"
+ },
+ "continent": {
+  "props": [
+   "P30"
+  ],
+  "source": "ontology"
+ },
+ "iso6393Code": {
+  "props": [
+   "P220"
+  ],
+  "source": "ontology"
+ },
+ "einecsNumber": {
+  "props": [
+   "P232"
+  ],
+  "source": "ontology"
+ },
+ "birthPlace": {
+  "props": [
+   "P19"
+  ],
+  "source": "ontology"
+ },
+ "synonym": {
+  "props": [
+   "P5973"
+  ],
+  "source": "ontology"
+ },
+ "disappearanceDate": {
+  "props": [
+   "P746"
+  ],
+  "source": "ontology"
+ },
+ "selibrId": {
+  "props": [
+   "P906"
+  ],
+  "source": "ontology"
+ },
+ "constructionMaterial": {
+  "props": [
+   "P186"
+  ],
+  "source": "ontology"
+ },
+ "originalLanguage": {
+  "props": [
+   "P364"
+  ],
+  "source": "ontology"
+ },
+ "bnfId": {
+  "props": [
+   "P268"
+  ],
+  "source": "ontology"
+ },
+ "designer": {
+  "props": [
+   "P287"
+  ],
+  "source": "ontology"
+ },
+ "editing": {
+  "props": [
+   "P1040"
+  ],
+  "source": "ontology"
+ },
+ "author": {
+  "props": [
+   "P50"
+  ],
+  "source": "ontology"
+ },
+ "\u0645\u0635\u0646\u0641": {
+  "props": [
+   "P50"
+  ],
+  "source": "ontology"
+ },
+ "highestPoint": {
+  "props": [
+   "P610"
+  ],
+  "source": "ontology"
+ },
+ "nciId": {
+  "props": [
+   "P1395"
+  ],
+  "source": "ontology"
+ },
+ "birthDate": {
+  "props": [
+   "P569"
+  ],
+  "source": "ontology"
+ },
+ "birthYear": {
+  "props": [
+   "P569"
+  ],
+  "source": "ontology"
+ },
+ "battle": {
+  "props": [
+   "P607"
+  ],
+  "source": "ontology"
+ },
+ "address": {
+  "props": [
+   "P969"
+  ],
+  "source": "ontology"
+ },
+ "cinematography": {
+  "props": [
+   "P344"
+  ],
+  "source": "ontology"
+ },
+ "recordLabel": {
+  "props": [
+   "P264"
+  ],
+  "source": "ontology"
+ },
+ "genre": {
+  "props": [
+   "P136"
+  ],
+  "source": "ontology"
+ },
+ "era": {
+  "props": [
+   "P2348"
+  ],
+  "source": "ontology"
+ },
+ "installedCapacity": {
+  "props": [
+   "P2109"
+  ],
+  "source": "ontology"
+ },
+ "endDate": {
+  "props": [
+   "P582"
+  ],
+  "source": "ontology"
+ },
+ "ethnicity": {
+  "props": [
+   "P172"
+  ],
+  "source": "ontology"
+ },
+ "elo": {
+  "props": [
+   "P1087"
+  ],
+  "source": "ontology"
+ },
+ "launchSite": {
+  "props": [
+   "P448"
+  ],
+  "source": "ontology"
+ },
+ "orientation": {
+  "props": [
+   "P91"
+  ],
+  "source": "ontology"
+ },
+ "coverArtist": {
+  "props": [
+   "P736"
+  ],
+  "source": "ontology"
+ },
+ "owningOrganisation": {
+  "props": [
+   "P1830"
+  ],
+  "source": "ontology"
+ },
+ "launchVehicle": {
+  "props": [
+   "P375"
+  ],
+  "source": "ontology"
+ },
+ "iso6391Code": {
+  "props": [
+   "P218"
+  ],
+  "source": "ontology"
+ },
+ "basedOn": {
+  "props": [
+   "P144"
+  ],
+  "source": "ontology"
+ },
+ "diseasesDb": {
+  "props": [
+   "P557"
+  ],
+  "source": "ontology"
+ },
+ "eyeColor": {
+  "props": [
+   "P1340"
+  ],
+  "source": "ontology"
+ },
+ "startDate": {
+  "props": [
+   "P580"
+  ],
+  "source": "ontology"
+ },
+ "killedBy": {
+  "props": [
+   "P157"
+  ],
+  "source": "ontology"
+ },
+ "country": {
+  "props": [
+   "P17"
+  ],
+  "source": "ontology"
+ },
+ "individualisedGnd": {
+  "props": [
+   "P227"
+  ],
+  "source": "ontology"
+ },
+ "runtime": {
+  "props": [
+   "P2047"
+  ],
+  "source": "ontology"
+ },
+ "populationTotal": {
+  "props": [
+   "P1082"
+  ],
+  "source": "ontology"
+ },
+ "iso6392Code": {
+  "props": [
+   "P219"
+  ],
+  "source": "ontology"
+ },
+ "sudocId": {
+  "props": [
+   "P269"
+  ],
+  "source": "ontology"
+ },
+ "coden": {
+  "props": [
+   "P1159"
+  ],
+  "source": "ontology"
+ },
+ "meshId": {
+  "props": [
+   "P486"
+  ],
+  "source": "ontology"
+ },
+ "nrhpReferenceNumber": {
+  "props": [
+   "P649"
+  ],
+  "source": "ontology"
+ },
+ "currencyCode": {
+  "props": [
+   "P498"
+  ],
+  "source": "ontology"
+ },
+ "family": {
+  "props": [
+   "P53"
+  ],
+  "source": "ontology"
+ },
+ "unloCode": {
+  "props": [
+   "P1937"
+  ],
+  "source": "ontology"
+ },
+ "hairColor": {
+  "props": [
+   "P1884"
+  ],
+  "source": "ontology"
+ },
+ "discovered": {
+  "props": [
+   "P575"
+  ],
+  "source": "ontology"
+ },
+ "manager": {
+  "props": [
+   "P286"
+  ],
+  "source": "ontology"
+ },
+ "okatoCode": {
+  "props": [
+   "P721"
+  ],
+  "source": "ontology"
+ },
+ "elevation": {
+  "props": [
+   "P2044"
+  ],
+  "source": "ontology"
+ },
+ "nutsCode": {
+  "props": [
+   "P605"
+  ],
+  "source": "ontology"
+ },
+ "deathDate": {
+  "props": [
+   "P570"
+  ],
+  "source": "ontology"
+ },
+ "illustrator": {
+  "props": [
+   "P110"
+  ],
+  "source": "ontology"
+ },
+ "viafId": {
+  "props": [
+   "P214"
+  ],
+  "source": "ontology"
+ },
+ "developer": {
+  "props": [
+   "P178"
+  ],
+  "source": "ontology"
+ },
+ "director": {
+  "props": [
+   "P57"
+  ],
+  "source": "ontology"
+ },
+ "coatOfArms": {
+  "props": [
+   "P94"
+  ],
+  "source": "ontology"
+ },
+ "discipline": {
+  "props": [
+   "P101"
+  ],
+  "source": "ontology"
+ },
+ "follows": {
+  "props": [
+   "P155"
+  ],
+  "source": "ontology"
+ },
+ "iataAirlineCode": {
+  "props": [
+   "P229"
+  ],
+  "source": "ontology"
+ },
+ "rkdArtistsId": {
+  "props": [
+   "P650"
+  ],
+  "source": "ontology"
+ },
+ "wheelbase": {
+  "props": [
+   "P3039"
+  ],
+  "source": "ontology"
+ },
+ "movement": {
+  "props": [
+   "P135"
+  ],
+  "source": "ontology"
+ },
+ "fuelSystem": {
+  "props": [
+   "P1211"
+  ],
+  "source": "ontology"
+ },
+ "license": {
+  "props": [
+   "P275"
+  ],
+  "source": "ontology"
+ },
+ "parent": {
+  "props": [
+   "P22",
+   "P25"
+  ],
+  "source": "manual",
+  "why": "Wikidata splits parent into father/mother; union = DBpedia's parent"
+ },
+ "relative": {
+  "props": [
+   "P1038"
+  ],
+  "source": "manual",
+  "why": "relative"
+ },
+ "location": {
+  "props": [
+   "P276",
+   "P131"
+  ],
+  "source": "manual",
+  "why": "DBpedia location conflates 'located at' and 'in admin. entity'"
+ },
+ "sport": {
+  "props": [
+   "P641"
+  ],
+  "source": "manual",
+  "why": "sport"
+ },
+ "profession": {
+  "props": [
+   "P106"
+  ],
+  "source": "manual",
+  "why": "DBpedia profession ~ Wikidata occupation"
+ }
+}
