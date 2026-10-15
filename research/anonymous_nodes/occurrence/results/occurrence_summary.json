@@ -1,0 +1,93 @@
+{
+ "sentences": 5158,
+ "scan_hit_sentences": 165,
+ "scan_precision": 0.145,
+ "scan_O-REL_any": {
+  "k": 24,
+  "n": 5158,
+  "rate": 0.00465,
+  "ci95": [
+   0.00313,
+   0.00691
+  ]
+ },
+ "scan_O-REL_not_named_elsewhere": {
+  "k": 21,
+  "n": 5158,
+  "rate": 0.00407,
+  "ci95": [
+   0.00266,
+   0.00622
+  ]
+ },
+ "scan_O-REL_kb_likely_not_named": {
+  "k": 9,
+  "n": 5158,
+  "rate": 0.00174,
+  "ci95": [
+   0.00092,
+   0.00331
+  ]
+ },
+ "scan_recall_on_stage1": {
+  "O-REL_sentences": "2/8",
+  "O-REL_kb_likely_sentences": "2/3",
+  "missed": "plural groups, implicit topic anchors ('The third season', 'The present building'), bridging ('The English adaptation'), 'his cabinet', 'eight children'"
+ },
+ "stage1": {
+  "any_unnamed": {
+   "k": 130,
+   "n": 300,
+   "rate": 0.4333,
+   "ci95": [
+    0.3785,
+    0.4899
+   ]
+  },
+  "any_topic": {
+   "k": 120,
+   "n": 300,
+   "rate": 0.4,
+   "ci95": [
+    0.3462,
+    0.4564
+   ]
+  },
+  "any_other_entity": {
+   "k": 18,
+   "n": 300,
+   "rate": 0.06,
+   "ci95": [
+    0.0383,
+    0.0928
+   ]
+  },
+  "O-REL": {
+   "k": 8,
+   "n": 300,
+   "rate": 0.0267,
+   "ci95": [
+    0.0136,
+    0.0517
+   ]
+  },
+  "O-REL_kb_likely": {
+   "k": 3,
+   "n": 300,
+   "rate": 0.01,
+   "ci95": [
+    0.0034,
+    0.029
+   ]
+  },
+  "O-DESC": {
+   "k": 9,
+   "n": 300,
+   "rate": 0.03,
+   "ci95": [
+    0.0159,
+    0.056
+   ]
+  }
+ }
+}

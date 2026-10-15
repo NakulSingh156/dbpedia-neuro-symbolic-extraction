@@ -1,0 +1,2267 @@
+{
+ "annotator": "claude-first-pass",
+ "guidelines": "v1.1",
+ "items": [
+  {
+   "pos": 1,
+   "id": "00001",
+   "labels": []
+  },
+  {
+   "pos": 2,
+   "id": "00015",
+   "labels": []
+  },
+  {
+   "pos": 3,
+   "id": "00033",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The team"
+    }
+   ]
+  },
+  {
+   "pos": 4,
+   "id": "00098",
+   "labels": []
+  },
+  {
+   "pos": 5,
+   "id": "00116",
+   "labels": []
+  },
+  {
+   "pos": 6,
+   "id": "00175",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "Its"
+    }
+   ]
+  },
+  {
+   "pos": 7,
+   "id": "00184",
+   "labels": []
+  },
+  {
+   "pos": 8,
+   "id": "00189",
+   "labels": []
+  },
+  {
+   "pos": 9,
+   "id": "00208",
+   "labels": []
+  },
+  {
+   "pos": 10,
+   "id": "00221",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "She"
+    }
+   ]
+  },
+  {
+   "pos": 11,
+   "id": "00225",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the location"
+    }
+   ]
+  },
+  {
+   "pos": 12,
+   "id": "00228",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The song"
+    }
+   ]
+  },
+  {
+   "pos": 13,
+   "id": "00237",
+   "labels": []
+  },
+  {
+   "pos": 14,
+   "id": "00307",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 15,
+   "id": "00321",
+   "labels": []
+  },
+  {
+   "pos": 16,
+   "id": "00381",
+   "labels": []
+  },
+  {
+   "pos": 17,
+   "id": "00395",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the party's"
+    },
+    {
+     "type": "O-DESC",
+     "span": "the 1993 election",
+     "kb_entity": "likely"
+    }
+   ]
+  },
+  {
+   "pos": 18,
+   "id": "00406",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "She"
+    }
+   ]
+  },
+  {
+   "pos": 19,
+   "id": "00430",
+   "labels": []
+  },
+  {
+   "pos": 20,
+   "id": "00442",
+   "labels": []
+  },
+  {
+   "pos": 21,
+   "id": "00475",
+   "labels": []
+  },
+  {
+   "pos": 22,
+   "id": "00482",
+   "labels": []
+  },
+  {
+   "pos": 23,
+   "id": "00484",
+   "labels": []
+  },
+  {
+   "pos": 24,
+   "id": "00488",
+   "labels": []
+  },
+  {
+   "pos": 25,
+   "id": "00497",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(wingspan)"
+    }
+   ]
+  },
+  {
+   "pos": 26,
+   "id": "00506",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "His"
+    },
+    {
+     "type": "O-REL",
+     "span": "His brother",
+     "relation": "sibling",
+     "named_elsewhere": "no",
+     "plural": "no",
+     "kb_entity": "likely"
+    },
+    {
+     "type": "O-REL",
+     "span": "two nephews",
+     "relation": "nephew",
+     "named_elsewhere": "no",
+     "plural": "yes",
+     "kb_entity": "likely"
+    }
+   ]
+  },
+  {
+   "pos": 27,
+   "id": "00509",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "it"
+    }
+   ]
+  },
+  {
+   "pos": 28,
+   "id": "00514",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "its"
+    }
+   ]
+  },
+  {
+   "pos": 29,
+   "id": "00532",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(heats of the event)"
+    }
+   ]
+  },
+  {
+   "pos": 30,
+   "id": "00551",
+   "labels": []
+  },
+  {
+   "pos": 31,
+   "id": "00563",
+   "labels": []
+  },
+  {
+   "pos": 32,
+   "id": "00572",
+   "labels": []
+  },
+  {
+   "pos": 33,
+   "id": "00576",
+   "labels": []
+  },
+  {
+   "pos": 34,
+   "id": "00593",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the area"
+    }
+   ]
+  },
+  {
+   "pos": 35,
+   "id": "00599",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The newspaper"
+    }
+   ]
+  },
+  {
+   "pos": 36,
+   "id": "00635",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 37,
+   "id": "00659",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The neighobourhood"
+    }
+   ]
+  },
+  {
+   "pos": 38,
+   "id": "00660",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(housing in the neighbourhood)"
+    }
+   ]
+  },
+  {
+   "pos": 39,
+   "id": "00670",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 40,
+   "id": "00679",
+   "labels": []
+  },
+  {
+   "pos": 41,
+   "id": "00694",
+   "labels": []
+  },
+  {
+   "pos": 42,
+   "id": "00695",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(the school's programs)"
+    }
+   ]
+  },
+  {
+   "pos": 43,
+   "id": "00703",
+   "labels": []
+  },
+  {
+   "pos": 44,
+   "id": "00704",
+   "labels": []
+  },
+  {
+   "pos": 45,
+   "id": "00710",
+   "labels": []
+  },
+  {
+   "pos": 46,
+   "id": "00743",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(population)"
+    }
+   ]
+  },
+  {
+   "pos": 47,
+   "id": "00745",
+   "labels": []
+  },
+  {
+   "pos": 48,
+   "id": "00766",
+   "labels": []
+  },
+  {
+   "pos": 49,
+   "id": "00771",
+   "labels": []
+  },
+  {
+   "pos": 50,
+   "id": "00798",
+   "labels": []
+  },
+  {
+   "pos": 51,
+   "id": "00831",
+   "labels": []
+  },
+  {
+   "pos": 52,
+   "id": "00836",
+   "labels": []
+  },
+  {
+   "pos": 53,
+   "id": "00837",
+   "labels": []
+  },
+  {
+   "pos": 54,
+   "id": "00838",
+   "labels": []
+  },
+  {
+   "pos": 55,
+   "id": "00841",
+   "labels": []
+  },
+  {
+   "pos": 56,
+   "id": "00844",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The village"
+    }
+   ]
+  },
+  {
+   "pos": 57,
+   "id": "00848",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "it"
+    }
+   ]
+  },
+  {
+   "pos": 58,
+   "id": "00900",
+   "labels": []
+  },
+  {
+   "pos": 59,
+   "id": "00944",
+   "labels": [
+    {
+     "type": "O-REL",
+     "span": "the management and staff of the former South Africa Arts Council Opera",
+     "relation": "staff of",
+     "named_elsewhere": "no",
+     "plural": "yes",
+     "kb_entity": "unlikely"
+    }
+   ]
+  },
+  {
+   "pos": 60,
+   "id": "00959",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 61,
+   "id": "00964",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "His"
+    },
+    {
+     "type": "O-REL",
+     "span": "His namesake nephew",
+     "relation": "nephew",
+     "named_elsewhere": "no",
+     "plural": "no",
+     "kb_entity": "likely",
+     "note": "'namesake' gives the name (Carlo Zucchi, architect) indirectly"
+    }
+   ]
+  },
+  {
+   "pos": 62,
+   "id": "00967",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "he"
+    }
+   ]
+  },
+  {
+   "pos": 63,
+   "id": "00982",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The series"
+    }
+   ]
+  },
+  {
+   "pos": 64,
+   "id": "01006",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 65,
+   "id": "01014",
+   "labels": []
+  },
+  {
+   "pos": 66,
+   "id": "01028",
+   "labels": []
+  },
+  {
+   "pos": 67,
+   "id": "01040",
+   "labels": []
+  },
+  {
+   "pos": 68,
+   "id": "01059",
+   "labels": []
+  },
+  {
+   "pos": 69,
+   "id": "01073",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "Its"
+    }
+   ]
+  },
+  {
+   "pos": 70,
+   "id": "01090",
+   "labels": []
+  },
+  {
+   "pos": 71,
+   "id": "01121",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(wingspan)"
+    }
+   ]
+  },
+  {
+   "pos": 72,
+   "id": "01180",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The method"
+    }
+   ]
+  },
+  {
+   "pos": 73,
+   "id": "01181",
+   "labels": []
+  },
+  {
+   "pos": 74,
+   "id": "01193",
+   "labels": []
+  },
+  {
+   "pos": 75,
+   "id": "01197",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(leaves)"
+    }
+   ]
+  },
+  {
+   "pos": 76,
+   "id": "01200",
+   "labels": []
+  },
+  {
+   "pos": 77,
+   "id": "01216",
+   "labels": []
+  },
+  {
+   "pos": 78,
+   "id": "01235",
+   "labels": []
+  },
+  {
+   "pos": 79,
+   "id": "01236",
+   "labels": []
+  },
+  {
+   "pos": 80,
+   "id": "01238",
+   "labels": []
+  },
+  {
+   "pos": 81,
+   "id": "01239",
+   "labels": []
+  },
+  {
+   "pos": 82,
+   "id": "01245",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 83,
+   "id": "01277",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The episode"
+    }
+   ]
+  },
+  {
+   "pos": 84,
+   "id": "01301",
+   "labels": []
+  },
+  {
+   "pos": 85,
+   "id": "01322",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "his"
+    }
+   ]
+  },
+  {
+   "pos": 86,
+   "id": "01329",
+   "labels": []
+  },
+  {
+   "pos": 87,
+   "id": "01351",
+   "labels": []
+  },
+  {
+   "pos": 88,
+   "id": "01362",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(mascot)"
+    }
+   ]
+  },
+  {
+   "pos": 89,
+   "id": "01368",
+   "labels": []
+  },
+  {
+   "pos": 90,
+   "id": "01376",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the community"
+    }
+   ]
+  },
+  {
+   "pos": 91,
+   "id": "01392",
+   "labels": []
+  },
+  {
+   "pos": 92,
+   "id": "01443",
+   "labels": []
+  },
+  {
+   "pos": 93,
+   "id": "01462",
+   "labels": []
+  },
+  {
+   "pos": 94,
+   "id": "01472",
+   "labels": []
+  },
+  {
+   "pos": 95,
+   "id": "01480",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(larvae)"
+    }
+   ]
+  },
+  {
+   "pos": 96,
+   "id": "01493",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 97,
+   "id": "01539",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 98,
+   "id": "01561",
+   "labels": []
+  },
+  {
+   "pos": 99,
+   "id": "01586",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 100,
+   "id": "01598",
+   "labels": []
+  },
+  {
+   "pos": 101,
+   "id": "01611",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "She"
+    }
+   ]
+  },
+  {
+   "pos": 102,
+   "id": "01632",
+   "labels": []
+  },
+  {
+   "pos": 103,
+   "id": "01637",
+   "labels": []
+  },
+  {
+   "pos": 104,
+   "id": "01674",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 105,
+   "id": "01681",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "he"
+    }
+   ]
+  },
+  {
+   "pos": 106,
+   "id": "01687",
+   "labels": []
+  },
+  {
+   "pos": 107,
+   "id": "01703",
+   "labels": []
+  },
+  {
+   "pos": 108,
+   "id": "01710",
+   "labels": []
+  },
+  {
+   "pos": 109,
+   "id": "01758",
+   "labels": []
+  },
+  {
+   "pos": 110,
+   "id": "01787",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 111,
+   "id": "01806",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "he"
+    },
+    {
+     "type": "O-REL",
+     "span": "eight children",
+     "relation": "child",
+     "named_elsewhere": "no",
+     "plural": "yes",
+     "kb_entity": "unlikely"
+    }
+   ]
+  },
+  {
+   "pos": 112,
+   "id": "01811",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "Both properties",
+     "note": "topic plus Oakenwald Terrace, named in the previous sentence"
+    }
+   ]
+  },
+  {
+   "pos": 113,
+   "id": "01825",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "his"
+    }
+   ]
+  },
+  {
+   "pos": 114,
+   "id": "01827",
+   "labels": [
+    {
+     "type": "O-REL",
+     "span": "The English adaptation",
+     "relation": "adaptation of",
+     "named_elsewhere": "no",
+     "plural": "no",
+     "kb_entity": "unlikely"
+    }
+   ]
+  },
+  {
+   "pos": 115,
+   "id": "01828",
+   "labels": []
+  },
+  {
+   "pos": 116,
+   "id": "01857",
+   "labels": []
+  },
+  {
+   "pos": 117,
+   "id": "01858",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "him"
+    }
+   ]
+  },
+  {
+   "pos": 118,
+   "id": "01890",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    },
+    {
+     "type": "O-DESC",
+     "span": "the region",
+     "kb_entity": "likely",
+     "note": "implicit anchor: the topic's home region"
+    }
+   ]
+  },
+  {
+   "pos": 119,
+   "id": "01900",
+   "labels": []
+  },
+  {
+   "pos": 120,
+   "id": "01911",
+   "labels": []
+  },
+  {
+   "pos": 121,
+   "id": "01961",
+   "labels": []
+  },
+  {
+   "pos": 122,
+   "id": "01971",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "She"
+    }
+   ]
+  },
+  {
+   "pos": 123,
+   "id": "01999",
+   "labels": []
+  },
+  {
+   "pos": 124,
+   "id": "02028",
+   "labels": []
+  },
+  {
+   "pos": 125,
+   "id": "02035",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 126,
+   "id": "02066",
+   "labels": []
+  },
+  {
+   "pos": 127,
+   "id": "02123",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "His"
+    }
+   ]
+  },
+  {
+   "pos": 128,
+   "id": "02139",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    },
+    {
+     "type": "O-DESC",
+     "span": "the Peruvian squad that won the Copa América 1975",
+     "kb_entity": "likely"
+    }
+   ]
+  },
+  {
+   "pos": 129,
+   "id": "02152",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 130,
+   "id": "02168",
+   "labels": []
+  },
+  {
+   "pos": 131,
+   "id": "02211",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "she"
+    },
+    {
+     "type": "O-REL",
+     "span": "his cabinet",
+     "relation": "cabinet of",
+     "named_elsewhere": "no",
+     "plural": "no",
+     "kb_entity": "unlikely"
+    }
+   ]
+  },
+  {
+   "pos": 132,
+   "id": "02276",
+   "labels": []
+  },
+  {
+   "pos": 133,
+   "id": "02280",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "its"
+    }
+   ]
+  },
+  {
+   "pos": 134,
+   "id": "02288",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 135,
+   "id": "02309",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    },
+    {
+     "type": "O-DESC",
+     "span": "a teenage girl",
+     "kb_entity": "unlikely",
+     "note": "fictional"
+    },
+    {
+     "type": "O-DESC",
+     "span": "a man",
+     "kb_entity": "unlikely",
+     "note": "fictional"
+    }
+   ]
+  },
+  {
+   "pos": 136,
+   "id": "02331",
+   "labels": []
+  },
+  {
+   "pos": 137,
+   "id": "02354",
+   "labels": []
+  },
+  {
+   "pos": 138,
+   "id": "02358",
+   "labels": []
+  },
+  {
+   "pos": 139,
+   "id": "02372",
+   "labels": []
+  },
+  {
+   "pos": 140,
+   "id": "02441",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "he"
+    }
+   ]
+  },
+  {
+   "pos": 141,
+   "id": "02455",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 142,
+   "id": "02459",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 143,
+   "id": "02527",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 144,
+   "id": "02536",
+   "labels": []
+  },
+  {
+   "pos": 145,
+   "id": "02554",
+   "labels": []
+  },
+  {
+   "pos": 146,
+   "id": "02570",
+   "labels": []
+  },
+  {
+   "pos": 147,
+   "id": "02573",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 148,
+   "id": "02610",
+   "labels": []
+  },
+  {
+   "pos": 149,
+   "id": "02652",
+   "labels": []
+  },
+  {
+   "pos": 150,
+   "id": "02700",
+   "labels": []
+  },
+  {
+   "pos": 151,
+   "id": "02723",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the series"
+    }
+   ]
+  },
+  {
+   "pos": 152,
+   "id": "02766",
+   "labels": []
+  },
+  {
+   "pos": 153,
+   "id": "02785",
+   "labels": [
+    {
+     "type": "O-DESC",
+     "span": "the war",
+     "kb_entity": "likely",
+     "note": "Second Sino-Japanese War"
+    }
+   ]
+  },
+  {
+   "pos": 154,
+   "id": "02786",
+   "labels": []
+  },
+  {
+   "pos": 155,
+   "id": "02802",
+   "labels": []
+  },
+  {
+   "pos": 156,
+   "id": "02806",
+   "labels": []
+  },
+  {
+   "pos": 157,
+   "id": "02813",
+   "labels": []
+  },
+  {
+   "pos": 158,
+   "id": "02818",
+   "labels": []
+  },
+  {
+   "pos": 159,
+   "id": "02820",
+   "labels": []
+  },
+  {
+   "pos": 160,
+   "id": "02842",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 161,
+   "id": "02845",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    },
+    {
+     "type": "T-DEF",
+     "span": "the show"
+    }
+   ]
+  },
+  {
+   "pos": 162,
+   "id": "02863",
+   "labels": []
+  },
+  {
+   "pos": 163,
+   "id": "02868",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 164,
+   "id": "02870",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the temple"
+    }
+   ]
+  },
+  {
+   "pos": 165,
+   "id": "02911",
+   "labels": []
+  },
+  {
+   "pos": 166,
+   "id": "02912",
+   "labels": []
+  },
+  {
+   "pos": 167,
+   "id": "02913",
+   "labels": []
+  },
+  {
+   "pos": 168,
+   "id": "02939",
+   "labels": []
+  },
+  {
+   "pos": 169,
+   "id": "02962",
+   "labels": []
+  },
+  {
+   "pos": 170,
+   "id": "02963",
+   "labels": [
+    {
+     "type": "O-DESC",
+     "span": "the coveted title",
+     "kb_entity": "likely",
+     "named_elsewhere": "yes"
+    }
+   ]
+  },
+  {
+   "pos": 171,
+   "id": "02978",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 172,
+   "id": "02983",
+   "labels": []
+  },
+  {
+   "pos": 173,
+   "id": "02987",
+   "labels": []
+  },
+  {
+   "pos": 174,
+   "id": "02995",
+   "labels": []
+  },
+  {
+   "pos": 175,
+   "id": "03004",
+   "labels": [
+    {
+     "type": "O-DESC",
+     "span": "the shadow cabinet",
+     "kb_entity": "likely"
+    }
+   ]
+  },
+  {
+   "pos": 176,
+   "id": "03024",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 177,
+   "id": "03050",
+   "labels": [
+    {
+     "type": "O-REL",
+     "span": "The third season",
+     "relation": "season of (topic, implicit)",
+     "named_elsewhere": "no",
+     "plural": "no",
+     "kb_entity": "likely"
+    }
+   ]
+  },
+  {
+   "pos": 178,
+   "id": "03082",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 179,
+   "id": "03116",
+   "labels": []
+  },
+  {
+   "pos": 180,
+   "id": "03160",
+   "labels": []
+  },
+  {
+   "pos": 181,
+   "id": "03182",
+   "labels": []
+  },
+  {
+   "pos": 182,
+   "id": "03202",
+   "labels": []
+  },
+  {
+   "pos": 183,
+   "id": "03214",
+   "labels": []
+  },
+  {
+   "pos": 184,
+   "id": "03228",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the company"
+    }
+   ]
+  },
+  {
+   "pos": 185,
+   "id": "03234",
+   "labels": []
+  },
+  {
+   "pos": 186,
+   "id": "03242",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(population)"
+    }
+   ]
+  },
+  {
+   "pos": 187,
+   "id": "03249",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(demonym)"
+    }
+   ]
+  },
+  {
+   "pos": 188,
+   "id": "03259",
+   "labels": []
+  },
+  {
+   "pos": 189,
+   "id": "03260",
+   "labels": []
+  },
+  {
+   "pos": 190,
+   "id": "03268",
+   "labels": [
+    {
+     "type": "O-DESC",
+     "span": "the suspects",
+     "kb_entity": "unlikely",
+     "plural": "yes"
+    }
+   ]
+  },
+  {
+   "pos": 191,
+   "id": "03280",
+   "labels": [
+    {
+     "type": "O-REL",
+     "span": "The present building",
+     "relation": "building of (topic, implicit)",
+     "named_elsewhere": "no",
+     "plural": "no",
+     "kb_entity": "unlikely"
+    }
+   ]
+  },
+  {
+   "pos": 192,
+   "id": "03282",
+   "labels": []
+  },
+  {
+   "pos": 193,
+   "id": "03288",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(named by ANCA)"
+    }
+   ]
+  },
+  {
+   "pos": 194,
+   "id": "03290",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 195,
+   "id": "03402",
+   "labels": []
+  },
+  {
+   "pos": 196,
+   "id": "03425",
+   "labels": []
+  },
+  {
+   "pos": 197,
+   "id": "03432",
+   "labels": []
+  },
+  {
+   "pos": 198,
+   "id": "03433",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 199,
+   "id": "03454",
+   "labels": []
+  },
+  {
+   "pos": 200,
+   "id": "03477",
+   "labels": []
+  },
+  {
+   "pos": 201,
+   "id": "03502",
+   "labels": []
+  },
+  {
+   "pos": 202,
+   "id": "03526",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 203,
+   "id": "03552",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "Its"
+    }
+   ]
+  },
+  {
+   "pos": 204,
+   "id": "03554",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 205,
+   "id": "03609",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 206,
+   "id": "03650",
+   "labels": []
+  },
+  {
+   "pos": 207,
+   "id": "03663",
+   "labels": []
+  },
+  {
+   "pos": 208,
+   "id": "03676",
+   "labels": []
+  },
+  {
+   "pos": 209,
+   "id": "03679",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(adults)"
+    }
+   ]
+  },
+  {
+   "pos": 210,
+   "id": "03712",
+   "labels": []
+  },
+  {
+   "pos": 211,
+   "id": "03737",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 212,
+   "id": "03740",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "His",
+     "note": "'His brother' is named in apposition in the same sentence -> excluded"
+    }
+   ]
+  },
+  {
+   "pos": 213,
+   "id": "03782",
+   "labels": []
+  },
+  {
+   "pos": 214,
+   "id": "03794",
+   "labels": []
+  },
+  {
+   "pos": 215,
+   "id": "03812",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 216,
+   "id": "03814",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 217,
+   "id": "03817",
+   "labels": []
+  },
+  {
+   "pos": 218,
+   "id": "03850",
+   "labels": []
+  },
+  {
+   "pos": 219,
+   "id": "03868",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 220,
+   "id": "03883",
+   "labels": []
+  },
+  {
+   "pos": 221,
+   "id": "03884",
+   "labels": []
+  },
+  {
+   "pos": 222,
+   "id": "03885",
+   "labels": []
+  },
+  {
+   "pos": 223,
+   "id": "03916",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The grant"
+    }
+   ]
+  },
+  {
+   "pos": 224,
+   "id": "03920",
+   "labels": []
+  },
+  {
+   "pos": 225,
+   "id": "03927",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "it"
+    }
+   ]
+  },
+  {
+   "pos": 226,
+   "id": "03935",
+   "labels": []
+  },
+  {
+   "pos": 227,
+   "id": "03944",
+   "labels": []
+  },
+  {
+   "pos": 228,
+   "id": "03953",
+   "labels": []
+  },
+  {
+   "pos": 229,
+   "id": "03963",
+   "labels": []
+  },
+  {
+   "pos": 230,
+   "id": "03972",
+   "labels": []
+  },
+  {
+   "pos": 231,
+   "id": "03998",
+   "labels": []
+  },
+  {
+   "pos": 232,
+   "id": "04005",
+   "labels": []
+  },
+  {
+   "pos": 233,
+   "id": "04036",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The church"
+    }
+   ]
+  },
+  {
+   "pos": 234,
+   "id": "04044",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "Her"
+    }
+   ]
+  },
+  {
+   "pos": 235,
+   "id": "04055",
+   "labels": []
+  },
+  {
+   "pos": 236,
+   "id": "04066",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 237,
+   "id": "04067",
+   "labels": []
+  },
+  {
+   "pos": 238,
+   "id": "04068",
+   "labels": []
+  },
+  {
+   "pos": 239,
+   "id": "04118",
+   "labels": []
+  },
+  {
+   "pos": 240,
+   "id": "04156",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The school"
+    }
+   ]
+  },
+  {
+   "pos": 241,
+   "id": "04193",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(name)"
+    }
+   ]
+  },
+  {
+   "pos": 242,
+   "id": "04222",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(name)"
+    }
+   ]
+  },
+  {
+   "pos": 243,
+   "id": "04229",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "its"
+    }
+   ]
+  },
+  {
+   "pos": 244,
+   "id": "04240",
+   "labels": []
+  },
+  {
+   "pos": 245,
+   "id": "04246",
+   "labels": []
+  },
+  {
+   "pos": 246,
+   "id": "04302",
+   "labels": [
+    {
+     "type": "O-PRON",
+     "span": "he",
+     "note": "fictional protagonist"
+    },
+    {
+     "type": "O-DESC",
+     "span": "two young girls",
+     "kb_entity": "unlikely",
+     "plural": "yes",
+     "note": "fictional"
+    }
+   ]
+  },
+  {
+   "pos": 247,
+   "id": "04326",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the line"
+    }
+   ]
+  },
+  {
+   "pos": 248,
+   "id": "04327",
+   "labels": []
+  },
+  {
+   "pos": 249,
+   "id": "04355",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 250,
+   "id": "04362",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 251,
+   "id": "04379",
+   "labels": []
+  },
+  {
+   "pos": 252,
+   "id": "04389",
+   "labels": []
+  },
+  {
+   "pos": 253,
+   "id": "04395",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 254,
+   "id": "04429",
+   "labels": []
+  },
+  {
+   "pos": 255,
+   "id": "04436",
+   "labels": []
+  },
+  {
+   "pos": 256,
+   "id": "04449",
+   "labels": []
+  },
+  {
+   "pos": 257,
+   "id": "04487",
+   "labels": []
+  },
+  {
+   "pos": 258,
+   "id": "04491",
+   "labels": []
+  },
+  {
+   "pos": 259,
+   "id": "04494",
+   "labels": []
+  },
+  {
+   "pos": 260,
+   "id": "04501",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The town"
+    }
+   ]
+  },
+  {
+   "pos": 261,
+   "id": "04507",
+   "labels": []
+  },
+  {
+   "pos": 262,
+   "id": "04514",
+   "labels": []
+  },
+  {
+   "pos": 263,
+   "id": "04560",
+   "labels": []
+  },
+  {
+   "pos": 264,
+   "id": "04571",
+   "labels": []
+  },
+  {
+   "pos": 265,
+   "id": "04581",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 266,
+   "id": "04589",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 267,
+   "id": "04623",
+   "labels": [
+    {
+     "type": "O-PRON",
+     "span": "It",
+     "note": "Benedum-Trees Building, named in the previous sentence"
+    }
+   ]
+  },
+  {
+   "pos": 268,
+   "id": "04632",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(named by)"
+    }
+   ]
+  },
+  {
+   "pos": 269,
+   "id": "04639",
+   "labels": []
+  },
+  {
+   "pos": 270,
+   "id": "04643",
+   "labels": []
+  },
+  {
+   "pos": 271,
+   "id": "04676",
+   "labels": []
+  },
+  {
+   "pos": 272,
+   "id": "04679",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 273,
+   "id": "04694",
+   "labels": []
+  },
+  {
+   "pos": 274,
+   "id": "04705",
+   "labels": []
+  },
+  {
+   "pos": 275,
+   "id": "04727",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    },
+    {
+     "type": "T-DEF",
+     "span": "the city"
+    }
+   ]
+  },
+  {
+   "pos": 276,
+   "id": "04734",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the song"
+    }
+   ]
+  },
+  {
+   "pos": 277,
+   "id": "04750",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(train services)"
+    }
+   ]
+  },
+  {
+   "pos": 278,
+   "id": "04764",
+   "labels": []
+  },
+  {
+   "pos": 279,
+   "id": "04774",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "the campus"
+    }
+   ]
+  },
+  {
+   "pos": 280,
+   "id": "04775",
+   "labels": []
+  },
+  {
+   "pos": 281,
+   "id": "04796",
+   "labels": []
+  },
+  {
+   "pos": 282,
+   "id": "04826",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(specimen)"
+    }
+   ]
+  },
+  {
+   "pos": 283,
+   "id": "04839",
+   "labels": []
+  },
+  {
+   "pos": 284,
+   "id": "04869",
+   "labels": []
+  },
+  {
+   "pos": 285,
+   "id": "04881",
+   "labels": []
+  },
+  {
+   "pos": 286,
+   "id": "04921",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The station"
+    }
+   ]
+  },
+  {
+   "pos": 287,
+   "id": "04933",
+   "labels": []
+  },
+  {
+   "pos": 288,
+   "id": "04957",
+   "labels": []
+  },
+  {
+   "pos": 289,
+   "id": "04988",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 290,
+   "id": "04995",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The waltz"
+    }
+   ]
+  },
+  {
+   "pos": 291,
+   "id": "04999",
+   "labels": [
+    {
+     "type": "T-DEF",
+     "span": "The station"
+    }
+   ]
+  },
+  {
+   "pos": 292,
+   "id": "05004",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "It"
+    }
+   ]
+  },
+  {
+   "pos": 293,
+   "id": "05010",
+   "labels": []
+  },
+  {
+   "pos": 294,
+   "id": "05023",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 295,
+   "id": "05027",
+   "labels": []
+  },
+  {
+   "pos": 296,
+   "id": "05030",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "He"
+    }
+   ]
+  },
+  {
+   "pos": 297,
+   "id": "05059",
+   "labels": []
+  },
+  {
+   "pos": 298,
+   "id": "05070",
+   "labels": [
+    {
+     "type": "T-ZERO",
+     "span": "(winners)"
+    }
+   ]
+  },
+  {
+   "pos": 299,
+   "id": "05112",
+   "labels": [
+    {
+     "type": "T-PRON",
+     "span": "it"
+    }
+   ]
+  },
+  {
+   "pos": 300,
+   "id": "05139",
+   "labels": []
+  }
+ ]
+}

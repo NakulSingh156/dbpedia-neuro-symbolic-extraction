@@ -1,0 +1,157 @@
+{
+ "T-PRON": {
+  "k": 75,
+  "n": 300,
+  "rate": 0.25,
+  "ci95": [
+   0.2044,
+   0.302
+  ]
+ },
+ "T-DEF": {
+  "k": 28,
+  "n": 300,
+  "rate": 0.0933,
+  "ci95": [
+   0.0654,
+   0.1316
+  ]
+ },
+ "T-ZERO": {
+  "k": 19,
+  "n": 300,
+  "rate": 0.0633,
+  "ci95": [
+   0.0409,
+   0.0968
+  ]
+ },
+ "O-PRON": {
+  "k": 2,
+  "n": 300,
+  "rate": 0.0067,
+  "ci95": [
+   0.0018,
+   0.024
+  ]
+ },
+ "O-REL": {
+  "k": 8,
+  "n": 300,
+  "rate": 0.0267,
+  "ci95": [
+   0.0136,
+   0.0517
+  ]
+ },
+ "O-DESC": {
+  "k": 9,
+  "n": 300,
+  "rate": 0.03,
+  "ci95": [
+   0.0159,
+   0.056
+  ]
+ },
+ "any_unnamed": {
+  "k": 130,
+  "n": 300,
+  "rate": 0.4333,
+  "ci95": [
+   0.3785,
+   0.4899
+  ]
+ },
+ "any_topic": {
+  "k": 120,
+  "n": 300,
+  "rate": 0.4,
+  "ci95": [
+   0.3462,
+   0.4564
+  ]
+ },
+ "any_other_entity": {
+  "k": 18,
+  "n": 300,
+  "rate": 0.06,
+  "ci95": [
+   0.0383,
+   0.0928
+  ]
+ },
+ "O-REL_kb_likely": {
+  "k": 3,
+  "n": 300,
+  "rate": 0.01,
+  "ci95": [
+   0.0034,
+   0.029
+  ]
+ },
+ "O-REL_or_DESC_kb_likely": {
+  "k": 9,
+  "n": 300,
+  "rate": 0.03,
+  "ci95": [
+   0.0159,
+   0.056
+  ]
+ },
+ "O-REL_spans": [
+  [
+   26,
+   "His brother",
+   "sibling",
+   "likely"
+  ],
+  [
+   26,
+   "two nephews",
+   "nephew",
+   "likely"
+  ],
+  [
+   59,
+   "the management and staff of the former South Africa Arts Council Opera",
+   "staff of",
+   "unlikely"
+  ],
+  [
+   61,
+   "His namesake nephew",
+   "nephew",
+   "likely"
+  ],
+  [
+   111,
+   "eight children",
+   "child",
+   "unlikely"
+  ],
+  [
+   114,
+   "The English adaptation",
+   "adaptation of",
+   "unlikely"
+  ],
+  [
+   131,
+   "his cabinet",
+   "cabinet of",
+   "unlikely"
+  ],
+  [
+   177,
+   "The third season",
+   "season of (topic, implicit)",
+   "likely"
+  ],
+  [
+   191,
+   "The present building",
+   "building of (topic, implicit)",
+   "unlikely"
+  ]
+ ]
+}
