@@ -1,7 +1,9 @@
-"""Cohen's kappa between Claude's first pass and Nakul's blind 50 on (a) any unnamed reference, (b) any O-REL."""
-import csv, json
+"""Cohen's kappa between Claude's first pass and Nakul's blind 50 on (a) any unnamed reference, (b) any O-REL.
+Usage: python kappa.py [path/to/blind_50_for_nakul.csv]   (default: the copy in this folder)"""
+import csv, json, os, sys
 C = {it["id"]: it["labels"] for it in json.load(open("labels_sample_300.json"))["items"]}
-rows = [r for r in csv.DictReader(open("blind_50_for_nakul.csv")) if r["any_unnamed"].strip()]
+path = sys.argv[1] if len(sys.argv) > 1 else "blind_50_for_nakul.csv"
+rows = [r for r in csv.DictReader(open(os.path.expanduser(path), encoding="utf-8-sig")) if r["any_unnamed"].strip()]
 def kappa(a, b):
     n = len(a); po = sum(x == y for x, y in zip(a, b)) / n
     pa, pb = sum(a) / n, sum(b) / n; pe = pa*pb + (1-pa)*(1-pb)
