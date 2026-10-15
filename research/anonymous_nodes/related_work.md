@@ -41,9 +41,81 @@ Roadmap step 1 (Part III, Phase 1.2). **Pass 1 = metadata and abstracts from sea
 
 Prior work grounds *unnamed* entities only in tweets (implicit EL) or resolves descriptions to *antecedent mentions* (bridging); KBQA handles description→query with answerability but on questions, not text being extracted; KG-construction work handles schema adaptation and NIL, but only for named mentions. **We found no work that, inside KG extraction, turns a relational description of an unnamed entity into a KB query, grounds it only when the answer is unique, and otherwise emits a provenance-tagged anonymous node — across ontologies.** This rests on searches, not full reads; implicit entity linking (#1) is the paper that could break it.
 
-## Pass 2 — read in full, in this order
+## Pass 2 — full reads (2026-10-16)
 
-1. Perera et al. 2016 + Hosseini et al. 2019 (implicit EL) — threat #1.
+### Perera et al., *Implicit Entity Linking in Tweets*, ESWC 2016 (arXiv 1707.08470) — read in full
+
+- **Task (their Def. 2):** given a tweet *known to contain* an implicit mention *of a given type* (Movie or Book), output the entity. Input is (type, text). One entity per tweet.
+- **Definition of "implicit":** the name is absent, and the mention is not an alias or a coreference of a named entity in the tweet (their Def. 1). Close to our O-REL/O-DESC, but restricted to the tweet's *topic* entity.
+- **Overlap with us — real.** Section 2.2 shows people refer to entities "through characteristics", e.g. "Richard Linklater movie" (director), "Ellar Coltrane's movie" (actor), "latest movie shot in Houston" (location). Several of these *are* relational descriptions.
+- **Method:** an entity-model network, i.e. bags of clue phrases per entity.
+  - Facts: rdfs:labels of neighbours over the top-m DBpedia relations, plus rdfs:comment.
+  - Context: 1,000 recent tweets per entity.
+  - Temporal salience: 30-day Wikipedia page views.
+  - Ranking: clue-overlap candidate selection (top-25), then SVMrank on cosine similarity + salience.
+- **KB use is lexical:** DBpedia neighbours become words to match. Relations are never used as constraints, and nothing is queried at link time.
+- **Data and results:**
+  - Prevalence on keyword-filtered tweets: 21% of movie mentions and 40% of book mentions are implicit. Our 2.7% in encyclopedic text is a different genre, not a contradiction.
+  - Evaluation set: 397 implicit tweets; candidate recall ~90–95%; top-1 accuracy ~61% in both domains.
+  - Contextual tweets add +15–18 points, i.e. what carries them is *popularity and recency*, not KB structure.
+  - Error types: thin context, entity not yet in the KB, cold start, two implicit entities per tweet.
+- **No abstention.** Every candidate set yields a top-1. NIL handling is listed as future work, and there is no notion of "the KB answer is not unique".
+- **What it does not do:** extract facts, emit triples or anonymous nodes, work without a known target type, or handle long-tail entities (salience favours popular ones).
+
+### Hosseini (with Bagheri), implicit entity recognition and linking in tweets — SIGIR 2019 (1-page doctoral consortium), Applied Ontology 2019, IP&M 2022, PhD thesis Ryerson 2022 — thesis read for problem setup, method and limits
+
+- **Dataset:** 7,870 tweets labelled explicit / implicit / neither. ~15% of tweets carry an implicit entity.
+- **Linking:**
+  - (a) Ad-hoc retrieval of Wikipedia descriptions, with the tweet as the query.
+  - (b) Learning-to-rank over KG features. Metrics: P@1, MRR.
+- **Candidate selection is the closest technical step to ours:** link the tweet's explicit entities, then take every DBpedia neighbour of the wanted type.
+  - We do the same anchor-plus-KB-neighbourhood lookup, but *constrained by the specific relation*, and we decide by answer cardinality instead of ranking.
+- **Stated assumptions:**
+  - The domain/type of the implicit entity is known in advance.
+  - The tweet *does* contain exactly one implicit entity.
+  - The thesis calls both limitations and lists open-domain linking, long-tail entities, and entities absent from the KG as future work.
+- **No abstention or anonymous-node output.** Ranking always returns a top-1.
+
+### OpenEL — Cui, Rolston, Walker, Hockey, LREC 2022 (dialogue entity linking to Wikidata) — read for definitions and NIL policy
+
+- Annotates definite referring expressions and anaphora (he/she/it/they) in 179 dialogues and links them to Wikidata. Best system: Flair+BLINK, F1 0.65.
+- Its "definite expressions" are mostly names or name-like phrases ("my Giants", "the forest planet"), not relational descriptions.
+- **Useful for our motivation.** Annotators met referents with *no* Wikidata ID or *no unique* ID (a specific "Yankees vs Red Sox game" when Wikidata only has the season). Their policy was to **drop them** ("ignoring uncertain mentions or unlinkable entities"). That is exactly the case our anonymous node keeps.
+
+### Searches since 2023 (pass 2)
+
+- No 2023–2026 paper found that:
+  - (i) compiles a relational description of an unnamed entity into a KB query inside text-to-KG extraction,
+  - (ii) grounds it only on a unique answer, and
+  - (iii) otherwise emits a provenance-tagged anonymous node.
+- Nearby work:
+  - LLM-KG hallucination benchmarks (KGHaluBench 2026, KG-Guard 2026, MultiHal 2025) measure abstention in QA, not extraction.
+  - KBQA systems such as ChatKBQA accept the first executable query, with no answer-cardinality check.
+  - An ontology-compliant extraction pipeline (arXiv 2609.17291) mints new IDs for unmatched entities by fuzzy matching. That is the closest to an "anonymous node", but it does no relational grounding.
+- These are search-level results, not full reads.
+
+### Updated positioning (after pass 2)
+
+| | Implicit EL (Perera; Hosseini) | Ours |
+|---|---|---|
+| Text | Tweets, keyword-filtered | Encyclopedic or open text, inside KG extraction |
+| Which unnamed entity | The tweet's topic, one per tweet, type given | Any non-topic entity, several per sentence, type inferred from relation and ontology |
+| KB use | Neighbour labels as bag-of-words clues; ranking | Relation-constrained query; answer cardinality decides |
+| Output | Top-1 entity, always | Entity if unique; else an anonymous node with candidates, or a missing-fact tag |
+| Popularity | Relies on salience and recent tweets | Built for the long tail; stratified by popularity |
+| KB | DBpedia only | Ontology-agnostic adapters (DBpedia, Wikidata, …) |
+
+**The gap statement survives pass 2 for implicit EL.** We must cite implicit EL as the origin of "entities referred to through their characteristics". Our novelty claim rests on four things:
+- relation-constrained grounding,
+- abstention by cardinality,
+- anonymous-node output inside extraction,
+- cross-ontology adapters.
+
+A fair baseline is "implicit-EL style": link the anchor, take KB neighbours of the inferred type, rank, and always pick top-1. It shows what abstention buys.
+
+## Pass 2 — still to read, in this order
+
+1. ~~Perera et al. 2016 + Hosseini (implicit EL)~~ — done above.
 2. Patidar et al. 2023 (GrailQAbility) + RetinaQA.
 3. Hou 2020; Pandit et al. 2020.
 4. EDC (Zhang & Soh 2024).
