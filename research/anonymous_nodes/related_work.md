@@ -62,7 +62,7 @@ Prior work grounds *unnamed* entities only in tweets (implicit EL) or resolves d
 - **No abstention.** Every candidate set yields a top-1. NIL handling is listed as future work, and there is no notion of "the KB answer is not unique".
 - **What it does not do:** extract facts, emit triples or anonymous nodes, work without a known target type, or handle long-tail entities (salience favours popular ones).
 
-### Hosseini (with Bagheri), implicit entity recognition and linking in tweets — SIGIR 2019 (1-page doctoral consortium), Applied Ontology 2019, IP&M 2022, PhD thesis Ryerson 2022 — thesis read for problem setup, method and limits
+### Hosseini (with Bagheri), implicit entity recognition and linking in tweets — SIGIR 2019 (1 page, p. 1448 — likely a doctoral-consortium abstract; not seen), Applied Ontology 2019, IP&M 2022, PhD thesis Ryerson 2022 — thesis read for problem setup, method and limits
 
 - **Dataset:** 7,870 tweets labelled explicit / implicit / neither. ~15% of tweets carry an implicit entity.
 - **Linking:**
