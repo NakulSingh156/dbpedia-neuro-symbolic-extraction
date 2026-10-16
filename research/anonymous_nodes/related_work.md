@@ -113,12 +113,55 @@ Prior work grounds *unnamed* entities only in tweets (implicit EL) or resolves d
 
 A fair baseline is "implicit-EL style": link the anchor, take KB neighbours of the inferred type, rank, and always pick top-1. It shows what abstention buys.
 
+### Pass 2b (2026-10-16, evening) — KBQA answerability, bridging, schema-adaptive KGC, NIL
+
+**GrailQAbility** — Patidar, Faldu, Singh, Vig, Bhattacharya, Mausam, *Do I have the Knowledge to Answer? Investigating Answerability of Knowledge Base Questions*, ACL 2023 (read: definitions, construction, results, limitations).
+- **Definitions:** a question is answerable if it has a valid logical form *and* that form returns a non-empty answer. Otherwise it is unanswerable:
+  - **NK** = no valid logical form (schema incompleteness: missing type or relation);
+  - **NA** = valid form, empty answer (data incompleteness: missing entity or fact).
+- **Construction:** delete KB elements from Freebase/GrailQA (types → relations → entities → facts), sampling **by inverse popularity** ("better-known elements are less likely to be missing"); 33% unanswerable; IID and zero-shot splits; *lenient* evaluation also credits recovering the answer from the ideal KB.
+- **Findings:** three SOTA KBQA models (RnG-KBQA, ReTraCk, TIARA) drop on unanswerable questions; they often say NA **for the wrong reason** (a spurious logical form whose empty result happens to be right); data-level incompleteness is much harder than schema-level; thresholding and retraining trade answerable accuracy for unanswerable accuracy.
+- **Limitation (theirs):** every unanswerable question becomes answerable by completing the KB; false premises are not covered.
+- **vs us:**
+  1. Questions vs text being extracted.
+  2. **Answers are sets** — KBQA accepts several answers, so there is no notion of *ambiguity*; our target is one entity's identity, so 2+ answers = AMBIGUOUS, a third outcome they lack.
+  3. No output representation for the unknown entity (just NA/NK).
+  4. Freebase only.
+- **Mapping:** our MISSING ≈ their NA, our UNRESOLVED ≈ their NK. Our AMBIGUOUS has no counterpart.
+- **Borrow:**
+  - (a) the NK/NA split as the vocabulary for our two abstention kinds;
+  - (b) **deletion-based simulation with inverse-popularity sampling** to create MISSING items whose true answer is known → lets us score whether a system (or LLM) recovers the truth, and makes missing-fact precision measurable;
+  - (c) check the **reason** for an abstention, not just the abstention (status label must match).
+
+**RetinaQA** — Faldu, Bhattacharya, Mausam, arXiv 2403.10849 (v3, Nov 2024; venue to confirm) (read: abstract, intro, related work, problem).
+- KBQA for answerable + unanswerable questions: **discriminate over candidate logical forms** (better calibrated than generating them) + **sketch-filling** to build valid forms even when data paths are missing.
+- New SOTA on GrailQAbility and GrailQA.
+- **vs us:** same task family as GrailQAbility.
+- **Borrow for N/H:** our compile-then-decide design is the discriminative route. LLM-written queries (B3) are expected to be worse calibrated — a testable claim. Sketch-filling ≈ our IR → adapter rendering.
+
+**Hou, *Bridging Anaphora Resolution as Question Answering*, ACL 2020** (read: abstract, intro, related work, method).
+- Rephrases a bridging anaphor as a question ("residents of what?") and extracts the **antecedent span** from context (BARQA, BERT); quasi-bridging pre-training data from Gigaword; SOTA on ISNotes and BASHI.
+- **vs us:** it finds the *anchor in the text*; we find the *referent's identity in a KB*. Complementary.
+- **Borrow for M2/M2b:** for implicit anchors ("The third season", "The English adaptation"), ask "season of what?" over the document to find the anchor before the KB step.
+
+**EDC** — Zhang & Soh, *Extract, Define, Canonicalize*, EMNLP 2024 (read: abstract, intro, background).
+- Open IE with an LLM → write a definition for each relation/type → canonicalise to a target schema by definition similarity + LLM verification; a trained schema retriever; works with or without a schema.
+- **vs us:** canonicalises **relations**, not unnamed entities. Its open-IE phase would produce exactly the phrase nodes we measured (finding 15: "wife_of_George_Hyde").
+- **Borrow for M3:** define-then-retrieve for mapping relation phrases to properties; an EDC-style pipeline is a natural extraction front-end for B1.
+
+**NEL / Learn to Not Link** — Zhu et al., *Learn to Not Link: Exploring NIL Prediction in Entity Linking*, Findings of ACL 2023 (read: abstract, intro, definitions).
+- NIL = **Missing Entity** (a real entity absent from the KB) or **Non-Entity Phrase** ("the householder"); dataset NEL with ~30% NIL, built from ambiguous seed entities + entity masking; bi/cross-encoders with an entity-typing subtask and a threshold.
+- **vs us:** named or nominal mentions to be linked; NIL means "no KB entry". Our descriptions refer to *real* entities and are resolved through relations; a description whose referent is absent is our MISSING (fact absent) or a NIL-like case (entity absent).
+- **Borrow:** entity masking as a second way to create missing items.
+
+**Positioning after pass 2b — the gap still holds:**
+- KBQA-answerability work is the closest *formal* relative: it has our MISSING and UNRESOLVED, but **not AMBIGUOUS**, because answers are sets.
+- None of the five extracts facts from text, decides identity by answer cardinality, or emits a representation for the unnamed entity.
+- Reviewers will still say "this is KBQA inside extraction". The answer is the three differences above plus the anonymous-node output, and **B3 must be implemented RetinaQA-aware** (a strong LLM-query baseline with an abstention rule).
+
 ## Pass 2 — still to read, in this order
 
 1. ~~Perera et al. 2016 + Hosseini (implicit EL)~~ — done above.
-2. Patidar et al. 2023 (GrailQAbility) + RetinaQA.
-3. Hou 2020; Pandit et al. 2020.
-4. EDC (Zhang & Soh 2024).
-5. Learn to Not Link (2023).
+2. ~~GrailQAbility + RetinaQA~~, ~~Hou 2020~~, ~~EDC~~, ~~Learn to Not Link~~ — done (pass 2b). Pandit et al. 2020 still open.
 6. Text2KGBench + Text2KGBench-LettrIA (evaluation protocol, hallucination metrics).
 7. Snowball: who cites implicit EL and GrailQAbility since 2023.
