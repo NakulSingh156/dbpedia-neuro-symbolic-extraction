@@ -49,14 +49,17 @@ def keep(d, sentence):
     if not d.paths:
         return False
     m = d.mention.lower().strip()
-    if not m or m not in sentence.lower():
+    last = d.relation_phrases[-1] if d.relation_phrases else ""
+    # the LLM often normalises the mention ("Peter Egeli's father" -> "his father"); accept it when the relation
+    # noun itself occurs in the sentence (controlled set, 17 Oct: all 72 misses were this). A "his father" with no
+    # "father" anywhere in the sentence is still rejected (the Wolstenholme false alarm).
+    if not m or (m not in sentence.lower() and not (last and last in sentence.lower())):
         return False
     # (4) a description right after a copula describes the sentence's own subject ("X was the capital of Y",
     #     "served as a member of Z"), not another entity
     before = sentence.lower().split(m, 1)[0].rstrip()
     if before.endswith((" was", " is", " were", " are", " as", " became", " becomes")):
         return False
-    last = d.relation_phrases[-1] if d.relation_phrases else ""
     return (last and last in m) or m.startswith(DETERMINERS) or "'s " in m
 
 

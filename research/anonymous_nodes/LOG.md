@@ -3,6 +3,8 @@
 One entry per working block. Newest first.
 
 ## 2026-10-17 (early) — next build round
+- **Controlled set, end to end (Llama, templates, 575 items):** first pass 503/575 (87.5%), 0 wrong identities; all 72 errors = NOT-DETECTED, all in the possessive form. Cause: the detector normalises "Peter Egeli's father" → "his father" and the filter required the literal mention. Fix in `keep()`: accept when the relation noun occurs in the sentence. → **575/575, 0 wrong identities**; dev set unchanged (20/23 paths, 1/60 false alarms). **This is a plumbing check, not a result:** gold and pipeline share the lexicon paths, and template sentences are easy. Real tests: paraphrased sentences, nested descriptions, the natural set.
+- Realiser bug: used the relation's gender for the anchor ("Margaret … a biography of him") → anchor gender now from P21. Paraphrased variant + its evaluation running.
 - Tsoru doc: §9 "Prototype status" added (5 pages); G1 row refreshed.
 - **Sampler** pools 60 → 250: 575 items (425 real + 150 simulated), **84/90 cells full**; only father/mother ambiguous short (structural; the few found are single-best-value violations).
 - **Surface realisation** (`testset/realise.py`): template texts for all 575 (true intro from the anchor's Wikidata description + neutral sentence; possessive / of-phrase / pronoun); disambiguators stripped from names; LLM paraphrase ready, not yet run.

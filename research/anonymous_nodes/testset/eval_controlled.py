@@ -12,8 +12,10 @@ from generic.kb_wikidata import WikidataKB       # noqa: E402
 
 model = next((a for a in sys.argv[1:] if not a.startswith("--")), "llama3.1:8b")
 kb = WikidataKB()
-items = [json.loads(l) for l in open(os.path.join(HERE, "prototype/realised.jsonl"))]
-CACHE = os.path.join(HERE, f"prototype/detect_cache_{model.replace(':', '_')}.json")
+SRC = "realised_paraphrased.jsonl" if "--paraphrased" in sys.argv else "realised.jsonl"
+TAG = model.replace(":", "_") + ("_para" if "--paraphrased" in sys.argv else "")
+items = [json.loads(l) for l in open(os.path.join(HERE, "prototype", SRC))]
+CACHE = os.path.join(HERE, f"prototype/detect_cache_{TAG}.json")
 cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
 GOLD2OUT = {"unique": "GROUNDED", "ambiguous": "AMBIGUOUS", "none": "MISSING"}
 rows = []
@@ -54,5 +56,5 @@ summ = {"model": model, "overall": acc(lambda r: True),
         "by_noun": {nn: acc(lambda r, nn=nn: r["noun"] == nn) for nn in sorted({r["noun"] for r in rows})},
         "outcomes": dict(collections.Counter((r["want"], r["got"]) for r in rows).most_common())}
 summ["outcomes"] = {f"{a}->{b}": v for (a, b), v in summ["outcomes"].items()}
-json.dump({"summary": summ, "rows": rows}, open(os.path.join(HERE, f"prototype/eval_controlled_{model.replace(':', '_')}.json"), "w"), indent=1, ensure_ascii=False)
+json.dump({"summary": summ, "rows": rows}, open(os.path.join(HERE, f"prototype/eval_controlled_{TAG}.json"), "w"), indent=1, ensure_ascii=False)
 print(json.dumps(summ, indent=1))

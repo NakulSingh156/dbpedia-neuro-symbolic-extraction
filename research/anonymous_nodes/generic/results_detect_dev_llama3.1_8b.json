@@ -1050,6 +1050,61 @@
      "evidence": {
       "named_in_text": "Groucho Marx"
      }
+    },
+    {
+     "mention": "the Marx Brothers",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Miriam Marx",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "brother"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": true,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P3373"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "sibling"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "relative"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
     }
    ],
    "found": true,
@@ -1100,6 +1155,65 @@
       ],
       "dbpedia": [
        [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    },
+    {
+     "mention": "the tomb of her grandson",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Nefertkau I",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "grandson"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        },
         {
          "props": [
           "child"
@@ -1269,6 +1383,65 @@
       ],
       "dbpedia": [
        [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    },
+    {
+     "mention": "the tomb of her grandson",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Nefertkau I",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "grandson"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        },
         {
          "props": [
           "child"
@@ -1510,6 +1683,61 @@
         {
          "props": [
           "spouse"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    },
+    {
+     "mention": "the brother of the wife of Guilhem de Montanhagol",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Pons Santolh",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "brother"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P3373"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "sibling"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "relative"
          ],
          "dir": "out"
         }
