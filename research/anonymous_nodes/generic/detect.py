@@ -94,6 +94,22 @@ def keep(d, sentence, version=3):
     return (last and last in m) or m.startswith(("a ", "an ", "the ", "his ", "her ", "its ", "their ", "another ", "one of ")) or "'s " in m
 
 
+def pronoun_anchor_ambiguous(d, sentence):
+    """M2 safety (17 Oct): a possessive pronoun ("his father") after an earlier relational description in the same
+    sentence ("Alexander Grin's son ... his father's life") may point to that description, not to the topic.
+    Grounding it on the topic gave the only 2 wrong identities in the paraphrased controlled set -> abstain instead."""
+    m = d.mention.lower().strip()
+    if d.anchor.ref != "topic" or not m.startswith(POSSESSIVE):
+        return False
+    sl = sentence.lower()
+    k = sl.find(m) if m in sl else sl.find(d.relation_phrases[-1]) if d.relation_phrases else -1
+    before = sl[:k] if k > 0 else ""
+    for mm in re.finditer(r"(?:[\w\-]+['’]s?|\b(?:his|her|its|their)|\bthe [\w\-]+ of)\s+([\w\-]+)", before):
+        if entry(mm.group(1)) or entry(mm.group(1).rstrip("s")):
+            return True
+    return False
+
+
 def detect(sentence, topic, context, model="qwen2.5:7b", url="http://localhost:11434/api/generate"):
     try:   # num_predict caps runaway JSON (llama3.1 can emit whitespace forever in JSON mode)
         r = requests.post(url, timeout=300, json={"model": model, "format": "json", "stream": False,

@@ -6,7 +6,7 @@ import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 from generic.ir import Description            # noqa: E402
-from generic.detect import keep              # noqa: E402
+from generic.detect import keep, pronoun_anchor_ambiguous   # noqa: E402
 from generic.kb_wikidata import WikidataKB   # noqa: E402
 
 model = sys.argv[1] if len(sys.argv) > 1 else "llama3.1:8b"
@@ -20,7 +20,7 @@ def decide(d, x):
     topic_title = x["topic"]
     anchor_title = topic_title if d.anchor.ref == "topic" else d.anchor.text
     q = kb.qid_for_title(anchor_title) or kb.qid_for_title(topic_title if d.anchor.text in topic_title else anchor_title)
-    if not q or "wikidata" not in d.paths:
+    if not q or "wikidata" not in d.paths or pronoun_anchor_ambiguous(d, x["sentence"]):
         return {"outcome": "UNRESOLVED", "anchor_qid": q, "answers": []}
     r = kb.values(q, d.paths["wikidata"], d.constraints.gender)
     n = len(r["known"])

@@ -6,7 +6,7 @@ no human check yet. -> testset/prototype/eval_controlled_<model>.json"""
 import json, os, sys, collections
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, ROOT)
-from generic.detect import detect, keep          # noqa: E402
+from generic.detect import detect, keep, pronoun_anchor_ambiguous   # noqa: E402
 from generic.ir import Description               # noqa: E402
 from generic.kb_wikidata import WikidataKB       # noqa: E402
 
@@ -30,7 +30,7 @@ for n, it in enumerate(items):
     pick = next((d for d in found if it["noun"] in d.mention.lower()), found[0] if found else None)
     if not pick:
         out, ans = "NOT-DETECTED", []
-    elif "wikidata" not in pick.paths:
+    elif "wikidata" not in pick.paths or pronoun_anchor_ambiguous(pick, it["sentence"]):
         out, ans = "UNRESOLVED", []
     else:
         r = kb.values(it["anchor_qid"], pick.paths["wikidata"], pick.constraints.gender,

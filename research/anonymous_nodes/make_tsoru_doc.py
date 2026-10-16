@@ -168,20 +168,20 @@ table([
  ["Wikidata query layer", "done", "cached; a failed query is never returned as “no answer”; schema-unique check; label fallback (a father with only a Japanese label); fact masking for simulated missing items; refuses to link disambiguation pages"],
  ["DBpedia query layer", "done", "same interface over the local store; no gender data in our snapshot (declared). Marie Antoinette: 1 spouse in DBpedia, 2 in Wikidata"],
  ["Answer comparison (M5)", "first version", "on 60 hand-coded mismatches: 20/30 “same fact, recorded differently” merged, 0/8 real disagreements merged (rules: strict containment, subclass, demonym, occupation → sport/field)"],
- ["Detector (M1)", "first version", "Llama-3.1-8B: correct relation path for 20/23 real descriptions, anchor 19/20; a rule filter cuts false alarms on 60 negative sentences from 59 to 1"],
+ ["Detector (M1)", "second version", "Llama-3.1-8B + rule filter. On real biographies (45 people, 1,409 sentences, 59 genuine descriptions, hand-verified): precision 30% → 55%, recall 92% → 88% after a second filter version. 23-item dev set: 20/23 correct paths, 1/60 false alarms"],
  ["End to end, 23 real descriptions", "first version", "20/23 identical to the hand-written oracle; 7/7 groundings correct; 0 wrong identities; the 3 differences are abstentions"],
- ["End to end, controlled set (575 template items)", "plumbing check", "575/575 correct, 0 wrong identities, every answer type, tier and phrasing — but gold and pipeline share the lexicon and templates are easy, so this proves the plumbing, not accuracy"],
- ["Controlled set, paraphrased", "running", "567/575 paraphrases kept the description intact; evaluation in progress"],
+ ["End to end, controlled set (575 template items)", "plumbing check", "575/575 correct, 0 wrong identities, every answer type, tier and phrasing — gold and pipeline share the lexicon and templates are easy, so this proves the plumbing, not accuracy"],
+ ["End to end, controlled set paraphrased by an LLM", "done", "572/575 correct, 0 wrong identities, 3 abstentions. The paraphrases first produced 2 wrong identities (“X’s son … his father’s life”: the pronoun points to the son, not the topic) → new safety rule: a possessive pronoun after an earlier relational description is not anchored to the topic; abstain instead"],
  ["Controlled-set sampler", "prototype", "575 items (425 real + 150 simulated missing), 84/90 cells full (only father/mother “ambiguous” is short — structurally rare); popularity tiers from all 2.15M people with an English article"],
- ["Held-out natural set", "mining", "45 biographies (15 per tier), 1,409 sentences, scan + detector; candidates then verified by hand"],
+ ["Natural set", "dev part done", "45 biographies (15 per tier, none in Phase 1 or the controlled set): 216 candidates verified by hand, 59 genuine; these became NATURAL-DEV (the filter was tuned on them). Held-out numbers need a fresh batch"],
  ["Output writer, final test set", "waiting", "on decisions 3, 4 and 7 below"],
 ], [4.0, 2.4, 11.1])
 para("Bugs found and fixed while building — each would have quietly distorted a number: 23 of 60 text-side links were Wikipedia disambiguation pages (“American”, “Italian”); a “part of” chain let Russia appear to contain France (re-checked: 155/161 Wikidata granularity merges hold, so the 96% agreement figure stands); a numeric filter on Wikidata sitelinks silently returned nothing unless cast; the detector rewrites “X’s father” as “his father”, which the first filter wrongly rejected.", size=9.5)
-para("Known gaps: nested chains sometimes come out in reverse order; “X was the son of a Y” is parsed from X’s side; the detector filter was tuned on the 23 development items.", size=9.5)
+para("Known gaps: detector precision on real text (55%) — the remaining false alarms are entities named elsewhere in lists or parentheses and fiction-plot families, so a cheap LLM verification pass is next; nested chains sometimes come out in reverse order; every number above is on development data.", size=9.5)
 
 h1("10. Next steps")
 for i, (lead, txt) in enumerate([
- ("Analyse the running jobs. ", "Paraphrased controlled set by answer type, tier and phrasing; hand-verify the mined natural candidates and give them gold on both KBs → the first held-out detector and end-to-end numbers. Split dev and test from here on."),
+ ("Held-out natural test. ", "Mine a fresh batch of biographies (never used for tuning), verify by hand, gold on both KBs → the first held-out detector and end-to-end numbers. Add an LLM verification pass to lift precision above 55%."),
  ("First baseline table (local models, no spend). ", "On the same items: LLM alone (both modes), implicit-EL ranker, LLM writing its own SPARQL, LLM given the KB facts. Shows the headroom before any API money is spent."),
  ("Close the build gaps. ", "Plug the comparator and disambiguation-safe linking into the main pipeline; DBpedia side of the sampler; the same descriptions on both KBs (cross-KB table)."),
  ("Fix the parser gaps. ", "Chain order for nested descriptions; the “son of a Y” inversion; re-check on held-out items only."),
