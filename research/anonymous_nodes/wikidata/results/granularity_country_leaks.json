@@ -1,0 +1,35 @@
+{
+ "wd": {
+  "strict_merges": 157,
+  "country_country_leaks": 4,
+  "clean_granularity": 153,
+  "leaks": [
+   [
+    "nationality",
+    "Kingdom of Denmark",
+    "Denmark"
+   ],
+   [
+    "country",
+    "Azerbaijan",
+    "Armenia"
+   ],
+   [
+    "country",
+    "Italy",
+    "France"
+   ],
+   [
+    "nationality",
+    "Kingdom of Denmark",
+    "Denmark"
+   ]
+  ]
+ },
+ "dbp": {
+  "strict_merges": 25,
+  "country_country_leaks": 0,
+  "clean_granularity": 25,
+  "leaks": []
+ }
+}

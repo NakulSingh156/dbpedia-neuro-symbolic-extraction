@@ -2,6 +2,15 @@
 
 One entry per working block. Newest first.
 
+## 2026-10-17 (early) — next build round
+- Tsoru doc: §9 "Prototype status" added (5 pages); G1 row refreshed.
+- **Sampler** pools 60 → 250: 575 items (425 real + 150 simulated), **84/90 cells full**; only father/mother ambiguous short (structural; the few found are single-best-value violations).
+- **Surface realisation** (`testset/realise.py`): template texts for all 575 (true intro from the anchor's Wikidata description + neutral sentence; possessive / of-phrase / pronoun); disambiguators stripped from names; LLM paraphrase ready, not yet run.
+- **Comparator M5** (`generic/compare.py`, `wikidata/eval_compare.py` on the 60 coded pairs): v1 (containment/subclass/nationality/sport links) merged C 5/30, K 0/8. Cause: **23/60 text-side QIDs are disambiguation pages** ("American" Q463180, "Italian", "Rock"; "Electronic" → an album). v2 adds demonym-on-label (P1549), demonym→country→containment (restricted to country/state/constituent/historical-country types), occupation→direct sport/field→subclass, same-label: **C 20/30 merged, K 1/8 (Russian vs France), X 2/19 (English vs UK)**. M2 rule to add: never link to disambiguation pages.
+- **Containment bug:** transitive P361 climbs into alliances and back (Russia → … → France). New strict closure: P361/P749 only as the first hop, then P131/P17/P706/P276. **Re-check of the 16 Oct granularity merges: WD 157/161 kept, DBP 25/25** (dropped: Lubin/Gmina Strzelin vs Germany, New Spain vs Mexico, an Italian region) → agreement ≈ 96.2% (was 96.3%); the Tsoru-doc figure stands.
+- Strict closure still leaks through alliance items that list members under P17: among the 157 strict merges, 4 join two sovereign states — 2 false (Azerbaijan/Armenia, Italy/France), 2 fine (Kingdom of Denmark/Denmark). Clean WD granularity 155/161 → agreement still ≈ 96.2%. Rule added: two different sovereign states are never variants (slightly over-strict on Kingdom of Denmark/Denmark).
+- **Disambiguation fix (M2):** `WikidataKB.qid_for_title` rejects disambiguation pages (pageprops + P31 Q4167410); `Comparator` compares a disambiguation item by label only. Live test added (6/6 pass).
+
 ## 2026-10-16 (late night) — build steps 1–3
 - **Per-cell sampler** (`testset/sample_cells.py`): global sitelink quantiles for 2,154,452 humans with enwiki (P33=2, P50=3, P90=12, P95=18, P99=38) → tiers tail ≤2 / mid 3–17 / head ≥18. Reproducible MD5-seeded anchor pools. 10 nouns × 3 tiers × 3 types, quota 5 → **560 items (410 real + 150 simulated-missing), 79/90 cells full**; father/mother ambiguous ≈ impossible (schema-unique); a few spouse/sister ambiguous cells short (pool 60).
 - **QLever gotcha:** numeric FILTER on `wikibase:sitelinks` (xsd:int) silently returns nothing; cast with `xsd:integer(?n)`. First sampler run filled 0/90 cells because of it → empty pools now raise. Checked: the Wikidata survey's `FILTER(?n > 1)` is on a COUNT (xsd:integer) and worked (containment checked 200/relation).

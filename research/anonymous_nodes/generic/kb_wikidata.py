@@ -80,11 +80,28 @@ class WikidataKB:
         raise KBUnavailable(f"{url} {r.status_code}")
 
     # ---------- entities ----------
-    def qid_for_title(self, title, wiki="en"):
+    DISAMBIGUATION = "Q4167410"
+    COUNTRY_TYPES = ("Q6256", "Q3624078")          # country, sovereign state
+
+    def is_country(self, qid):
+        types = " ".join(f"<{WD}{t}>" for t in self.COUNTRY_TYPES)
+        return bool(qid) and bool(self.sparql(f"ASK {{ VALUES ?t {{ {types} }} <{WD}{qid}> <{WDT}P31> ?t }}"))
+
+    def is_disambiguation(self, qid):
+        return bool(qid) and bool(self.sparql(f"ASK {{ <{WD}{qid}> <{WDT}P31> <{WD}{self.DISAMBIGUATION}> }}"))
+
+    def qid_for_title(self, title, wiki="en", reject_disambiguation=True):
+        """Title -> QID through Wikipedia (redirect-aware). Disambiguation pages are REJECTED (None) by default:
+        on 16 Oct, 23 of 60 hand-coded mismatches had a text side linked to one ("American" -> Q463180,
+        "Italian", "Rock"), which no KB relation can connect to the real answer."""
         j = self.api(f"https://{wiki}.wikipedia.org/w/api.php", {"action": "query", "prop": "pageprops",
-                     "ppprop": "wikibase_item", "redirects": 1, "titles": title})
+                     "ppprop": "wikibase_item|disambiguation", "redirects": 1, "titles": title})
         page = next(iter(j["query"]["pages"].values()))
-        return page.get("pageprops", {}).get("wikibase_item")
+        props = page.get("pageprops", {})
+        q = props.get("wikibase_item")
+        if reject_disambiguation and q and ("disambiguation" in props or self.is_disambiguation(q)):
+            return None
+        return q
 
     def labels(self, qids, langs=("en", "mul")):
         """Best label per QID: preferred languages first, else any language (秋月種美 has no English label)."""

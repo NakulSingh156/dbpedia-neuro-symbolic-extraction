@@ -48,15 +48,23 @@ class Comparator:
         return {r["d"]["value"].lower() for r in rows}
 
     def is_disambiguation(self, q):
-        return bool(self.kb.sparql(f"ASK {{ <{WD}{q}> <{WDT}P31> <{WD}Q4167410> }}"))
+        return self.kb.is_disambiguation(q)
 
     def same(self, a, b, a_text=None, b_text=None):
         """(True, rule) if a and b are the same answer up to conventions, else (False, None).
         a_text / b_text: the surface strings, used by the demonym rule (looked up as labels if absent)."""
         if a == b:
             return True, "identical"
+        # a disambiguation page is not an entity: compare it by its label only (demonym / same-label rules)
+        if self.is_disambiguation(a) or self.is_disambiguation(b):
+            return self._label_rules(a, b, a_text, b_text)
+        # two different sovereign states are never variants of each other (alliance items list member
+        # countries under P17, so even strict containment can leak Russia -> ... -> France)
+        both_countries = self.kb.is_country(a) and self.kb.is_country(b)
         ra, rb = self.reach(a), self.reach(b)
         for name in self.rules:
+            if both_countries and name in ("containment", "succession"):
+                continue
             if b in ra[name] or a in rb[name]:
                 return True, name
         # sport/field: the occupation's DIRECT sport/field is a superclass of the answer ("football" ⊇ association
@@ -65,6 +73,9 @@ class Comparator:
         fa, fb = self.fields(a), self.fields(b)
         if fa & (rb["subclass"] | {b}) or fb & (ra["subclass"] | {a}):
             return True, "sport_family"
+        return self._label_rules(a, b, a_text, b_text)
+
+    def _label_rules(self, a, b, a_text=None, b_text=None):
         labels = self.kb.labels([a, b])
         ta, tb = (a_text or labels.get(a, "")).lower(), (b_text or labels.get(b, "")).lower()
         if ta and ta == tb:
@@ -74,6 +85,8 @@ class Comparator:
         # demonym of a place that lies inside the other answer ("Scottish" -> Scotland -> United Kingdom)
         for t, other in ((ta, b), (tb, a)):
             for c in self.places_with_demonym(t):
+                if c != other and self.kb.is_country(c) and self.kb.is_country(other):
+                    continue
                 if c == other or other in self.kb.ancestors(c):
                     return True, "demonym_containment"
         return False, None

@@ -9,8 +9,8 @@
    "kept_apart": 3
   },
   "K": {
-   "merged": 1,
-   "kept_apart": 7
+   "merged": 0,
+   "kept_apart": 8
   },
   "X": {
    "merged": 2,
@@ -19,24 +19,12 @@
  },
  "rules_fired": {
   "demonym": 12,
-  "demonym_containment": 4,
+  "demonym_containment": 3,
   "subclass": 5,
   "sport_family": 1,
   "same_label": 1
  },
- "false_merges_on_K": [
-  {
-   "kb": "dbp",
-   "i": 1684,
-   "rel": "nationality",
-   "text": "Q122263",
-   "kb_answer": "Q142",
-   "code": "K",
-   "merged": true,
-   "rule": "demonym_containment",
-   "text_is_disambiguation": true
-  }
- ],
+ "false_merges_on_K": [],
  "text_side_disambiguation_links": 23,
  "rows": [
   {
@@ -563,8 +551,8 @@
    "text": "Q122263",
    "kb_answer": "Q142",
    "code": "K",
-   "merged": true,
-   "rule": "demonym_containment",
+   "merged": false,
+   "rule": null,
    "text_is_disambiguation": true
   },
   {

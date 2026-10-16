@@ -1,0 +1,35 @@
+{
+ "wd": {
+  "loose_merges": 161,
+  "strict_kept": 157,
+  "dropped": 4,
+  "dropped_examples": [
+   [
+    "nationality",
+    "Q170603",
+    "Q96"
+   ],
+   [
+    "birthPlace",
+    "Q237512",
+    "Q183"
+   ],
+   [
+    "location",
+    "Q104182228",
+    "Q579075"
+   ],
+   [
+    "location",
+    "Q2117812",
+    "Q183"
+   ]
+  ]
+ },
+ "dbp": {
+  "loose_merges": 25,
+  "strict_kept": 25,
+  "dropped": 0,
+  "dropped_examples": []
+ }
+}

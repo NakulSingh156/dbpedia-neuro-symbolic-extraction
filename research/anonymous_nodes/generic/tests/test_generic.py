@@ -61,3 +61,12 @@ def test_dbpedia_known_cases():
     assert not kb.schema_unique(expand(["father"], "dbpedia")[0])     # no functional object properties
     assert kb.labels(["Louis_XVI_of_France"])["Louis_XVI_of_France"] == "Louis XVI of France"
     assert "France" in kb.ancestors("Paris")
+
+
+@pytest.mark.skipif(not LIVE, reason="set NEF_LIVE=1")
+def test_disambiguation_pages_are_not_linked():
+    from generic.kb_wikidata import WikidataKB
+    kb = WikidataKB()
+    assert kb.qid_for_title("American") is None                                  # a disambiguation page
+    assert kb.qid_for_title("American", reject_disambiguation=False) == "Q463180"
+    assert kb.qid_for_title("Marie Antoinette") == "Q47365"
