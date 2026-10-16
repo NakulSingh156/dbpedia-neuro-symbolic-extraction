@@ -90,7 +90,8 @@ table([
  ["Open world: Wikidata declares single-value only for 5 of 57 mapped properties (birth/death place, father, mother, capital). Place relations: KB answer matches the text 90.1% when schema-unique vs 78.4% when only data-unique; DBpedia declares none of our relations functional", "Every grounding carries a tier (schema-unique vs data-unique), reported separately; optional strict mode. Our formal answer to “unique in the KB ≠ unique in the world”"],
  ["Same 50 people: full article bodies have about the same density (1.6 per 100 sentences) as abstracts (2.9), but ≈ 6× more cases per person", "Mine the natural set from full biographies (~600–900 articles → 200–300 items); filter fiction"],
  ["25–31% of real descriptions are named or inferable elsewhere in the same text", "New step: resolve inside the document first; the KB then verifies. These cases are free silver test data"],
- ["Teaser, 23 real descriptions: Wikidata grounds 7, has nothing for 15. Qwen-7B and Llama-8B (allowed to say UNKNOWN) named no wrong entity; only the KB named 2 long-tail people (e.g. a father with only a Japanese label)", "Lead with facts kept (65% would be lost as UNKNOWN) and long-tail recall, not “LLMs hallucinate”; also test LLMs in plain extraction mode"],
+ ["Teaser, 23 real descriptions: Wikidata grounds 7, has nothing for 15. Qwen-7B and Llama-8B (allowed to say UNKNOWN) named no wrong entity; only the KB named 2 long-tail people (e.g. a father with only a Japanese label)", "Lead with facts kept and long-tail recall, not “LLMs hallucinate”"],
+ ["Same 23 in plain extraction mode (no UNKNOWN option): 70–74% of the unnamed entities end up as junk nodes (“wife_of_George_Hyde”, “brother_of_Arthur_Henry_Winter”), flattened into attributes (“fatherOccupation: lawyer”) or dropped; one wrong identity", "The failure to fix is junk and lost entities. We emit a grounded entity or a well-formed anonymous node instead; new metric: junk-node rate"],
 ], [8.2, 9.3])
 para("Occurrence labels and probe judgements are a first pass by Claude; Nakul’s blind 50-sentence check (Cohen’s κ) is in progress before any rate is cited. The last three rows are small pre-meeting probes (n = 50 people, 23 descriptions): signals, not results.", italic=True, size=9)
 
@@ -156,7 +157,7 @@ table([
  ["ambiguous", "anonymous node + candidates", "candidate recall and set size · false-grounding rate"],
  ["none in KB", "anonymous node + missing fact", "abstention precision / recall"],
 ], [3.0, 6.0, 8.5])
-para("facts kept (share of descriptions whose fact survives as a grounded entity or an anonymous node, vs dropped or lost to UNKNOWN); long-tail grounding accuracy; accuracy per grounding tier; hallucinated-identity rate (names an entity the evidence doesn’t license); grounding F1; a risk–coverage curve (accuracy vs share answered) so hard abstention and LLM confidence are compared fairly; end-to-end triple F1 on the natural set; $ per 1,000 sentences. "
+para("junk-node rate (description strings emitted as entities); facts kept (share of descriptions whose fact survives as a grounded entity or an anonymous node, vs dropped or lost to UNKNOWN); long-tail grounding accuracy; accuracy per grounding tier; hallucinated-identity rate (names an entity the evidence doesn’t license); grounding F1; a risk–coverage curve (accuracy vs share answered) so hard abstention and LLM confidence are compared fairly; end-to-end triple F1 on the natural set; $ per 1,000 sentences. "
      "3 runs per LLM system, bootstrap 95% CIs, paired McNemar tests; KB snapshots pinned and every query cached.", bold_lead="Headline: ")
 
 h1("9. Plan and gates")

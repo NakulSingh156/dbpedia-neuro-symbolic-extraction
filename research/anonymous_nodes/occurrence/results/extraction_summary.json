@@ -1,0 +1,28 @@
+{
+ "descriptions": 23,
+ "by_model": {
+  "qwen2.5:7b": {
+   "PHRASE": 10,
+   "FLATTENED": 5,
+   "DROPPED": 2,
+   "NAMED_OK": 5,
+   "NAMED_WRONG": 1,
+   "entity_lost_or_junk": 17,
+   "entity_lost_or_junk_pct": 73.9
+  },
+  "llama3.1:8b": {
+   "PHRASE": 10,
+   "NAMED_PLAUS": 1,
+   "DROPPED": 2,
+   "FLATTENED": 4,
+   "NAMED_OK": 6,
+   "entity_lost_or_junk": 16,
+   "entity_lost_or_junk_pct": 69.6
+  }
+ },
+ "kb_grounded_items": 7,
+ "kb_grounded_but_llm_not_named_ok": {
+  "qwen2.5:7b": 3,
+  "llama3.1:8b": 3
+ }
+}

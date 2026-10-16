@@ -39,6 +39,7 @@ The same machinery must work on **any ontology** through thin adapters. We show 
 | 12 | **Density probe** (50 people, same people on both sides): relational descriptions per 100 sentences are about the same in full article bodies (1.6 non-fiction, CI 1.1–2.4) as in abstracts (2.9, CI 1.2–7.3), but bodies give **≈ 6× more cases per person** (0.50 vs 0.08) (`occurrence/density_*.py`) | The natural set is mined from full biography articles: ~600–900 articles → 200–300 items. Fiction articles (soap, film plots) are filtered out. Changing the source does not raise per-sentence density, so G2 is argued on yield, not density. |
 | 13 | **25–31% of real descriptions are named elsewhere in the same text** (abstract, lead or body), and some are inferable from a neighbouring sentence ("a brother of the wife of Guilhem" → "his brother-in-law" = Guilhem) | New step **M2b in-document resolution before the KB**: if the text itself resolves the description, use it and let the KB *verify* it. Named-elsewhere cases are also free silver gold for evaluating grounding. |
 | 14 | **Headroom teaser** (23 real descriptions, oracle parse, local LLMs told they may say UNKNOWN): Wikidata grounds 7, finds nothing for 15 (missing fact), 1 anchor not in the KB. **Neither Qwen2.5-7B nor Llama-3.1-8B named a wrong entity**: they abstain (16/23, 13/23) or answer from the text. The KB alone named 2 long-tail entities both LLMs could not (Arthur Winter's brother William Winter; Uesugi Harunori's father 秋月種美, who has only a Japanese label). Llama named 2 plausible entities the KB lacks (`occurrence/headroom_*.py`) | The story is **not** "LLMs hallucinate names" when abstention is invited. The value is (a) long-tail recall where the KB knows and the LLM doesn't, and (b) **keeping the ~65% of facts nobody can name** as anonymous nodes + missing-fact flags instead of losing them. B1 must also run in **extraction mode** (abstention not invited), where hallucination is still untested. n = 23: a signal, not a result. |
+| 15 | **Extraction mode** (same 23, prompt: "extract triples with canonical entity names", no UNKNOWN option): the unnamed entity ends up as a **junk phrase node** ("brother_of_Arthur_Henry_Winter", "wife", "a daimyo of the Akizuki clan") 10/23 for both models, **flattened** into an attribute of the anchor ("fatherOccupation: lawyer") 5/4, or **dropped** 2/2 → **74% (Qwen) / 70% (Llama) lost or junk**. Wrong identity only once (Qwen: mother = "the fourth head of Yonezawa"). Of the 7 KB-groundable items, each model fails 3 (`occurrence/extraction_mode.py`, `extraction_graded.py`) | The core failure of LLM extractors here is **junk and lost entities, not invented names**. Our output turns each into a grounded entity or a well-formed anonymous node (oracle parse: 7 grounded, 15 missing-fact nodes, 1 unresolved, 0 junk, 0 dropped). New metric: **junk-node rate** (description strings emitted as entities). Caveat: our side used an oracle parse; the real M1 must earn it. |
 
 ---
 
@@ -245,6 +246,7 @@ From the benchmark survey, no existing benchmark contains relational description
 | none (KB lacks it) | anonymous node + missing-fact | abstention precision and recall |
 
 **Headline numbers** (after finding 14, lead with what is *kept and recovered*, not only what is avoided):
+- **Junk-node rate:** description strings emitted as if they were entities ("wife_of_George_Hyde"), and facts flattened into attributes of the anchor (finding 15).
 - **Facts kept:** the share of descriptions whose fact survives into the KG output (grounded, or as an anonymous node with candidates or a missing-fact flag), vs dropped by B0 and lost to UNKNOWN by LLMs.
 - **Long-tail recall:** grounding accuracy on the bottom popularity tier.
 - **Per grounding tier:** accuracy for schema-unique vs data-unique groundings.
@@ -314,6 +316,7 @@ From the benchmark survey, no existing benchmark contains relational description
 - `wikidata/schema_uniqueness.py` → `wikidata/results/schema_uniqueness.json` (finding 11).
 - `occurrence/density_probe.py`, `density_verified.py` → `occurrence/results/density_summary.json` (findings 12–13).
 - `occurrence/headroom_teaser.py`, `headroom_graded.py` → `occurrence/results/headroom_summary.json` (finding 14).
+- `occurrence/extraction_mode.py`, `extraction_graded.py` → `occurrence/results/extraction_summary.json` (finding 15).
 - All hand judgements in these are Claude's, one pass.
 
 ## 11. Decisions needed from Tsoru

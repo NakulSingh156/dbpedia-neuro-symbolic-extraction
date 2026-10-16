@@ -1,0 +1,1116 @@
+[
+ {
+  "id": "00506",
+  "span": "His brother",
+  "anchor": "Arthur Winter",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q28836940",
+    "William Winter"
+   ]
+  ],
+  "sentence": "His brother and two nephews also played first-class cricket.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Arthur Henry Winter",
+     "brother",
+     "brother_of_Arthur_Henry_Winter"
+    ],
+    [
+     "brother_of_Arthur_Henry_Winter",
+     "played_cricket",
+     "first-class"
+    ],
+    [
+     "two_nephews_of_Arthur_Henry_Winter",
+     "played_cricket",
+     "first-class"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Arthur Winter",
+     "brother",
+     "Arthur Winter's brother"
+    ],
+    [
+     "Arthur Winter",
+     "nephew",
+     "Arthur Winter's two nephews"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "00951",
+  "span": "the father-in-law of Isaac N. Deadrick",
+  "anchor": "Isaac N. Deadrick",
+  "kb_outcome": "ANCHOR-NOT-IN-KB",
+  "kb_answers": [],
+  "sentence": "It is a two story wood frame T-shaped structure, probably built around 1850 by the slaves of the father-in-law of Isaac N. Deadrick, a prominent early settler of the area who later served as captain of a cavalry company in the Confederate Army.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Capt. Isaac N. Deadrick House",
+     "is_a",
+     "historic house"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "location",
+     "west side of Arkansas Highway 163"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "near",
+     "junction of Arkansas Highway 163 and United States Route 64"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "architecture",
+     "two story wood frame T-shaped structure"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "built",
+     "around 1850"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "built_by",
+     "slaves of the father-in-law of Isaac N. Deadrick"
+    ],
+    [
+     "Isaac N. Deadrick",
+     "relation_to",
+     "father-in-law"
+    ],
+    [
+     "Isaac N. Deadrick",
+     "early_settler_of",
+     "area"
+    ],
+    [
+     "Isaac N. Deadrick",
+     "served_as",
+     "captain of a cavalry company in the Confederate Army"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Capt. Isaac N. Deadrick House",
+     "has_shape",
+     "T-shaped structure"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "has_material",
+     "wood frame"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "has_number_of_stories",
+     "2"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "built_by",
+     "slaves of the father-in-law of Isaac N. Deadrick"
+    ],
+    [
+     "Capt. Isaac N. Deadrick House",
+     "built_year",
+     "1850"
+    ],
+    [
+     "Capt. Isaac N. Deadrick",
+     "father_in_law",
+     "father-in-law of Isaac N. Deadrick"
+    ],
+    [
+     "Capt. Isaac N. Deadrick",
+     "served_as",
+     "captain of a cavalry company in the Confederate Army"
+    ],
+    [
+     "Capt. Isaac N. Deadrick",
+     "resided_in",
+     "area"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "00964",
+  "span": "His namesake nephew",
+  "anchor": "Carlo Zucchi (general)",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "His namesake nephew was a notable architect.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Carlo Zucchi",
+     "nephew",
+     "notable architect"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Carlo Zucchi",
+     "has_nephew",
+     "Carlo Zucchi (architect)"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "FLATTENED",
+   "llama3.1:8b": "NAMED_PLAUS"
+  }
+ },
+ {
+  "id": "01649",
+  "span": "its ruler",
+  "anchor": "Negeri Sembilan",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "Also recognised in the symbols are the political history of Negeri Sembilan, its ruler, and the state's past relationship with the British Empire.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Flag and coat of arms of Negeri Sembilan",
+     "recognize",
+     "political history of Negeri Sembilan"
+    ],
+    [
+     "Flag and coat of arms of Negeri Sembilan",
+     "recognize",
+     "ruler of Negeri Sembilan"
+    ],
+    [
+     "Flag and coat of arms of Negeri Sembilan",
+     "recognize",
+     "past relationship with the British Empire"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Negeri Sembilan",
+     "recognised_in",
+     "political history of Negeri Sembilan"
+    ],
+    [
+     "Negeri Sembilan",
+     "recognised_in",
+     "its ruler"
+    ],
+    [
+     "Negeri Sembilan",
+     "recognised_in",
+     "state's past relationship with the British Empire"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "01816",
+  "span": "his wife",
+  "anchor": "George Hyde (Knight of the Bath)",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "He was MP for Tamworth, where his wife came from, in 1597 and for Berkshire in 1601.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "George Hyde",
+     "wasMPFor",
+     "Tamworth"
+    ],
+    [
+     "George Hyde",
+     "wasMPFor",
+     "Berkshire"
+    ],
+    [
+     "Tamworth",
+     "isOrigin",
+     "wife"
+    ],
+    [
+     "George Hyde",
+     "servedInParliamentIn",
+     "1597"
+    ],
+    [
+     "George Hyde",
+     "servedInParliamentIn",
+     "1601"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "George Hyde",
+     "represented_in_parliament",
+     "Tamworth"
+    ],
+    [
+     "George Hyde",
+     "represented_in_parliament",
+     "Berkshire"
+    ],
+    [
+     "George Hyde",
+     "married_to",
+     "wife_of_George_Hyde"
+    ],
+    [
+     "wife_of_George_Hyde",
+     "hometown",
+     "Tamworth"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "01981",
+  "span": "the founder of Mérida",
+  "anchor": "Mérida, Yucatán",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "It was founded by a Spanish conquistador, owned by the grandson of the founder of Mérida and at least two governors of the State of Yucatán.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Hacienda Chichí Suárez",
+     "founded_by",
+     "Spanish conquistador"
+    ],
+    [
+     "Hacienda Chichí Suárez",
+     "owned_by",
+     "founder_of_Mérida's_grandson"
+    ],
+    [
+     "Hacienda Chichí Suárez",
+     "owned_by",
+     "at_least_two_governors_of_Yucatán"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Hacienda Chichí Suárez",
+     "founded_by",
+     "Spanish conquistador"
+    ],
+    [
+     "Hacienda Chichí Suárez",
+     "owned_by",
+     "grandson of the founder of Mérida"
+    ],
+    [
+     "Hacienda Chichí Suárez",
+     "owned_by",
+     "at least two governors of the State of Yucatán"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "DROPPED",
+   "llama3.1:8b": "DROPPED"
+  }
+ },
+ {
+  "id": "01981",
+  "span": "the grandson of the founder of Mérida",
+  "anchor": "Mérida, Yucatán",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "It was founded by a Spanish conquistador, owned by the grandson of the founder of Mérida and at least two governors of the State of Yucatán.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Hacienda Chichí Suárez",
+     "founded_by",
+     "Spanish conquistador"
+    ],
+    [
+     "Hacienda Chichí Suárez",
+     "owned_by",
+     "founder_of_Mérida's_grandson"
+    ],
+    [
+     "Hacienda Chichí Suárez",
+     "owned_by",
+     "at_least_two_governors_of_Yucatán"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Hacienda Chichí Suárez",
+     "founded_by",
+     "Spanish conquistador"
+    ],
+    [
+     "Hacienda Chichí Suárez",
+     "owned_by",
+     "grandson of the founder of Mérida"
+    ],
+    [
+     "Hacienda Chichí Suárez",
+     "owned_by",
+     "at least two governors of the State of Yucatán"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "02054",
+  "span": "a financial secretary (his father)",
+  "anchor": "Hermann Pister",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "Pister was the son of a financial secretary in Lubeck.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Hermann Pister",
+     "father_occupation",
+     "financial secretary"
+    ],
+    [
+     "Hermann Pister",
+     "birth_place",
+     "Lübeck"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Hermann Pister",
+     "son of",
+     "financial secretary"
+    ],
+    [
+     "Hermann Pister",
+     "residence",
+     "Lübeck"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "FLATTENED",
+   "llama3.1:8b": "FLATTENED"
+  }
+ },
+ {
+  "id": "02126",
+  "span": "his daughter",
+  "anchor": "Hrafna-Flóki Vilgerðarson",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "From Western Norway he set sail to the Shetland Islands where it is said his daughter drowned.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Flóki Vilgerðarson",
+     "set sail from",
+     "Western Norway"
+    ],
+    [
+     "Flóki Vilgerðarson",
+     "set sail to",
+     "Shetland Islands"
+    ],
+    [
+     "Flóki Vilgerðarson",
+     "daughter",
+     "drowned"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Hrafna-Flóki Vilgerðarson",
+     "set_sail_from",
+     "Western Norway"
+    ],
+    [
+     "Hrafna-Flóki Vilgerðarson",
+     "landed_in",
+     "Shetland Islands"
+    ],
+    [
+     "Hrafna-Flóki Vilgerðarson",
+     "lost_daughter",
+     "Shetland Islands"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "FLATTENED",
+   "llama3.1:8b": "FLATTENED"
+  }
+ },
+ {
+  "id": "02127",
+  "span": "another of his daughters",
+  "anchor": "Hrafna-Flóki Vilgerðarson",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "He continued his journey and landed in the Faroe Islands where another of his daughters was wed.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Flóki Vilgerðarson",
+     "landed in",
+     "Faroe Islands"
+    ],
+    [
+     "another of his daughters",
+     "wed",
+     "unknown entity"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Hrafna-Flóki Vilgerðarson",
+     "landed_in",
+     "Faroe Islands"
+    ],
+    [
+     "Hrafna-Flóki Vilgerðarson",
+     "daughter_was_wed",
+     "Faroe Islands"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "FLATTENED"
+  }
+ },
+ {
+  "id": "02528",
+  "span": "his dead son",
+  "anchor": "Kanakaraya Mudali",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "Everything known about his life comes from the private diary of Ananda Ranga Pillai and the inscriptions found in the walls of St. Andrews church, which he built in the memory of his dead son.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Ananda Ranga Pillai",
+     "has private diary",
+     "private diary"
+    ],
+    [
+     "private diary",
+     "contains information about",
+     "Pedro Kanakaraya Mudaliar"
+    ],
+    [
+     "St. Andrews church",
+     "has inscriptions",
+     "inscriptions"
+    ],
+    [
+     "Ananda Ranga Pillai",
+     "built",
+     "St. Andrews church"
+    ],
+    [
+     "St. Andrews church",
+     "built in memory of",
+     "dead son"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Pedro Kanakaraya Mudaliar",
+     "has_source",
+     "private diary of Ananda Ranga Pillai"
+    ],
+    [
+     "Pedro Kanakaraya Mudaliar",
+     "has_source",
+     "inscriptions found in the walls of St. Andrews church"
+    ],
+    [
+     "Pedro Kanakaraya Mudaliar",
+     "built",
+     "St. Andrews church"
+    ],
+    [
+     "Pedro Kanakaraya Mudaliar",
+     "built_for",
+     "memory of his dead son"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "FLATTENED",
+   "llama3.1:8b": "FLATTENED"
+  }
+ },
+ {
+  "id": "03186",
+  "span": "her father",
+  "anchor": "Miriam Marx",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q103846",
+    "Groucho Marx"
+   ]
+  ],
+  "sentence": "Besides having worked for a time on her father's quiz show, she has appeared in several Marx Brothers documentaries.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Miriam Marx",
+     "worked on",
+     "father's quiz show"
+    ],
+    [
+     "Miriam Marx",
+     "appeared in",
+     "Marx Brothers documentaries"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Miriam Marx",
+     "appeared_in",
+     "Marx Brothers documentaries"
+    ],
+    [
+     "Miriam Marx",
+     "worked_on",
+     "Groucho Marx's quiz show"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "NAMED_OK"
+  }
+ },
+ {
+  "id": "03360",
+  "span": "her son",
+  "anchor": "Nefertkau I",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q725897",
+    "Nefermaat II"
+   ]
+  ],
+  "sentence": "Nefertkau is explicitly said to be a daughter of Sneferu in inscriptions from the tomb of her son and her grandson.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Nefertkau",
+     "is daughter of",
+     "Sneferu"
+    ],
+    [
+     "Nefertkau",
+     "has son",
+     "Nefermaat"
+    ],
+    [
+     "Nefertkau",
+     "has grandson",
+     "Sneferukhaf"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Nefertkau I",
+     "daughter",
+     "Sneferu"
+    ],
+    [
+     "Nefertkau I",
+     "mentioned in",
+     "tomb of Nefermaat II"
+    ],
+    [
+     "Nefertkau I",
+     "mentioned in",
+     "tomb of Sneferukhaf"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "NAMED_OK",
+   "llama3.1:8b": "NAMED_OK"
+  }
+ },
+ {
+  "id": "03360",
+  "span": "her grandson",
+  "anchor": "Nefertkau I",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q2295913",
+    "Sneferukhaf"
+   ]
+  ],
+  "sentence": "Nefertkau is explicitly said to be a daughter of Sneferu in inscriptions from the tomb of her son and her grandson.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Nefertkau",
+     "is daughter of",
+     "Sneferu"
+    ],
+    [
+     "Nefertkau",
+     "has son",
+     "Nefermaat"
+    ],
+    [
+     "Nefertkau",
+     "has grandson",
+     "Sneferukhaf"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Nefertkau I",
+     "daughter",
+     "Sneferu"
+    ],
+    [
+     "Nefertkau I",
+     "mentioned in",
+     "tomb of Nefermaat II"
+    ],
+    [
+     "Nefertkau I",
+     "mentioned in",
+     "tomb of Sneferukhaf"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "NAMED_OK",
+   "llama3.1:8b": "NAMED_OK"
+  }
+ },
+ {
+  "id": "03715",
+  "span": "his father",
+  "anchor": "Philipp van Limborch",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "Philipp van Limborch (June 19, 1633 – April 30, 1712), Dutch Remonstrant theologian, was born at Amsterdam, where his father was a lawyer.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Philipp van Limborch",
+     "birthDate",
+     "June 19, 1633"
+    ],
+    [
+     "Philipp van Limborch",
+     "deathDate",
+     "April 30, 1712"
+    ],
+    [
+     "Philipp van Limborch",
+     "nationality",
+     "Dutch"
+    ],
+    [
+     "Philipp van Limborch",
+     "occupation",
+     "Remonstrant theologian"
+    ],
+    [
+     "Philipp van Limborch",
+     "birthPlace",
+     "Amsterdam"
+    ],
+    [
+     "Philipp van Limborch",
+     "fatherOccupation",
+     "lawyer"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Philipp van Limborch",
+     "born_at",
+     "Amsterdam"
+    ],
+    [
+     "Philipp van Limborch",
+     "father",
+     "lawyer at Amsterdam"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "FLATTENED",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "03772",
+  "span": "the wife of Guilhem de Montanhagol",
+  "anchor": "Guilhem de Montanhagol",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "He was a brother of the wife of Guilhem de Montanhagol.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Pons Santolh",
+     "brother_of",
+     "wife_of_Guilhem_de_Montanhagol"
+    ],
+    [
+     "wife_of_Guilhem_de_Montanhagol",
+     "husband",
+     "Guilhem_de_Montanhagol"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Pons Santolh",
+     "brother_of",
+     "wife_of_Guilhem_de_Montanhagol"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "03773",
+  "span": "his brother-in-law",
+  "anchor": "Pons Santolh",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "He composed a planh, \"Marritz com oms mal sabens ab frachura\", on his brother-in-law's death.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Pons Santolh",
+     "composed",
+     "Marritz com oms mal sabens ab frachura"
+    ],
+    [
+     "Marritz com oms mal sabens ab frachura",
+     "is about",
+     "the death of his brother-in-law"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Pons Santolh",
+     "composed",
+     "Marritz com oms mal sabens ab frachura"
+    ],
+    [
+     "Pons Santolh",
+     "on",
+     "death of Guilhem de Montanhagol"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "NAMED_OK"
+  }
+ },
+ {
+  "id": "04298",
+  "span": "his brother",
+  "anchor": "Sol Levi",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "He is dependent on his brother, who has looked after him for most of this life.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Solomon \"Sol\" Levi",
+     "dependent on",
+     "Asher Levi"
+    ],
+    [
+     "Asher Levi",
+     "looked after",
+     "Solomon \"Sol\" Levi"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Sol Levi",
+     "dependent_on",
+     "Asher Levi"
+    ],
+    [
+     "Asher Levi",
+     "looked_after",
+     "Sol Levi"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "NAMED_OK",
+   "llama3.1:8b": "NAMED_OK"
+  }
+ },
+ {
+  "id": "04484",
+  "span": "its genus",
+  "anchor": "Tautog",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q2290999",
+    "Tautoga"
+   ]
+  ],
+  "sentence": "It is currently the only known member of its genus.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Tautoga onitis",
+     "genus",
+     "Tautoga"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Tautog",
+     "is_member_of",
+     "genus"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "NAMED_OK",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "04769",
+  "span": "a daimyo of the Akizuki clan (his father)",
+  "anchor": "Uesugi Harunori",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q11595125",
+    null
+   ]
+  ],
+  "sentence": "Born in Edo, he was the second son of a daimyo of the Akizuki clan, who controlled part of Hyūga Province.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Uesugi Harunori",
+     "born_in",
+     "Edo"
+    ],
+    [
+     "Uesugi Harunori",
+     "father",
+     "a daimyo of the Akizuki clan"
+    ],
+    [
+     "a daimyo of the Akizuki clan",
+     "controlled",
+     "part of Hyūga Province"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Uesugi Harunori",
+     "born_in",
+     "Edo"
+    ],
+    [
+     "Uesugi Harunori",
+     "son_of",
+     "daimyo of the Akizuki clan"
+    ],
+    [
+     "daimyo of the Akizuki clan",
+     "controlled",
+     "Hyūga Province"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "PHRASE",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "04770",
+  "span": "His mother",
+  "anchor": "Uesugi Harunori",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "His mother was a granddaughter of the fourth head of Yonezawa.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "Uesugi Harunori",
+     "mother",
+     "the fourth head of Yonezawa"
+    ],
+    [
+     "the fourth head of Yonezawa",
+     "parent",
+     "the fourth head of Yonezawa"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Uesugi Harunori",
+     "mother",
+     "granddaughter of the fourth head of Yonezawa"
+    ],
+    [
+     "granddaughter of the fourth head of Yonezawa",
+     "parent",
+     "Uesugi Harunori"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "NAMED_WRONG",
+   "llama3.1:8b": "PHRASE"
+  }
+ },
+ {
+  "id": "05017",
+  "span": "his father",
+  "anchor": "William Busfield",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "sentence": "Like his father, he was a Justice of the Peace in the West Riding of Yorkshire.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "William Busfield",
+     "occupation",
+     "Justice of the Peace"
+    ],
+    [
+     "William Busfield",
+     "location",
+     "West Riding of Yorkshire"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "William Busfield",
+     "Justice_of_the_Peace",
+     "West Riding of Yorkshire"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "DROPPED",
+   "llama3.1:8b": "DROPPED"
+  }
+ },
+ {
+  "id": "05035",
+  "span": "His father",
+  "anchor": "William Lloyd George, 3rd Viscount Tenby",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q333823",
+    "Gwilym Lloyd George, 1st Viscount Tenby"
+   ]
+  ],
+  "sentence": "His father was a National Liberal politician who served as Home Secretary under Winston Churchill and Anthony Eden.",
+  "llm": {
+   "qwen2.5:7b": [
+    [
+     "William Lloyd George, 3rd Viscount Tenby",
+     "father",
+     "Gwilym Lloyd George, 1st Viscount Tenby"
+    ],
+    [
+     "Gwilym Lloyd George, 1st Viscount Tenby",
+     "politicalParty",
+     "National Liberal"
+    ],
+    [
+     "Gwilym Lloyd George, 1st Viscount Tenby",
+     "servedAs",
+     "Home Secretary"
+    ],
+    [
+     "Gwilym Lloyd George, 1st Viscount Tenby",
+     "servedUnder",
+     "Winston Churchill"
+    ],
+    [
+     "Gwilym Lloyd George, 1st Viscount Tenby",
+     "servedUnder",
+     "Anthony Eden"
+    ]
+   ],
+   "llama3.1:8b": [
+    [
+     "Gwilym Lloyd George, 1st Viscount Tenby",
+     "was",
+     "National Liberal politician"
+    ],
+    [
+     "Gwilym Lloyd George, 1st Viscount Tenby",
+     "served as",
+     "Home Secretary"
+    ],
+    [
+     "Gwilym Lloyd George, 1st Viscount Tenby",
+     "served under",
+     "Winston Churchill"
+    ],
+    [
+     "Gwilym Lloyd George, 1st Viscount Tenby",
+     "served under",
+     "Anthony Eden"
+    ]
+   ]
+  },
+  "grade": {
+   "qwen2.5:7b": "NAMED_OK",
+   "llama3.1:8b": "NAMED_OK"
+  }
+ }
+]
