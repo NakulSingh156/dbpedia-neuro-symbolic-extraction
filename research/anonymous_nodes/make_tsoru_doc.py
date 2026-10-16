@@ -160,10 +160,24 @@ table([
 para("junk-node rate (description strings emitted as entities); facts kept (share of descriptions whose fact survives as a grounded entity or an anonymous node, vs dropped or lost to UNKNOWN); long-tail grounding accuracy; accuracy per grounding tier; hallucinated-identity rate (names an entity the evidence doesn’t license); grounding F1; a risk–coverage curve (accuracy vs share answered) so hard abstention and LLM confidence are compared fairly; end-to-end triple F1 on the natural set; $ per 1,000 sentences. "
      "3 runs per LLM system, bootstrap 95% CIs, paired McNemar tests; KB snapshots pinned and every query cached.", bold_lead="Headline: ")
 
-h1("9. Plan and gates")
+h1("9. Prototype status (16 Oct)")
+para("A first end-to-end prototype runs; numbers below are on development items (used while designing), not results.")
+table([
+ ["Piece", "Status", "Evidence"],
+ ["Description format + relation lexicon", "done", "44 relation words (kinship incl. in-laws and cousins, founder, capital, genus, …) mapped to Wikidata and DBpedia paths with gender; nested chains (founder → grandson)"],
+ ["Wikidata query layer", "done", "cached, never returns a failure as “no answer”, schema-unique check, label fallback (a father with only a Japanese label), fact masking for simulated missing items; live tests pass"],
+ ["DBpedia query layer", "done", "same interface over the local store; no gender data in our snapshot (declared). Marie Antoinette: 1 spouse in DBpedia, 2 in Wikidata"],
+ ["Detector (M1)", "first version", "Llama-3.1-8B: correct relation path for 20/23 real descriptions, anchor 19/20; a rule filter cuts false alarms on 60 negative sentences from 59 to 1"],
+ ["End to end (detect → link → query → decide)", "first version", "20/23 outcomes identical to the hand-written oracle; 7/7 groundings correct; 0 wrong identities; the 3 differences are abstentions"],
+ ["Controlled test-set sampler", "prototype", "560 items (410 real + 150 simulated missing), 79/90 cells full; popularity tiers from all 2.15M people with an English article (tail ≤ 2 sitelinks, head ≥ 18 = top 5%)"],
+ ["Output writer, final test set", "waiting", "on decisions 3, 4 and 7 below"],
+], [4.0, 2.4, 11.1])
+para("Known gaps: nested chains sometimes come out in reverse order; “X was the son of a Y” is parsed from X’s side; the detector filter was tuned on the same 23 items, so the held-out natural set will give the honest numbers.", size=9.5)
+
+h1("10. Plan and gates")
 table([
  ["Phase", "Dates", "Output", "Gate / status"],
- ["1 Scope & novelty", "15 Oct – 8 Nov", "related work, benchmarks, contribution", "G1 · implicit EL read in full; KBQA-answerability and bridging next"],
+ ["1 Scope & novelty", "15 Oct – 8 Nov", "related work, benchmarks, contribution", "G1 · implicit EL, KBQA answerability (GrailQAbility, RetinaQA), bridging, EDC, NIL read — gap holds"],
  ["2 Feasibility", "9 – 29 Nov", "Wikidata survey, occurrence, conventions", "G2 · mostly done: Wikidata ≥ 30% ✔; occurrence 2.7% vs 3% bar → borderline"],
  ["3 Test set", "30 Nov – 10 Jan", "controlled ~900 + natural 200–300, κ", "G3 freeze"],
  ["4 Baselines", "11 – 31 Jan", "B0–B4, stratified, with cost", "G4 headroom"],
@@ -174,7 +188,7 @@ table([
 ], [3.2, 3.6, 5.2, 5.5])
 para("ISWC research track → ISWC Resources track (test set + framework) → KGSWC / ESWC workshop → workshop paper on NEF 2.0 results. Nothing from Phases 1–4 is wasted under any of them.", bold_lead="Fallbacks: ")
 
-h1("10. Decisions we need from you")
+h1("11. Decisions we need from you")
 for i, q in enumerate([
  "Scope: non-topic relational descriptions only, with topic coreference out. Agree?",
  "Primary KB = Wikidata, DBpedia second, YAGO 4.5 as an optional third?",

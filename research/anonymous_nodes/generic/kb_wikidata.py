@@ -15,7 +15,12 @@ P = "http://www.wikidata.org/prop/"
 PS = "http://www.wikidata.org/prop/statement/"
 GENDER_QID = {"male": "Q6581097", "female": "Q6581072"}
 SINGLE_VALUE = {"Q19474404", "Q52060874"}           # single-value, single-best-value constraints
-CONTAINMENT = ["P131", "P17", "P361", "P276", "P706", "P749"]
+CONTAINMENT = ["P131", "P17", "P361", "P276", "P706", "P749"]   # loose: used by the 16 Oct surveys
+# strict (16 Oct, late): "part of" / "parent organisation" may only be the FIRST hop, then administrative,
+# country and location hops. Transitive P361 climbs into alliances and organisations and back down
+# (Russia -> "Allies of the First World War" -> ... -> France).
+CONT_FIRST = ["P361", "P749", "P131", "P17", "P706", "P276"]
+CONT_REST = ["P131", "P17", "P706", "P276"]
 UA = "nef-research/0.1 (https://github.com/NakulSingh156/dbpedia-neuro-symbolic-extraction; research script)"
 
 
@@ -124,9 +129,15 @@ class WikidataKB:
     def has_any(self, anchor_qid, prop):
         return bool(self.sparql(f"ASK {{ <{WD}{anchor_qid}> <{WDT}{prop}> ?x }}"))
 
-    def ancestors(self, qid, props=CONTAINMENT):
-        alt = "|".join(f"<{WDT}{p}>" for p in props)
-        rows = self.sparql(f"SELECT DISTINCT ?b WHERE {{ <{WD}{qid}> ({alt})+ ?b }}")
+    def ancestors(self, qid, props=None, strict=True):
+        if props is not None or not strict:
+            alt = "|".join(f"<{WDT}{p}>" for p in (props or CONTAINMENT))
+            q = f"SELECT DISTINCT ?b WHERE {{ <{WD}{qid}> ({alt})+ ?b }}"
+        else:
+            first = "|".join(f"<{WDT}{p}>" for p in CONT_FIRST)
+            rest = "|".join(f"<{WDT}{p}>" for p in CONT_REST)
+            q = f"SELECT DISTINCT ?b WHERE {{ <{WD}{qid}> ({first})/({rest})* ?b }}"
+        rows = self.sparql(q)
         return {r["b"]["value"].rsplit("/", 1)[1] for r in rows}
 
     def single_value_props(self, props):

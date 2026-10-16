@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(HERE))
 from generic.kb_wikidata import WikidataKB, WD, WDT   # noqa: E402
 from generic.lexicon import expand                     # noqa: E402
 
-SEED, QUOTA, POOL = "cells-v0", 5, 60
+SEED, QUOTA, POOL = "cells-v0", 5, 250   # pool 60 left 11 ambiguous cells short (16 Oct)
 TIERS = {"tail": (1, 2), "mid": (3, 17), "head": (18, 100000)}
 NOUNS = ["father", "mother", "husband", "wife", "brother", "sister", "son", "daughter", "nephew", "grandfather"]
 kb = WikidataKB()

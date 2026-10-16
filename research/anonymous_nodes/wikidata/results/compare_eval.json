@@ -1,0 +1,703 @@
+{
+ "by_code": {
+  "C": {
+   "merged": 20,
+   "kept_apart": 10
+  },
+  "G": {
+   "merged": 0,
+   "kept_apart": 3
+  },
+  "K": {
+   "merged": 1,
+   "kept_apart": 7
+  },
+  "X": {
+   "merged": 2,
+   "kept_apart": 17
+  }
+ },
+ "rules_fired": {
+  "demonym": 12,
+  "demonym_containment": 4,
+  "subclass": 5,
+  "sport_family": 1,
+  "same_label": 1
+ },
+ "false_merges_on_K": [
+  {
+   "kb": "dbp",
+   "i": 1684,
+   "rel": "nationality",
+   "text": "Q122263",
+   "kb_answer": "Q142",
+   "code": "K",
+   "merged": true,
+   "rule": "demonym_containment",
+   "text_is_disambiguation": true
+  }
+ ],
+ "text_side_disambiguation_links": 23,
+ "rows": [
+  {
+   "kb": "wd",
+   "i": 1706,
+   "rel": "locatedInArea",
+   "text": "Q509880",
+   "kb_answer": "Q509826",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 2225,
+   "rel": "genre",
+   "text": "Q1941788",
+   "kb_answer": "Q660984",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1983,
+   "rel": "location",
+   "text": "Q3183",
+   "kb_answer": "Q1703523",
+   "code": "G",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 121,
+   "rel": "location",
+   "text": "Q16679544",
+   "kb_answer": "Q1384",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 976,
+   "rel": "occupation",
+   "text": "Q131512",
+   "kb_answer": "Q82955",
+   "code": "K",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1082,
+   "rel": "location",
+   "text": "Q184345",
+   "kb_answer": "Q3860",
+   "code": "K",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 813,
+   "rel": "nationality",
+   "text": "Q463180",
+   "kb_answer": "Q30",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 516,
+   "rel": "nationality",
+   "text": "Q364883",
+   "kb_answer": "Q145",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym_containment",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 1316,
+   "rel": "occupation",
+   "text": "Q37226",
+   "kb_answer": "Q219477",
+   "code": "K",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1061,
+   "rel": "nationality",
+   "text": "Q233810",
+   "kb_answer": "Q4948",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 1668,
+   "rel": "occupation",
+   "text": "Q4817600",
+   "kb_answer": "Q19509201",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 110,
+   "rel": "nationality",
+   "text": "Q122263",
+   "kb_answer": "Q159",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 1990,
+   "rel": "occupation",
+   "text": "Q482980",
+   "kb_answer": "Q36180",
+   "code": "C",
+   "merged": true,
+   "rule": "subclass",
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 522,
+   "rel": "headquarter",
+   "text": "Q16555",
+   "kb_answer": "Q113464",
+   "code": "K",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 221,
+   "rel": "party",
+   "text": "Q40072",
+   "kb_answer": "Q190219",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 799,
+   "rel": "nationality",
+   "text": "Q233810",
+   "kb_answer": "Q38",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 1707,
+   "rel": "locatedInArea",
+   "text": "Q508232",
+   "kb_answer": "Q509826",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 203,
+   "rel": "nationality",
+   "text": "Q365952",
+   "kb_answer": "Q756617",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 708,
+   "rel": "nationality",
+   "text": "Q463180",
+   "kb_answer": "Q30",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 1196,
+   "rel": "nationality",
+   "text": "Q463180",
+   "kb_answer": "Q30",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 448,
+   "rel": "nationality",
+   "text": "Q182",
+   "kb_answer": "Q145",
+   "code": "X",
+   "merged": true,
+   "rule": "demonym_containment",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 988,
+   "rel": "starring",
+   "text": "Q280803",
+   "kb_answer": "Q706663",
+   "code": "K",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1228,
+   "rel": "location",
+   "text": "Q54050",
+   "kb_answer": "Q570397",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 582,
+   "rel": "education",
+   "text": "Q803",
+   "kb_answer": "Q156598",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1954,
+   "rel": "profession",
+   "text": "Q390354",
+   "kb_answer": "Q2865819",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1980,
+   "rel": "location",
+   "text": "Q5047138",
+   "kb_answer": "Q732858",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 327,
+   "rel": "nationality",
+   "text": "Q233810",
+   "kb_answer": "Q153529",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 1569,
+   "rel": "location",
+   "text": "Q5750722",
+   "kb_answer": "Q173",
+   "code": "G",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 178,
+   "rel": "nationality",
+   "text": "Q1267799",
+   "kb_answer": "Q29999",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 1197,
+   "rel": "profession",
+   "text": "Q7141",
+   "kb_answer": "Q81096",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1251,
+   "rel": "nationality",
+   "text": "Q899147",
+   "kb_answer": "Q155",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 887,
+   "rel": "location",
+   "text": "Q50617",
+   "kb_answer": "Q488401",
+   "code": "G",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 606,
+   "rel": "occupation",
+   "text": "Q330963",
+   "kb_answer": "Q82955",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1189,
+   "rel": "nationality",
+   "text": "Q463180",
+   "kb_answer": "Q30",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "wd",
+   "i": 651,
+   "rel": "occupation",
+   "text": "Q1006676",
+   "kb_answer": "Q16533",
+   "code": "C",
+   "merged": true,
+   "rule": "subclass",
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1976,
+   "rel": "occupation",
+   "text": "Q482980",
+   "kb_answer": "Q6625963",
+   "code": "C",
+   "merged": true,
+   "rule": "subclass",
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1125,
+   "rel": "occupation",
+   "text": "Q1114448",
+   "kb_answer": "Q715301",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 1721,
+   "rel": "sport",
+   "text": "Q117321337",
+   "kb_answer": "Q2736",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 628,
+   "rel": "sport",
+   "text": "Q180935",
+   "kb_answer": "Q542",
+   "code": "C",
+   "merged": true,
+   "rule": "subclass",
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "wd",
+   "i": 2253,
+   "rel": "sport",
+   "text": "Q117321337",
+   "kb_answer": "Q2736",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 1430,
+   "rel": "genre",
+   "text": "Q280874",
+   "kb_answer": "Q379671",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "dbp",
+   "i": 1236,
+   "rel": "nationality",
+   "text": "Q182",
+   "kb_answer": "Q145",
+   "code": "X",
+   "merged": true,
+   "rule": "demonym_containment",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "dbp",
+   "i": 963,
+   "rel": "birthPlace",
+   "text": "Q53751",
+   "kb_answer": "Q1189975",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 785,
+   "rel": "occupation",
+   "text": "Q5322166",
+   "kb_answer": "Q29583",
+   "code": "C",
+   "merged": true,
+   "rule": "sport_family",
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 2267,
+   "rel": "nationality",
+   "text": "Q463180",
+   "kb_answer": "Q30",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "dbp",
+   "i": 1745,
+   "rel": "nationality",
+   "text": "Q226324",
+   "kb_answer": "Q668",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "dbp",
+   "i": 1174,
+   "rel": "genre",
+   "text": "Q3520779",
+   "kb_answer": "Q1136765",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 1684,
+   "rel": "nationality",
+   "text": "Q122263",
+   "kb_answer": "Q142",
+   "code": "K",
+   "merged": true,
+   "rule": "demonym_containment",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "dbp",
+   "i": 1168,
+   "rel": "location",
+   "text": "Q7291596",
+   "kb_answer": "Q8646",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 2049,
+   "rel": "position",
+   "text": "Q16798952",
+   "kb_answer": "Q2283076",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "dbp",
+   "i": 2040,
+   "rel": "party",
+   "text": "Q7169",
+   "kb_answer": "Q9626",
+   "code": "C",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 68,
+   "rel": "nationality",
+   "text": "Q463180",
+   "kb_answer": "Q30",
+   "code": "C",
+   "merged": true,
+   "rule": "demonym",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "dbp",
+   "i": 979,
+   "rel": "party",
+   "text": "Q488523",
+   "kb_answer": "Q2597606",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 159,
+   "rel": "birthPlace",
+   "text": "Q1499",
+   "kb_answer": "Q47916",
+   "code": "K",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 1526,
+   "rel": "starring",
+   "text": "Q3520690",
+   "kb_answer": "Q103949",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 784,
+   "rel": "nationality",
+   "text": "Q226324",
+   "kb_answer": "Q3111799",
+   "code": "C",
+   "merged": true,
+   "rule": "same_label",
+   "text_is_disambiguation": true
+  },
+  {
+   "kb": "dbp",
+   "i": 1620,
+   "rel": "artist",
+   "text": "Q1944232",
+   "kb_answer": "Q229449",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 1215,
+   "rel": "birthPlace",
+   "text": "Q1581",
+   "kb_answer": "Q286753",
+   "code": "K",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 505,
+   "rel": "genre",
+   "text": "Q7888616",
+   "kb_answer": "Q839864",
+   "code": "C",
+   "merged": true,
+   "rule": "subclass",
+   "text_is_disambiguation": false
+  },
+  {
+   "kb": "dbp",
+   "i": 650,
+   "rel": "recordLabel",
+   "text": "Q18127",
+   "kb_answer": "Q726251",
+   "code": "X",
+   "merged": false,
+   "rule": null,
+   "text_is_disambiguation": false
+  }
+ ]
+}
