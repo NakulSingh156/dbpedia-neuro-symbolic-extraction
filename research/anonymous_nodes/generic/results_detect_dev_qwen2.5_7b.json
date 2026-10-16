@@ -1,0 +1,1411 @@
+{
+ "model": "qwen2.5:7b",
+ "positives": 23,
+ "found": 15,
+ "path_correct": 13,
+ "anchor_correct_given_path": 12,
+ "negatives": 60,
+ "negatives_with_a_detection": 0,
+ "negatives_with_a_kept_detection": 0,
+ "false_positive_examples": [],
+ "rows": [
+  {
+   "id": "00506",
+   "gold_span": "His brother",
+   "gold_paths": [
+    [
+     "P3373"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "His brother",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Arthur Winter",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "brother"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P3373"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "sibling"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "relative"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "00951",
+   "gold_span": "the father-in-law of Isaac N. Deadrick",
+   "gold_paths": [
+    [
+     "P26",
+     "P22"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "the slaves of the father-in-law of Isaac N. Deadrick",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Capt. Isaac N. Deadrick House",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father-in-law"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": true,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P26"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "spouse"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "00964",
+   "gold_span": "His namesake nephew",
+   "gold_paths": [
+    [
+     "P3373",
+     "P40"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "his namesake nephew",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Carlo Zucchi (general)",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "nephew"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P3373"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "sibling"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "01649",
+   "gold_span": "its ruler",
+   "gold_paths": [
+    [
+     "P35"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "its ruler",
+     "role": "unknown",
+     "anchor": {
+      "ref": "mention",
+      "text": "Negeri Sembilan",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "ruler"
+     ],
+     "constraints": {
+      "gender": null,
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P35"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "leader"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "01816",
+   "gold_span": "his wife",
+   "gold_paths": [
+    [
+     "P26"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "his wife",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "George Hyde (Knight of the Bath)",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "wife"
+     ],
+     "constraints": {
+      "gender": "female",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P26"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "spouse"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "01981",
+   "gold_span": "the founder of Mérida",
+   "gold_paths": [
+    [
+     "P112"
+    ]
+   ],
+   "detected": [],
+   "found": false,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "01981",
+   "gold_span": "the grandson of the founder of Mérida",
+   "gold_paths": [
+    [
+     "P112",
+     "P40",
+     "P40"
+    ]
+   ],
+   "detected": [],
+   "found": false,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "02054",
+   "gold_span": "a financial secretary (his father)",
+   "gold_paths": [
+    [
+     "P22"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "a financial secretary in Lubeck",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Hermann Pister",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "son",
+      "father"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": false,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "02126",
+   "gold_span": "his daughter",
+   "gold_paths": [
+    [
+     "P40"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "his daughter",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Hrafna-Flóki Vilgerðarson",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father",
+      "daughter"
+     ],
+     "constraints": {
+      "gender": "female",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "02127",
+   "gold_span": "another of his daughters",
+   "gold_paths": [
+    [
+     "P40"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "another of his daughters",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Hrafna-Flóki Vilgerðarson",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "daughter"
+     ],
+     "constraints": {
+      "gender": "female",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": true,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "02528",
+   "gold_span": "his dead son",
+   "gold_paths": [
+    [
+     "P40"
+    ]
+   ],
+   "detected": [],
+   "found": false,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "03186",
+   "gold_span": "her father",
+   "gold_paths": [
+    [
+     "P22"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "her father",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Miriam Marx",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "03360",
+   "gold_span": "her son",
+   "gold_paths": [
+    [
+     "P40"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "a daughter of Sneferu",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Nefertkau I",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "daughter"
+     ],
+     "constraints": {
+      "gender": "female",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": false,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "03360",
+   "gold_span": "her grandson",
+   "gold_paths": [
+    [
+     "P40",
+     "P40"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "a daughter of Sneferu",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Nefertkau I",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "daughter"
+     ],
+     "constraints": {
+      "gender": "female",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P40"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "child"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": false,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "03715",
+   "gold_span": "his father",
+   "gold_paths": [
+    [
+     "P22"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "his father",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Philipp van Limborch",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "03772",
+   "gold_span": "the wife of Guilhem de Montanhagol",
+   "gold_paths": [
+    [
+     "P26"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "the wife of Guilhem de Montanhagol",
+     "role": "unknown",
+     "anchor": {
+      "ref": "mention",
+      "text": "Pons (de) Santolh",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "brother",
+      "wife"
+     ],
+     "constraints": {
+      "gender": "female",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P3373"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P26"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "sibling"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "spouse"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "relative"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "spouse"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "03773",
+   "gold_span": "his brother-in-law",
+   "gold_paths": [
+    [
+     "P26",
+     "P3373"
+    ],
+    [
+     "P3373",
+     "P26"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "his brother-in-law",
+     "role": "unknown",
+     "anchor": {
+      "ref": "mention",
+      "text": "Pons (de) Santolh",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "brother-in-law"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P26"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P3373"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "P3373"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "P26"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "spouse"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "sibling"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "sibling"
+         ],
+         "dir": "out"
+        },
+        {
+         "props": [
+          "spouse"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "04298",
+   "gold_span": "his brother",
+   "gold_paths": [
+    [
+     "P3373"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "his brother",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Sol Levi",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "brother"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P3373"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "sibling"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "relative"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "04484",
+   "gold_span": "its genus",
+   "gold_paths": [
+    [
+     "P171"
+    ]
+   ],
+   "detected": [],
+   "found": false,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "04769",
+   "gold_span": "a daimyo of the Akizuki clan (his father)",
+   "gold_paths": [
+    [
+     "P22"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "a daimyo of the Akizuki clan",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Uesugi Harunori",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "04770",
+   "gold_span": "His mother",
+   "gold_paths": [
+    [
+     "P25"
+    ]
+   ],
+   "detected": [],
+   "found": false,
+   "path_correct": false,
+   "anchor_correct": false,
+   "error": null
+  },
+  {
+   "id": "05017",
+   "gold_span": "his father",
+   "gold_paths": [
+    [
+     "P22"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "his father",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "William Busfield",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  },
+  {
+   "id": "05035",
+   "gold_span": "His father",
+   "gold_paths": [
+    [
+     "P22"
+    ]
+   ],
+   "detected": [
+    {
+     "mention": "his father",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "William Lloyd George, 3rd Viscount Tenby",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": null
+     }
+    }
+   ],
+   "found": true,
+   "path_correct": true,
+   "anchor_correct": true,
+   "error": null
+  }
+ ],
+ "filter": true
+}

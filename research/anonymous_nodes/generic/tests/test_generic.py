@@ -48,3 +48,16 @@ def test_wikidata_known_cases():
     # father is schema-unique (single-best-value), spouse is not
     assert kb.schema_unique(expand(["father"], "wikidata")[0])
     assert not kb.schema_unique(expand(["husband"], "wikidata")[0])
+
+
+@pytest.mark.skipif(not LIVE, reason="set NEF_LIVE=1 (needs the local nef-oxigraph store)")
+def test_dbpedia_known_cases():
+    from generic.kb_dbpedia import DBpediaKB
+    kb = DBpediaKB()
+    alts, g = expand(["husband"], "dbpedia")
+    r = kb.values("Marie_Antoinette", alts, g)
+    # one spouse in DBpedia, two in Wikidata: the same description is unique on one KB, ambiguous on the other
+    assert r["known"] == ["Louis_XVI_of_France"] and r["gender_checked"] is False
+    assert not kb.schema_unique(expand(["father"], "dbpedia")[0])     # no functional object properties
+    assert kb.labels(["Louis_XVI_of_France"])["Louis_XVI_of_France"] == "Louis XVI of France"
+    assert "France" in kb.ancestors("Paris")

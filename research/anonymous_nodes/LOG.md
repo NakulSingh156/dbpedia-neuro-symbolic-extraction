@@ -2,6 +2,12 @@
 
 One entry per working block. Newest first.
 
+## 2026-10-16 (late night) — build steps 1–3
+- **Per-cell sampler** (`testset/sample_cells.py`): global sitelink quantiles for 2,154,452 humans with enwiki (P33=2, P50=3, P90=12, P95=18, P99=38) → tiers tail ≤2 / mid 3–17 / head ≥18. Reproducible MD5-seeded anchor pools. 10 nouns × 3 tiers × 3 types, quota 5 → **560 items (410 real + 150 simulated-missing), 79/90 cells full**; father/mother ambiguous ≈ impossible (schema-unique); a few spouse/sister ambiguous cells short (pool 60).
+- **QLever gotcha:** numeric FILTER on `wikibase:sitelinks` (xsd:int) silently returns nothing; cast with `xsd:integer(?n)`. First sampler run filled 0/90 cells because of it → empty pools now raise. Checked: the Wikidata survey's `FILTER(?n > 1)` is on a COUNT (xsd:integer) and worked (containment checked 200/relation).
+- **DBpedia KBQuery** (`generic/kb_dbpedia.py`): local store has no foaf:gender → gender filter declared unsupported; Marie Antoinette has 1 spouse in DBpedia vs 2 in Wikidata. Tests 5/5 (live).
+- **M1 detector** (`generic/detect.py`) + dev eval + end-to-end dev pipeline: see METHODOLOGY finding 16. Llama 20/23 paths, filter cuts false alarms 59/60 → 1/60; end to end 20/23 = oracle, 0 wrong identities.
+
 ## 2026-10-16 (night) — building started (decision-independent pieces)
 - `generic/ARCHITECTURE.md`: DBpedia-assumption audit of `src/` + scripts, grouped by adapter interface (OntologyAdapter / EntityIndex / KBQuery / OutputWriter), plus what Wikidata needs that DBpedia never did.
 - `generic/ir.py` (Description IR, nested anchors, hops with alternative properties), `generic/relation_lexicon.json` v0 (44 relational nouns → WD + DBpedia paths + gender), `generic/lexicon.py` (chain expansion, plural/synonym folding).

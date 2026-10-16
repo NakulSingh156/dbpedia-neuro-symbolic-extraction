@@ -57,5 +57,7 @@ Counts (grep, 16 Oct): `dbpedia.org` 31 · `dbo:` 9 · `dbr:` 9 · `_local_name`
 2. `relation_lexicon.json` — relational nouns → property paths per KB + constraints (done 16 Oct, v0).
 3. `kb_wikidata.py` — Wikidata `KBQuery` with cache, fact masking for simulated MISSING items (done 16 Oct; tests in `tests/`, live ones with `NEF_LIVE=1`: 4/4 pass).
 3b. `../testset/make_controlled_prototype.py` — controlled-set generator prototype (done 16 Oct; 434 items from 60 random people).
-4. `kb_dbpedia.py` — wraps the local oxigraph store; then the v14 regression (G5).
+4. `kb_dbpedia.py` — local oxigraph KBQuery, same interface, capabilities declared (no gender, no redirects, no unknown values; schema-unique never) (done 16 Oct; live test passes). The v14 regression (G5) belongs to the NEF refactor, which has not started.
+4b. `detect.py` (M1 prompt + lexicon + `keep()` filter), `eval_detect.py`, `pipeline_dev.py` (M1→M2→M4/M5→M6 on Wikidata) (done 16 Oct, dev results in `results_*_dev_*.json`).
+4c. `../testset/sample_cells.py` — per-cell sampler (done 16 Oct): 560 items, 79/90 cells full.
 5. `decide.py` (M5–M6), `writer.py` (M7) — after Tsoru's representation decision.

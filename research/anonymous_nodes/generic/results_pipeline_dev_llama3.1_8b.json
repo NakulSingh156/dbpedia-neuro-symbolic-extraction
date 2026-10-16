@@ -1,0 +1,472 @@
+{
+ "summary": {
+  "model": "llama3.1:8b",
+  "items": 23,
+  "same_as_oracle": 20,
+  "pipeline_outcomes": {
+   "GROUNDED": 7,
+   "AMBIGUOUS": 0,
+   "MISSING": 14,
+   "UNRESOLVED": 1,
+   "NOT-DETECTED": 1
+  },
+  "wrong_grounding": []
+ },
+ "rows": [
+  {
+   "id": "00506",
+   "span": "His brother",
+   "oracle": "GROUNDED",
+   "oracle_answers": [
+    "Q28836940"
+   ],
+   "pipeline": {
+    "outcome": "GROUNDED",
+    "anchor_qid": "Q4800716",
+    "answers": [
+     "Q28836940"
+    ],
+    "tier": "data_unique",
+    "answer_labels": [
+     "William Winter"
+    ]
+   },
+   "detected": "his brother",
+   "relations": [
+    "brother"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "00951",
+   "span": "the father-in-law of Isaac N. Deadrick",
+   "oracle": "UNRESOLVED",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q19461292",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "the father-in-law of Isaac N. Deadrick",
+   "relations": [
+    "father-in-law"
+   ],
+   "same_as_oracle": false
+  },
+  {
+   "id": "00964",
+   "span": "His namesake nephew",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q2939273",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "his namesake nephew",
+   "relations": [
+    "nephew"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "01649",
+   "span": "its ruler",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q213893",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "its ruler",
+   "relations": [
+    "ruler"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "01816",
+   "span": "his wife",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q5540902",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "his wife",
+   "relations": [
+    "wife"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "01981",
+   "span": "the founder of Mérida",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q5766060",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "the grandson of the founder of Mérida",
+   "relations": [
+    "owner",
+    "grandson",
+    "founder"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "01981",
+   "span": "the grandson of the founder of Mérida",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q5766060",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "the grandson of the founder of Mérida",
+   "relations": [
+    "owner",
+    "grandson",
+    "founder"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "02054",
+   "span": "a financial secretary (his father)",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "NOT-DETECTED",
+    "answers": [],
+    "answer_labels": []
+   },
+   "detected": null,
+   "relations": null,
+   "same_as_oracle": false
+  },
+  {
+   "id": "02126",
+   "span": "his daughter",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q737030",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "his daughter",
+   "relations": [
+    "daughter"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "02127",
+   "span": "another of his daughters",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q737030",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "another of his daughters",
+   "relations": [
+    "daughter"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "02528",
+   "span": "his dead son",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q16859424",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "his dead son",
+   "relations": [
+    "son"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "03186",
+   "span": "her father",
+   "oracle": "GROUNDED",
+   "oracle_answers": [
+    "Q103846"
+   ],
+   "pipeline": {
+    "outcome": "GROUNDED",
+    "anchor_qid": "Q6873382",
+    "answers": [
+     "Q103846"
+    ],
+    "tier": "schema_unique",
+    "answer_labels": [
+     "Groucho Marx"
+    ]
+   },
+   "detected": "her father",
+   "relations": [
+    "father"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "03360",
+   "span": "her son",
+   "oracle": "GROUNDED",
+   "oracle_answers": [
+    "Q725897"
+   ],
+   "pipeline": {
+    "outcome": "GROUNDED",
+    "anchor_qid": "Q453219",
+    "answers": [
+     "Q725897"
+    ],
+    "tier": "data_unique",
+    "answer_labels": [
+     "Nefermaat II"
+    ]
+   },
+   "detected": "the tomb of her son",
+   "relations": [
+    "son"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "03360",
+   "span": "her grandson",
+   "oracle": "GROUNDED",
+   "oracle_answers": [
+    "Q2295913"
+   ],
+   "pipeline": {
+    "outcome": "GROUNDED",
+    "anchor_qid": "Q453219",
+    "answers": [
+     "Q2295913"
+    ],
+    "tier": "data_unique",
+    "answer_labels": [
+     "Sneferukhaf"
+    ]
+   },
+   "detected": "her grandson",
+   "relations": [
+    "grandson"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "03715",
+   "span": "his father",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q691944",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "his father",
+   "relations": [
+    "father"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "03772",
+   "span": "the wife of Guilhem de Montanhagol",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q1242938",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "the wife of Guilhem de Montanhagol",
+   "relations": [
+    "wife"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "03773",
+   "span": "his brother-in-law",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "UNRESOLVED",
+    "anchor_qid": null,
+    "answers": [],
+    "answer_labels": []
+   },
+   "detected": "his brother-in-law",
+   "relations": [
+    "brother-in-law"
+   ],
+   "same_as_oracle": false
+  },
+  {
+   "id": "04298",
+   "span": "his brother",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q7555547",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "his brother",
+   "relations": [
+    "brother"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "04484",
+   "span": "its genus",
+   "oracle": "GROUNDED",
+   "oracle_answers": [
+    "Q2290999"
+   ],
+   "pipeline": {
+    "outcome": "GROUNDED",
+    "anchor_qid": "Q2299834",
+    "answers": [
+     "Q2290999"
+    ],
+    "tier": "data_unique",
+    "answer_labels": [
+     "Tautoga"
+    ]
+   },
+   "detected": "its genus",
+   "relations": [
+    "genus"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "04769",
+   "span": "a daimyo of the Akizuki clan (his father)",
+   "oracle": "GROUNDED",
+   "oracle_answers": [
+    "Q11595125"
+   ],
+   "pipeline": {
+    "outcome": "GROUNDED",
+    "anchor_qid": "Q1194899",
+    "answers": [
+     "Q11595125"
+    ],
+    "tier": "schema_unique",
+    "answer_labels": [
+     "秋月種美"
+    ]
+   },
+   "detected": "a daimyo of the Akizuki clan",
+   "relations": [
+    "father"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "04770",
+   "span": "His mother",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q1194899",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "His mother",
+   "relations": [
+    "mother"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "05017",
+   "span": "his father",
+   "oracle": "MISSING",
+   "oracle_answers": [],
+   "pipeline": {
+    "outcome": "MISSING",
+    "anchor_qid": "Q8006209",
+    "answers": [],
+    "tier": null,
+    "answer_labels": []
+   },
+   "detected": "his father",
+   "relations": [
+    "father"
+   ],
+   "same_as_oracle": true
+  },
+  {
+   "id": "05035",
+   "span": "His father",
+   "oracle": "GROUNDED",
+   "oracle_answers": [
+    "Q333823"
+   ],
+   "pipeline": {
+    "outcome": "GROUNDED",
+    "anchor_qid": "Q1579115",
+    "answers": [
+     "Q333823"
+    ],
+    "tier": "schema_unique",
+    "answer_labels": [
+     "Gwilym Lloyd George, 1st Viscount Tenby"
+    ]
+   },
+   "detected": "his father",
+   "relations": [
+    "father"
+   ],
+   "same_as_oracle": true
+  }
+ ]
+}

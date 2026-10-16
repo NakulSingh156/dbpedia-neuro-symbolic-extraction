@@ -1,1 +1,3 @@
 cache_wikidata/
+cache_dbpedia/
+cache_detect_*.json
