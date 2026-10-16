@@ -209,6 +209,7 @@ Two parts, because natural cases are sparse (finding 2):
   3. No-answer items are created deliberately, in two ways:
      - **natural**: the anchor really lacks the relation;
      - **simulated** (borrowed from GrailQAbility, ACL 2023): a known fact is **deleted** from the pinned KB snapshot, sampled by inverse popularity. The true answer stays known, so we can score whether a system recovers it (lenient evaluation) and whether its missing-fact flag is right.
+- **Sampling per cell, not uniformly** (prototype, 16 Oct: `testset/make_controlled_prototype.py`). For 60 random English-Wikipedia people, Wikidata records **none** of the asked kin in 403/420 slots (96%), one answer in 14, several in 3; random people are very long-tail (sitelink tertile cuts 2 and 5). So unique/ambiguous cells must be filled by sampling anchors that *have* the relation, per popularity stratum. Popularity tiers use **global** sitelink quantiles, not per-sample ones.
 - **Strata:** 2 KBs × 3 answer types × 3 popularity tiers (DBP in-degree, WD sitelinks) = 18 cells × ~50 items ≈ **900 items**. That gives about ±7 points per cell and ±3 overall. Plus a nested-description slice (~100).
 - **Generation:** templates → LLM paraphrase → **every item checked by a human**.
 - **Leakage control:** the popularity tiers expose memorisation; report every number by tier.

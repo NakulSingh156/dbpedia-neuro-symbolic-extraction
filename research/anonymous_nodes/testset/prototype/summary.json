@@ -1,0 +1,64 @@
+{
+ "anchors": 60,
+ "items": 434,
+ "sitelink_cuts": [
+  2,
+  5
+ ],
+ "by_type": {
+  "none": 403,
+  "unique": 14,
+  "none_simulated": 14,
+  "ambiguous": 3
+ },
+ "by_tier": {
+  "schema_unique": 120,
+  "data_unique": 300
+ },
+ "by_pop": {
+  "head/ambiguous": 2,
+  "head/none": 124,
+  "head/unique": 7,
+  "mid/none": 89,
+  "mid/unique": 2,
+  "tail/ambiguous": 1,
+  "tail/none": 190,
+  "tail/unique": 5
+ },
+ "by_noun": {
+  "father": {
+   "none": 56,
+   "unique": 4
+  },
+  "mother": {
+   "none": 57,
+   "unique": 3
+  },
+  "wife": {
+   "none": 47,
+   "unique": 2
+  },
+  "husband": {
+   "none": 10,
+   "unique": 1
+  },
+  "brother": {
+   "none": 58,
+   "unique": 1,
+   "ambiguous": 1
+  },
+  "sister": {
+   "none": 59,
+   "unique": 1
+  },
+  "son": {
+   "none": 57,
+   "unique": 2,
+   "ambiguous": 1
+  },
+  "daughter": {
+   "none": 59,
+   "ambiguous": 1
+  }
+ }
+}

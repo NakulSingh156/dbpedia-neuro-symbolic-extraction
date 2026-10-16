@@ -2,6 +2,12 @@
 
 One entry per working block. Newest first.
 
+## 2026-10-16 (night) — building started (decision-independent pieces)
+- `generic/ARCHITECTURE.md`: DBpedia-assumption audit of `src/` + scripts, grouped by adapter interface (OntologyAdapter / EntityIndex / KBQuery / OutputWriter), plus what Wikidata needs that DBpedia never did.
+- `generic/ir.py` (Description IR, nested anchors, hops with alternative properties), `generic/relation_lexicon.json` v0 (44 relational nouns → WD + DBpedia paths + gender), `generic/lexicon.py` (chain expansion, plural/synonym folding).
+- `generic/kb_wikidata.py`: QLever→WDQS, POST, disk cache, KBUnavailable on failure (never empty), bound-subject paths, lenient gender filter, unknown-value count, ancestors, single-value-constraint lookup, schema_unique(), labels with language fallback, sitelinks, fact masking. Tests: 3 offline + 1 live, all pass (Marie Antoinette 2 spouses; Uesugi father 秋月種美; father schema-unique, spouse not).
+- `testset/make_controlled_prototype.py`: 60 random enwiki humans → 434 items. Wikidata has none of the asked kin in 96% of slots → per-cell sampling needed; global popularity quantiles.
+
 ## 2026-10-16 (evening) — three pre-meeting probes
 - **Related work pass 2b** (`related_work.md`): GrailQAbility (read in full core), RetinaQA, Hou 2020, EDC, Learn to Not Link. Gap holds: KBQA answerability has our MISSING (≈NA) and UNRESOLVED (≈NK) but no AMBIGUOUS (answers are sets), no extraction, no unnamed-entity representation. Borrowed: deletion-based MISSING items with inverse-popularity sampling; abstention-reason check; discriminative compile-then-decide; "X of what?" anchor questions; define-then-retrieve relation mapping.
 - **Extraction mode** (`occurrence/extraction_mode.py`, `extraction_graded.py`): same 23 descriptions, plain "extract triples with canonical names" prompt. Lost or junk: Qwen 17/23 (74%), Llama 16/23 (70%) — PHRASE 10/10, FLATTENED 5/4, DROPPED 2/2; NAMED_OK 5/6; NAMED_WRONG 1/0. → the failure is junk/lost entities, not invented names. Added the junk-node-rate metric.
