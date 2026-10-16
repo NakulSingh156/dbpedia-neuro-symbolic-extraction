@@ -87,19 +87,23 @@ table([
  ["Real cases are often nested: “the grandson of the founder of Mérida”", "Internal representation = a path of relations; an anchor can itself be a description"],
  ["Implicit entity linking (Perera et al., ESWC 2016; Hosseini & Bagheri 2019–22): links the unnamed topic of a tweet by ranking; type given in advance; always answers; never abstains", "Our novelty: relation-constrained grounding + abstention by answer count + anonymous nodes inside extraction + cross-ontology adapters. Their ranker becomes a baseline"],
  ["OpenEL (LREC 2022) annotators dropped referents with no unique Wikidata ID", "Motivation: we keep what others discard"],
+ ["Open world: Wikidata declares single-value only for 5 of 57 mapped properties (birth/death place, father, mother, capital). Place relations: KB answer matches the text 90.1% when schema-unique vs 78.4% when only data-unique; DBpedia declares none of our relations functional", "Every grounding carries a tier (schema-unique vs data-unique), reported separately; optional strict mode. Our formal answer to “unique in the KB ≠ unique in the world”"],
+ ["Same 50 people: full article bodies have about the same density (1.6 per 100 sentences) as abstracts (2.9), but ≈ 6× more cases per person", "Mine the natural set from full biographies (~600–900 articles → 200–300 items); filter fiction"],
+ ["25–31% of real descriptions are named or inferable elsewhere in the same text", "New step: resolve inside the document first; the KB then verifies. These cases are free silver test data"],
+ ["Teaser, 23 real descriptions: Wikidata grounds 7, has nothing for 15. Qwen-7B and Llama-8B (allowed to say UNKNOWN) named no wrong entity; only the KB named 2 long-tail people (e.g. a father with only a Japanese label)", "Lead with facts kept (65% would be lost as UNKNOWN) and long-tail recall, not “LLMs hallucinate”; also test LLMs in plain extraction mode"],
 ], [8.2, 9.3])
-para("Occurrence labels are a first pass by Claude; Nakul’s blind 50-sentence check (Cohen’s κ) is in progress before any rate is cited.", italic=True, size=9)
+para("Occurrence labels and probe judgements are a first pass by Claude; Nakul’s blind 50-sentence check (Cohen’s κ) is in progress before any rate is cited. The last three rows are small pre-meeting probes (n = 50 people, 23 descriptions): signals, not results.", italic=True, size=9)
 
 h1("3. Architecture", new_page=True)
 d.add_picture(os.path.join(os.path.dirname(os.path.abspath(__file__)), "figures", "architecture.png"), width=Cm(17.3))
 table([
  ["Step", "What it does", "Reuses from NEF 2.0"],
  ["M1 Detect & parse", "Finds unnamed non-topic mentions; fills a structured description (anchor, relation chain, gender/ordinal/time constraints). LLM with structured output + a high-recall pattern scanner", "Node 1"],
- ["M2 Resolve anchor", "Links the anchor: the topic, a named entity, or (nested) another description resolved first", "Nodes 2–3, surface-form index, coref tiers"],
+ ["M2 Resolve anchor", "Links the anchor: the topic, a named entity, or (nested) another description resolved first. First checks whether the text itself names the referent elsewhere; then the KB only verifies", "Nodes 2–3, surface-form index, coref tiers"],
  ["M3 Map relations", "Phrase → property path + direction, via the adapter’s relation lexicon (nephew = sibling → child + male), retrieval and LLM re-rank; low confidence → unresolved", "Node 3 predicate linker"],
  ["M4 Compile query", "The KB-neutral description → the KB’s SPARQL dialect (Wikidata qualifiers when ordinals or time matter)", "—"],
  ["M5 Execute & normalise", "Runs it; merges answers that are really the same (place-in-place, conventions, sameAs); filters by type and gender", "containment logic from the surveys"],
- ["M6 Decide", "1 answer → grounded · 2+ → anonymous node + candidates · 0 → missing fact · not mappable → unresolved", "SPARQL gate"],
+ ["M6 Decide", "1 answer → grounded (tagged schema-unique or data-unique) · 2+ → anonymous node + candidates · 0 → missing fact · not mappable → unresolved", "SPARQL gate"],
  ["M7 Emit", "Triples with provenance through the adapter’s writer", "output harness"],
 ], [3.3, 10.6, 3.6])
 para("Adapters are the only KB-specific code: OntologyAdapter (properties, relation lexicon, containment, conventions) · EntityIndex · KBQuery · OutputWriter. "
@@ -152,7 +156,7 @@ table([
  ["ambiguous", "anonymous node + candidates", "candidate recall and set size · false-grounding rate"],
  ["none in KB", "anonymous node + missing fact", "abstention precision / recall"],
 ], [3.0, 6.0, 8.5])
-para("hallucinated-identity rate (names an entity the evidence doesn’t license); grounding F1; a risk–coverage curve (accuracy vs share answered) so hard abstention and LLM confidence are compared fairly; end-to-end triple F1 on the natural set; $ per 1,000 sentences. "
+para("facts kept (share of descriptions whose fact survives as a grounded entity or an anonymous node, vs dropped or lost to UNKNOWN); long-tail grounding accuracy; accuracy per grounding tier; hallucinated-identity rate (names an entity the evidence doesn’t license); grounding F1; a risk–coverage curve (accuracy vs share answered) so hard abstention and LLM confidence are compared fairly; end-to-end triple F1 on the natural set; $ per 1,000 sentences. "
      "3 runs per LLM system, bootstrap 95% CIs, paired McNemar tests; KB snapshots pinned and every query cached.", bold_lead="Headline: ")
 
 h1("9. Plan and gates")
@@ -177,7 +181,8 @@ for i, q in enumerate([
  "Natural-text source: abstracts + full article bodies, biographies first?",
  "Which CoNLL / Wikidata benchmarks you meant, so we can adapt them.",
  "API budget for the LLM baselines (B1, B3, B4).",
- "Feasibility gate: occurrence is 2.7% vs our 3% bar. Accept with the wider text source and a controlled-set-led evaluation?",
+ "Feasibility gate: occurrence is 2.7% vs our 3% bar. Full articles give ≈ 6× more cases per person at the same density. Accept, with the natural set mined from full biographies and a controlled-set-led evaluation?",
+ "Story emphasis: lead with facts kept + long-tail recall + abstention by schema tier, rather than “LLMs hallucinate”?",
 ], 1):
     p = d.add_paragraph(style="List Paragraph"); r = p.add_run(f"{i}. "); r.bold = True; p.add_run(q)
     p.paragraph_format.space_after = Pt(2)

@@ -1,0 +1,155 @@
+{
+ "wd_props_checked": 57,
+ "wd_props_single_value": 5,
+ "dbp_functional_properties_in_ontology": 31,
+ "wd": {
+  "data_unique": {
+   "covered_facts": 1252,
+   "unique_given_covered_pct": 80.4,
+   "grounded_judged": 1004,
+   "agree_exact_or_containment_pct": 70.7,
+   "agree_ci95": [
+    0.678,
+    0.734
+   ],
+   "top_relations": [
+    [
+     "location",
+     201
+    ],
+    [
+     "nationality",
+     172
+    ],
+    [
+     "country",
+     140
+    ],
+    [
+     "occupation",
+     76
+    ],
+    [
+     "locatedInArea",
+     75
+    ],
+    [
+     "sport",
+     43
+    ],
+    [
+     "position",
+     36
+    ],
+    [
+     "genre",
+     31
+    ]
+   ]
+  },
+  "schema_unique": {
+   "covered_facts": 102,
+   "unique_given_covered_pct": 99.0,
+   "grounded_judged": 101,
+   "agree_exact_or_containment_pct": 90.1,
+   "agree_ci95": [
+    0.827,
+    0.945
+   ],
+   "top_relations": [
+    [
+     "birthPlace",
+     80
+    ],
+    [
+     "deathPlace",
+     20
+    ],
+    [
+     "capital",
+     1
+    ]
+   ]
+  }
+ },
+ "dbp": {
+  "data_unique": {
+   "covered_facts": 628,
+   "unique_given_covered_pct": 76.0,
+   "grounded_judged": 457,
+   "agree_exact_or_containment_pct": 89.3,
+   "agree_ci95": [
+    0.861,
+    0.918
+   ],
+   "top_relations": [
+    [
+     "country",
+     93
+    ],
+    [
+     "family",
+     59
+    ],
+    [
+     "isPartOf",
+     46
+    ],
+    [
+     "birthPlace",
+     42
+    ],
+    [
+     "location",
+     28
+    ],
+    [
+     "position",
+     25
+    ],
+    [
+     "nationality",
+     23
+    ],
+    [
+     "director",
+     22
+    ]
+   ]
+  }
+ },
+ "wd_like_for_like_places": {
+  "schema_unique_places": {
+   "n": 101,
+   "agree_pct": 90.1,
+   "ci95": [
+    0.827,
+    0.945
+   ]
+  },
+  "data_unique_places": {
+   "n": 328,
+   "agree_pct": 78.4,
+   "ci95": [
+    0.736,
+    0.825
+   ]
+  }
+ },
+ "wd_single_value_props": {
+  "P19": "single-best-value",
+  "P20": "single-best-value",
+  "P22": "single-best-value",
+  "P25": "single-best-value",
+  "P36": "single-best-value"
+ },
+ "wd_schema_unique_relations": [
+  "birthPlace",
+  "capital",
+  "deathPlace",
+  "father",
+  "mother",
+  "\u0645\u0648\u062a_\u06a9\u06cc_\u062c\u06af\u06c1"
+ ],
+ "dbp_functional_relations_seen": []
+}

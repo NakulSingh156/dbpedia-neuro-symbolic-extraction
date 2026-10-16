@@ -28,7 +28,7 @@ ax.text(0.1, 5.38, "A description becomes a KB query; the number of answers deci
 y1, h = 4.05, 0.9
 box(0.1, y1, 1.75, h, "Text + context", "sentence, topic,\nprevious sentence", fill="#f4f4f4")
 box(2.25, y1, 1.75, h, "M1 Detect & parse", "unnamed mention ->\nDescription IR")
-box(4.4, y1, 1.75, h, "M2 Resolve anchor", "link / coref to topic /\nrecurse if nested")
+box(4.4, y1, 1.75, h, "M2 Resolve anchor", "link / coref, in-text first /\nrecurse if nested")
 box(6.55, y1, 1.75, h, "M3 Map relations", "phrase -> property path\n+ gender, ordinal, time")
 for xa, xb in ((1.85, 2.25), (4.0, 4.4), (6.15, 6.55)):
     arrow(xa, y1 + h/2, xb, y1 + h/2)

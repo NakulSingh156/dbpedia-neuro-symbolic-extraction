@@ -1,6 +1,6 @@
-# Anonymous-node grounding — architecture and methodology (v1, 2026-10-16)
+# Anonymous-node grounding — architecture and methodology (v1.1, 2026-10-16)
 
-Draft for agreement with Tsoru. It builds on the evidence collected from 9 to 16 Oct (§2) and refines Part III of `PROJECT_CONTEXT.md`. Where the two differ, this file is newer.
+Draft for agreement with Tsoru. v1.1 adds three pre-meeting probes (findings 11–14). It builds on the evidence collected from 9 to 16 Oct (§2) and refines Part III of `PROJECT_CONTEXT.md`. Where the two differ, this file is newer.
 
 ---
 
@@ -35,6 +35,10 @@ The same machinery must work on **any ontology** through thin adapters. We show 
 | 8 | Implicit entity linking (Perera 2016; Hosseini 2019–22) links unnamed *topic* entities in tweets by ranking. The type must be known in advance, every item yields a top-1 answer, and nothing abstains (`related_work.md`) | Our differences are relation-constrained grounding, cardinality-based abstention, anonymous-node output inside extraction, and cross-ontology adapters. An **implicit-EL-style ranker is a required baseline.** |
 | 9 | Annotated corpora drop referents with no unique KB ID (OpenEL 2022) | Motivation: we keep exactly what others discard. |
 | 10 | About 1 in 4 of the residual mismatches came from our own Phase-1 extraction or name→ID mapping | Error analysis must separate pipeline noise from grounding errors. The test set gives gold anchors for the controlled condition. |
+| 11 | **Open world: schema-unique beats data-unique.** Wikidata declares a single(-best)-value constraint on only 5 of 57 mapped properties (P19, P20, P22, P25, P36). Like-for-like (place relations): KB answer agrees with the text **90.1%** when the relation is schema-unique vs **78.4%** when only data-unique (exact + containment, before conventions; CIs 82.7–94.5 vs 73.6–82.5). Schema-unique relations are unique in 99.0% of covered facts. DBpedia declares 31 functional properties, none of them object relations we use (`wikidata/schema_uniqueness.py`) | M6 records a **grounding tier**: *schema-unique* (strong) vs *data-unique* (weaker). All metrics are reported per tier; an optional strict mode grounds schema-unique only. This is the formal answer to "unique in the KB ≠ unique in the world". |
+| 12 | **Density probe** (50 people, same people on both sides): relational descriptions per 100 sentences are about the same in full article bodies (1.6 non-fiction, CI 1.1–2.4) as in abstracts (2.9, CI 1.2–7.3), but bodies give **≈ 6× more cases per person** (0.50 vs 0.08) (`occurrence/density_*.py`) | The natural set is mined from full biography articles: ~600–900 articles → 200–300 items. Fiction articles (soap, film plots) are filtered out. Changing the source does not raise per-sentence density, so G2 is argued on yield, not density. |
+| 13 | **25–31% of real descriptions are named elsewhere in the same text** (abstract, lead or body), and some are inferable from a neighbouring sentence ("a brother of the wife of Guilhem" → "his brother-in-law" = Guilhem) | New step **M2b in-document resolution before the KB**: if the text itself resolves the description, use it and let the KB *verify* it. Named-elsewhere cases are also free silver gold for evaluating grounding. |
+| 14 | **Headroom teaser** (23 real descriptions, oracle parse, local LLMs told they may say UNKNOWN): Wikidata grounds 7, finds nothing for 15 (missing fact), 1 anchor not in the KB. **Neither Qwen2.5-7B nor Llama-3.1-8B named a wrong entity**: they abstain (16/23, 13/23) or answer from the text. The KB alone named 2 long-tail entities both LLMs could not (Arthur Winter's brother William Winter; Uesugi Harunori's father 秋月種美, who has only a Japanese label). Llama named 2 plausible entities the KB lacks (`occurrence/headroom_*.py`) | The story is **not** "LLMs hallucinate names" when abstention is invited. The value is (a) long-tail recall where the KB knows and the LLM doesn't, and (b) **keeping the ~65% of facts nobody can name** as anonymous nodes + missing-fact flags instead of losing them. B1 must also run in **extraction mode** (abstention not invited), where hallucination is still untested. n = 23: a signal, not a result. |
 
 ---
 
@@ -95,10 +99,11 @@ One JSON object per unnamed mention. M1 produces it; M2 and M3 fill it in; M4 co
 |---|---|---|---|
 | **M1 Detect & parse** | Finds unnamed non-topic mentions and fills the IR (mention, anchor text, relation phrases, constraints) | LLM with structured output (Qwen2.5-7B locally; API models as baselines), plus the high-recall pattern scanner from `occurrence/scan.py` as a recall net | Node 1 prompt, which currently emits flat strings |
 | **M2 Resolve anchor** | Gives the anchor an ID | Topic → the abstract's entity; named → surface-form index + NEF linker; nested → recurse M2–M6 on the inner description, continuing only if that one is GROUNDED | Nodes 2–3, Redis `sf:` index, coref tiers |
+| **M2b In-document resolution** | Checks whether the text itself names the referent (apposition elsewhere, a neighbouring sentence, bridging) | Document-level coreference/bridging over the article; if resolved, the KB step **verifies** the text's answer instead of choosing one (finding 13) | coref tiers |
 | **M3 Map relations** | Phrase → property path + direction + constraints, with a confidence score | Adapter's relation lexicon (kinship and role tables) → property label/alias retrieval (embeddings) → LLM re-rank of the top-k. Below threshold → UNRESOLVED | Node 3 predicate linker, predicate filter |
 | **M4 Compile** | IR → executable query | KB-neutral conjunctive path query → the adapter renders SPARQL (WD: `wdt:`, or `p:/ps:/pq:` when qualifiers are needed; DBP: `dbo:`) | — |
 | **M5 Execute & normalise** | Gets the answer set and collapses equivalents | Merge values that contain one another (adapter's containment properties); **convention rules** (demonym → country, historical polity → successor, subclass via P279/`rdfs:subClassOf`, sport ↔ player); merge sameAs and redirects; filter by type and gender | Containment logic from the surveys; `decompose_mismatches.py` caching |
-| **M6 Decide** | Picks the outcome by cardinality after normalisation | 1 → GROUNDED; ≥2 → AMBIGUOUS (keep candidates; optional ranking reported separately, never auto-picked); 0 with the relation known for the anchor's type → MISSING FACT; anchor or relation unmapped → UNRESOLVED | SPARQL gate thresholds |
+| **M6 Decide** | Picks the outcome by cardinality after normalisation, and records the **grounding tier** (schema-unique / data-unique, finding 11) | 1 → GROUNDED; ≥2 → AMBIGUOUS (keep candidates; optional ranking reported separately, never auto-picked); 0 with the relation known for the anchor's type → MISSING FACT; anchor or relation unmapped → UNRESOLVED | SPARQL gate thresholds |
 | **M7 Emit** | Writes the facts | `OutputWriter` per adapter (§3.5) | Output harness |
 
 ### 3.4 Adapter interfaces (the ontology-agnostic layer)
@@ -172,7 +177,7 @@ The same LLM is used inside N/H as in B1/B3/B4, so the comparison isolates the m
 | RQ | Question | Experiment | Main result table |
 |---|---|---|---|
 | RQ1 | How often can an unnamed entity be grounded uniquely; how does it depend on KB and relation? | **E1 Groundability survey.** Done on Phase-1 facts for both KBs; repeat on the natural test items; report by relation family with convention-aware comparison | Uniqueness / coverage / expected grounding / agreement, DBP vs WD, by family |
-| RQ2 | Does KB-constrained grounding with abstention beat the LLM and KB-tool baselines, especially on the long tail and when nothing is recorded? | **E2** controlled set, all systems, stratified · **E3** natural set (realism) · **E5** ablations | Accuracy and hallucinated-identity rate by KB × answer type × popularity |
+| RQ2 | Does KB-constrained grounding with abstention beat the LLM and KB-tool baselines, especially on the long tail and when nothing is recorded? (B1 in two modes: abstention invited, and plain extraction) | **E2** controlled set, all systems, stratified · **E3** natural set (realism) · **E5** ablations | Accuracy and hallucinated-identity rate by KB × answer type × popularity |
 | RQ3 | Can one architecture serve different ontologies via adapters, and at what cost? | **E4** adapter generality (DBP regression G5; WD; optional YAGO) · **E6** cost | LoC/config per adapter, core changes = 0; $ / 1k sentences, calls, latency |
 
 **Ablations (E5, on dev only):**
@@ -239,7 +244,10 @@ From the benchmark survey, no existing benchmark contains relational description
 | ambiguous | anonymous node + candidates ⊇ gold set | candidate recall, set size; false-grounding rate (picked one) |
 | none (KB lacks it) | anonymous node + missing-fact | abstention precision and recall |
 
-**Headline numbers:**
+**Headline numbers** (after finding 14, lead with what is *kept and recovered*, not only what is avoided):
+- **Facts kept:** the share of descriptions whose fact survives into the KG output (grounded, or as an anonymous node with candidates or a missing-fact flag), vs dropped by B0 and lost to UNKNOWN by LLMs.
+- **Long-tail recall:** grounding accuracy on the bottom popularity tier.
+- **Per grounding tier:** accuracy for schema-unique vs data-unique groundings.
 - **Hallucinated-identity rate:** the share of items where the system names an entity the evidence doesn't license.
 - **Grounding F1 on answerable items.**
 - **Risk–coverage curve** (selective prediction): accuracy vs share answered. This compares our hard abstention with LLM confidence thresholds fairly.
@@ -301,6 +309,13 @@ From the benchmark survey, no existing benchmark contains relational description
 
 ---
 
+## 10b. Probes run before the meeting (16 Oct)
+
+- `wikidata/schema_uniqueness.py` → `wikidata/results/schema_uniqueness.json` (finding 11).
+- `occurrence/density_probe.py`, `density_verified.py` → `occurrence/results/density_summary.json` (findings 12–13).
+- `occurrence/headroom_teaser.py`, `headroom_graded.py` → `occurrence/results/headroom_summary.json` (finding 14).
+- All hand judgements in these are Claude's, one pass.
+
 ## 11. Decisions needed from Tsoru
 
 1. **Scope:** non-topic relational descriptions only — topic coreference out. Agree?
@@ -309,4 +324,5 @@ From the benchmark survey, no existing benchmark contains relational description
 4. **Text sources** for the natural set: abstracts + full article bodies (biographies first)?
 5. **Which CoNLL / Wikidata benchmarks** he meant (§6.3).
 6. **API budget** for the B1/B3/B4 baselines.
-7. **G2 thresholds**, given 2.7% occurrence: accept with the source widened, or change the story's weighting toward controlled evaluation?
+7. **G2 thresholds**, given 2.7% occurrence: accept with the source widened, or change the story's weighting toward controlled evaluation? (Full articles give ≈6× more cases per person at the same density.)
+8. **Story emphasis** after the headroom teaser: lead with *facts kept + long-tail recall + abstention by schema tier*, rather than "LLMs hallucinate"?

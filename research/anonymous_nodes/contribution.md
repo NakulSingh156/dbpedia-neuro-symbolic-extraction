@@ -18,6 +18,8 @@ Text-to-knowledge-graph extraction handles entities that a sentence names. When 
 - Existing benchmarks: Wikidata-TekGen has ≈10% unnamed entity mentions (17.7% of test sentences), almost all the article's own topic ("The film …"); DBpedia-WebNLG ≈0.1%; **neither contains a relational description of another entity** (0/120 hand-labelled) (`benchmarks/`).
 - Wikidata natively models "a value that exists but whose identity is unknown" (PropertySomeValueSnak), now exported as skolem IRIs — a representation precedent.
 - Wikidata survey: on the same 2,271 facts, Wikidata grounds 47–49% vs DBpedia 19–21%; father/mother are 99.6% unique. When a KB answers, it agrees with the text ~96% (Wikidata) / ~98% (DBpedia) once granularity and modelling conventions are accounted for (`wikidata/`).
+- Open world: where Wikidata declares a relation single-valued, the KB answer matches the text 90.1% vs 78.4% when it is only unique in the data (place relations).
+- Teaser (n=23 real descriptions): Wikidata grounds 7, has nothing for 15; local LLMs mostly abstain; only the KB names 2 long-tail people. Value = facts kept + long-tail recall.
 - Occurrence (first pass, κ pending): 2.7% of DBpedia abstract sentences describe another entity through a relation; ~0.2–1% are KB-groundable. **The phenomenon is sparse, so the test set has to be mined** (`occurrence/`).
 
 ## Positioning against the closest work (from pass 1)

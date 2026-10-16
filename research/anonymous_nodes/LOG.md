@@ -2,6 +2,12 @@
 
 One entry per working block. Newest first.
 
+## 2026-10-16 (evening) — three pre-meeting probes
+- **Schema-unique vs data-unique** (`wikidata/schema_uniqueness.py`): Wikidata single(-best)-value constraints on only 5/57 mapped properties (P19, P20, P22, P25, P36). Place relations, exact + containment: 90.1% agreement schema-unique (n=101) vs 78.4% data-unique (n=328). Schema-unique relations unique in 99.0% of covered facts. DBpedia: 31 functional properties, none of our object relations.
+- **Density probe** (`occurrence/density_probe.py`, `density_verified.py`): 50 people, all sentences hand-checked among 204 scan hits. Per 100 sentences (non-fiction): abstract 2.9, article lead 1.5, article body 1.6; per person: body 0.50 vs abstract 0.08 (≈6×). Named elsewhere in the text: 25–31%. Wikipedia API rate-limited us (429) → cached extracts, 3 s pacing.
+- **Headroom teaser** (`occurrence/headroom_teaser.py`, `headroom_graded.py`): 23 real descriptions, oracle parse. Wikidata: 7 grounded, 15 missing, 1 anchor absent. Qwen2.5-7B / Llama-3.1-8B (UNKNOWN allowed): 0 wrong entities; abstain 16/13; only the KB named William Winter and 秋月種美 (Akizuki Tanemi). Found and fixed two scan labels (Sol Levi's brother is named elsewhere; Pons Santolh's brother-in-law is inferable).
+- METHODOLOGY → v1.1 (findings 11–14, M2b in-document resolution, grounding tier, facts-kept headline, decision 8). Word doc rebuilt (5 pages).
+
 ## 2026-10-16 (later)
 - `METHODOLOGY.md` v1: architecture (Description IR, modules M1–M7, adapter interfaces, output representation), approaches B0–B4 + N/H, RQ→experiment map, two-part test set (controlled + mined natural), metrics, plan, decisions needed from Tsoru.
 - Occurrence count (Phase 2.4), see `occurrence/README.md`. First pass by Claude; awaiting Nakul's blind 50 for κ.

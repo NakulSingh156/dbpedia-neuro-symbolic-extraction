@@ -1,0 +1,714 @@
+[
+ {
+  "id": "00506",
+  "span": "His brother",
+  "anchor": "Arthur Winter",
+  "anchor_qid": "Q4800716",
+  "paths": [
+   [
+    "P3373"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q28836940",
+    "William Winter"
+   ]
+  ],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "Arthur Winter's brother",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "00951",
+  "span": "the father-in-law of Isaac N. Deadrick",
+  "anchor": "Isaac N. Deadrick",
+  "anchor_qid": null,
+  "paths": [
+   [
+    "P26",
+    "P22"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "ANCHOR-NOT-IN-KB",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "00964",
+  "span": "His namesake nephew",
+  "anchor": "Carlo Zucchi (general)",
+  "anchor_qid": "Q2939273",
+  "paths": [
+   [
+    "P3373",
+    "P40"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "Carlo Zucchi's nephew",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "01649",
+  "span": "its ruler",
+  "anchor": "Negeri Sembilan",
+  "anchor_qid": "Q213893",
+  "paths": [
+   [
+    "P35"
+   ]
+  ],
+  "gender": null,
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Yang di-Pertuan Besar of Negeri Sembilan",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "PLAUSIBLE"
+  }
+ },
+ {
+  "id": "01816",
+  "span": "his wife",
+  "anchor": "George Hyde (Knight of the Bath)",
+  "anchor_qid": "Q5540902",
+  "paths": [
+   [
+    "P26"
+   ]
+  ],
+  "gender": "Q6581072",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "UNKNOWN",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "01981",
+  "span": "the founder of Mérida",
+  "anchor": "Mérida, Yucatán",
+  "anchor_qid": "Q165204",
+  "paths": [
+   [
+    "P112"
+   ]
+  ],
+  "gender": null,
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "Francisco de Montejo",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "PLAUSIBLE"
+  }
+ },
+ {
+  "id": "01981",
+  "span": "the grandson of the founder of Mérida",
+  "anchor": "Mérida, Yucatán",
+  "anchor_qid": "Q165204",
+  "paths": [
+   [
+    "P112",
+    "P40",
+    "P40"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "02054",
+  "span": "a financial secretary (his father)",
+  "anchor": "Hermann Pister",
+  "anchor_qid": "Q68100",
+  "paths": [
+   [
+    "P22"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "Hermann Pister's father",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "02126",
+  "span": "his daughter",
+  "anchor": "Hrafna-Flóki Vilgerðarson",
+  "anchor_qid": "Q737030",
+  "paths": [
+   [
+    "P40"
+   ]
+  ],
+  "gender": "Q6581072",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "UNKNOWN",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "02127",
+  "span": "another of his daughters",
+  "anchor": "Hrafna-Flóki Vilgerðarson",
+  "anchor_qid": "Q737030",
+  "paths": [
+   [
+    "P40"
+   ]
+  ],
+  "gender": "Q6581072",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "02528",
+  "span": "his dead son",
+  "anchor": "Kanakaraya Mudali",
+  "anchor_qid": "Q16859424",
+  "paths": [
+   [
+    "P40"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Pedro Kanakaraya Mudaliar's dead son",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "03186",
+  "span": "her father",
+  "anchor": "Miriam Marx",
+  "anchor_qid": "Q6873382",
+  "paths": [
+   [
+    "P22"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q103846",
+    "Groucho Marx"
+   ]
+  ],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "Groucho Marx",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Groucho Marx",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "TEXT",
+   "llama3.1:8b": "TEXT"
+  }
+ },
+ {
+  "id": "03360",
+  "span": "her son",
+  "anchor": "Nefertkau I",
+  "anchor_qid": "Q453219",
+  "paths": [
+   [
+    "P40"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q725897",
+    "Nefermaat II"
+   ]
+  ],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "Nefermaat II",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Nefermaat II",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "TEXT",
+   "llama3.1:8b": "TEXT"
+  }
+ },
+ {
+  "id": "03360",
+  "span": "her grandson",
+  "anchor": "Nefertkau I",
+  "anchor_qid": "Q453219",
+  "paths": [
+   [
+    "P40",
+    "P40"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q2295913",
+    "Sneferukhaf"
+   ]
+  ],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "Sneferukhaf",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Sneferukhaf",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "TEXT",
+   "llama3.1:8b": "TEXT"
+  }
+ },
+ {
+  "id": "03715",
+  "span": "his father",
+  "anchor": "Philipp van Limborch",
+  "anchor_qid": "Q691944",
+  "paths": [
+   [
+    "P22"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Philipp van Limborch's father",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "03772",
+  "span": "the wife of Guilhem de Montanhagol",
+  "anchor": "Guilhem de Montanhagol",
+  "anchor_qid": "Q734139",
+  "paths": [
+   [
+    "P26"
+   ]
+  ],
+  "gender": "Q6581072",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "03773",
+  "span": "his brother-in-law",
+  "anchor": "Pons Santolh",
+  "anchor_qid": "Q1242938",
+  "paths": [
+   [
+    "P26",
+    "P3373"
+   ],
+   [
+    "P3373",
+    "P26"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Guilhem de Montanhagol",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "TEXT"
+  }
+ },
+ {
+  "id": "04298",
+  "span": "his brother",
+  "anchor": "Sol Levi",
+  "anchor_qid": "Q7555547",
+  "paths": [
+   [
+    "P3373"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "Asher Levi",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Asher Levi",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "TEXT",
+   "llama3.1:8b": "TEXT"
+  }
+ },
+ {
+  "id": "04484",
+  "span": "its genus",
+  "anchor": "Tautog",
+  "anchor_qid": "Q2299834",
+  "paths": [
+   [
+    "P171"
+   ]
+  ],
+  "gender": null,
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q2290999",
+    "Tautoga"
+   ]
+  ],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "Tautoga",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Tautoga",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "CORRECT",
+   "llama3.1:8b": "CORRECT"
+  }
+ },
+ {
+  "id": "04769",
+  "span": "a daimyo of the Akizuki clan (his father)",
+  "anchor": "Uesugi Harunori",
+  "anchor_qid": "Q1194899",
+  "paths": [
+   [
+    "P22"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q11595125",
+    null
+   ]
+  ],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "low"
+   },
+   "llama3.1:8b": {
+    "answer": "Uesugi Harunori's father",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "04770",
+  "span": "His mother",
+  "anchor": "Uesugi Harunori",
+  "anchor_qid": "Q1194899",
+  "paths": [
+   [
+    "P25"
+   ]
+  ],
+  "gender": "Q6581072",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "UNKNOWN",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Uesugi Harunori's mother",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "ABSTAIN",
+   "llama3.1:8b": "ABSTAIN"
+  }
+ },
+ {
+  "id": "05017",
+  "span": "his father",
+  "anchor": "William Busfield",
+  "anchor_qid": "Q8006209",
+  "paths": [
+   [
+    "P22"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "MISSING",
+  "kb_answers": [],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "Johnson Atkinson M.D.",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Johnson Atkinson Busfeild",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "TEXT",
+   "llama3.1:8b": "TEXT"
+  }
+ },
+ {
+  "id": "05035",
+  "span": "His father",
+  "anchor": "William Lloyd George, 3rd Viscount Tenby",
+  "anchor_qid": "Q1579115",
+  "paths": [
+   [
+    "P22"
+   ]
+  ],
+  "gender": "Q6581097",
+  "kb_outcome": "GROUNDED",
+  "kb_answers": [
+   [
+    "Q333823",
+    "Gwilym Lloyd George, 1st Viscount Tenby"
+   ]
+  ],
+  "kb_unknown_values": 0,
+  "llm": {
+   "qwen2.5:7b": {
+    "answer": "Gwilym Lloyd George, 1st Viscount Tenby",
+    "confidence": "high"
+   },
+   "llama3.1:8b": {
+    "answer": "Gwilym Lloyd George, 1st Viscount Tenby",
+    "confidence": "high"
+   }
+  },
+  "grade": {
+   "qwen2.5:7b": "TEXT",
+   "llama3.1:8b": "TEXT"
+  }
+ }
+]

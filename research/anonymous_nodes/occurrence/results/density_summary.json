@@ -1,0 +1,130 @@
+{
+ "persons": 50,
+ "sentences": {
+  "article_lead": 200,
+  "dbpedia_abstract": 136,
+  "article_body": 1535
+ },
+ "hit_sentences": {
+  "article_body": 163,
+  "article_lead": 26,
+  "dbpedia_abstract": 15
+ },
+ "dbpedia_abstract": {
+  "genuine_any": {
+   "k": 4,
+   "per_100_sentences": 2.94,
+   "ci95": [
+    0.0115,
+    0.0732
+   ],
+   "per_person": 0.08
+  },
+  "non_fiction": {
+   "k": 4,
+   "per_100_sentences": 2.94,
+   "ci95": [
+    0.0115,
+    0.0732
+   ],
+   "per_person": 0.08
+  },
+  "non_fiction_not_named_elsewhere": {
+   "k": 3,
+   "per_100_sentences": 2.21,
+   "ci95": [
+    0.0075,
+    0.0628
+   ],
+   "per_person": 0.06
+  },
+  "non_fiction_not_named_kb_likely": {
+   "k": 2,
+   "per_100_sentences": 1.47,
+   "ci95": [
+    0.004,
+    0.052
+   ],
+   "per_person": 0.04
+  },
+  "named_elsewhere_share": 0.25
+ },
+ "article_lead": {
+  "genuine_any": {
+   "k": 4,
+   "per_100_sentences": 2.0,
+   "ci95": [
+    0.0078,
+    0.0503
+   ],
+   "per_person": 0.08
+  },
+  "non_fiction": {
+   "k": 3,
+   "per_100_sentences": 1.5,
+   "ci95": [
+    0.0051,
+    0.0432
+   ],
+   "per_person": 0.06
+  },
+  "non_fiction_not_named_elsewhere": {
+   "k": 2,
+   "per_100_sentences": 1.0,
+   "ci95": [
+    0.0027,
+    0.0357
+   ],
+   "per_person": 0.04
+  },
+  "non_fiction_not_named_kb_likely": {
+   "k": 1,
+   "per_100_sentences": 0.5,
+   "ci95": [
+    0.0009,
+    0.0278
+   ],
+   "per_person": 0.02
+  },
+  "named_elsewhere_share": 0.25
+ },
+ "article_body": {
+  "genuine_any": {
+   "k": 32,
+   "per_100_sentences": 2.08,
+   "ci95": [
+    0.0148,
+    0.0293
+   ],
+   "per_person": 0.64
+  },
+  "non_fiction": {
+   "k": 25,
+   "per_100_sentences": 1.63,
+   "ci95": [
+    0.0111,
+    0.0239
+   ],
+   "per_person": 0.5
+  },
+  "non_fiction_not_named_elsewhere": {
+   "k": 16,
+   "per_100_sentences": 1.04,
+   "ci95": [
+    0.0064,
+    0.0169
+   ],
+   "per_person": 0.32
+  },
+  "non_fiction_not_named_kb_likely": {
+   "k": 5,
+   "per_100_sentences": 0.33,
+   "ci95": [
+    0.0014,
+    0.0076
+   ],
+   "per_person": 0.1
+  },
+  "named_elsewhere_share": 0.31
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "descriptions": 23,
+ "kb_outcomes_oracle_parse": {
+  "GROUNDED": 7,
+  "ANCHOR-NOT-IN-KB": 1,
+  "MISSING": 15
+ },
+ "llm": {
+  "qwen2.5:7b": {
+   "ABSTAIN": 16,
+   "TEXT": 6,
+   "CORRECT": 1
+  },
+  "llama3.1:8b": {
+   "ABSTAIN": 13,
+   "PLAUSIBLE": 2,
+   "TEXT": 7,
+   "CORRECT": 1
+  }
+ },
+ "kb_grounded_but_both_llms_abstain": [
+  "His brother / Arthur Winter",
+  "a daimyo of the Akizuki clan (his father) / Uesugi Harunori"
+ ],
+ "kb_missing_but_llm_named": [
+  [
+   "its ruler",
+   "Negeri Sembilan",
+   [
+    "ABSTAIN",
+    "PLAUSIBLE"
+   ]
+  ],
+  [
+   "the founder of Mérida",
+   "Mérida, Yucatán",
+   [
+    "ABSTAIN",
+    "PLAUSIBLE"
+   ]
+  ],
+  [
+   "his brother-in-law",
+   "Pons Santolh",
+   [
+    "ABSTAIN",
+    "TEXT"
+   ]
+  ],
+  [
+   "his brother",
+   "Sol Levi",
+   [
+    "TEXT",
+    "TEXT"
+   ]
+  ],
+  [
+   "his father",
+   "William Busfield",
+   [
+    "TEXT",
+    "TEXT"
+   ]
+  ]
+ ]
+}
