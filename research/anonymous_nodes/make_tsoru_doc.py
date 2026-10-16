@@ -64,7 +64,7 @@ def table(rows, widths, size=9):
 
 # Title block (as in the earlier meeting doc)
 p = d.add_paragraph(); r = p.add_run("Anonymous-Node Grounding: Architecture & Methodology"); r.bold = True; r.font.size = Pt(20)
-p = d.add_paragraph(); r = p.add_run("How we name the entities a sentence never names, and how we'll prove it works. Draft for discussion · Nakul Singh · 16 Oct 2026"); r.font.size = Pt(11.5)
+p = d.add_paragraph(); r = p.add_run("How we name the entities a sentence never names, and how we'll prove it works. Draft for discussion · Nakul Singh · 17 Oct 2026"); r.font.size = Pt(11.5)
 
 h1("1. The idea in one paragraph")
 para("“His namesake nephew was a notable architect.” The nephew is never named. Today NEF drops the fact and an LLM guesses a name. "
@@ -160,35 +160,51 @@ table([
 para("junk-node rate (description strings emitted as entities); facts kept (share of descriptions whose fact survives as a grounded entity or an anonymous node, vs dropped or lost to UNKNOWN); long-tail grounding accuracy; accuracy per grounding tier; hallucinated-identity rate (names an entity the evidence doesn’t license); grounding F1; a risk–coverage curve (accuracy vs share answered) so hard abstention and LLM confidence are compared fairly; end-to-end triple F1 on the natural set; $ per 1,000 sentences. "
      "3 runs per LLM system, bootstrap 95% CIs, paired McNemar tests; KB snapshots pinned and every query cached.", bold_lead="Headline: ")
 
-h1("9. Prototype status (16 Oct)")
-para("A first end-to-end prototype runs; numbers below are on development items (used while designing), not results.")
+h1("9. Prototype status (17 Oct)")
+para("A working end-to-end prototype exists (detect → link → query → decide, on Wikidata and DBpedia). Numbers below are development checks on items used while designing, not results; held-out numbers come from the natural set.")
 table([
  ["Piece", "Status", "Evidence"],
- ["Description format + relation lexicon", "done", "44 relation words (kinship incl. in-laws and cousins, founder, capital, genus, …) mapped to Wikidata and DBpedia paths with gender; nested chains (founder → grandson)"],
- ["Wikidata query layer", "done", "cached, never returns a failure as “no answer”, schema-unique check, label fallback (a father with only a Japanese label), fact masking for simulated missing items; live tests pass"],
+ ["Description format + relation lexicon", "done", "44 relation words (kinship incl. in-laws and cousins, founder, capital, genus, …) → Wikidata and DBpedia paths with gender; nested chains (founder → grandson)"],
+ ["Wikidata query layer", "done", "cached; a failed query is never returned as “no answer”; schema-unique check; label fallback (a father with only a Japanese label); fact masking for simulated missing items; refuses to link disambiguation pages"],
  ["DBpedia query layer", "done", "same interface over the local store; no gender data in our snapshot (declared). Marie Antoinette: 1 spouse in DBpedia, 2 in Wikidata"],
+ ["Answer comparison (M5)", "first version", "on 60 hand-coded mismatches: 20/30 “same fact, recorded differently” merged, 0/8 real disagreements merged (rules: strict containment, subclass, demonym, occupation → sport/field)"],
  ["Detector (M1)", "first version", "Llama-3.1-8B: correct relation path for 20/23 real descriptions, anchor 19/20; a rule filter cuts false alarms on 60 negative sentences from 59 to 1"],
- ["End to end (detect → link → query → decide)", "first version", "20/23 outcomes identical to the hand-written oracle; 7/7 groundings correct; 0 wrong identities; the 3 differences are abstentions"],
- ["Controlled test-set sampler", "prototype", "560 items (410 real + 150 simulated missing), 79/90 cells full; popularity tiers from all 2.15M people with an English article (tail ≤ 2 sitelinks, head ≥ 18 = top 5%)"],
+ ["End to end, 23 real descriptions", "first version", "20/23 identical to the hand-written oracle; 7/7 groundings correct; 0 wrong identities; the 3 differences are abstentions"],
+ ["End to end, controlled set (575 template items)", "plumbing check", "575/575 correct, 0 wrong identities, every answer type, tier and phrasing — but gold and pipeline share the lexicon and templates are easy, so this proves the plumbing, not accuracy"],
+ ["Controlled set, paraphrased", "running", "567/575 paraphrases kept the description intact; evaluation in progress"],
+ ["Controlled-set sampler", "prototype", "575 items (425 real + 150 simulated missing), 84/90 cells full (only father/mother “ambiguous” is short — structurally rare); popularity tiers from all 2.15M people with an English article"],
+ ["Held-out natural set", "mining", "45 biographies (15 per tier), 1,409 sentences, scan + detector; candidates then verified by hand"],
  ["Output writer, final test set", "waiting", "on decisions 3, 4 and 7 below"],
 ], [4.0, 2.4, 11.1])
-para("Known gaps: nested chains sometimes come out in reverse order; “X was the son of a Y” is parsed from X’s side; the detector filter was tuned on the same 23 items, so the held-out natural set will give the honest numbers.", size=9.5)
+para("Bugs found and fixed while building — each would have quietly distorted a number: 23 of 60 text-side links were Wikipedia disambiguation pages (“American”, “Italian”); a “part of” chain let Russia appear to contain France (re-checked: 155/161 Wikidata granularity merges hold, so the 96% agreement figure stands); a numeric filter on Wikidata sitelinks silently returned nothing unless cast; the detector rewrites “X’s father” as “his father”, which the first filter wrongly rejected.", size=9.5)
+para("Known gaps: nested chains sometimes come out in reverse order; “X was the son of a Y” is parsed from X’s side; the detector filter was tuned on the 23 development items.", size=9.5)
 
-h1("10. Plan and gates")
+h1("10. Next steps")
+for i, (lead, txt) in enumerate([
+ ("Analyse the running jobs. ", "Paraphrased controlled set by answer type, tier and phrasing; hand-verify the mined natural candidates and give them gold on both KBs → the first held-out detector and end-to-end numbers. Split dev and test from here on."),
+ ("First baseline table (local models, no spend). ", "On the same items: LLM alone (both modes), implicit-EL ranker, LLM writing its own SPARQL, LLM given the KB facts. Shows the headroom before any API money is spent."),
+ ("Close the build gaps. ", "Plug the comparator and disambiguation-safe linking into the main pipeline; DBpedia side of the sampler; the same descriptions on both KBs (cross-KB table)."),
+ ("Fix the parser gaps. ", "Chain order for nested descriptions; the “son of a Y” inversion; re-check on held-out items only."),
+ ("After this meeting. ", "Output writer in the agreed representation; test set v1 with human checking and 15% double annotation, then frozen (G3); API baselines if a budget is agreed; NEF refactor onto the adapters with the v14 regression (G5); paper outline."),
+], 1):
+    p = d.add_paragraph(style="List Paragraph"); r = p.add_run(f"{i}. "); r.bold = True
+    r = p.add_run(lead); r.bold = True; p.add_run(txt); p.paragraph_format.space_after = Pt(2)
+
+h1("11. Plan and gates", new_page=True)
 table([
  ["Phase", "Dates", "Output", "Gate / status"],
  ["1 Scope & novelty", "15 Oct – 8 Nov", "related work, benchmarks, contribution", "G1 · implicit EL, KBQA answerability (GrailQAbility, RetinaQA), bridging, EDC, NIL read — gap holds"],
- ["2 Feasibility", "9 – 29 Nov", "Wikidata survey, occurrence, conventions", "G2 · mostly done: Wikidata ≥ 30% ✔; occurrence 2.7% vs 3% bar → borderline"],
- ["3 Test set", "30 Nov – 10 Jan", "controlled ~900 + natural 200–300, κ", "G3 freeze"],
- ["4 Baselines", "11 – 31 Jan", "B0–B4, stratified, with cost", "G4 headroom"],
- ["5 Adapters", "14 Dec – 31 Jan", "DBpedia refactor, Wikidata adapter, writer", "G5 regression (v14 ± 0.02)"],
+ ["2 Feasibility", "9 – 29 Nov", "Wikidata survey, occurrence, conventions", "G2 · done early: Wikidata ≥ 30% ✔; occurrence 2.7% vs 3% bar → borderline; bodies ≈6× cases/person"],
+ ["3 Test set", "30 Nov – 10 Jan", "controlled ~900 + natural 200–300, κ", "G3 freeze · started: sampler (575 items), realiser, natural mining"],
+ ["4 Baselines", "11 – 31 Jan", "B0–B4, stratified, with cost", "G4 headroom · local baselines next"],
+ ["5 Adapters", "14 Dec – 31 Jan", "DBpedia refactor, Wikidata adapter, writer", "G5 regression (v14 ± 0.02) · started: both query layers, comparator, detector"],
  ["6 Approaches", "1 Feb – 7 Mar", "N, H, ablations on dev", "—"],
  ["7 Evaluation", "8 Mar – 4 Apr", "all tables with CIs, errors, cost", "G6 every claim has a CI"],
  ["8 Writing", "22 Mar – ISWC deadline (~early May)", "paper + code and data release", "submit"],
 ], [3.2, 3.6, 5.2, 5.5])
 para("ISWC research track → ISWC Resources track (test set + framework) → KGSWC / ESWC workshop → workshop paper on NEF 2.0 results. Nothing from Phases 1–4 is wasted under any of them.", bold_lead="Fallbacks: ")
 
-h1("11. Decisions we need from you")
+h1("12. Decisions we need from you")
 for i, q in enumerate([
  "Scope: non-topic relational descriptions only, with topic coreference out. Agree?",
  "Primary KB = Wikidata, DBpedia second, YAGO 4.5 as an optional third?",
