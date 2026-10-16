@@ -2,7 +2,13 @@
 
 One entry per working block. Newest first.
 
-## 2026-10-17 (early) — next build round
+## 2026-10-17 — natural set, first honest detector numbers
+- **Natural mining** (`testset/mine_natural.py`): 45 biographies (15 per tier, none in Phase-1 or the controlled set), 1,409 sentences; scan fired on 125, detector on 172, union 216 candidates.
+- **Hand verification** (`testset/natural/label_candidates_v0.py` → `labels_v0.json`, Claude, one pass): **59 sentences hold a genuine relational description**; detector right relation 49, wrong 1, missed 9; scan found 47. Detector sentence precision only **51/172 (30%)**: false alarms = entity named in the sentence ("his brother Kelle", "His father, Edward Henry Lorenz"), family lists ("Son - Sin Chŏng"), organisations/groups tagged "member", empty relation chains slipping through (expand([]) returned a path — fixed).
+- These 45 biographies are now **NATURAL-DEV**. Held-out numbers need new biographies.
+- **keep() v3** (named-right-after check, also at the relation word when the LLM normalised the mention; role-of-a-named-organisation; relation word or possessive required; inverse "son of a Y" allowed; copula/comma naming only with "the"; word-stripping bug "sister"→"ister" fixed): natural-dev **precision 30% → 55%, recall 92% → 88%** (`testset/natural/eval_natural.py`); dev 20/23 paths, 1/60 false alarms (unchanged); controlled templates 575/575.
+- Remaining false alarms: names elsewhere in lists/parentheses, fiction-plot families → next: a cheap LLM verification pass on kept detections.
+
 - **Controlled set, end to end (Llama, templates, 575 items):** first pass 503/575 (87.5%), 0 wrong identities; all 72 errors = NOT-DETECTED, all in the possessive form. Cause: the detector normalises "Peter Egeli's father" → "his father" and the filter required the literal mention. Fix in `keep()`: accept when the relation noun occurs in the sentence. → **575/575, 0 wrong identities**; dev set unchanged (20/23 paths, 1/60 false alarms). **This is a plumbing check, not a result:** gold and pipeline share the lexicon paths, and template sentences are easy. Real tests: paraphrased sentences, nested descriptions, the natural set.
 - Realiser bug: used the relation's gender for the anchor ("Margaret … a biography of him") → anchor gender now from P21. Paraphrased variant + its evaluation running.
 - Tsoru doc: §9 "Prototype status" added (5 pages); G1 row refreshed.

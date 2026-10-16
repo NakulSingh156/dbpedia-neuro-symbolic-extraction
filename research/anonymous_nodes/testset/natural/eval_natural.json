@@ -1,0 +1,16 @@
+{
+ "v2": {
+  "sentences_fired": 179,
+  "fired_genuine": 54,
+  "precision": 0.302,
+  "recall_of_known_genuine": 0.915,
+  "known_genuine": 59
+ },
+ "v3": {
+  "sentences_fired": 95,
+  "fired_genuine": 52,
+  "precision": 0.547,
+  "recall_of_known_genuine": 0.881,
+  "known_genuine": 59
+ }
+}

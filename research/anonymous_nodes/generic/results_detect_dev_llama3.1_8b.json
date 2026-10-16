@@ -433,61 +433,6 @@
    ],
    "detected": [
     {
-     "mention": "a Spanish conquistador",
-     "role": "unknown",
-     "anchor": {
-      "ref": "topic",
-      "text": "Hacienda Chichí Suárez",
-      "id": null,
-      "description": null
-     },
-     "relation_phrases": [
-      "founder"
-     ],
-     "constraints": {
-      "gender": "male",
-      "ordinal": null,
-      "time": null,
-      "type": null,
-      "same_name_as_anchor": false,
-      "plural": false,
-      "count": null
-     },
-     "paths": {
-      "wikidata": [
-       [
-        {
-         "props": [
-          "P112"
-         ],
-         "dir": "out"
-        }
-       ]
-      ],
-      "dbpedia": [
-       [
-        {
-         "props": [
-          "founder"
-         ],
-         "dir": "out"
-        }
-       ],
-       [
-        {
-         "props": [
-          "foundedBy"
-         ],
-         "dir": "out"
-        }
-       ]
-      ]
-     },
-     "evidence": {
-      "named_in_text": null
-     }
-    },
-    {
      "mention": "the grandson of the founder of Mérida",
      "role": "unknown",
      "anchor": {
@@ -615,61 +560,6 @@
     ]
    ],
    "detected": [
-    {
-     "mention": "a Spanish conquistador",
-     "role": "unknown",
-     "anchor": {
-      "ref": "topic",
-      "text": "Hacienda Chichí Suárez",
-      "id": null,
-      "description": null
-     },
-     "relation_phrases": [
-      "founder"
-     ],
-     "constraints": {
-      "gender": "male",
-      "ordinal": null,
-      "time": null,
-      "type": null,
-      "same_name_as_anchor": false,
-      "plural": false,
-      "count": null
-     },
-     "paths": {
-      "wikidata": [
-       [
-        {
-         "props": [
-          "P112"
-         ],
-         "dir": "out"
-        }
-       ]
-      ],
-      "dbpedia": [
-       [
-        {
-         "props": [
-          "founder"
-         ],
-         "dir": "out"
-        }
-       ],
-       [
-        {
-         "props": [
-          "foundedBy"
-         ],
-         "dir": "out"
-        }
-       ]
-      ]
-     },
-     "evidence": {
-      "named_in_text": null
-     }
-    },
     {
      "mention": "the grandson of the founder of Mérida",
      "role": "unknown",
@@ -1332,6 +1222,61 @@
      "evidence": {
       "named_in_text": null
      }
+    },
+    {
+     "mention": "Sneferu",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Nefertkau I",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": "Sneferu"
+     }
     }
    ],
    "found": true,
@@ -1559,6 +1504,61 @@
      },
      "evidence": {
       "named_in_text": null
+     }
+    },
+    {
+     "mention": "Sneferu",
+     "role": "unknown",
+     "anchor": {
+      "ref": "topic",
+      "text": "Nefertkau I",
+      "id": null,
+      "description": null
+     },
+     "relation_phrases": [
+      "father"
+     ],
+     "constraints": {
+      "gender": "male",
+      "ordinal": null,
+      "time": null,
+      "type": null,
+      "same_name_as_anchor": false,
+      "plural": false,
+      "count": null
+     },
+     "paths": {
+      "wikidata": [
+       [
+        {
+         "props": [
+          "P22"
+         ],
+         "dir": "out"
+        }
+       ]
+      ],
+      "dbpedia": [
+       [
+        {
+         "props": [
+          "parent"
+         ],
+         "dir": "out"
+        }
+       ],
+       [
+        {
+         "props": [
+          "father"
+         ],
+         "dir": "out"
+        }
+       ]
+      ]
+     },
+     "evidence": {
+      "named_in_text": "Sneferu"
      }
     }
    ],
@@ -2172,65 +2172,6 @@
      },
      "evidence": {
       "named_in_text": null
-     }
-    },
-    {
-     "mention": "the fourth head of Yonezawa",
-     "role": "unknown",
-     "anchor": {
-      "ref": "topic",
-      "text": "Uesugi Harunori",
-      "id": null,
-      "description": null
-     },
-     "relation_phrases": [
-      "granddaughter"
-     ],
-     "constraints": {
-      "gender": "female",
-      "ordinal": null,
-      "time": null,
-      "type": null,
-      "same_name_as_anchor": false,
-      "plural": false,
-      "count": null
-     },
-     "paths": {
-      "wikidata": [
-       [
-        {
-         "props": [
-          "P40"
-         ],
-         "dir": "out"
-        },
-        {
-         "props": [
-          "P40"
-         ],
-         "dir": "out"
-        }
-       ]
-      ],
-      "dbpedia": [
-       [
-        {
-         "props": [
-          "child"
-         ],
-         "dir": "out"
-        },
-        {
-         "props": [
-          "child"
-         ],
-         "dir": "out"
-        }
-       ]
-      ]
-     },
-     "evidence": {
-      "named_in_text": "Uesugi Harunori"
      }
     }
    ],

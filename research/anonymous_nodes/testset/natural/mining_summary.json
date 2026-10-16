@@ -1,0 +1,8 @@
+{
+ "people": 45,
+ "sentences": 1409,
+ "scan_hit_sentences": 125,
+ "detector_sentences": 172,
+ "candidates_union": 216,
+ "both": 81
+}

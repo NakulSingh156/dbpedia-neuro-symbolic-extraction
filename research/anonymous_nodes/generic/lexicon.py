@@ -6,7 +6,9 @@ _LEX = None
 SYNONYMS = {"brothers": "brother", "sisters": "sister", "sons": "son", "daughters": "daughter", "children": "child",
             "nephews": "nephew", "nieces": "niece", "parents": "parent", "wives": "wife", "husbands": "husband",
             "founders": "founder", "members": "member", "queen": "wife", "king": "husband", "widow": "wife",
-            "widower": "husband", "partner": "spouse", "headquarter": "headquarters", "co-founder": "founder"}
+            "widower": "husband", "partner": "spouse", "headquarter": "headquarters", "co-founder": "founder",
+            "kids": "child", "kid": "child", "uncles": "uncle", "aunts": "aunt", "cousins": "cousin",
+            "grandsons": "grandson", "granddaughters": "granddaughter", "grandchildren": "grandchild"}
 
 
 def lexicon():
@@ -25,6 +27,8 @@ def entry(noun):
 def expand(chain, kb):
     """chain = relation nouns from the anchor outward, e.g. ["founder", "grandson"].
     Returns (alternative paths as list[list[Hop]], gender of the final noun) or (None, None)."""
+    if not chain:
+        return None, None            # an empty chain is not a path (it slipped through keep() before 17 Oct)
     alts, gender = [[]], None
     for noun in chain:
         e = entry(noun)

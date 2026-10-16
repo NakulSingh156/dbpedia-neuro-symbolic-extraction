@@ -3,9 +3,9 @@
 One LLM call per sentence (local Ollama by default), JSON out, then the lexicon maps relation nouns
 to KB paths (M3, lexicon step). Few-shot examples are synthetic (not taken from any dev/test item).
 """
-import json, requests
+import json, re, requests
 from .ir import Description, Anchor, Constraints
-from .lexicon import expand
+from .lexicon import expand, entry
 
 PROMPT = """You find entities that a sentence refers to WITHOUT naming them, through their relation to another entity
 ("his brother", "Marie Antoinette's husband", "the founder of Rome", "the grandson of the founder of Rome").
@@ -35,32 +35,63 @@ Sentence: "He was born in Lyon." -> {{"items": []}}
 Reply as JSON: {{"items": [...]}}"""
 
 
-DETERMINERS = ("a ", "an ", "the ", "his ", "her ", "its ", "their ", "another ", "one of ")
+POSSESSIVE = ("his ", "her ", "its ", "their ")
+PREPOSITIONS = {"in", "at", "on", "from", "to", "for", "with", "of", "by", "during", "after", "before", "into", "near"}
+# a name right after the mention means the entity IS named in the sentence:
+# "his brother Kelle", "His father, Young Hur", "Her aunt was the actress Maxine Elliott", "Son - Sin Chong"
+NAMED_AFTER = re.compile(
+    r"^(?:\s*[,:\-–]?\s*[A-Z]"                                                   # "his brother Kelle", "Son - Sin"
+    r"|\s*,?\s*(?:was|is|were)\s+the\s+(?:[a-z][\w\-]*\s+){0,2}[A-Z]"   # "was the actress Maxine" (not "was a National Liberal ...")
+    r"|\s*,\s*the\s+(?:[a-z][\w\-]*\s+){0,2}[A-Z])")                     # ", the actor John"
+# a role OF a named organisation describes someone named elsewhere or the topic itself, not an unnamed entity:
+# "director of the influential Gazette des Beaux-Arts", "a member of the Audit Commission"
+ROLE_OF_NAMED = re.compile(r"^(?:the |a |an )?(?:[\w\-]+ ){0,2}(?:director|author|founder|co-founder|chairman|member|members|president|manager|leader)s? of (?:the )?(?:[\w\-]+ ){0,2}[A-Z]")
 
 
-def keep(d, sentence):
-    """Post-filter (dev, 16 Oct). Keep a detection only if
-    (1) its relation chain maps to a KB path through the lexicon,
-    (2) the mention really occurs in the sentence, and
-    (3) the mention contains its relation noun or reads as a description (starts with a determiner/possessive),
-        not as a bare name ("Giovanni Battista Draghi"), and
-    (4) it does not follow a copula (see below).
-    Without the filter, 23/60 dev negative sentences got a detection; with (1) alone, 5/60."""
-    if not d.paths:
+def keep(d, sentence, version=3):
+    """Post-filter on M1 output. Version history (all measured):
+    v1 (16 Oct): path must map via the lexicon.
+    v2 (16 Oct): + mention occurs in the sentence (or, 17 Oct, its relation noun does); + reads as a description;
+                 + not after a copula. Dev: 59/60 -> 1/60 false alarms. Natural-dev (17 Oct): only 51 of 172 kept
+                 sentences genuine.
+    v3 (17 Oct): + empty chains rejected; + rejected when a name follows the mention (named in the sentence),
+                 checked at the relation word when the LLM normalised the mention; + roles of a named organisation
+                 rejected; + a lexicon relation word must occur in the mention, or the mention must be possessive.
+                 Tuned on NATURAL-DEV (45 biographies) — held-out numbers need new biographies."""
+    if not d.paths or not d.relation_phrases:
         return False
     m = d.mention.lower().strip()
-    last = d.relation_phrases[-1] if d.relation_phrases else ""
-    # the LLM often normalises the mention ("Peter Egeli's father" -> "his father"); accept it when the relation
-    # noun itself occurs in the sentence (controlled set, 17 Oct: all 72 misses were this). A "his father" with no
-    # "father" anywhere in the sentence is still rejected (the Wolstenholme false alarm).
-    if not m or (m not in sentence.lower() and not (last and last in sentence.lower())):
+    sl = sentence.lower()
+    last = d.relation_phrases[-1]
+    if not m or (m not in sl and not (last and last in sl)):
         return False
-    # (4) a description right after a copula describes the sentence's own subject ("X was the capital of Y",
-    #     "served as a member of Z"), not another entity
-    before = sentence.lower().split(m, 1)[0].rstrip()
-    if before.endswith((" was", " is", " were", " are", " as", " became", " becomes")):
-        return False
-    return (last and last in m) or m.startswith(DETERMINERS) or "'s " in m
+    pos, end = sl.find(m), None
+    if pos >= 0:
+        end = pos + len(m)
+        before = sl[:pos].rstrip()
+        if before.endswith((" was", " is", " were", " are", " as", " became", " becomes")):
+            return False
+    elif version >= 3:
+        # normalised mention ("his sister" for "Rhoads' sister Kathy"): check right after the relation word instead
+        k = sl.find(last)
+        end = k + len(last) if k >= 0 else None
+        while end is not None and end < len(sl) and sl[end].isalpha():      # "sister" -> "sisters"
+            end += 1
+    if version >= 3:
+        if end is not None and NAMED_AFTER.match(sentence[end:]):
+            return False
+        if ROLE_OF_NAMED.match(d.mention.strip()):
+            return False
+    if version >= 3:
+        def word(w):
+            w = re.sub(r"(['’]s|['’])$", "", w.strip(".,;:()\"“”"))      # "mother's" -> mother, "brothers'" -> brothers
+            return entry(w) or (w.endswith("s") and entry(w[:-1]))
+        has_rel_word = any(word(w) for w in m.split())
+        # inverse pattern: "the second son of a daimyo of the Akizuki clan" — the description holds no relation word
+        inverse = pos > 0 and re.search(r"\b(?:son|daughter|child|sons|daughters|children|wife|husband|widow) of$", sl[:pos].rstrip())
+        possessive = m.startswith(POSSESSIVE) or "'s " in m or "’s " in m or "s' " in m
+        return bool(has_rel_word or possessive or inverse)
+    return (last and last in m) or m.startswith(("a ", "an ", "the ", "his ", "her ", "its ", "their ", "another ", "one of ")) or "'s " in m
 
 
 def detect(sentence, topic, context, model="qwen2.5:7b", url="http://localhost:11434/api/generate"):
