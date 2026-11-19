@@ -22,6 +22,8 @@ UA = "NEF-anonymous-node-benchmark/0.1 (research evidence capture)"
 WIKI_API = "https://en.wikipedia.org/w/api.php"
 WD_API = "https://www.wikidata.org/w/api.php"
 REL_PROPS = ("P22", "P25", "P26", "P3373", "P40", "P1038")
+# 19 Nov: non-family relations used by the expanded pool (author, creator, publisher, student of, employer, teacher)
+EXTRA_PROPS = ("P50", "P170", "P123", "P1066", "P108", "P802", "P3448")
 # QIDs already checked from source-page Wikidata links; used only if pageprops
 # cannot resolve the corresponding English Wikipedia title.
 KNOWN = {
@@ -90,6 +92,8 @@ def resolve_anchor(row, outdir):
     page = next(iter(data.get("query", {}).get("pages", {}).values()), {})
     qid = page.get("pageprops", {}).get("wikibase_item")
     method = "wikipedia_api_pageprops"
+    if not qid and (row.get("anchor_id") or "").startswith("Q"):
+        qid, method = row["anchor_id"].strip(), "anchor_id_from_candidate_row"
     if not qid and row["source_name"] in KNOWN:
         qid = KNOWN[row["source_name"]]
         method = "manual_fallback_from_reviewed_wikidata_link"
@@ -168,7 +172,7 @@ def item_capture(qids, outdir):
         label_batches += 1
         raw, data, full = fetch_json(WD_API, {
             "action": "wbgetentities", "format": "json", "ids": "|".join(batch),
-            "props": "labels", "languages": "en",
+            "props": "labels|claims", "languages": "en",
         })
         raw_name = f"wikidata_target_labels_batch_{label_batches:03d}.json"
         with open(os.path.join(outdir, raw_name), "wb") as handle:
@@ -182,14 +186,25 @@ def item_capture(qids, outdir):
             label = entity.get("labels", {}).get("en", {}).get("value")
             if label:
                 target_labels[entity["id"]] = label
+            sex = [st.get("mainsnak", {}).get("datavalue", {}).get("value", {}).get("id")
+                   for st in entity.get("claims", {}).get("P21", [])]
+            if sex:
+                TARGET_SEX[entity["id"]] = [x for x in sex if x]
     return captures, target_labels, capture_meta
+
+
+TARGET_SEX = {}
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True, help="pilot_candidates_v0.csv")
     ap.add_argument("--out", required=True, help="new output directory")
+    ap.add_argument("--extra-props", action="store_true", help="also capture EXTRA_PROPS (19 Nov pool)")
     args = ap.parse_args()
+    global REL_PROPS
+    if args.extra_props:
+        REL_PROPS = tuple(REL_PROPS) + EXTRA_PROPS
     os.makedirs(args.out, exist_ok=True)
     if os.path.exists(os.path.join(args.out, "capture_manifest.json")):
         raise SystemExit("This capture folder already has a completed manifest; choose a new --out path.")
@@ -219,7 +234,7 @@ def main():
             "A missing claim is not proof that a real-world relation does not exist.",
         ],
     }
-    payload = {"manifest": manifest, "entities": entities, "target_labels_en": target_labels}
+    payload = {"manifest": manifest, "entities": entities, "target_labels_en": target_labels, "target_sex_P21": TARGET_SEX}
     encoded = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True).encode("utf-8")
     outpath = os.path.join(args.out, "wikidata_evidence_slice.json")
     with open(outpath, "wb") as handle:
@@ -229,21 +244,25 @@ def main():
         json.dump(manifest, handle, ensure_ascii=False, indent=2, sort_keys=True)
     summary_path = os.path.join(args.out, "relation_summary.csv")
     with open(summary_path, "w", newline="", encoding="utf-8") as handle:
-        cols = ["item_id", "article_title", "anchor_qid", "article_revision_id", "article_revision_timestamp"] + list(REL_PROPS)
+        cols = ["item_id", "article_title", "anchor_qid", "article_revision_id", "article_revision_timestamp"] + list(REL_PROPS) + ["unknown_value_props"]
         writer = csv.DictWriter(handle, fieldnames=cols)
         writer.writeheader()
         for item_id, anchor in anchors.items():
             row = {"item_id": item_id, "article_title": anchor["title"], "anchor_qid": anchor["qid"],
                    "article_revision_id": anchor["revision_id"], "article_revision_timestamp": anchor["revision_timestamp"]}
             claims = entities.get(anchor["qid"], {}).get("claims", {})
+            somevalue = []
             for prop in REL_PROPS:
                 vals = []
                 for statement in claims.get(prop, []):
+                    if statement.get("mainsnak", {}).get("snaktype") == "somevalue":
+                        somevalue.append(prop)     # Wikidata "unknown value": a native anonymous node
                     value = statement.get("mainsnak", {}).get("datavalue", {}).get("value", {})
                     qid = value.get("id") if isinstance(value, dict) else None
                     if qid:
                         vals.append(f"{target_labels.get(qid, qid)} [{qid}]")
                 row[prop] = " | ".join(vals)
+            row["unknown_value_props"] = " ".join(somevalue)
             writer.writerow(row)
     print(f"saved {len(entities)} entities; slice sha256={manifest['evidence_slice_sha256']}", flush=True)
     print(outpath)
