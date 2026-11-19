@@ -8,7 +8,8 @@ SYNONYMS = {"brothers": "brother", "sisters": "sister", "sons": "son", "daughter
             "founders": "founder", "members": "member", "queen": "wife", "king": "husband", "widow": "wife",
             "widower": "husband", "partner": "spouse", "headquarter": "headquarters", "co-founder": "founder",
             "kids": "child", "kid": "child", "uncles": "uncle", "aunts": "aunt", "cousins": "cousin",
-            "grandsons": "grandson", "granddaughters": "granddaughter", "grandchildren": "grandchild"}
+            "grandsons": "grandson", "granddaughters": "granddaughter", "grandchildren": "grandchild",
+            "woman": "wife", "man": "husband", "artists": "artist", "painters": "painter", "authors": "author"}
 
 
 def lexicon():

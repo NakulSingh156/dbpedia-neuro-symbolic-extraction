@@ -48,6 +48,22 @@ NAMED_AFTER = re.compile(
 ROLE_OF_NAMED = re.compile(r"^(?:the |a |an )?(?:[\w\-]+ ){0,2}(?:director|author|founder|co-founder|chairman|member|members|president|manager|leader)s? of (?:the )?(?:[\w\-]+ ){0,2}[A-Z]")
 
 
+TEXT_UNKNOWN_MARK = re.compile(r"\b(?:unknown|anonymous|unidentified|unnamed|not known)\b", re.I)
+UNKNOWN_PREDICATE = re.compile(r"\b(?:is|are|was|were|remains?|remained)\s+(?:also\s+|still\s+)?(?:unknown|not known|uncertain|unrecorded)\b", re.I)
+
+
+def text_says_unknown(d, sentence):
+    """Type U (guide v1 §2): the text itself says the identity is unknown/anonymous ("an unknown teacher",
+    "His parentage is unknown"). Such a target must become an anonymous node; KB values are candidates, never the
+    answer (dry run 19 Nov: 6 pool rows were grounded from KB values the text disowns)."""
+    m = d.mention.lower()
+    if TEXT_UNKNOWN_MARK.search(m):
+        return True
+    k = sentence.lower().find(m) if m and m in sentence.lower() else -1
+    tail = sentence[k + len(m):k + len(m) + 60] if k >= 0 else sentence
+    return bool(UNKNOWN_PREDICATE.search(tail))
+
+
 def keep(d, sentence, version=3):
     """Post-filter on M1 output. Version history (all measured):
     v1 (16 Oct): path must map via the lexicon.
@@ -90,6 +106,8 @@ def keep(d, sentence, version=3):
         # inverse pattern: "the second son of a daimyo of the Akizuki clan" — the description holds no relation word
         inverse = pos > 0 and re.search(r"\b(?:son|daughter|child|sons|daughters|children|wife|husband|widow) of$", sl[:pos].rstrip())
         possessive = m.startswith(POSSESSIVE) or "'s " in m or "’s " in m or "s' " in m
+        if TEXT_UNKNOWN_MARK.search(m) and has_rel_word:      # "an unknown teacher", "an anonymous author"
+            return True
         return bool(has_rel_word or possessive or inverse)
     return (last and last in m) or m.startswith(("a ", "an ", "the ", "his ", "her ", "its ", "their ", "another ", "one of ")) or "'s " in m
 

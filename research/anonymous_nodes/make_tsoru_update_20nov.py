@@ -76,26 +76,37 @@ table(rows, [6.0, 6.5, 2.0])
 para(f"{phen['U']} of 100 rows are type U (“an unknown father”, “an anonymous author”): the text itself says the identity is unknown, so the only correct output is an anonymous node. Only {phen['R']} rows are relational descriptions, and almost none of them have an answer the KB can supply. {stress} rows are disputed or speculative (stress cases), {multi} involve several entities.", bold_lead="Reading: ")
 para("as it stands the pool can test “keep the fact as an anonymous node”, but not “name the entity when the KB knows it” or “record the candidates when several fit” — the two behaviours that separate a careful system from one that always outputs an anonymous node. We need quotas per outcome type.", bold_lead="Consequence: ")
 if rbv:
-    para(f"from {rbv['people']} fresh biographies the miner found {rbv['candidates']} relational descriptions; after a hand check {rbv['verified']} are usable, of which {rbv['by_outcome'].get('KB_UNIQUE',0)} have a unique KB answer not named in the article and {rbv['by_outcome'].get('KB_AMBIGUOUS',0)} have several fitting KB answers. These fill the missing cells.", bold_lead="Rebalancing (19 Nov): ")
-elif rb:
-    para(f"from {rb['people']} fresh biographies the miner proposed {rb['candidates']} relational descriptions; by machine-proposed outcome: " + ", ".join(f"{k} {v}" for k, v in rb["by_outcome"].items()) + ". These still need a hand check.", bold_lead="Rebalancing (19 Nov): ")
+    para(f"a miner scanned {rbv['people']} fresh, well-documented biographies for relational descriptions and proposed {rbv['candidates']} candidates. "
+         f"I hand-checked the {rbv['flagged_checked']} it flagged as having a KB answer: only {rbv['by_outcome'].get('KB_UNIQUE',0)} are genuinely “the KB knows, the article does not name” "
+         f"(Dorothea Wilhelmine’s father; Toyohiko Kagawa’s wife) and {rbv['by_outcome'].get('KB_AMBIGUOUS',0)} are genuinely ambiguous "
+         f"(Princess Wilhelmine Ernestine’s brother, where the 1679 war context points to Christian V; Jack Black’s son). "
+         f"The rest were named elsewhere under another name ({rbv['by_outcome'].get('NAMED_IN_CONTEXT',0)}), named in the same sentence ({rbv['by_outcome'].get('NAMED_IN_SENTENCE',0)}), "
+         f"or anchor errors where “his/her” is not the article’s subject ({rbv['by_outcome'].get('ANCHOR_ERROR',0)}: “stepfather to her son” where “her” is his wife).", bold_lead="Rebalancing (19 Nov): ")
+    para("in Wikipedia biographies, “the KB knows it but the text does not say it” is rare — Wikipedia usually names what Wikidata records, since both draw on the same sources. "
+         "The KB-unique and ambiguous cells therefore need either a narrower input (the paragraph instead of the whole article, which turns many “named elsewhere” cases into KB-groundable ones), "
+         "other text sources (news, obituaries, non-Wikipedia biographies), or controlled items. The miner’s other 50 “KB has nothing” candidates are natural relational descriptions that can rebalance R against U once checked.", bold_lead="Finding: ")
 
-h1("4. Pilot dry run (rehearsal, not a result)")
+h1("4. Pilot dry run on the 100 rows (rehearsal, not a result)")
 if dr:
-    rows = [["Subset", "Rows", "Ours: fact kept", "Ours: agrees with proposed label", "LLM-only: named / junk phrase / dropped"]]
-    for name, key in (("All pool rows", "all"), ("R, not stress", "R_nonstress"), ("U (identity unknown)", "U"), ("Stress cases", "stress")):
-        s = dr.get(key) or {}
-        if s:
-            b = s.get("B1", {})
-            rows.append([name, s["n"], f"{s['N_fact_kept_pct']}%", f"{s['N_agrees_with_proposal_pct']}%", f"{b.get('NAMED',0)} / {b.get('PHRASE',0)} / {b.get('DROPPED',0)}"])
-    table(rows, [3.6, 1.4, 2.8, 3.6, 5.6])
-    para("Our pipeline: Llama-3.1-8B detector + the frozen KB evidence. LLM-only: the same model asked to extract triples with canonical names. Reference labels are machine-proposed, nobody has annotated the pool yet, and the LLM-only grading is automatic — so these numbers rehearse the evaluation format and show where it breaks; they are not results.", italic=True, size=9)
+    rows = [["Subset", "Rows", "Ours: fact kept", "Ours: agrees with proposed label", "Ours: names someone the text says is unknown", "LLM-only: named / junk node / dropped"]]
+    for name, key in (("All 100", "all"), ("R, not stress", "R_nonstress"), ("U (text says unknown)", "U"), ("Stress cases", "stress")):
+        s_ = dr.get(key) or {}
+        if s_:
+            b = s_.get("B1", {})
+            rows.append([name, s_["n"], f"{s_['N_fact_kept_pct']}%", f"{s_['N_agrees_with_proposal_pct']}%", s_.get("N_grounded_when_reference_says_no_identity", 0),
+                         f"{b.get('NAMED',0)} / {b.get('PHRASE',0)} / {b.get('DROPPED',0)}"])
+    table(rows, [3.2, 1.2, 2.2, 2.8, 3.0, 4.6])
+    para("our pipeline keeps 82% of the facts and never names an entity the text says is unknown; on the 16 pilot rows with first-pass targets, all 10 of its groundings are the right person and the 5 anonymous cases stay anonymous. "
+         "The same model used as a plain extractor turns 75 of 100 unnamed entities into junk nodes (“unknown father”, “brother_of_X”) and drops 16 — the October finding (70–74% junk or lost) holds on the new pool.", bold_lead="Signal: ")
+    para("the first scoring found 6 rows where the pipeline named a person the text calls unknown (“His parentage is unknown” → a parent taken from Wikidata; Go Ask Alice’s “anonymous author” → attributed authors). "
+         "New rule: when the text says the identity is unknown, output an anonymous node and keep the KB values only as candidates. It also found lexicon gaps (artist, publisher, teacher, employer). After both fixes: 0 such errors.", bold_lead="What the dry run caught: ")
+    para("Reference labels are machine-proposed (nobody has annotated the pool yet), the LLM-only grading is automatic, and the two fixes above were made on these same 100 rows — so these 100 are now development data. Honest numbers come from the frozen, human-annotated test split.", italic=True, size=9)
 
 h1("5. Decisions we need from you")
 items([
  ("Two phenomena. ", "Label “relational description” (R) and “text says the identity is unknown” (U) separately, report both, and keep U from dominating the headline numbers?"),
- ("Outcome quotas. ", "Fix the first 100 as roughly: named in context 20, KB unique 20, KB ambiguous 15, KB missing 20, text-unknown 20, ordinary negatives 5 — filling the KB-unique/ambiguous cells from the rebalancing miner?"),
- ("Input and gold. ", "System sees the whole article + the frozen KB slice; gold is defined relative to that; external sources (e.g. an archive naming Charles Hall’s brother) recorded separately for a KB-completion analysis?"),
+ ("Outcome quotas. ", "Fix the first 100 as roughly: named in context 20, KB unique 20, KB ambiguous 15, KB missing 20, text-unknown 20, ordinary negatives 5. Natural text alone will not fill KB-unique/ambiguous (2 + 2 in 120 biographies), so: paragraph-level input, other sources, or a controlled slice — which do you prefer?"),
+ ("Input and gold. ", "Does the system see the whole article or only the paragraph? With the whole article most KB-known relatives are named somewhere, so KB-unique cases almost vanish; with the paragraph they become testable. Proposal: paragraph as the main setting, whole article as a second setting. Gold defined relative to the input + frozen KB slice; external sources (e.g. an archive naming Charles Hall’s brother) recorded separately for a KB-completion analysis."),
  ("Hard cases. ", "One anonymous node per individual when the count is ≤ 3, else a group node with cardinality; disputed/speculative identities reported as a separate stress subset; text wins over a conflicting KB value (flagged)?"),
  ("Second annotator. ", "Who reviews and adjudicates the first 100 with me (you, Ara, or Aaquifa)? LLM pre-annotations are used only after the human pass."),
  ("Models and server. ", "Which GSoC-server models and which cheap OpenRouter models for the first pilot, and the budget ceiling?"),

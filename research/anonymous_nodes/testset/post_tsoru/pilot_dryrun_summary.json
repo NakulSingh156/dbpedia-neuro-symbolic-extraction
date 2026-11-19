@@ -1,0 +1,160 @@
+{
+ "all": {
+  "n": 100,
+  "N_fact_kept_pct": 82.0,
+  "N_agrees_with_proposal_pct": 79.0,
+  "N_grounded_when_reference_says_no_identity": 0,
+  "N_outcomes": {
+   "GROUNDED": 10,
+   "UNRESOLVED": 1,
+   "AMBIGUOUS": 1,
+   "MISSING": 14,
+   "NOT-DETECTED": 17,
+   "TEXT_UNKNOWN": 56,
+   "UNKNOWN_VALUE": 1
+  },
+  "B1": {
+   "PHRASE": 75,
+   "NAMED": 9,
+   "DROPPED": 16
+  }
+ },
+ "R_nonstress": {
+  "n": 26,
+  "N_fact_kept_pct": 84.6,
+  "N_agrees_with_proposal_pct": 73.1,
+  "N_grounded_when_reference_says_no_identity": 0,
+  "N_outcomes": {
+   "GROUNDED": 10,
+   "UNRESOLVED": 1,
+   "AMBIGUOUS": 1,
+   "MISSING": 8,
+   "NOT-DETECTED": 3,
+   "TEXT_UNKNOWN": 2,
+   "UNKNOWN_VALUE": 1
+  },
+  "B1": {
+   "PHRASE": 14,
+   "NAMED": 7,
+   "DROPPED": 5
+  }
+ },
+ "U": {
+  "n": 71,
+  "N_fact_kept_pct": 83.1,
+  "N_agrees_with_proposal_pct": 83.1,
+  "N_grounded_when_reference_says_no_identity": 0,
+  "N_outcomes": {
+   "TEXT_UNKNOWN": 54,
+   "NOT-DETECTED": 12,
+   "MISSING": 5
+  },
+  "B1": {
+   "PHRASE": 61,
+   "DROPPED": 8,
+   "NAMED": 2
+  }
+ },
+ "stress": {
+  "n": 16,
+  "N_fact_kept_pct": 75.0,
+  "N_agrees_with_proposal_pct": 75.0,
+  "N_grounded_when_reference_says_no_identity": 0,
+  "N_outcomes": {
+   "NOT-DETECTED": 4,
+   "TEXT_UNKNOWN": 10,
+   "MISSING": 2
+  },
+  "B1": {
+   "DROPPED": 4,
+   "PHRASE": 11,
+   "NAMED": 1
+  }
+ },
+ "by_proposed_outcome": {
+  "KB_AMBIGUOUS": {
+   "n": 2,
+   "N_fact_kept_pct": 50.0,
+   "N_agrees_with_proposal_pct": 0.0,
+   "N_grounded_when_reference_says_no_identity": 0,
+   "N_outcomes": {
+    "TEXT_UNKNOWN": 1,
+    "NOT-DETECTED": 1
+   },
+   "B1": {
+    "PHRASE": 2
+   }
+  },
+  "KB_MISSING": {
+   "n": 14,
+   "N_fact_kept_pct": 64.3,
+   "N_agrees_with_proposal_pct": 64.3,
+   "N_grounded_when_reference_says_no_identity": 0,
+   "N_outcomes": {
+    "UNRESOLVED": 1,
+    "MISSING": 9,
+    "NOT-DETECTED": 4
+   },
+   "B1": {
+    "NAMED": 1,
+    "PHRASE": 8,
+    "DROPPED": 5
+   }
+  },
+  "KB_UNIQUE": {
+   "n": 1,
+   "N_fact_kept_pct": 100.0,
+   "N_agrees_with_proposal_pct": 0.0,
+   "N_grounded_when_reference_says_no_identity": 0,
+   "N_outcomes": {
+    "TEXT_UNKNOWN": 1
+   },
+   "B1": {
+    "NAMED": 1
+   }
+  },
+  "KB_UNKNOWN_VALUE": {
+   "n": 1,
+   "N_fact_kept_pct": 100.0,
+   "N_agrees_with_proposal_pct": 100.0,
+   "N_grounded_when_reference_says_no_identity": 0,
+   "N_outcomes": {
+    "UNKNOWN_VALUE": 1
+   },
+   "B1": {
+    "PHRASE": 1
+   }
+  },
+  "NAMED_IN_CONTEXT": {
+   "n": 11,
+   "N_fact_kept_pct": 100.0,
+   "N_agrees_with_proposal_pct": 90.9,
+   "N_grounded_when_reference_says_no_identity": 0,
+   "N_outcomes": {
+    "GROUNDED": 10,
+    "AMBIGUOUS": 1
+   },
+   "B1": {
+    "PHRASE": 3,
+    "NAMED": 5,
+    "DROPPED": 3
+   }
+  },
+  "TEXT_UNKNOWN": {
+   "n": 71,
+   "N_fact_kept_pct": 83.1,
+   "N_agrees_with_proposal_pct": 83.1,
+   "N_grounded_when_reference_says_no_identity": 0,
+   "N_outcomes": {
+    "TEXT_UNKNOWN": 54,
+    "NOT-DETECTED": 12,
+    "MISSING": 5
+   },
+   "B1": {
+    "PHRASE": 61,
+    "DROPPED": 8,
+    "NAMED": 2
+   }
+  }
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "people": 120,
+ "candidates": 82,
+ "by_outcome": {
+  "KB_MISSING": 50,
+  "KB_UNIQUE": 12,
+  "NAMED_IN_CONTEXT": 18,
+  "KB_AMBIGUOUS": 2
+ },
+ "by_tier_outcome": {
+  "mid/KB_MISSING": 22,
+  "mid/KB_UNIQUE": 2,
+  "mid/NAMED_IN_CONTEXT": 3,
+  "head/NAMED_IN_CONTEXT": 15,
+  "head/KB_MISSING": 28,
+  "head/KB_UNIQUE": 10,
+  "head/KB_AMBIGUOUS": 2
+ }
+}

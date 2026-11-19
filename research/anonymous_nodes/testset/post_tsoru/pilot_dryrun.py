@@ -12,7 +12,8 @@ B1 (LLM only, extraction mode): "extract triples with canonical entity names"; a
 import csv, json, os, re, sys, collections, requests
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, ROOT)
-from generic.detect import detect, keep, pronoun_anchor_ambiguous   # noqa: E402
+from generic.detect import detect, keep, pronoun_anchor_ambiguous, text_says_unknown   # noqa: E402
+from generic.lexicon import expand   # noqa: E402
 from generic.ir import Description                                  # noqa: E402
 
 MODEL = "llama3.1:8b"
@@ -71,7 +72,11 @@ for n, iid in enumerate(items, 1):
                  if w in {"brother", "sister", "sibling", "siblings", "twin", "father", "mother", "parent", "parents", "wife", "husband",
                           "spouse", "son", "daughter", "child", "children", "teacher", "author", "artist", "painter", "publisher",
                           "employer", "company", "brothers", "sisters", "sons", "daughters", "benefactor", "creator"}] or ["of"]
-    found = [d for d in (Description.from_dict(x) for x in cache[iid]["found"]) if keep(d, p["sentence"])]
+    found = []
+    for x in cache[iid]["found"]:
+        d = Description.from_dict(x)      # re-expand with the current lexicon (v1 adds artist/publisher/teacher/employer)
+        d.paths = {kb: expand(d.relation_phrases, kb)[0] for kb in ("wikidata", "dbpedia") if expand(d.relation_phrases, kb)[0]}
+        if keep(d, p["sentence"]): found.append(d)
     pick = next((d for d in found if any(w.rstrip("s") in " ".join(d.relation_phrases) for w in rel_words)), None)
     if not pick:
         out, ans = "NOT-DETECTED", []
@@ -81,13 +86,17 @@ for n, iid in enumerate(items, 1):
         props = t["relation_props"].split("|") if t["relation_props"] else []
         ans, some = slice_values(t["anchor_qid"], props, t["gender"]) if props and t["anchor_qid"] else ([], 0)
         out = "GROUNDED" if len(ans) == 1 else "AMBIGUOUS" if ans else ("UNKNOWN_VALUE" if some else "MISSING")
+        if text_says_unknown(pick, p["sentence"]):
+            out = "TEXT_UNKNOWN"          # anonymous node; KB values kept only as candidates
     exp = t["proposed_outcome"]
     expect = {"KB_UNIQUE": "GROUNDED", "KB_AMBIGUOUS": "AMBIGUOUS", "KB_MISSING": "MISSING", "KB_UNKNOWN_VALUE": "UNKNOWN_VALUE",
               "TEXT_UNKNOWN": "ANON", "ANCHOR_NOT_IN_KB": "ANON", "NAMED_IN_CONTEXT": "NAMED"}.get(exp)
-    kept = out in ("GROUNDED", "AMBIGUOUS", "MISSING", "UNKNOWN_VALUE")
-    agree = (expect == out) or (expect == "ANON" and out in ("MISSING", "UNKNOWN_VALUE", "AMBIGUOUS"))
+    kept = out in ("GROUNDED", "AMBIGUOUS", "MISSING", "UNKNOWN_VALUE", "TEXT_UNKNOWN")
+    agree = ((expect == out) or (expect == "ANON" and out in ("MISSING", "UNKNOWN_VALUE", "AMBIGUOUS", "TEXT_UNKNOWN"))
+             or (expect == "NAMED" and out == "GROUNDED"))         # a named-in-context entity is correctly grounded
+    wrong_identity = out == "GROUNDED" and exp in ("TEXT_UNKNOWN", "KB_MISSING", "ANCHOR_NOT_IN_KB")
     rows.append({"item_id": iid, "phenomenon": t["phenomenon"], "flags": t["flags"], "proposed_outcome": exp, "N_outcome": out,
-                 "N_answers": " ".join(ans), "N_fact_kept": kept, "N_agrees_with_proposal": agree,
+                 "N_answers": " ".join(ans), "N_fact_kept": kept, "N_agrees_with_proposal": agree, "N_grounded_when_reference_says_no_identity": wrong_identity,
                  "B1_grade": grade_b1(cache[iid]["b1"], rel_words, p["source_name"]), "sentence": p["sentence"][:200]})
 json.dump(cache, open(CACHE, "w"), ensure_ascii=False)
 w = csv.DictWriter(open(os.path.join(HERE, "pilot_dryrun_2026-11-19.csv"), "w", newline=""), fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
@@ -97,6 +106,7 @@ def summ(sel):
     if not s: return {}
     return {"n": len(s), "N_fact_kept_pct": round(100 * sum(r["N_fact_kept"] for r in s) / len(s), 1),
             "N_agrees_with_proposal_pct": round(100 * sum(r["N_agrees_with_proposal"] for r in s) / len(s), 1),
+            "N_grounded_when_reference_says_no_identity": sum(r["N_grounded_when_reference_says_no_identity"] for r in s),
             "N_outcomes": dict(collections.Counter(r["N_outcome"] for r in s)),
             "B1": dict(collections.Counter(r["B1_grade"] for r in s))}
 out = {"all": summ(lambda r: True), "R_nonstress": summ(lambda r: r["phenomenon"] == "R" and "stress" not in r["flags"]),

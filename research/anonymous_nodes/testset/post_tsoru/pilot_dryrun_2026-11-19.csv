@@ -1,0 +1,101 @@
+item_id,phenomenon,flags,proposed_outcome,N_outcome,N_answers,N_fact_kept,N_agrees_with_proposal,N_grounded_when_reference_says_no_identity,B1_grade,sentence
+DRY-001,R,,NAMED_IN_CONTEXT,GROUNDED,Q135703714,True,True,False,PHRASE,"When Pratt was two or three years old, his father uprooted the family to Anchorage, Alaska, where they lived for the next few years."
+DRY-002,R,multi,NAMED_IN_CONTEXT,GROUNDED,Q6831238,True,True,False,PHRASE,Her father later became an atheist and her mother became a Buddhist.
+DRY-003,R,multi,NAMED_IN_CONTEXT,GROUNDED,Q97630,True,True,False,NAMED,Her father was a German Jewish immigrant and her mother was English and a Quaker.
+DRY-004,R,,KB_MISSING,UNRESOLVED,,False,False,False,NAMED,Indira was her parents' only surviving child (she had a younger brother who died while young).
+DRY-005,R,multi,NAMED_IN_CONTEXT,GROUNDED,Q108840911,True,True,False,NAMED,"Her father was a Baptist, her mother Catholic."
+DRY-006,R,multi,NAMED_IN_CONTEXT,GROUNDED,Q76234903,True,True,False,PHRASE,"Her mother worked as a nanny and waitress, while her father, a struggling actor, took labouring jobs to support the family."
+DRY-007,R,,NAMED_IN_CONTEXT,GROUNDED,Q309788,True,True,False,NAMED,Her father was shooting the film The Hot Spot (1990) in Texas when she was born.
+DRY-008,R,,NAMED_IN_CONTEXT,GROUNDED,Q7416,True,True,False,NAMED,"While she was there, her mother was elected prime minister."
+DRY-009,R,,NAMED_IN_CONTEXT,GROUNDED,Q1124,True,True,False,DROPPED,"From 1978 until they entered the White House, she had a higher salary than her husband."
+DRY-010,R,,NAMED_IN_CONTEXT,GROUNDED,Q5365719,True,True,False,NAMED,"Her father, an alcoholic confined to a sanitarium, died on August 14, 1894, after jumping from a window during a fit of delirium tremens."
+DRY-011,R,,NAMED_IN_CONTEXT,GROUNDED,Q658614,True,True,False,DROPPED,"This furthered his interest in directing theater, though his father disapproved and wanted him to study engineering."
+DRY-012,R,multi,NAMED_IN_CONTEXT,AMBIGUOUS,Q108841515 Q108841531,True,False,False,DROPPED,His parents were married in 1940 at Holy Trinity Church in Dartford.
+DRY-013,R,,KB_MISSING,MISSING,,True,True,False,PHRASE,His elder brother died in infancy.
+DRY-014,R,multi,KB_MISSING,MISSING,,True,True,False,PHRASE,Charles Hall had two brothers and five sisters; one brother died in infancy.
+DRY-015,R,,KB_MISSING,MISSING,,True,True,False,PHRASE,An elder brother died in infancy.
+DRY-016,R,,KB_MISSING,MISSING,,True,True,False,PHRASE,"Carter had a younger sister, who died of a spinal disease at age ten."
+DRY-017,R,,KB_MISSING,MISSING,,True,True,False,PHRASE,Another younger brother died in infancy.
+DRY-018,R,multi,KB_MISSING,MISSING,,True,True,False,PHRASE,"He had a sister, born one year after Reich, but she died in infancy."
+DRY-019,R,multi,KB_MISSING,MISSING,,True,True,False,DROPPED,"Kate was the third of five children, but her sisters died in infancy and her half-brothers (from her father’s first marriage) died in their early 20s."
+DRY-020,R,,KB_MISSING,MISSING,,True,True,False,PHRASE,She had an older sister; her younger sister died in infancy.
+DRY-021,R,,KB_MISSING,NOT-DETECTED,,False,False,False,PHRASE,"Born at Tokomaru Bay, her twin sister died in infancy, and Moetū was given the name Tuini, a transliteration of twin."
+DRY-022,R,multi,KB_MISSING,NOT-DETECTED,,False,False,False,DROPPED,"Three of her seven siblings died in infancy, while an older sister died from appendicitis at age 11."
+DRY-023,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,Q174504 Q687018,True,True,False,PHRASE,His first wife’s name is unknown; she died before 1280.
+DRY-024,R,multi,KB_AMBIGUOUS,TEXT_UNKNOWN,Q317894 Q2469233 Q236853 Q3395885 Q561411 Q3745257 Q3958705 Q3723242 Q3887172 Q19985158 Q3715569 Q65576196 Q106368468,True,False,False,PHRASE,One unnamed child died at birth.
+DRY-025,U,stress,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,DROPPED,He married an unknown woman and stayed in Constantinople for the rest of his life.
+DRY-026,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,Q140310362,True,True,False,PHRASE,An unknown teacher gave him cello lessons.
+DRY-027,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Wright’s first novel, The Laurentian Channel, was written in 1995 and was accepted by an unknown publisher."
+DRY-028,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,DROPPED,"Newbery was born in 1713 to Robert Newbery, a farmer, in Waltham St Lawrence, Berkshire, England, and an unknown mother."
+DRY-029,U,,TEXT_UNKNOWN,MISSING,,True,True,False,NAMED,She was the young daughter of the Praetorian Prefect Timesitheus by an unknown wife.
+DRY-030,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Robbins was born Francis Kane to unknown parents in New York City in 1916.
+DRY-031,U,stress multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Weygand was born on 21 January 1867, allegedly at 39 Boulevard de Waterloo in Brussels, of unknown parents."
+DRY-032,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Pierce was born in Bristol to an Irish Catholic mother and an unknown father.
+DRY-033,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Ernie Lazar was born Ernest Clayton Jammes on April 16, 1945, in Minneapolis, Minnesota, to Marjorie Jammes and an unknown father."
+DRY-034,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,The portrait was painted by an unknown artist in 1588 and depicts a 24-year-old man.
+DRY-035,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Papyrus Oxyrhynchus 250 (P. Oxy. 250 or P. Oxy. II 250) is a fragment of a registration of some property, written by an unknown author in Greek."
+DRY-036,U,,TEXT_UNKNOWN,MISSING,,True,True,False,PHRASE,"Papyrus Oxyrhynchus 40 (P. Oxy. 40) is a report of a legal decision of the praefect Eudaemon, written by an unknown author in Greek."
+DRY-037,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Papyrus Oxyrhynchus 214 (P. Oxy. 214 or P. Oxy. II 214) is a fragment of an epic by an unknown author, written in Greek."
+DRY-038,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Papyrus Oxyrhynchus 216 (P. Oxy. 216 or P. Oxy. II 216) is a rhetorical exercise by an unknown author, written in Greek."
+DRY-039,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,Q4877197 Q133697282,True,True,False,PHRASE,Go Ask Alice has been credited to an anonymous author since its publication.
+DRY-040,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,Q10324957,True,True,False,PHRASE,"O: A Presidential Novel is a fiction book by an anonymous author (speculated to be John McCain's 2008 senior campaign advisor, Mark Salter) about the 2012 U.S. presidential race."
+DRY-041,R,stress,KB_MISSING,NOT-DETECTED,,False,False,False,DROPPED,"After the death of Mary Read's grandmother-in-law, her mother made the now 13-year-old child a foot-boy for an unnamed French lady."
+DRY-042,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,DROPPED,While Mottram was born on 9 April 1807 – probably in England – his exact place of birth and parents are unknown.
+DRY-043,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Davers' parentage is unknown, but he was likely born in England in around 1620."
+DRY-044,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Walter was born about 1663, but his parentage is unknown."
+DRY-045,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Jacob's place of birth and information regarding his parents are also unknown.
+DRY-046,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,His parents are unknown.
+DRY-047,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"She was of European and Aboriginal ancestry, but her parents are unknown."
+DRY-048,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,His parents are unknown.
+DRY-049,U,stress multi,TEXT_UNKNOWN,MISSING,,True,True,False,PHRASE,"His parents are unknown, despite the popular belief that his father was Giovanni Baptista Grimaldi."
+DRY-050,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,DROPPED,"Frank, the Underground Mail-Agent is an 1853 parody novel written by an unknown author credited as “Vidi”."
+DRY-051,U,,TEXT_UNKNOWN,MISSING,,True,True,False,PHRASE,"Self-taught, “son of himself”, he arose from unknown father and was abandoned by his mother at the age of three."
+DRY-052,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Her parents are unknown.
+DRY-053,R,stress,KB_MISSING,MISSING,,True,True,False,DROPPED,His maternal lineage remained officially undetermined until his death.
+DRY-054,R,,KB_UNKNOWN_VALUE,UNKNOWN_VALUE,,True,True,False,PHRASE,"The artist, probably a professional painter from the jungin (middle people) class of Joseon dynasty cannot be ascertained due to lack of documentation."
+DRY-055,U,,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,"The painting was originally attributed to Vincent van Gogh, but subsequently was found to be the work of an unknown artist."
+DRY-056,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Meditation by the Sea is an American folk art oil painting by an unknown artist from the early 1860s.
+DRY-057,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,The Anguished Man is a painting by an unknown artist.
+DRY-058,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,Q5314527,True,True,False,PHRASE,His parentage is unknown.
+DRY-059,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,His parentage is unknown.
+DRY-060,U,multi,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,"Campion was born in 1687, her parents are unknown, but some believe that her father's employer was William Cavendish, 1st Duke of Devonshire's valet."
+DRY-061,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Evelyn Minerva Wells was born 7 April 1899 in Illinois to unknown parents.
+DRY-062,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Kym Purling was found abandoned at the age of two or three days to unknown parents during the Vietnam War.
+DRY-063,U,multi,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,"Born to unknown parents at Llangewydd in Glamorgan, Llywelyn Siôn was instructed by Meurig Dafydd, Thomas Llewelyn and possibly the priest Morgan Powell."
+DRY-064,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Nicolas-Alexandre Dezède (c.1740 in Lyon – 11 September 1798, in Paris) was an 18th-century French composer born from unknown parents."
+DRY-065,R,,KB_AMBIGUOUS,NOT-DETECTED,,False,False,False,PHRASE,He also has a job at an unnamed Russian IT company.
+DRY-066,U,,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,"An anonymous benefactor was found who funded the establishment of the Prize, which was named after the English 18th-century author and lexicographer Samuel Johnson."
+DRY-067,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,He was born to unknown parents in the village of Aigedzor.
+DRY-068,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,His mother is unknown.
+DRY-069,U,stress multi,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,He was of unknown parentage.
+DRY-070,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,NAMED,The identity of her mother is unknown.
+DRY-071,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"His mother is unknown, too."
+DRY-072,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,The Philadelphia Wireman is the working name given to an unknown outsider artist.
+DRY-073,U,,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,DROPPED,It is a circa 1720 painting by an unidentified artist known as The Kota Master.
+DRY-074,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,The identity of his mother is unknown.
+DRY-075,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Porzia de' Medici was an Italian missionary and illegitimate daughter of Alessandro de' Medici and an unknown mother.
+DRY-076,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,Q675493,True,True,False,PHRASE,His mother is unknown to historians.
+DRY-077,U,,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,"She was born Mary Davis, in poverty and of unknown parentage."
+DRY-078,U,,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,DROPPED,"Of unknown parentage, Monthermer was born in Wales."
+DRY-079,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Slomczynski was born in Bordeaux, the son of Stanislas Słomczyński and an unknown mother."
+DRY-080,U,,TEXT_UNKNOWN,MISSING,,True,True,False,PHRASE,"Wiltshire was born on a plantation near Belleplaine, the son of Estelle Wiltshire and an unknown father."
+DRY-081,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Pøbel is the pseudonym of an anonymous Norwegian artist from Bryne, Norway."
+DRY-082,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,The Master of the Legend of Saint Bruno is the notname of an anonymous Gothic painter.
+DRY-083,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,Petitpas was born circa 1710 to a Parisian father (a locksmith) and an unknown mother.
+DRY-084,U,multi,TEXT_UNKNOWN,TEXT_UNKNOWN,Q75242516 Q75242518,True,True,False,DROPPED,"Hubert de Burgh was born of unknown parents of Burgh-next-Aylsham, Norfolk."
+DRY-085,R,stress,KB_MISSING,NOT-DETECTED,,False,False,False,DROPPED,Basil was the illegitimate son of the emperor Romanos I Lekapenos by a concubine.
+DRY-086,R,multi,KB_UNIQUE,TEXT_UNKNOWN,Q40023,True,False,False,NAMED,The identity of his mother is uncertain.
+DRY-087,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"It was produced by an unknown artist working in Leiden or Antwerp, though it was long attributed to Lucas van Leyden."
+DRY-088,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"Portrait of a Woman of the Hofer Family is a painting by an unknown artist, dating to c. 1470, in the collection of the National Gallery, London."
+DRY-089,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"The Death of the Virgin acquired in 1944 by the Legion of Honor Art Museum is an oil painting on a panel created sometime in the late fifteenth century in Swabia, Germany by an unknown artist, portray"
+DRY-090,U,,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,"Since he did not sign his work, his true name is unknown."
+DRY-091,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,Q212657,True,True,False,PHRASE,"The Allegory of Painting is a painting from around the 1640s attributed in 1988 to the Italian Baroque artist Artemisia Gentileschi, although more recent research suggests it was painted by an anonymo"
+DRY-092,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,Q296,True,True,False,PHRASE,Bords de la Seine à Argenteuil (Banks of the Seine at Argenteuil) is an oil painting by an unknown artist.
+DRY-093,U,,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,"The artist is unknown, and it is also not known if it has any spiritual connotations."
+DRY-094,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"The artist is unknown, and there is some debate if the piece is Etruscan made or Etruscan influenced."
+DRY-095,U,stress,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,The statuette’s artist is unknown.
+DRY-096,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,The artist is unknown.
+DRY-097,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,Q1709100 Q1237059 Q5597,True,True,False,DROPPED,"The Virgin and Child, commonly known as The Northbrook Madonna after the Northbrook Collection in England, is a painting from the early 16th century (around 1505) by an unknown artist possibly identif"
+DRY-098,U,,TEXT_UNKNOWN,NOT-DETECTED,,False,False,False,PHRASE,"Portrait of a Man is a c.1660 oil-on-canvas portrait of an unknown subject by the Dutch artist Frans Hals, produced late in his career."
+DRY-099,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,"John Gielgud reads the letter in a voiceover; the actress playing the part of the mother is unknown, and she never speaks."
+DRY-100,U,,TEXT_UNKNOWN,TEXT_UNKNOWN,,True,True,False,PHRASE,A Prospect of Derby is a c. 1725 painting by an unknown artist that shows the layout of Derby in the early 18th century.

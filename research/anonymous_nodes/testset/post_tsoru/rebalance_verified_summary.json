@@ -1,0 +1,76 @@
+{
+ "people": 120,
+ "candidates": 82,
+ "flagged_checked": 14,
+ "verified": 4,
+ "by_outcome": {
+  "KB_UNIQUE": 2,
+  "KB_AMBIGUOUS": 2,
+  "NAMED_IN_CONTEXT": 3,
+  "ANCHOR_ERROR": 4,
+  "NAMED_IN_SENTENCE": 2,
+  "REGEX_SLIP": 1
+ },
+ "items": {
+  "RB-054": {
+   "verdict": "KB_UNIQUE",
+   "note": "father Moritz William, Duke of Saxe-Zeitz; no alias in the article"
+  },
+  "RB-066": {
+   "verdict": "KB_UNIQUE",
+   "note": "wife Haru Kagawa; not named in the article"
+  },
+  "RB-038": {
+   "verdict": "KB_AMBIGUOUS",
+   "note": "several brothers in Wikidata; the 1679 Scanian War context points to Christian V"
+  },
+  "RB-080": {
+   "verdict": "KB_AMBIGUOUS",
+   "note": "two sons in Wikidata (Samuel, Thomas)"
+  },
+  "RB-036": {
+   "verdict": "NAMED_IN_CONTEXT",
+   "note": "husband named in the article as 'Hiro' (Wikidata alias)"
+  },
+  "RB-067": {
+   "verdict": "NAMED_IN_CONTEXT",
+   "note": "mother named as 'Vedavalli' (Veda Jayaram)"
+  },
+  "RB-074": {
+   "verdict": "NAMED_IN_CONTEXT",
+   "note": "father named as Ismail Gasprinsky"
+  },
+  "RB-047": {
+   "verdict": "ANCHOR_ERROR",
+   "note": "'her son' = Katie Price's son, not the topic's"
+  },
+  "RB-068": {
+   "verdict": "ANCHOR_ERROR",
+   "note": "'her father's home' = the mother's father"
+  },
+  "RB-075": {
+   "verdict": "ANCHOR_ERROR",
+   "note": "'his sister' = the brother's sister (the topic herself)"
+  },
+  "RB-076": {
+   "verdict": "ANCHOR_ERROR",
+   "note": "'his daughter' = the brother's daughter"
+  },
+  "RB-009": {
+   "verdict": "NAMED_IN_SENTENCE",
+   "note": "'His mother was the horseback acrobat dancer Rocío Bermúdez'"
+  },
+  "RB-073": {
+   "verdict": "NAMED_IN_SENTENCE",
+   "note": "'Her mother was Zühre Gaspıralı'"
+  },
+  "RB-017": {
+   "verdict": "REGEX_SLIP",
+   "note": "'her mother' matched inside 'mother-in-law'"
+  }
+ },
+ "not_yet_checked": {
+  "KB_MISSING": 50,
+  "NAMED_IN_CONTEXT": 18
+ }
+}
