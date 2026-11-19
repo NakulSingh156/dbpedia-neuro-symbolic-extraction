@@ -2,6 +2,11 @@
 
 One entry per working block. Newest first.
 
+## 2026-10-30 — independent blind-50 pass
+- Completed an independent **Codex** annotation of the 50 rows without opening Claude's labels until the annotations were saved. This is a model-to-model consistency check, **not Nakul's human blind annotation or human inter-annotator reliability**. Both CSV copies hold the Codex labels.
+- **Any unnamed reference:** Cohen's κ = **0.88**, raw agreement **47/50 (94%)**. Confusion counts: TP 22, FP 2, FN 1, TN 25. Disagreements: row 187 (Moussey demonym / T-ZERO missed), row 255 (Szczaniec “It is the seat…” / Codex marked topic pronoun), row 274 (“This is a list…” / Codex marked topic pronoun).
+- **O-REL:** Cohen's κ = **0.79**, raw agreement **49/50 (98%)**. Both gold O-REL cases were identified; one extra positive was row 298 (winners, second placers, and everyone else in the group-stage sentence). Only two gold O-REL positives occur in the sample, so κ is unstable. Nakul's human blind review and the planned targeted check of the 24 scan hits remain open.
+
 ## 2026-10-17 — natural set, first honest detector numbers
 - **Natural mining** (`testset/mine_natural.py`): 45 biographies (15 per tier, none in Phase-1 or the controlled set), 1,409 sentences; scan fired on 125, detector on 172, union 216 candidates.
 - **Hand verification** (`testset/natural/label_candidates_v0.py` → `labels_v0.json`, Claude, one pass): **59 sentences hold a genuine relational description**; detector right relation 49, wrong 1, missed 9; scan found 47. Detector sentence precision only **51/172 (30%)**: false alarms = entity named in the sentence ("his brother Kelle", "His father, Edward Henry Lorenz"), family lists ("Son - Sin Chŏng"), organisations/groups tagged "member", empty relation chains slipping through (expand([]) returned a path — fixed).

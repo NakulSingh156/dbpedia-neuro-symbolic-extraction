@@ -1,0 +1,251 @@
+{
+  "anchors": {
+    "DRY-001": {
+      "page_id": 1916589,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Chris+Pratt",
+      "pageprops_response_sha256": "debbc1d279120ed57636a288a4843f9a3ef88287e6be62b275e305543c813ffe",
+      "qid": "Q503706",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Chris+Pratt",
+      "revision_id": 1382889282,
+      "revision_response_sha256": "66d6fb59a7e0760bfa98e5cbc2a977ac9a169a867e606b00f2f7f9318e603a15",
+      "revision_sha1": "5a69723c7ed1f75ec9c80363b023d14833072f5a",
+      "revision_timestamp": "2026-10-30T21:14:07Z",
+      "title": "Chris Pratt"
+    },
+    "DRY-002": {
+      "page_id": 34078,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Winona+Ryder",
+      "pageprops_response_sha256": "12401d128c1b81acf2c152cb85a9605edcced28c906dbc6dc1ebfc1af19a4274",
+      "qid": "Q101797",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Winona+Ryder",
+      "revision_id": 1382865356,
+      "revision_response_sha256": "89d9f2c80a08a1bc6d3d8ad7d33f7f5e72abefddec0f7b5032da82017c02851b",
+      "revision_sha1": "7a770b57b8892bd55c003af23dc76d0d539acc85",
+      "revision_timestamp": "2026-10-30T18:44:00Z",
+      "title": "Winona Ryder"
+    },
+    "DRY-003": {
+      "page_id": 1129066,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Zo%C3%AB+Heller",
+      "pageprops_response_sha256": "506eedd8c8bf87fc5d18f8fca7ed18a65608f9d853aa7fd251fdbf4301a96b16",
+      "qid": "Q227113",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Zo%C3%AB+Heller",
+      "revision_id": 1372499833,
+      "revision_response_sha256": "5569977885f2748a524b7194b377540a47cfa4a938694e5d31970f9cf6da5441",
+      "revision_sha1": "73fd6bc0dfcad3657abe47e7b88f077e1117e5e9",
+      "revision_timestamp": "2026-09-01T01:05:28Z",
+      "title": "Zoë Heller"
+    },
+    "DRY-004": {
+      "page_id": 15179,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Indira+Gandhi",
+      "pageprops_response_sha256": "923b9da9c6125d75386ee589d786fbcf61ea5453d6c63490eac5717dfa44008c",
+      "qid": "Q1149",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Indira+Gandhi",
+      "revision_id": 1383031996,
+      "revision_response_sha256": "239343b356b827569d802d11cc04fcf7d1dbb913aec2136198eec966624b0c8d",
+      "revision_sha1": "66336024fdad50c84ed108bcccff5f4d1f681b2a",
+      "revision_timestamp": "2026-10-31T16:47:55Z",
+      "title": "Indira Gandhi"
+    },
+    "DRY-005": {
+      "page_id": 16553,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Julia+Roberts",
+      "pageprops_response_sha256": "6000da4ec80406df105a3e00a48521f2cf804ce1dfaa2766ecf60879d1a1bcb4",
+      "qid": "Q40523",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Julia+Roberts",
+      "revision_id": 1383092718,
+      "revision_response_sha256": "7e65c8d3de1cbb6068c1c4a359905c9d43e27c7b41398a1f136076730b8e9912",
+      "revision_sha1": "6985fd346efb4ca7b58b533caf87e2e79c5bf71a",
+      "revision_timestamp": "2026-10-31T23:21:07Z",
+      "title": "Julia Roberts"
+    },
+    "DRY-006": {
+      "page_id": 52707,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Kate+Winslet",
+      "pageprops_response_sha256": "2d906eec70d7c0ad14a8d15c05f6bde2747d1f38db3fa381342cb5bcfaff8e13",
+      "qid": "Q202765",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Kate+Winslet",
+      "revision_id": 1383607458,
+      "revision_response_sha256": "88898a0ba3ecf3a1bf5429b22b2dc7ad3838fcc1fd3a8c047e6761c3cb5270ae",
+      "revision_sha1": "fd8f3bf70b6d31a718c8eb9fa18c336890c85bad",
+      "revision_timestamp": "2026-11-03T17:30:22Z",
+      "title": "Kate Winslet"
+    },
+    "DRY-007": {
+      "page_id": 7000810,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Dakota+Johnson",
+      "pageprops_response_sha256": "9ec0c7f079360bddd82b8f2308bcab405eefc0aa12290137dd9b670562116d60",
+      "qid": "Q2315802",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Dakota+Johnson",
+      "revision_id": 1382655699,
+      "revision_response_sha256": "fa120c4f169d5db8f0e17bb4004d691ebc63d87a7c045d2e205314bb45e4b459",
+      "revision_sha1": "8e8a2deb1c687d05c79670fb3b45a39de02e6060",
+      "revision_timestamp": "2026-10-29T17:31:24Z",
+      "title": "Dakota Johnson"
+    },
+    "DRY-008": {
+      "page_id": 298715,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Carol+Thatcher",
+      "pageprops_response_sha256": "cff13b8175c1ccd21674ee5a16c23ad9e0d3003cacfa2231a24b8bcc24fb76b4",
+      "qid": "Q2449855",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Carol+Thatcher",
+      "revision_id": 1380849550,
+      "revision_response_sha256": "2765ae2009ac7daf39bf51e09d68753d2b62026c2f5c424db102618fcde64826",
+      "revision_sha1": "11999629a94ba4eb55c6722f512070657731d397",
+      "revision_timestamp": "2026-10-18T09:36:48Z",
+      "title": "Carol Thatcher"
+    },
+    "DRY-009": {
+      "page_id": 5043192,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Hillary+Clinton",
+      "pageprops_response_sha256": "a37a96c3ea0999a3fd2e06fc12ce8594b44bd03227a383f18411b06aa0d97ac8",
+      "qid": "Q6294",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Hillary+Clinton",
+      "revision_id": 1383494965,
+      "revision_response_sha256": "3760130e2f689560d764d379e424c143b6b8123468315a7053578e717827fe36",
+      "revision_sha1": "53258d417c9967cc69715a79a1c3e48f5bcf6720",
+      "revision_timestamp": "2026-11-03T00:23:43Z",
+      "title": "Hillary Clinton"
+    },
+    "DRY-010": {
+      "page_id": 19280644,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Eleanor+Roosevelt",
+      "pageprops_response_sha256": "f30544815774bc391f1e232c2307d445da0ac28335ece2f5866652c1fe32aeda",
+      "qid": "Q83396",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Eleanor+Roosevelt",
+      "revision_id": 1382294386,
+      "revision_response_sha256": "812a8c72f40070978f3e3cdefcbc7547fa1afceeb866d2ca3822630407735a0b",
+      "revision_sha1": "7194208b10e42b8c3a2835898388ed905a0a8203",
+      "revision_timestamp": "2026-10-27T21:15:37Z",
+      "title": "Eleanor Roosevelt"
+    },
+    "DRY-011": {
+      "page_id": 10576,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Francis+Ford+Coppola",
+      "pageprops_response_sha256": "bed2fb7fbcc074c6ff589ab32329550d4e9b229785fa1856eae98fa32111898f",
+      "qid": "Q56094",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Francis+Ford+Coppola",
+      "revision_id": 1381881912,
+      "revision_response_sha256": "74394d5617a7d49e2cc559e2dde11c16654a01afbd519b9dbf12217661cfec96",
+      "revision_sha1": "c22e167c2d0c55efce0ad077aff0a035516881a8",
+      "revision_timestamp": "2026-10-25T11:10:53Z",
+      "title": "Francis Ford Coppola"
+    },
+    "DRY-012": {
+      "page_id": 57187,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Mick+Jagger",
+      "pageprops_response_sha256": "3705e6de95342e8fcd73779786532a7e68b5f0055feeb2c761ff2f1ecfca940c",
+      "qid": "Q128121",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Mick+Jagger",
+      "revision_id": 1382189608,
+      "revision_response_sha256": "32e57d6c495c8815ac3da3bcd5e2d57c7c6e83abe5dbf075c59c5a7b9c1dee44",
+      "revision_sha1": "0927521262aefab5a8f70232960a4dfbad162166",
+      "revision_timestamp": "2026-10-27T04:50:05Z",
+      "title": "Mick Jagger"
+    },
+    "DRY-013": {
+      "page_id": 398871,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Alfred+d%27Orsay",
+      "pageprops_response_sha256": "1e3bd3531da06c729396d83f51dfc81c4fd4822c0d1da598554eabb9d7fbb82c",
+      "qid": "Q2622452",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Alfred+d%27Orsay",
+      "revision_id": 1353368687,
+      "revision_response_sha256": "122abeb1fc902928f26246a9ed3b1b83a83991dd8242391150892c026335d707",
+      "revision_sha1": "4d093c6ed0d3a4b7dee012404c288249a011bc8b",
+      "revision_timestamp": "2026-05-09T21:41:21Z",
+      "title": "Alfred d'Orsay"
+    },
+    "DRY-014": {
+      "page_id": 585527,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Charles+Martin+Hall",
+      "pageprops_response_sha256": "3198ea2cd632b8a1e63ba2dd6ac82069b6c706fe63f272171be4224396be6c11",
+      "qid": "Q443131",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Charles+Martin+Hall",
+      "revision_id": 1341504477,
+      "revision_response_sha256": "1d2fe2c3646b000904ad1ef6ea33c4bc894d8d26f77fbe042de23ec0385f34ec",
+      "revision_sha1": "32aea51284e524c7f255a263b852e2ffc536091b",
+      "revision_timestamp": "2026-03-03T15:29:43Z",
+      "title": "Charles Martin Hall"
+    },
+    "DRY-015": {
+      "page_id": 39791431,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=James+Seth",
+      "pageprops_response_sha256": "833f4f5f6eb0a57d904e3992ee2beab4a441a22658eb160ec9898f10f3e60790",
+      "qid": "Q11309438",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=James+Seth",
+      "revision_id": 1348775476,
+      "revision_response_sha256": "12795317ccde1d473a181ee640a2a3986f9436bd459603c19f669a8e71365593",
+      "revision_sha1": "7f586096cfef2ded7e3f3a922083c83ea28673fe",
+      "revision_timestamp": "2026-04-14T06:11:27Z",
+      "title": "James Seth"
+    },
+    "DRY-016": {
+      "page_id": 53180984,
+      "pageprops_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageprops&ppprop=wikibase_item&redirects=1&titles=Jennie+Carter",
+      "pageprops_response_sha256": "88e9a515c782c564e73be3d48dcf4c8add80be5938f80036d1959f5274a05102",
+      "qid": "Q28777198",
+      "resolution_method": "wikipedia_api_pageprops",
+      "revision_api_url": "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ctimestamp%7Csha1&rvlimit=1&redirects=1&titles=Jennie+Carter",
+      "revision_id": 1371735586,
+      "revision_response_sha256": "8c943c8308e37e68f50d9ba1fe36c11acb7e18536ced91708cef634374ba5aa5",
+      "revision_sha1": "ba611becd0325fae4b75a2fc3ad10596b6ce4d10",
+      "revision_timestamp": "2026-08-28T04:10:29Z",
+      "title": "Jennie Carter"
+    }
+  },
+  "capture_completed_at_utc": "2026-11-03T19:07:14.417997+00:00",
+  "capture_started_at_utc": "2026-11-03T19:04:53.501289+00:00",
+  "capture_type": "dated Wikidata relevant-claims evidence slice; not a full dump",
+  "claim_properties": [
+    "P22",
+    "P25",
+    "P26",
+    "P3373",
+    "P40",
+    "P1038"
+  ],
+  "evidence_slice_sha256": "01e0d49a805005d7d15f7d73b6c82ee1310913f9ad6fbd0f1f65597dfa4fbf89",
+  "limitations": [
+    "Wikidata is live and mutable; this capture freezes only the returned evidence slice.",
+    "Only direct relationship claims listed in claim_properties are retained.",
+    "A missing claim is not proof that a real-world relation does not exist."
+  ],
+  "source": "Wikidata wbgetentities API; anchor resolution via English Wikipedia API pageprops",
+  "source_rows": 16,
+  "wikidata_api_batches": {
+    "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=Q101797%7CQ11309438%7CQ1149%7CQ128121%7CQ202765%7CQ227113%7CQ2315802%7CQ2449855%7CQ2622452%7CQ28777198%7CQ40523%7CQ443131%7CQ503706%7CQ56094%7CQ6294%7CQ83396&props=labels%7Cclaims&languages=en": {
+      "raw_file": "wikidata_anchor_batch_001.json",
+      "response_sha256": "66260b0278dba213297a4a359baab78b55b2b7bb4cd356dd3f622e7516b7aca5",
+      "retrieved_at_utc": "2026-11-03T19:07:10.589504+00:00",
+      "returned_entities": 16
+    },
+    "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=Q1047%7CQ108622%7CQ108715430%7CQ108840911%7CQ108841515%7CQ108841531%7CQ1124%7CQ112833739%7CQ116858049%7CQ120598983%7CQ123857717%7CQ123915010%7CQ133809411%7CQ133809424%7CQ135703714%7CQ142546%7CQ155299%7CQ16013081%7CQ16016103%7CQ163225%7CQ176455%7CQ18386171%7CQ19347164%7CQ193628%7CQ19963490%7CQ20744437%7CQ207969%7CQ21402343%7CQ223233%7CQ22327217%7CQ22327239%7CQ229671%7CQ23001105%7CQ23001106%7CQ23001109%7CQ23005489%7CQ23005491%7CQ239476%7CQ245808%7CQ2459143%7CQ2685%7CQ273434%7CQ275876%7CQ285549%7CQ2964747%7CQ30106387%7CQ309788%7CQ359797%7CQ3633365%7CQ3889699&props=labels&languages=en": {
+      "raw_file": "wikidata_target_labels_batch_001.json",
+      "response_sha256": "134f330d8e702546c50edf33de024c07e0d70ed30d95edee91544b47c1bc8b50",
+      "retrieved_at_utc": "2026-11-03T19:07:12.482455+00:00",
+      "returned_entities": 50
+    },
+    "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=Q43100988%7CQ4491%7CQ4521676%7CQ454404%7CQ4593%7CQ459501%7CQ46172%7CQ4710292%7CQ4767063%7CQ4767446%7CQ4820677%7CQ4943414%7CQ5298463%7CQ531585%7CQ5365719%7CQ543637%7CQ554175%7CQ5642630%7CQ5932520%7CQ60404335%7CQ61481065%7CQ6186497%7CQ6219636%7CQ658614%7CQ6807424%7CQ6831238%7CQ713468%7CQ7174386%7CQ730045%7CQ7416%7CQ75242023%7CQ75283858%7CQ75766447%7CQ75801793%7CQ76211470%7CQ76234903%7CQ76234905%7CQ76247699%7CQ7823289%7CQ7831743%7CQ8007%7CQ95860967%7CQ97630&props=labels&languages=en": {
+      "raw_file": "wikidata_target_labels_batch_002.json",
+      "response_sha256": "8f1158791aba2413f7071f67e4b8263e08fd5f2225de124939291ee36d3587ae",
+      "retrieved_at_utc": "2026-11-03T19:07:14.409712+00:00",
+      "returned_entities": 43
+    }
+  }
+}
