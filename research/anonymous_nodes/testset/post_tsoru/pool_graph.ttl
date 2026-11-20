@@ -1,0 +1,1425 @@
+@prefix wd:   <http://www.wikidata.org/entity/> .
+@prefix wdt:  <http://www.wikidata.org/prop/direct/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix nef:  <https://w3id.org/nef/anon#> .
+@prefix gen:  <https://w3id.org/nef/.well-known/genid/> .
+
+
+wd:Q503706 wdt:P22 wd:Q135703714 .
+
+gen:dc834d80531d7d45 a nef:Assertion ;
+    nef:subject wd:Q503706 ;
+    nef:predicate wdt:P22 ;
+    nef:object wd:Q135703714 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1385929476> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q101797 wdt:P22 wd:Q6831238 .
+
+gen:00ea83036be0dfd7 a nef:Assertion ;
+    nef:subject wd:Q101797 ;
+    nef:predicate wdt:P22 ;
+    nef:object wd:Q6831238 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1384152010> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q227113 wdt:P22 wd:Q97630 .
+
+gen:8d8a219098480d2f a nef:Assertion ;
+    nef:subject wd:Q227113 ;
+    nef:predicate wdt:P22 ;
+    nef:object wd:Q97630 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1372499833> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1149 wdt:P3373 gen:9a321306ead5126b .
+gen:9a321306ead5126b a nef:AnonymousEntity ;
+    nef:status nef:Unresolved ;
+    nef:describedAs "a younger brother"@en ;
+    rdfs:label "a younger brother (of Indira Gandhi)"@en ;
+    nef:anchor wd:Q1149 ;
+    nef:path "P3373" ;
+    nef:gender "male" .
+
+gen:cd30db73d2b4b273 a nef:Assertion ;
+    nef:subject wd:Q1149 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:9a321306ead5126b ;
+    nef:outcome "UNRESOLVED" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386554530> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q40523 wdt:P22 wd:Q108840911 .
+
+gen:9ca9376b2f58638d a nef:Assertion ;
+    nef:subject wd:Q40523 ;
+    nef:predicate wdt:P22 ;
+    nef:object wd:Q108840911 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1385285135> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q202765 wdt:P22 wd:Q76234903 .
+
+gen:e4bbc80f5fc7dc48 a nef:Assertion ;
+    nef:subject wd:Q202765 ;
+    nef:predicate wdt:P22 ;
+    nef:object wd:Q76234903 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386603241> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q2315802 wdt:P22 wd:Q309788 .
+
+gen:369ffd0f215055f3 a nef:Assertion ;
+    nef:subject wd:Q2315802 ;
+    nef:predicate wdt:P22 ;
+    nef:object wd:Q309788 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386583009> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q2449855 wdt:P25 wd:Q7416 .
+
+gen:5746456eb57dd63f a nef:Assertion ;
+    nef:subject wd:Q2449855 ;
+    nef:predicate wdt:P25 ;
+    nef:object wd:Q7416 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1380849550> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q6294 wdt:P26 wd:Q1124 .
+
+gen:1a98b18b1c96594a a nef:Assertion ;
+    nef:subject wd:Q6294 ;
+    nef:predicate wdt:P26 ;
+    nef:object wd:Q1124 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "data_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1385344232> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q83396 wdt:P22 wd:Q5365719 .
+
+gen:1d076b6cefbac349 a nef:Assertion ;
+    nef:subject wd:Q83396 ;
+    nef:predicate wdt:P22 ;
+    nef:object wd:Q5365719 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386030081> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q56094 wdt:P22 wd:Q658614 .
+
+gen:07da88155229e5fc a nef:Assertion ;
+    nef:subject wd:Q56094 ;
+    nef:predicate wdt:P22 ;
+    nef:object wd:Q658614 ;
+    nef:outcome "GROUNDED" ;
+    nef:groundingTier "schema_unique" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1385051647> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q128121 wdt:P22 gen:d83a2459ab95199f .
+gen:d83a2459ab95199f a nef:AnonymousEntity ;
+    nef:status nef:Ambiguous ;
+    nef:describedAs "His parents"@en ;
+    rdfs:label "His parents (of Mick Jagger)"@en ;
+    nef:anchor wd:Q128121 ;
+    nef:path "P22/P25" .
+
+gen:fb7545b9fbf947fe a nef:Assertion ;
+    nef:subject wd:Q128121 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:d83a2459ab95199f ;
+    nef:outcome "AMBIGUOUS" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386206512> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q2622452 wdt:P3373 gen:adc94a1e4bafff75 .
+gen:adc94a1e4bafff75 a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "His elder brother"@en ;
+    rdfs:label "His elder brother (of Alfred d'Orsay)"@en ;
+    nef:anchor wd:Q2622452 ;
+    nef:path "P3373" ;
+    nef:gender "male" .
+
+gen:e79c738c3d485733 a nef:Assertion ;
+    nef:subject wd:Q2622452 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:adc94a1e4bafff75 ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1353368687> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q443131 wdt:P3373 gen:77806d9166eee815 .
+gen:77806d9166eee815 a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "one brother"@en ;
+    rdfs:label "one brother (of Charles Martin Hall)"@en ;
+    nef:anchor wd:Q443131 ;
+    nef:path "P3373" ;
+    nef:gender "male" .
+
+gen:943217bcbc5f160a a nef:Assertion ;
+    nef:subject wd:Q443131 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:77806d9166eee815 ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1341504477> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q11309438 wdt:P3373 gen:04bca88be63afe4d .
+gen:04bca88be63afe4d a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "An elder brother"@en ;
+    rdfs:label "An elder brother (of James Seth)"@en ;
+    nef:anchor wd:Q11309438 ;
+    nef:path "P3373" ;
+    nef:gender "male" .
+
+gen:4cb0674907f53e81 a nef:Assertion ;
+    nef:subject wd:Q11309438 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:04bca88be63afe4d ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1348775476> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q28777198 wdt:P3373 gen:17a7bc520cb905c7 .
+gen:17a7bc520cb905c7 a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "a younger sister"@en ;
+    rdfs:label "a younger sister (of Jennie Carter)"@en ;
+    nef:anchor wd:Q28777198 ;
+    nef:path "P3373" ;
+    nef:gender "female" .
+
+gen:29890bfe5e711169 a nef:Assertion ;
+    nef:subject wd:Q28777198 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:17a7bc520cb905c7 ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1371735586> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q458658 wdt:P3373 gen:a88f6c174d1afd96 .
+gen:a88f6c174d1afd96 a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "Another younger brother"@en ;
+    rdfs:label "Another younger brother (of Lord Dunsany)"@en ;
+    nef:anchor wd:Q458658 ;
+    nef:path "P3373" ;
+    nef:gender "male" .
+
+gen:e832120625802bd4 a nef:Assertion ;
+    nef:subject wd:Q458658 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:a88f6c174d1afd96 ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1383132640> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q84412 wdt:P3373 gen:fe9b89eb25f2d4da .
+gen:fe9b89eb25f2d4da a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "a sister"@en ;
+    rdfs:label "a sister (of Wilhelm Reich)"@en ;
+    nef:anchor wd:Q84412 ;
+    nef:path "P3373" ;
+    nef:gender "female" .
+
+gen:8c955bca9cde289c a nef:Assertion ;
+    nef:subject wd:Q84412 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:fe9b89eb25f2d4da ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1384845090> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q230476 wdt:P3373 gen:db721c8be2af128d .
+gen:db721c8be2af128d a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "her sisters; her half-brothers"@en ;
+    rdfs:label "her sisters; her half-brothers (of Kate Chopin)"@en ;
+    nef:anchor wd:Q230476 ;
+    nef:path "P3373" ;
+    nef:gender "male" .
+
+gen:3bb98b99b04d6de5 a nef:Assertion ;
+    nef:subject wd:Q230476 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:db721c8be2af128d ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1377488195> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q266391 wdt:P3373 gen:ded6f47f10392d88 .
+gen:ded6f47f10392d88 a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "her younger sister"@en ;
+    rdfs:label "her younger sister (of Sally Kellerman)"@en ;
+    nef:anchor wd:Q266391 ;
+    nef:path "P3373" ;
+    nef:gender "female" .
+
+gen:61f39fb335c1e0de a nef:Assertion ;
+    nef:subject wd:Q266391 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:ded6f47f10392d88 ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1384795726> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q167769 wdt:P26 gen:6787aef151ac3e3c .
+gen:6787aef151ac3e3c a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "His first wife"@en ;
+    rdfs:label "His first wife (of Záviš of Falkenstein)"@en ;
+    nef:anchor wd:Q167769 ;
+    nef:path "P26" ;
+    nef:gender "female" ;
+    nef:candidate wd:Q174504 ;
+    nef:candidate wd:Q687018 .
+
+gen:a528b5af1706503f a nef:Assertion ;
+    nef:subject wd:Q167769 ;
+    nef:predicate wdt:P26 ;
+    nef:object gen:6787aef151ac3e3c ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386554826> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q310536 wdt:P40 gen:a050e7a28545836f .
+gen:a050e7a28545836f a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "One unnamed child"@en ;
+    rdfs:label "One unnamed child (of Francesco I Sforza)"@en ;
+    nef:anchor wd:Q310536 ;
+    nef:path "P40" ;
+    nef:candidate wd:Q317894 ;
+    nef:candidate wd:Q2469233 ;
+    nef:candidate wd:Q236853 ;
+    nef:candidate wd:Q3395885 ;
+    nef:candidate wd:Q561411 ;
+    nef:candidate wd:Q3745257 ;
+    nef:candidate wd:Q3958705 ;
+    nef:candidate wd:Q3723242 ;
+    nef:candidate wd:Q3887172 ;
+    nef:candidate wd:Q19985158 ;
+    nef:candidate wd:Q3715569 ;
+    nef:candidate wd:Q65576196 ;
+    nef:candidate wd:Q106368468 .
+
+gen:13efe27905113efc a nef:Assertion ;
+    nef:subject wd:Q310536 ;
+    nef:predicate wdt:P40 ;
+    nef:object gen:a050e7a28545836f ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1383581126> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q55843412 wdt:P1066 gen:8c9d3ef786ed248a .
+gen:8c9d3ef786ed248a a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "An unknown teacher"@en ;
+    rdfs:label "An unknown teacher (of Adolph Bargiel)"@en ;
+    nef:anchor wd:Q55843412 ;
+    nef:path "P1066" ;
+    nef:candidate wd:Q140310362 .
+
+gen:d3924db3979b6b29 a nef:Assertion ;
+    nef:subject wd:Q55843412 ;
+    nef:predicate wdt:P1066 ;
+    nef:object gen:8c9d3ef786ed248a ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1376841918> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q5113470 wdt:P123 gen:a3218647f94cbe33 .
+gen:a3218647f94cbe33 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown publisher"@en ;
+    rdfs:label "an unknown publisher (of Christopher Wright (author))"@en ;
+    nef:anchor wd:Q5113470 ;
+    nef:path "P123" .
+
+gen:2c2c51952d503ad9 a nef:Assertion ;
+    nef:subject wd:Q5113470 ;
+    nef:predicate wdt:P123 ;
+    nef:object gen:a3218647f94cbe33 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1371375477> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q266330 wdt:P25 gen:78cc3ea854564240 .
+gen:78cc3ea854564240 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown mother"@en ;
+    rdfs:label "an unknown mother (of John Newbery)"@en ;
+    nef:anchor wd:Q266330 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:2bd8fbe9d6b2eee0 a nef:Assertion ;
+    nef:subject wd:Q266330 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:78cc3ea854564240 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1378982122> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q2293889 wdt:P26 gen:923339a75b0de7f7 .
+gen:923339a75b0de7f7 a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "an unknown wife"@en ;
+    rdfs:label "an unknown wife (of Tranquillina)"@en ;
+    nef:anchor wd:Q2293889 ;
+    nef:path "P26" ;
+    nef:gender "female" .
+
+gen:4ddd7762f2b79f60 a nef:Assertion ;
+    nef:subject wd:Q2293889 ;
+    nef:predicate wdt:P26 ;
+    nef:object gen:923339a75b0de7f7 ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1360743105> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q531563 wdt:P22 gen:684a6a9f336f778d .
+gen:684a6a9f336f778d a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown parents"@en ;
+    rdfs:label "unknown parents (of Harold Robbins)"@en ;
+    nef:anchor wd:Q531563 ;
+    nef:path "P22/P25" .
+
+gen:184a5e7109de98f8 a nef:Assertion ;
+    nef:subject wd:Q531563 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:684a6a9f336f778d ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1378678780> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q170357 wdt:P22 gen:699ba61f3d5de73d .
+gen:699ba61f3d5de73d a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown parents"@en ;
+    rdfs:label "unknown parents (of Maxime Weygand)"@en ;
+    nef:anchor wd:Q170357 ;
+    nef:path "P22/P25" .
+
+gen:c1dac4dc69fb10e2 a nef:Assertion ;
+    nef:subject wd:Q170357 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:699ba61f3d5de73d ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1385577416> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q4758274 wdt:P22 gen:e0dbcced997c17ed .
+gen:e0dbcced997c17ed a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown father"@en ;
+    rdfs:label "an unknown father (of Andrew Pierce)"@en ;
+    nef:anchor wd:Q4758274 ;
+    nef:path "P22" ;
+    nef:gender "male" .
+
+gen:8c8126930541b7f1 a nef:Assertion ;
+    nef:subject wd:Q4758274 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:e0dbcced997c17ed ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1385524245> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q115312237 wdt:P22 gen:840f4a5d88e28738 .
+gen:840f4a5d88e28738 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown father"@en ;
+    rdfs:label "an unknown father (of Ernie Lazar)"@en ;
+    nef:anchor wd:Q115312237 ;
+    nef:path "P22" ;
+    nef:gender "male" .
+
+gen:191b01371339fc91 a nef:Assertion ;
+    nef:subject wd:Q115312237 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:840f4a5d88e28738 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1377110005> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1541863 wdt:P170 gen:e14befa23621e041 .
+gen:e14befa23621e041 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of Grafton portrait)"@en ;
+    nef:anchor wd:Q1541863 ;
+    nef:path "P170" .
+
+gen:4f177d9ebbcdee8f a nef:Assertion ;
+    nef:subject wd:Q1541863 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:e14befa23621e041 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1374176468> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q16203210 wdt:P50 gen:63d1ee544cd5b789 .
+gen:63d1ee544cd5b789 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown author"@en ;
+    rdfs:label "an unknown author (of Papyrus Oxyrhynchus 250)"@en ;
+    nef:anchor wd:Q16203210 ;
+    nef:path "P50" .
+
+gen:82a5583becdfd907 a nef:Assertion ;
+    nef:subject wd:Q16203210 ;
+    nef:predicate wdt:P50 ;
+    nef:object gen:63d1ee544cd5b789 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1291015122> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q7133481 wdt:P50 gen:95975cb7ce66829c .
+gen:95975cb7ce66829c a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "an unknown author"@en ;
+    rdfs:label "an unknown author (of Papyrus Oxyrhynchus 40)"@en ;
+    nef:anchor wd:Q7133481 ;
+    nef:path "P50" .
+
+gen:0d13a93c635daa36 a nef:Assertion ;
+    nef:subject wd:Q7133481 ;
+    nef:predicate wdt:P50 ;
+    nef:object gen:95975cb7ce66829c ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1319264923> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q7133380 wdt:P50 gen:e948f201d2748ede .
+gen:e948f201d2748ede a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown author"@en ;
+    rdfs:label "an unknown author (of Papyrus Oxyrhynchus 214)"@en ;
+    nef:anchor wd:Q7133380 ;
+    nef:path "P50" .
+
+gen:6248791565a73df2 a nef:Assertion ;
+    nef:subject wd:Q7133380 ;
+    nef:predicate wdt:P50 ;
+    nef:object gen:e948f201d2748ede ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1291013731> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q16203169 wdt:P50 gen:1f7a731cf723c0d6 .
+gen:1f7a731cf723c0d6 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown author"@en ;
+    rdfs:label "an unknown author (of Papyrus Oxyrhynchus 216)"@en ;
+    nef:anchor wd:Q16203169 ;
+    nef:path "P50" .
+
+gen:eedee275d325a0ac a nef:Assertion ;
+    nef:subject wd:Q16203169 ;
+    nef:predicate wdt:P50 ;
+    nef:object gen:1f7a731cf723c0d6 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1163250680> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q2533572 wdt:P50 gen:3669beaa2a287e14 .
+gen:3669beaa2a287e14 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an anonymous author"@en ;
+    rdfs:label "an anonymous author (of Go Ask Alice)"@en ;
+    nef:anchor wd:Q2533572 ;
+    nef:path "P50" ;
+    nef:candidate wd:Q4877197 ;
+    nef:candidate wd:Q133697282 .
+
+gen:8bb248e79a7c20af a nef:Assertion ;
+    nef:subject wd:Q2533572 ;
+    nef:predicate wdt:P50 ;
+    nef:object gen:3669beaa2a287e14 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1384224353> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q7072278 wdt:P50 gen:2038721f27750f8b .
+gen:2038721f27750f8b a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an anonymous author"@en ;
+    rdfs:label "an anonymous author (of O: A Presidential Novel)"@en ;
+    nef:anchor wd:Q7072278 ;
+    nef:path "P50" ;
+    nef:candidate wd:Q10324957 .
+
+gen:3a4d39dcb0f1cada a nef:Assertion ;
+    nef:subject wd:Q7072278 ;
+    nef:predicate wdt:P50 ;
+    nef:object gen:2038721f27750f8b ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1384359989> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q18730084 wdt:P22 gen:ed5a6935f99d7457 .
+gen:ed5a6935f99d7457 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "parents are unknown"@en ;
+    rdfs:label "parents are unknown (of Charles Mottram)"@en ;
+    nef:anchor wd:Q18730084 ;
+    nef:path "P22/P25" .
+
+gen:ef76e949b45edd5c a nef:Assertion ;
+    nef:subject wd:Q18730084 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:ed5a6935f99d7457 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1291754654> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q124061766 wdt:P22 gen:5fb66658882fdb51 .
+gen:5fb66658882fdb51 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "parentage is unknown"@en ;
+    rdfs:label "parentage is unknown (of Sir Robert Davers, 1st Baronet)"@en ;
+    nef:anchor wd:Q124061766 ;
+    nef:path "P22/P25" .
+
+gen:6c6ab7cf6bb4e2e9 a nef:Assertion ;
+    nef:subject wd:Q124061766 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:5fb66658882fdb51 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386567180> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q28062319 wdt:P22 gen:951ccc30ec8c917e .
+gen:951ccc30ec8c917e a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "his parentage is unknown"@en ;
+    rdfs:label "his parentage is unknown (of Peter Walter (politician))"@en ;
+    nef:anchor wd:Q28062319 ;
+    nef:path "P22/P25" .
+
+gen:cbcb93ab94857d4b a nef:Assertion ;
+    nef:subject wd:Q28062319 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:951ccc30ec8c917e ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1381935099> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1393906 wdt:P22 gen:9f8e64e79855e643 .
+gen:9f8e64e79855e643 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "information regarding his parents are also unknown"@en ;
+    rdfs:label "information regarding his parents are also unknown (of Jacob van Maerlant)"@en ;
+    nef:anchor wd:Q1393906 ;
+    nef:path "P22/P25" .
+
+gen:3aa514932dea268c a nef:Assertion ;
+    nef:subject wd:Q1393906 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:9f8e64e79855e643 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1368430373> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1357237 wdt:P22 gen:190ce0fdff25b75d .
+gen:190ce0fdff25b75d a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "His parents are unknown"@en ;
+    rdfs:label "His parents are unknown (of John Capgrave)"@en ;
+    nef:anchor wd:Q1357237 ;
+    nef:path "P22/P25" .
+
+gen:6eed4698509dbf3b a nef:Assertion ;
+    nef:subject wd:Q1357237 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:190ce0fdff25b75d ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1373415399> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q21535612 wdt:P22 gen:a40d8f6868bd9047 .
+gen:a40d8f6868bd9047 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "her parents are unknown"@en ;
+    rdfs:label "her parents are unknown (of Angelina Noble)"@en ;
+    nef:anchor wd:Q21535612 ;
+    nef:path "P22/P25" .
+
+gen:2331faa6b4440efd a nef:Assertion ;
+    nef:subject wd:Q21535612 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:a40d8f6868bd9047 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1347877456> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q7342172 wdt:P22 gen:9ef720d200d08482 .
+gen:9ef720d200d08482 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "His parents are unknown"@en ;
+    rdfs:label "His parents are unknown (of Robert Blincoe)"@en ;
+    nef:anchor wd:Q7342172 ;
+    nef:path "P22/P25" .
+
+gen:5c4b8c3ef8806d60 a nef:Assertion ;
+    nef:subject wd:Q7342172 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:9ef720d200d08482 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1367195535> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1246878 wdt:P22 gen:cc011da8e8064d21 .
+gen:cc011da8e8064d21 a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "His parents are unknown"@en ;
+    rdfs:label "His parents are unknown (of Nicholas Grimald)"@en ;
+    nef:anchor wd:Q1246878 ;
+    nef:path "P22/P25" .
+
+gen:e31e256c0b43a1e0 a nef:Assertion ;
+    nef:subject wd:Q1246878 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:cc011da8e8064d21 ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1370155303> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q6928685 wdt:P50 gen:608e048b1352def8 .
+gen:608e048b1352def8 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown author"@en ;
+    rdfs:label "an unknown author (of Mr. Frank, the Underground Mail-Agent)"@en ;
+    nef:anchor wd:Q6928685 ;
+    nef:path "P50" .
+
+gen:51fd1fe4b2c71437 a nef:Assertion ;
+    nef:subject wd:Q6928685 ;
+    nef:predicate wdt:P50 ;
+    nef:object gen:608e048b1352def8 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1384329856> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q3470456 wdt:P22 gen:5058c810adebebed .
+gen:5058c810adebebed a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "unknown father"@en ;
+    rdfs:label "unknown father (of Sam Cambio)"@en ;
+    nef:anchor wd:Q3470456 ;
+    nef:path "P22" ;
+    nef:gender "male" .
+
+gen:abde199698be3bb9 a nef:Assertion ;
+    nef:subject wd:Q3470456 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:5058c810adebebed ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1374672777> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q16196256 wdt:P22 gen:ff4b0d1fbe14ce4c .
+gen:ff4b0d1fbe14ce4c a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "Her parents are unknown"@en ;
+    rdfs:label "Her parents are unknown (of Shagufta Rafique)"@en ;
+    nef:anchor wd:Q16196256 ;
+    nef:path "P22/P25" .
+
+gen:47aaf11598d70fd5 a nef:Assertion ;
+    nef:subject wd:Q16196256 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:ff4b0d1fbe14ce4c ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1357298798> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q3356986 wdt:P25 gen:8f6fe00cb4bfca3f .
+gen:8f6fe00cb4bfca3f a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "maternal lineage remained officially undetermined"@en ;
+    rdfs:label "maternal lineage remained officially undetermined (of Oscar Grimaldi)"@en ;
+    nef:anchor wd:Q3356986 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:bcf5aa67be693458 a nef:Assertion ;
+    nef:subject wd:Q3356986 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:8f6fe00cb4bfca3f ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386086429> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q43972414 wdt:P170 gen:6761d8546e1e679a .
+gen:6761d8546e1e679a a nef:AnonymousEntity ;
+    nef:status nef:KBUnknownValue ;
+    nef:describedAs "The artist"@en ;
+    rdfs:label "The artist (of Pavilion by the Lake)"@en ;
+    nef:anchor wd:Q43972414 ;
+    nef:path "P170" .
+
+gen:b8d3648d53e1f0c9 a nef:Assertion ;
+    nef:subject wd:Q43972414 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:6761d8546e1e679a ;
+    nef:outcome "UNKNOWN_VALUE" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1377249538> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q6807011 wdt:P170 gen:f1258bb5877c74b6 .
+gen:f1258bb5877c74b6 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of Meditation by the Sea)"@en ;
+    nef:anchor wd:Q6807011 ;
+    nef:path "P170" .
+
+gen:16675d08c561bd82 a nef:Assertion ;
+    nef:subject wd:Q6807011 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:f1258bb5877c74b6 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1373486570> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q104873595 wdt:P170 gen:48a194e3709697d2 .
+gen:48a194e3709697d2 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of The Anguished Man)"@en ;
+    nef:anchor wd:Q104873595 ;
+    nef:path "P170" .
+
+gen:3b67b39bbac112d6 a nef:Assertion ;
+    nef:subject wd:Q104873595 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:48a194e3709697d2 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1366260959> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1286158 wdt:P22 gen:ba8ed1df58987644 .
+gen:ba8ed1df58987644 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "His parentage is unknown"@en ;
+    rdfs:label "His parentage is unknown (of Edmund Montgomery)"@en ;
+    nef:anchor wd:Q1286158 ;
+    nef:path "P22/P25" ;
+    nef:candidate wd:Q5314527 .
+
+gen:1ca67b272d27d35d a nef:Assertion ;
+    nef:subject wd:Q1286158 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:ba8ed1df58987644 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1374284004> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q132531721 wdt:P22 gen:4f8f156b57d8502f .
+gen:4f8f156b57d8502f a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "His parentage is unknown"@en ;
+    rdfs:label "His parentage is unknown (of Hodos Gutkeled)"@en ;
+    nef:anchor wd:Q132531721 ;
+    nef:path "P22/P25" .
+
+gen:8bf05fff24873e3e a nef:Assertion ;
+    nef:subject wd:Q132531721 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:4f8f156b57d8502f ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1358358153> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q5416463 wdt:P22 gen:c5356c834098b121 .
+gen:c5356c834098b121 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown parents"@en ;
+    rdfs:label "unknown parents (of Evelyn Wells)"@en ;
+    nef:anchor wd:Q5416463 ;
+    nef:path "P22/P25" .
+
+gen:edea9b88d189ca03 a nef:Assertion ;
+    nef:subject wd:Q5416463 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:c5356c834098b121 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1340135848> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q6451740 wdt:P22 gen:04ee974bdf5d6ab4 .
+gen:04ee974bdf5d6ab4 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown parents"@en ;
+    rdfs:label "unknown parents (of Kym Purling)"@en ;
+    nef:anchor wd:Q6451740 ;
+    nef:path "P22/P25" .
+
+gen:9c0a5caea6d72f1d a nef:Assertion ;
+    nef:subject wd:Q6451740 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:04ee974bdf5d6ab4 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1378810520> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q3340257 wdt:P22 gen:11b51c9ffa250bdf .
+gen:11b51c9ffa250bdf a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown parents"@en ;
+    rdfs:label "unknown parents (of Nicolas Dezède)"@en ;
+    nef:anchor wd:Q3340257 ;
+    nef:path "P22/P25" .
+
+gen:bbec6e0d45d1a4a3 a nef:Assertion ;
+    nef:subject wd:Q3340257 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:11b51c9ffa250bdf ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1351391293> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q7424224 wdt:P22 gen:f32c36d39bce5f6a .
+gen:f32c36d39bce5f6a a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown parents"@en ;
+    rdfs:label "unknown parents (of Sarkis Ordyan)"@en ;
+    nef:anchor wd:Q7424224 ;
+    nef:path "P22/P25" .
+
+gen:b01807d612f4beb8 a nef:Assertion ;
+    nef:subject wd:Q7424224 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:f32c36d39bce5f6a ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1370765348> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q15487954 wdt:P25 gen:931e352502cef387 .
+gen:931e352502cef387 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown"@en ;
+    rdfs:label "unknown (of William Temple Franklin)"@en ;
+    nef:anchor wd:Q15487954 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:29701d0e7563f64e a nef:Assertion ;
+    nef:subject wd:Q15487954 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:931e352502cef387 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1383712297> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q60632593 wdt:P25 gen:a3ac6301ffe93936 .
+gen:a3ac6301ffe93936 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown"@en ;
+    rdfs:label "unknown (of Zampia Palaiologina)"@en ;
+    nef:anchor wd:Q60632593 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:e5fd8add62f0e3a9 a nef:Assertion ;
+    nef:subject wd:Q60632593 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:a3ac6301ffe93936 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386252364> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q2274833 wdt:P25 gen:8d974a61f4e457d4 .
+gen:8d974a61f4e457d4 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "His mother is unknown"@en ;
+    rdfs:label "His mother is unknown (of Setka (prince))"@en ;
+    nef:anchor wd:Q2274833 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:76ea4c2a815bb6e0 a nef:Assertion ;
+    nef:subject wd:Q2274833 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:8d974a61f4e457d4 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1365242877> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q3378855 wdt:P170 gen:c44db161d964c8f7 .
+gen:c44db161d964c8f7 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown outsider artist"@en ;
+    rdfs:label "an unknown outsider artist (of Philadelphia Wireman)"@en ;
+    nef:anchor wd:Q3378855 ;
+    nef:path "P170" .
+
+gen:8bfa8c1476c1b236 a nef:Assertion ;
+    nef:subject wd:Q3378855 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:c44db161d964c8f7 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1384125725> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1245795 wdt:P25 gen:ee6403343ce4715b .
+gen:ee6403343ce4715b a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "his mother is unknown"@en ;
+    rdfs:label "his mother is unknown (of Ramesses-Meryamun-Nebweben)"@en ;
+    nef:anchor wd:Q1245795 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:7dbc89bdb79b01e6 a nef:Assertion ;
+    nef:subject wd:Q1245795 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:ee6403343ce4715b ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1375256431> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q3909366 wdt:P25 gen:ebb5fd9b0da5e974 .
+gen:ebb5fd9b0da5e974 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown mother"@en ;
+    rdfs:label "an unknown mother (of Porzia de' Medici)"@en ;
+    nef:anchor wd:Q3909366 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:1e6be951c8b9fc17 a nef:Assertion ;
+    nef:subject wd:Q3909366 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:ebb5fd9b0da5e974 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386548906> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q3178566 wdt:P22 gen:8d1b96cf2073f0a8 .
+gen:8d1b96cf2073f0a8 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown to historians"@en ;
+    rdfs:label "unknown to historians (of Roland de Velville)"@en ;
+    nef:anchor wd:Q3178566 ;
+    nef:path "P22" ;
+    nef:gender "male" ;
+    nef:candidate wd:Q675493 .
+
+gen:330cca5999ba5779 a nef:Assertion ;
+    nef:subject wd:Q3178566 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:8d1b96cf2073f0a8 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1358352306> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q2848644 wdt:P25 gen:531a794086a9a864 .
+gen:531a794086a9a864 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown mother"@en ;
+    rdfs:label "an unknown mother (of André Slomszynski)"@en ;
+    nef:anchor wd:Q2848644 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:8b3aed56e1e29e09 a nef:Assertion ;
+    nef:subject wd:Q2848644 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:531a794086a9a864 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1351583573> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q113997294 wdt:P22 gen:c56c12ed68f8cbcb .
+gen:c56c12ed68f8cbcb a nef:AnonymousEntity ;
+    nef:status nef:Missing ;
+    nef:describedAs "an unknown father"@en ;
+    rdfs:label "an unknown father (of Teacho Wiltshire)"@en ;
+    nef:anchor wd:Q113997294 ;
+    nef:path "P22" ;
+    nef:gender "male" .
+
+gen:b494b47f8d4479fb a nef:Assertion ;
+    nef:subject wd:Q113997294 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:c56c12ed68f8cbcb ;
+    nef:outcome "MISSING" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1364088074> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1362115 wdt:P170 gen:2a9797542eb94713 .
+gen:2a9797542eb94713 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an anonymous Norwegian artist"@en ;
+    rdfs:label "an anonymous Norwegian artist (of Pøbel)"@en ;
+    nef:anchor wd:Q1362115 ;
+    nef:path "P170" .
+
+gen:20010fbfef4db5e5 a nef:Assertion ;
+    nef:subject wd:Q1362115 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:2a9797542eb94713 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1366084815> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q18222998 wdt:P170 gen:9ebd61fc03774b26 .
+gen:9ebd61fc03774b26 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an anonymous Gothic painter"@en ;
+    rdfs:label "an anonymous Gothic painter (of Master of the Legend of Saint Bruno)"@en ;
+    nef:anchor wd:Q18222998 ;
+    nef:path "P170" .
+
+gen:ab25f01c74ed91d3 a nef:Assertion ;
+    nef:subject wd:Q18222998 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:9ebd61fc03774b26 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1334617049> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q124250933 wdt:P25 gen:773b42ebd506da2c .
+gen:773b42ebd506da2c a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown mother"@en ;
+    rdfs:label "an unknown mother (of Mademoiselle Petitpas)"@en ;
+    nef:anchor wd:Q124250933 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:51ee4d22281ee7c4 a nef:Assertion ;
+    nef:subject wd:Q124250933 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:773b42ebd506da2c ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1378300758> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1381324 wdt:P22 gen:ea95951d10c1da2c .
+gen:ea95951d10c1da2c a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "unknown parents"@en ;
+    rdfs:label "unknown parents (of Hubert de Burgh, Earl of Kent)"@en ;
+    nef:anchor wd:Q1381324 ;
+    nef:path "P22/P25" ;
+    nef:candidate wd:Q75242516 ;
+    nef:candidate wd:Q75242518 .
+
+gen:2c24ea23aee898af a nef:Assertion ;
+    nef:subject wd:Q1381324 ;
+    nef:predicate wdt:P22 ;
+    nef:object gen:ea95951d10c1da2c ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1382180587> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q39991 wdt:P25 gen:c9d5a746d56f435b .
+gen:c9d5a746d56f435b a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "his mother"@en ;
+    rdfs:label "his mother (of Ptolemy XII Auletes)"@en ;
+    nef:anchor wd:Q39991 ;
+    nef:path "P25" ;
+    nef:gender "female" ;
+    nef:candidate wd:Q40023 .
+
+gen:ffe42866060fea48 a nef:Assertion ;
+    nef:subject wd:Q39991 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:c9d5a746d56f435b ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386576650> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q3837479 wdt:P170 gen:b2c763a87b2c1b1c .
+gen:b2c763a87b2c1b1c a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of Lot and His Daughters (anonymous))"@en ;
+    nef:anchor wd:Q3837479 ;
+    nef:path "P170" .
+
+gen:4385fa78ca62a0f1 a nef:Assertion ;
+    nef:subject wd:Q3837479 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:b2c763a87b2c1b1c ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1352886062> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q26689442 wdt:P170 gen:0b4a6c9a5ddda1fb .
+gen:0b4a6c9a5ddda1fb a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of Portrait of a Woman of the Hofer Family)"@en ;
+    nef:anchor wd:Q26689442 ;
+    nef:path "P170" .
+
+gen:bddcb6b59c784b65 a nef:Assertion ;
+    nef:subject wd:Q26689442 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:0b4a6c9a5ddda1fb ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1377558149> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q18149597 wdt:P170 gen:13319764ada415b7 .
+gen:13319764ada415b7 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of Death of the Virgin (Anonymous))"@en ;
+    nef:anchor wd:Q18149597 ;
+    nef:path "P170" .
+
+gen:b77ed053facb8580 a nef:Assertion ;
+    nef:subject wd:Q18149597 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:13319764ada415b7 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1375399928> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q29017022 wdt:P170 gen:64ea0dc2dbf69f63 .
+gen:64ea0dc2dbf69f63 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an anonymous Neapolitan painter"@en ;
+    rdfs:label "an anonymous Neapolitan painter (of Allegory of Painting (Le Mans))"@en ;
+    nef:anchor wd:Q29017022 ;
+    nef:path "P170" ;
+    nef:candidate wd:Q212657 .
+
+gen:dae615e0a986410e a nef:Assertion ;
+    nef:subject wd:Q29017022 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:64ea0dc2dbf69f63 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1360945073> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q4944750 wdt:P170 gen:98a3aedc2064f901 .
+gen:98a3aedc2064f901 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of Bords de la Seine à Argenteuil)"@en ;
+    nef:anchor wd:Q4944750 ;
+    nef:path "P170" ;
+    nef:candidate wd:Q296 .
+
+gen:da3c34d5bbae1c18 a nef:Assertion ;
+    nef:subject wd:Q4944750 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:98a3aedc2064f901 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1372337976> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q29383798 wdt:P170 gen:d9077ecab6cc1d42 .
+gen:d9077ecab6cc1d42 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "the unknown artist"@en ;
+    rdfs:label "the unknown artist (of Morgan Amber)"@en ;
+    nef:anchor wd:Q29383798 ;
+    nef:path "P170" .
+
+gen:f2592a1f1f18e427 a nef:Assertion ;
+    nef:subject wd:Q29383798 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:d9077ecab6cc1d42 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1333859160> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1347779 wdt:P170 gen:9ae8a9b90e5660f8 .
+gen:9ae8a9b90e5660f8 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "the unknown artist"@en ;
+    rdfs:label "the unknown artist (of Khufu Statuette)"@en ;
+    nef:anchor wd:Q1347779 ;
+    nef:path "P170" .
+
+gen:11e70c5a5197603e a nef:Assertion ;
+    nef:subject wd:Q1347779 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:9ae8a9b90e5660f8 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1378080770> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q2066005 wdt:P170 gen:5cef58f5c2fe5ec8 .
+gen:5cef58f5c2fe5ec8 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "the unknown artist"@en ;
+    rdfs:label "the unknown artist (of Jockey of Artemision)"@en ;
+    nef:anchor wd:Q2066005 ;
+    nef:path "P170" .
+
+gen:4d1d4ef29a68d074 a nef:Assertion ;
+    nef:subject wd:Q2066005 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:5cef58f5c2fe5ec8 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1363428576> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q3842417 wdt:P170 gen:fe721865ce631d81 .
+gen:fe721865ce631d81 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist, possibly Domenico Alfani"@en ;
+    rdfs:label "an unknown artist, possibly Domenico Alfani (of Northbrook Madonna)"@en ;
+    nef:anchor wd:Q3842417 ;
+    nef:path "P170" ;
+    nef:candidate wd:Q1709100 ;
+    nef:candidate wd:Q1237059 ;
+    nef:candidate wd:Q5597 .
+
+gen:4d19adda602474da a nef:Assertion ;
+    nef:subject wd:Q3842417 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:fe721865ce631d81 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1361315419> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q4749745 wdt:P25 gen:3613f792f8ca1139 .
+gen:3613f792f8ca1139 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "the unknown actress playing the mother"@en ;
+    rdfs:label "the unknown actress playing the mother (of An Airman's Letter to His Mother)"@en ;
+    nef:anchor wd:Q4749745 ;
+    nef:path "P25" ;
+    nef:gender "female" .
+
+gen:3245e40822391ee7 a nef:Assertion ;
+    nef:subject wd:Q4749745 ;
+    nef:predicate wdt:P25 ;
+    nef:object gen:3613f792f8ca1139 ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1376886858> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q372628 wdt:P170 gen:8fcee801431fa1ee .
+gen:8fcee801431fa1ee a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of A Prospect of Derby)"@en ;
+    nef:anchor wd:Q372628 ;
+    nef:path "P170" .
+
+gen:facb06ba21521ac1 a nef:Assertion ;
+    nef:subject wd:Q372628 ;
+    nef:predicate wdt:P170 ;
+    nef:object gen:8fcee801431fa1ee ;
+    nef:outcome "TEXT_UNKNOWN" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1361240639> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .

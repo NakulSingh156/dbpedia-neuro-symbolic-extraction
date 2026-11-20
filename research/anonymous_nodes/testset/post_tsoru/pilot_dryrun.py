@@ -16,13 +16,15 @@ from generic.detect import detect, keep, pronoun_anchor_ambiguous, text_says_unk
 from generic.lexicon import expand   # noqa: E402
 from generic.ir import Description                                  # noqa: E402
 
-MODEL = "llama3.1:8b"
+MODEL = next((a for a in sys.argv[1:] if not a.startswith("--")), "llama3.1:8b")
+TAG = MODEL.replace("openrouter:", "").replace("/", "_").replace(":", "_")
+from generic import llm as LLM   # noqa: E402
 tri = {r["item_id"]: r for r in csv.DictReader(open(os.path.join(HERE, "pool_triage_v1_2026-11-19.csv")))}
 pool = {r["item_id"]: r for r in csv.DictReader(open(os.path.join(HERE, "pool_v1_2026-11-19.csv")))}
 ev = json.load(open(os.path.join(HERE, "wikidata_slice_2026-11-19/wikidata_evidence_slice.json")))
 ents, sex = ev["entities"], ev.get("target_sex_P21", {})
 MALE, FEMALE = "Q6581097", "Q6581072"
-CACHE = os.path.join(HERE, "pilot_dryrun_cache.json")
+CACHE = os.path.join(HERE, "pilot_dryrun_cache.json" if MODEL == "llama3.1:8b" else f"pilot_dryrun_cache_{TAG}.json")
 cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
 
 def slice_values(qid, props, gender):
@@ -43,10 +45,8 @@ Use canonical entity names (as Wikipedia article titles) for subjects and object
 Reply as JSON: {{"triples": [["subject", "relation", "object"], ...]}}"""
 
 def b1(sentence, context):
-    r = requests.post("http://localhost:11434/api/generate", timeout=300, json={"model": MODEL, "format": "json", "stream": False,
-                      "options": {"temperature": 0, "num_predict": 600}, "prompt": B1_PROMPT.format(context=context, sentence=sentence)})
-    try: return json.loads(r.json()["response"]).get("triples", [])
-    except Exception: return []
+    j, meta = LLM.llm_json(B1_PROMPT.format(context=context, sentence=sentence), MODEL, max_tokens=600)
+    return (j or {}).get("triples", []) if isinstance(j, dict) else []
 
 def grade_b1(triples, rel_words, anchor):
     hit = [t for t in triples if isinstance(t, list) and len(t) == 3 and any(w in " ".join(map(str, t)).lower() for w in rel_words)]
@@ -64,8 +64,10 @@ for n, iid in enumerate(items, 1):
     t, p = tri[iid], pool[iid]
     ctx = (p.get("context") or "")[:1500]
     if iid not in cache:
+        n0 = len(LLM.CALLS)
         found, err = detect(p["sentence"], p["source_name"], ctx + " " + p["sentence"], model=MODEL)
-        cache[iid] = {"found": [json.loads(d.to_json()) for d in found], "err": err, "b1": b1(p["sentence"], ctx)}
+        b1_out = b1(p["sentence"], ctx)
+        cache[iid] = {"found": [json.loads(d.to_json()) for d in found], "err": err, "b1": b1_out, "calls": LLM.CALLS[n0:]}
         json.dump(cache, open(CACHE, "w"), ensure_ascii=False)
         if n % 10 == 0: print(f"  {n}/{len(items)}", flush=True)
     rel_words = [w for w in re.findall(r"[a-z\-]+", (t["target_span"] + " " + p["relation_or_path"]).lower())
@@ -99,7 +101,7 @@ for n, iid in enumerate(items, 1):
                  "N_answers": " ".join(ans), "N_fact_kept": kept, "N_agrees_with_proposal": agree, "N_grounded_when_reference_says_no_identity": wrong_identity,
                  "B1_grade": grade_b1(cache[iid]["b1"], rel_words, p["source_name"]), "sentence": p["sentence"][:200]})
 json.dump(cache, open(CACHE, "w"), ensure_ascii=False)
-w = csv.DictWriter(open(os.path.join(HERE, "pilot_dryrun_2026-11-19.csv"), "w", newline=""), fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
+w = csv.DictWriter(open(os.path.join(HERE, "pilot_dryrun_2026-11-19.csv" if MODEL == "llama3.1:8b" else f"pilot_dryrun_{TAG}.csv"), "w", newline=""), fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(rows)
 
 def summ(sel):
     s = [r for r in rows if sel(r)]
@@ -112,5 +114,9 @@ def summ(sel):
 out = {"all": summ(lambda r: True), "R_nonstress": summ(lambda r: r["phenomenon"] == "R" and "stress" not in r["flags"]),
        "U": summ(lambda r: r["phenomenon"] == "U"), "stress": summ(lambda r: "stress" in r["flags"]),
        "by_proposed_outcome": {k: summ(lambda r, k=k: r["proposed_outcome"] == k) for k in sorted({r["proposed_outcome"] for r in rows})}}
-json.dump(out, open(os.path.join(HERE, "pilot_dryrun_summary.json"), "w"), indent=1)
+calls = [c for v in cache.values() for c in v.get("calls", [])]
+out["cost"] = {"model": MODEL, "calls": len(calls), "errors": sum(1 for c in calls if c.get("error")),
+               "prompt_tokens": sum(c.get("prompt_tokens") or 0 for c in calls), "completion_tokens": sum(c.get("completion_tokens") or 0 for c in calls),
+               "usd": round(sum(c.get("cost_usd") or 0 for c in calls), 4), "mean_latency_s": round(sum(c["latency_s"] for c in calls) / len(calls), 2) if calls else None}
+json.dump(out, open(os.path.join(HERE, "pilot_dryrun_summary.json" if MODEL == "llama3.1:8b" else f"pilot_dryrun_summary_{TAG}.json"), "w"), indent=1)
 print(json.dumps(out, indent=1))

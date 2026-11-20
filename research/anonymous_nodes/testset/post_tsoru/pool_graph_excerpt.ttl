@@ -1,0 +1,25 @@
+wd:Q1149 wdt:P3373 gen:9a321306ead5126b .
+gen:9a321306ead5126b a nef:AnonymousEntity ;
+    nef:status nef:Unresolved ;
+    nef:describedAs "a younger brother"@en ;
+    rdfs:label "a younger brother (of Indira Gandhi)"@en ;
+    nef:anchor wd:Q1149 ;
+    nef:path "P3373" ;
+    nef:gender "male" .
+
+gen:cd30db73d2b4b273 a nef:Assertion ;
+    nef:subject wd:Q1149 ;
+    nef:predicate wdt:P3373 ;
+    nef:object gen:9a321306ead5126b ;
+    nef:outcome "UNRESOLVED" ;
+    prov:wasDerivedFrom <https://en.wikipedia.org/w/index.php?oldid=1386554530> ;
+    nef:kbEvidenceSlice "f853cef898792450" ;
+    nef:method "N (M1 detector + frozen-slice KB + decision rules)" .
+
+wd:Q1541863 wdt:P170 gen:e14befa23621e041 .
+gen:e14befa23621e041 a nef:AnonymousEntity ;
+    nef:status nef:TextUnknown ;
+    nef:describedAs "an unknown artist"@en ;
+    rdfs:label "an unknown artist (of Grafton portrait)"@en ;
+    nef:anchor wd:Q1541863 ;
+    nef:path "P170" .

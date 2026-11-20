@@ -1,0 +1,198 @@
+{
+ "named_elsewhere_items": 21,
+ "paragraph_setting": {
+  "NAMED_IN_CONTEXT": 16,
+  "KB_UNIQUE": 5
+ },
+ "rows": [
+  {
+   "item_id": "RB-016",
+   "anchor": "Gudrun Løchen Drewsen",
+   "target": "her father",
+   "kb_answers": "Herman Løchen [Q5969335]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-018",
+   "anchor": "Gudrun Løchen Drewsen",
+   "target": "her husband",
+   "kb_answers": "Viggo Beutner Drewsen [Q22304860]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": false,
+   "paragraph_setting_outcome": "KB_UNIQUE"
+  },
+  {
+   "item_id": "RB-024",
+   "anchor": "Prakash Amte",
+   "target": "her father",
+   "kb_answers": "Baba Amte [Q470135]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-028",
+   "anchor": "Blanche of Anjou",
+   "target": "her husband",
+   "kb_answers": "James II of Aragon [Q312735]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-029",
+   "anchor": "Blanche of Anjou",
+   "target": "Her father",
+   "kb_answers": "Charles II of Naples [Q314331]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-036",
+   "anchor": "Aya Ueto",
+   "target": "her husband",
+   "kb_answers": "Hiroyuki Igarashi [Q2946206]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-037",
+   "anchor": "Princess Wilhelmine Ernestine of Denmark",
+   "target": "her father",
+   "kb_answers": "Frederick III of Denmark [Q157812]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": false,
+   "paragraph_setting_outcome": "KB_UNIQUE"
+  },
+  {
+   "item_id": "RB-044",
+   "anchor": "Qiao Shi",
+   "target": "his wife",
+   "kb_answers": "Yu Wen [Q10556722]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-045",
+   "anchor": "Emily Mortimer",
+   "target": "her father",
+   "kb_answers": "John Mortimer [Q973713]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-046",
+   "anchor": "Emily Mortimer",
+   "target": "her son",
+   "kb_answers": "Sam Nivola [Q113469519]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": false,
+   "paragraph_setting_outcome": "KB_UNIQUE"
+  },
+  {
+   "item_id": "RB-052",
+   "anchor": "Lorenzo Tiepolo",
+   "target": "his father",
+   "kb_answers": "Jacopo Tiepolo [Q558090]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-053",
+   "anchor": "Lorenzo Tiepolo",
+   "target": "His first wife",
+   "kb_answers": "Agnese Ghisi [Q106936825] | Agnese Ghisi [Q16594900] | Marchesina Ghisi [Q54881051]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-056",
+   "anchor": "Ismail II",
+   "target": "his father",
+   "kb_answers": "Tahmasp I [Q298410]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-057",
+   "anchor": "Ismail II",
+   "target": "his older brother",
+   "kb_answers": "Haydar Mirza Safavi [Q12840295] | Suleiman Mirza [Q26925265] | Mohammad Khodabanda [Q353091]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-058",
+   "anchor": "Ismail II",
+   "target": "his cousin",
+   "kb_answers": "Soltan Hosayn Mirza Safavi [Q20563534] | Badi-al Zaman Mirza Safavi [Q20810824] | Ibrahim Mirza [Q5956963]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-059",
+   "anchor": "Ismail II",
+   "target": "his sister",
+   "kb_answers": "Maryam Begum [Q23043465] | Zeynab Begum [Q28713745] | Pari Khan Khanum [Q6394945]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-064",
+   "anchor": "Nancy Spungen",
+   "target": "her mother",
+   "kb_answers": "Deborah Spungen [Q4356080]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-067",
+   "anchor": "J. Jayalalithaa",
+   "target": "Her mother",
+   "kb_answers": "Veda Jayaram [Q107159255]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": false,
+   "paragraph_setting_outcome": "KB_UNIQUE"
+  },
+  {
+   "item_id": "RB-074",
+   "anchor": "Şefiqa Gaspıralı",
+   "target": "her father",
+   "kb_answers": "Ismail Gaspıralı [Q335495]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": false,
+   "paragraph_setting_outcome": "KB_UNIQUE"
+  },
+  {
+   "item_id": "RB-078",
+   "anchor": "Jack Black",
+   "target": "His mother",
+   "kb_answers": "Judith Love Cohen [Q37888317]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  },
+  {
+   "item_id": "RB-082",
+   "anchor": "Thomas Remengesau Sr.",
+   "target": "his son",
+   "kb_answers": "Thomas Remengesau Jr. [Q336285]",
+   "paragraph_found": true,
+   "name_in_same_paragraph": true,
+   "paragraph_setting_outcome": "NAMED_IN_CONTEXT"
+  }
+ ]
+}

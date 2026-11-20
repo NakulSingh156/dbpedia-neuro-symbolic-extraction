@@ -128,17 +128,13 @@ def pronoun_anchor_ambiguous(d, sentence):
     return False
 
 
-def detect(sentence, topic, context, model="qwen2.5:7b", url="http://localhost:11434/api/generate"):
-    try:   # num_predict caps runaway JSON (llama3.1 can emit whitespace forever in JSON mode)
-        r = requests.post(url, timeout=300, json={"model": model, "format": "json", "stream": False,
-                                                  "options": {"temperature": 0, "num_predict": 800},
-                                                  "prompt": PROMPT.format(topic=topic, context=context, sentence=sentence)})
-    except requests.RequestException as e:
-        return [], f"llm-error: {type(e).__name__}"
-    try:
-        items = json.loads(r.json()["response"]).get("items", [])
-    except Exception:
-        return [], r.json().get("response", "")[:300]
+def detect(sentence, topic, context, model="qwen2.5:7b", url=None):
+    """M1 call. `model` may be an Ollama model or "openrouter:<id>" (see llm.py; tokens/cost logged in llm.CALLS)."""
+    from .llm import llm_json
+    j, meta = llm_json(PROMPT.format(topic=topic, context=context, sentence=sentence), model)
+    if j is None:
+        return [], f"llm-error: {meta.get('error') or 'unparseable output'}"
+    items = j.get("items", []) if isinstance(j, dict) else []
     out = []
     for it in items if isinstance(items, list) else []:
         try:

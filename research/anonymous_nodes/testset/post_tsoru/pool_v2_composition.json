@@ -1,0 +1,52 @@
+{
+ "rows": 157,
+ "stress_excluded": 16,
+ "by_phenomenon": {
+  "R": 86,
+  "U": 71
+ },
+ "article_setting": {
+  "NAMED_IN_CONTEXT": {
+   "available": 32,
+   "quota": 20
+  },
+  "KB_UNIQUE": {
+   "available": 3,
+   "quota": 20
+  },
+  "KB_AMBIGUOUS": {
+   "available": 4,
+   "quota": 15
+  },
+  "KB_MISSING": {
+   "available": 43,
+   "quota": 20
+  },
+  "TEXT_UNKNOWN": {
+   "available": 58,
+   "quota": 20
+  }
+ },
+ "paragraph_setting": {
+  "NAMED_IN_CONTEXT": {
+   "available": 27,
+   "quota": 20
+  },
+  "KB_UNIQUE": {
+   "available": 8,
+   "quota": 20
+  },
+  "KB_AMBIGUOUS": {
+   "available": 4,
+   "quota": 15
+  },
+  "KB_MISSING": {
+   "available": 43,
+   "quota": 20
+  },
+  "TEXT_UNKNOWN": {
+   "available": 58,
+   "quota": 20
+  }
+ }
+}

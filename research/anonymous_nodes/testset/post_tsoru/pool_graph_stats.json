@@ -1,0 +1,13 @@
+{
+ "facts_written": 83,
+ "triples": 1251,
+ "anonymous_nodes": 73,
+ "anonymous_by_status": {
+  "TextUnknown": 56,
+  "Ambiguous": 1,
+  "Missing": 14,
+  "Unresolved": 1,
+  "KBUnknownValue": 1
+ },
+ "grounded_edges": 10
+}
